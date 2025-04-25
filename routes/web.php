@@ -11,3 +11,6 @@ Route::get('/tentang', function () {
 Route::get('/blog', function () {
     return view('blog');
 });
+Route::get('/faq', function () {
+    return view('faq');
+});

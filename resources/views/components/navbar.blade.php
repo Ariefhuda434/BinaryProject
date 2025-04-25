@@ -19,7 +19,7 @@
         <li class=" text-white hover:text-green-700 transition duration-700 ease-in-out"><a href="/tentang">Tentang</a></li>
         <li class=" text-white hover:text-green-700 transition duration-700 ease-in-out"><a href="/blog">Blog & Media</a></li>
         <li class=" text-white hover:text-green-700 transition duration-700 ease-in-out"><a href="">Event</a></li>
-        <li class=" text-white hover:text-green-700 transition duration-700 ease-in-out"><a href="">FAQ</a></li>
+        <li class=" text-white hover:text-green-700 transition duration-700 ease-in-out"><a href="/faq">FAQ</a></li>
     </ul>
     <div class="w-24 font-bold text-xl">Masyuk</div>
 </nav>
