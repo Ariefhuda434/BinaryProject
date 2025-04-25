@@ -17,7 +17,7 @@
     <ul class="flex space-x-6 justift-center items-center flex 1 font-roboto text-xl">
         <li class=" text-white hover:text-olivedarker-700 transition duration-700 ease-in-out"><a href="/">Beranda</a></li>
         <li class=" text-white hover:text-green-700 transition duration-700 ease-in-out"><a href="/tentang">Tentang</a></li>
-        <li class=" text-white hover:text-green-700 transition duration-700 ease-in-out"><a href="">Blog & Media</a></li>
+        <li class=" text-white hover:text-green-700 transition duration-700 ease-in-out"><a href="/blog">Blog & Media</a></li>
         <li class=" text-white hover:text-green-700 transition duration-700 ease-in-out"><a href="">Event</a></li>
         <li class=" text-white hover:text-green-700 transition duration-700 ease-in-out"><a href="">FAQ</a></li>
     </ul>
