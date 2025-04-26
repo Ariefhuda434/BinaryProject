@@ -5,7 +5,7 @@
     </div>
 
    
-    <div class="flex items-center space-x-10 text-2xl font-roboto">
+    <div class="flex items-center space-x-10 text-2xl font-sans">
         <ul class="flex space-x-10">
             <li>
                 <a href="/" 

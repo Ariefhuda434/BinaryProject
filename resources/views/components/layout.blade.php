@@ -15,8 +15,8 @@
 
     <x-navbar></x-navbar>
 
-    {{-- Konten halaman --}}
     <main>
+        @yield('content') 
     </main>
 
 </body>
