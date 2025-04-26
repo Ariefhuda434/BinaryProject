@@ -27,4 +27,10 @@
       <p class="font-bold text-xl">Mari bergabung dan jadi pahlawan #HijauinBumi <button class="bg-[#5e6f52] rounded-full m-2 px-5 py-2 text-white">Daftar sekarang</button></p>
    </div>
 </div>
+<div
+class="h-screen">
+</div>
+<footer class="h-100 bg-[#5e6f52] flex items-center justify-center pt-50" >
+   <p class="border-t-1 pt-5 px-100 border-white text-white">© 2025 BinaryWaste. All rights reserved.</p>
+</footer>
 @endsection

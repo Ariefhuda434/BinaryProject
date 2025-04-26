@@ -1,3 +1,3 @@
 <header>
-    <h1>ini halaman {{ $slot }}</h1>
+    <h1>{{ $slot }}</h1>
 </header>
