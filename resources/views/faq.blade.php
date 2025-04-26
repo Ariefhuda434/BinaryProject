@@ -1,7 +1,7 @@
-<body>
-    <x-navbar></x-navbar>
-    
-    <x-header>faq<x-header>
- 
- </body>
- 
+@extends('components.layout')
+
+@section('title', 'faq')
+
+@section('content')
+    <x-header>faq</x-header>
+@endsection

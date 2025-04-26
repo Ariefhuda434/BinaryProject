@@ -1,7 +1,7 @@
-<body>
-    <x-navbar></x-navbar>
-    
-    <x-header>Tentang</x-header>
- 
- </body>
- 
+@extends('components.layout')
+
+@section('title', 'tentang')
+
+@section('content')
+    <x-header>tentang</x-header>
+@endsection

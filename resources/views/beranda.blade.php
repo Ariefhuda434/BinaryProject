@@ -1,6 +1,7 @@
-<body>
-   <x-navbar></x-navbar>
-   
-   <x-header>beranda</x-header>
+@extends('components.layout')
 
-</body>
+@section('title', 'beranda')
+
+@section('content')
+    <x-header>beranda</x-header>
+@endsection

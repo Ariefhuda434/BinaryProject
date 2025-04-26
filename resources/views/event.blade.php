@@ -1,7 +1,7 @@
-<body>
-    <x-navbar></x-navbar>
-    
-    <x-header>event ku kesehatan</x-header>
- 
- </body>
- 
+@extends('components.layout')
+
+@section('title', 'event')
+
+@section('content')
+    <x-header>event</x-header>
+@endsection

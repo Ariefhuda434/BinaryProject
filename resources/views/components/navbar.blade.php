@@ -1,26 +1,46 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initPial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="/src/styles.css" rel="stylesheet">                
-    @vite('resources/css/app.css')
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<nav class="bg-[#a8b387] p-4 flex items-center justify-between">
 
-    <title>Beranda</title>
-</head>
-<nav class="bg-olive p-5 flex justify-between items-center" >
-    <div class="font-bold text-xl">Logo</div>
-    <ul class="flex space-x-6 justift-center items-center flex 1 font-roboto text-xl">
-        <li class=" text-white hover:text-olivedarker-700 transition duration-700 ease-in-out"><a href="/">Beranda</a></li>
-        <li class=" text-white hover:text-green-700 transition duration-700 ease-in-out"><a href="/tentang">Tentang</a></li>
-        <li class=" text-white hover:text-green-700 transition duration-700 ease-in-out"><a href="/blog">Blog & Media</a></li>
-        <li class=" text-white hover:text-green-700 transition duration-700 ease-in-out"><a href="/event">Event</a></li>
-        <li class=" text-white hover:text-green-700 transition duration-700 ease-in-out"><a href="/faq">FAQ</a></li>
-    </ul>
-    <div class="w-24 font-bold text-xl">Masyuk</div>
+    <div class="w-32">
+        <img src="{{ asset('build/images/logo.png') }}" alt="Logo" class="h-10 object-contain">
+    </div>
+
+   
+    <div class="flex items-center space-x-10 text-2xl font-roboto">
+        <ul class="flex space-x-10">
+            <li>
+                <a href="/" 
+                   class="{{ Request::is('/') ? 'text-[#5e6f52] font-black' : 'text-white font-normal hover:text-[#5e6f52]' }} transition duration-300">
+                    Beranda
+                </a>
+            </li>
+            <li>
+                <a href="/tentang" 
+                   class="{{ Request::is('tentang') ? 'text-[#5e6f52] font-black' : 'text-white font-normal hover:text-[#5e6f52]' }} transition duration-300">
+                    Tentang
+                </a>
+            </li>
+            <li>
+                <a href="/blog" 
+                   class="{{ Request::is('blog') ? 'text-[#5e6f52] font-black' : 'text-white font-normal hover:text-[#5e6f52]' }} transition duration-300">
+                    Blog & Media
+                </a>
+            </li>
+            <li>
+                <a href="/event" 
+                   class="{{ Request::is('event') ? 'text-[#5e6f52] font-black' : 'text-white font-normal hover:text-[#5e6f52]' }} transition duration-300">
+                    Event
+                </a>
+            </li>
+            <li>
+                <a href="/faq" 
+                   class="{{ Request::is('faq') ? 'text-[#5e6f52] font-black' : 'text-white font-normal hover:text-[#5e6f52]' }} transition duration-300">
+                    FAQ
+                </a>
+            </li>
+        </ul>
+
+        <button class="inline-flex items-center font-black text-[#5e6f52]">
+            Masuk <span class="ml-2 transform rotate-90 text-xl">&raquo;</span>
+        </button>
+    </div>
 </nav>
-</html>

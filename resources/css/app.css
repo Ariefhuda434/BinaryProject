@@ -10,9 +10,6 @@
     --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
         'Segoe UI Symbol', 'Noto Color Emoji';
         --font-roboto: 'Roboto', sans-serif; 
-
-        --olive: #a4bf72;
-        --olivedarker: #5e6f52;
 }
 
 .bg-olive {

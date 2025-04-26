@@ -1,7 +1,7 @@
-<body>
-    <x-navbar></x-navbar>
-    
-    <x-header>blog & media ni bos</x-header>
- 
- </body>
- 
+@extends('components.layout')
+
+@section('title', 'blog')
+
+@section('content')
+    <x-header>blog</x-header>
+@endsection
