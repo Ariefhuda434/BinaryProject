@@ -6,9 +6,7 @@
    <div class="-ml-5">
        <div class="text-6xl font-black mt-5">
            BINARY WASTE
-       </div>
-       <div class="text-2xl -mt-1 font-bold">
-           Digital Solution for a Zero-Waste World!
+           <p class="text-[24.3px] ml-0.5 -mt-1 font-bold">Digital Solution for a Zero-Waste World!</p>
        </div>
    </div>
 </div>

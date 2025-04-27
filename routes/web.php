@@ -17,3 +17,6 @@ Route::get('/event', function () {
 Route::get('/faq', function () {
     return view('faq');
 });
+Route::get('/login', function () {
+    return view('login');
+});
