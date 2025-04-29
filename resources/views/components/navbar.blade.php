@@ -33,19 +33,29 @@
             </li>
         </ul>
 
-     
+        @auth
+            
         <button 
          @mouseover="isOpen = true"
          @mouseleave="isOpen = false"
          @click="isOpen = !isOpen" 
          class="inline-flex items-center font-black text-[#5e6f52]">
-            Masuk
+         {{ Auth::user()->name}}
         </button>
-
-        <img
+        @else
+        
+        <button 
         @mouseover="isOpen = true"
-        @mouseleave="isOpen = false" 
-        @click="isOpen = !isOpen" src="{{ asset('build/images/iconexpands.png') }}" class="h-7 mt-1 -ml-7 cursor-pointer transition ease-in-out duration-500"
+        @mouseleave="isOpen = false"
+        @click="isOpen = !isOpen" 
+        class="inline-flex items-center font-black text-[#5e6f52]">
+        Masuk
+    </button>
+    @endauth
+    <img
+    @mouseover="isOpen = true"
+    @mouseleave="isOpen = false" 
+    @click="isOpen = !isOpen" src="{{ asset('build/images/iconexpands.png') }}" class="h-7 mt-1 -ml-7 cursor-pointer transition ease-in-out duration-500"
         :class="{'rotate-180': isOpen}"  
         alt="expand icon">
 
@@ -62,8 +72,17 @@
             x-transition:leave-start="opacity-100 scale-100"
             x-transition:leave-end="opacity-0 scale-95"
             class="absolute text-center right-14 mt-30 w-30 origin-top-right rounded-md bg-white py-1 ring-1 shadow-lg ring-black/5">
-            <a href="/login" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-200">Login</a>
-            <a href="/login" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-200">Register</a>
+            @auth
+                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-200">Profile</a>
+                <form action="{{ route('logout') }}" method="post" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-200">
+                    @csrf
+                    <button type="submit">Logout</button>
+                </form>
+            @else
+                <a href="auth/login" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-200">Login</a>
+                <a href="auth/register" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-200">Register</a>
+            @endauth
+            
         </div>
     </div>
 </nav>
