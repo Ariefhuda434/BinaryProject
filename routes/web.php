@@ -18,6 +18,9 @@ Route::get('/blog', function () {
 // Route::get('/event', function () {
 //     return view('event');
 // });
+Route::get('anu', function () {
+    return view('anu');
+});
 Route::get('/faq', function () {
     return view('faq');
 });
