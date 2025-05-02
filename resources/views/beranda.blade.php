@@ -1,34 +1,49 @@
 @extends('components.layout')  
 @section('title', 'Beranda')  
 @section('content')
-<div class="h-30 ml-11 mt-8 w-150 flex font-sans ">
-   <img class="h-30 mr-6" src="{{ asset('build/images/logo.png') }}" alt="Logo">
-   <div class="-ml-5">
-       <div class="text-6xl font-black mt-5">
-           BINARY WASTE
-           <p class="text-[24.3px] ml-0.5 -mt-1 font-bold">Digital Solution for a Zero-Waste World!</p>
-       </div>
+
+{{-- Tambahkan padding-top untuk menghindari navbar fixed --}}
+<div class="pt-24 px-14 font-sans"> 
+
+   {{-- Header section --}}
+   <div class="flex items-start">
+      {{-- Kiri: Logo dan Judul --}}
+      <div class="w-1/2">
+         <div class="flex items-center mb-4">
+            <img class="h-24 mr-4" src="{{ asset('build/images/logo.png') }}" alt="Logo">
+            <div>
+               <h1 class="text-6xl font-black">BINARY WASTE</h1>
+               <p class="text-2xl font-bold mt-1">Digital Solution for a Zero-Waste World!</p>
+            </div>
+         </div>
+         <h2 class="font-bold text-2xl mb-4">Hai, Binarians!</h2>
+         <p class="text-xl tracking-wide mb-6">
+            Saatnya kelola sampah dengan cara yang lebih cerdas dan berdampak.<br>
+            Setor sampah, kumpulkan poin, dan bantu selamatkan bumi bareng kita di Binary Waste!
+         </p>
+         <div class="flex space-x-4">
+            <button class="bg-[#5e6f52] rounded-full px-6 py-2 text-white">Selengkapnya</button>
+            <a href="{{ route('register') }}"
+               class="bg-[#5e6f52] rounded-full px-6 py-2 text-white transition-all duration-300 ease-in-out 
+               hover:scale-105 hover:bg-[#4a5a40] active:scale-95 
+               focus:ring-2 focus:ring-[#5e6f52] focus:ring-opacity-50">
+               Daftar Sekarang
+            </a>
+         </div>
+      </div>
+
+      {{-- Kanan: Gambar --}}
+      <div class="w-1/2 flex justify-end">
+         <img src="{{ asset('build/images/contentberanda.png') }}" alt="Foto Beranda" class="h-[28rem] object-contain">
+      </div>
    </div>
 </div>
-<div class="w-200 ml-14 mt-4">
-   <h2 class="font-bold text-2xl mb-4">Hai, Binarians!</h2>
-   <div class="font-sans text-xl tracking-wide">
-      <p>Saatnya kelola sampah dengan cara yang lebih cerdas
-         dan <br>berdampak.Setor sampah,kumpulkan poin dan bantu <br>
-         selamatkan bumi bareng kita di binary waste!
-      </p>
-      <button class="bg-[#5e6f52] rounded-full m-2 mt-4 px-5 py-2 text-white">
-         Selengkapnya
-      </button>
-   </div>
-   <div class="tracking-wide mt-8">
-      <p class="font-bold text-xl">Mari bergabung dan jadi pahlawan #HijauinBumi <button class="bg-[#5e6f52] rounded-full m-2 px-5 py-2 text-white">Daftar sekarang</button></p>
-   </div>
+<div class="">
+
 </div>
-<div
-class="h-screen">
-</div>
-<footer class="h-100 bg-[#5e6f52] flex items-center justify-center pt-50" >
-   <p class="border-t-1 pt-5 px-100 border-white text-white">© 2025 BinaryWaste. All rights reserved.</p>
+
+<footer class="mt-40 p-20 bg-[#5e6f52] flex items-center justify-center py-12">
+   <p class="text-white border-t border-white pt-4 px-6">© 2025 BinaryWaste. All rights reserved.</p>
 </footer>
+
 @endsection

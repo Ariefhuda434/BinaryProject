@@ -24,7 +24,8 @@ class AuthController extends Controller
         ]);
     
         if (Auth::attempt($request->only('email', 'password'))) {
-            return redirect()->route('event');
+            $request->session()->regenerate();
+            return redirect()->route('report.create');
         }
     
         return back()->with('error', 'Email atau password salah');
@@ -40,10 +41,10 @@ class AuthController extends Controller
     public function register(Request $request)
     {
         $request->validate([
-            'name' => 'required|max:8',
+            'name' => 'required|max:30',
             'username' => 'required|unique:users',
             'email' => 'required|email|unique:users',
-            'password' => 'required|min:6',
+            'password' => 'required|min:6|confirmed',
         ]);
 
         User::create([
@@ -57,9 +58,12 @@ class AuthController extends Controller
     }
 
     // Proses logout
-    public function logout()
+    public function logout(Request $request)
     {
         Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+        
         return redirect()->route('login');
     }
 }

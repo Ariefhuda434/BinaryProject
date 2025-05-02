@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\EventController;
+use App\Http\Controllers\ReportController;
 use Illuminate\Support\Facades\Route;
 
 // Halaman yang bisa diakses tanpa login
@@ -32,6 +34,9 @@ Route::post('auth/register', [AuthController::class, 'register'])->name('registe
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 // Halaman beranda hanya untuk yang sudah login
-Route::middleware('auth')->get('/event', function () {
-    return view('event');
-})->name('event');
+Route::get('/report', [ReportController::class, 'create'])->name('report.create');
+
+Route::middleware('auth')->group(function() {
+    
+    Route::post('/report', [ReportController::class, 'passingData'])->name('report.passing');
+});

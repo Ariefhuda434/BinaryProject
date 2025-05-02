@@ -7,7 +7,10 @@
     @vite('resources/css/app.css')
 </head>
 <body class="h-screen bg-white font-sans">
-    <div class="flex justify-center items-center h-full">
+    <a href="/">
+        <img src="{{ asset('build/images/iconsbackto.png') }}" class="h-10 m-5" alt="back">
+      </a>
+    <div class="flex justify-center  -mt-20  items-center h-full">
         <div class="w-[400px] p-8 rounded-lg shadow-md bg-[#a8b387]">
             @if(session('success'))
                 <div class="bg-green-100 text-green-700 p-2 rounded mb-3">
