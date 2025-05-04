@@ -26,11 +26,20 @@
         
         <div>
             <label for="description" class="block mb-1">Description</label>
-            <input type="text" name="description" id="description" placeholder="Description" class="w-full border rounded p-2">
+            <input type="text" name="description" id="description" placeholder="Description" class="w-full border rounded p-2">//or gunakan text  area rif yang bisa ditarik? tapi desc
         </div>
         
         <div>
             <label for="location" class="block mb-1">Location</label>
+          <select name="" class="w-full border rounded p-2" id="">
+            <option value="">sampah</option>
+            <option value="">pupuk</option>
+            <option value="">anu</option>
+            <option value="">itu</option>
+          </select>
+        </div>
+        <div>
+            <label for="location" class="block mb-1">Type</label>
             <input type="text" name="location" id="location" placeholder="Location" class="w-full border rounded p-2">
         </div>
         

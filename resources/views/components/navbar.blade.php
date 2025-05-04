@@ -1,6 +1,6 @@
 <nav x-data="{ isOpen: false, isBuka: false }" class="relative">
     <!-- Background blur -->
-    <div class="absolute inset-0 bg-gradient-to-r from-white via-[#284e3f] to-[#284e3f] shadow-lg"></div>
+    <div class="absolute inset-0 bg-gradient-to-r from-white via-[#5e6f52] to-[#5e6f52] shadow-lg"></div>
     
     <!-- Konten navbar -->
     <div class="relative p-4 flex items-center justify-between">
@@ -11,7 +11,7 @@
         <div class="flex items-center space-x-10 text-2xl font-sans">
             <ul class="flex space-x-10">
                 <li>
-                    <a href="/" class="{{ Request::is('/') ? 'text-[#ccc14e] font-black border-b-2 border-gray-300 ' : 'text-white font-normal hover:text-[#ccc14e]' }} transition duration-300">
+                    <a href="/" class="{{ Request::is('/') ? 'text-[#ccc14e] font-black border relative' : 'text-white font-normal hover:text-[#ccc14e]' }} transition duration-300">
                         Beranda
                     </a>
                 </li>
@@ -21,8 +21,8 @@
                     </a>
                 </li>
                 <li>
-                    <a href="/blog" class="{{ Request::is('blog') ? 'text-[#ccc14e] font-black' : 'text-white font-normal hover:text-[#ccc14e]' }} transition duration-300">
-                        Blog & Media
+                    <a href="/blog" class="{{ Request::is('blog') ? 'text-[#ccc14e] font-black max-w-100%' : 'text-white max-w-100% font-normal hover:text-[#ccc14e]' }} transition duration-300">
+                        Blog
                     </a>
                 </li>
                 <li>

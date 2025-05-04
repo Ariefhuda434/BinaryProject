@@ -1,4 +1,4 @@
-<!DOCTYP class="h-screen bg-gradient-to-r from-[]"E html>
+<!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
@@ -28,10 +28,13 @@
                 
                 <form method="POST" action="{{ route('login') }}">
                     @csrf
+                    <legend>Login</legend>
                     <h2 class="text-2xl font-semibold mb-4">Login</h2>
                     <input type="email" name="email" placeholder="Email" required class="w-full p-3 mb-4 border rounded text-sm bg-gray-100">
                     <input type="password" name="password" placeholder="Password" required class="w-full p-3 mb-4 border rounded text-sm bg-gray-100">
+                    <label for=""><input type="checkbox" value="remember"> remember me?</label>
                     <button type="submit" class="w-full p-3 bg-[#5e6f52] text-white rounded">Login</button>
+
                     <p class="mt-4 text-sm">Belum punya akun? <a href="{{ route('register') }}" class="text-[#234666]">Daftar</a></p>
                 </form>
             </div>
