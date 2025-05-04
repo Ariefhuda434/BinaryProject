@@ -45,10 +45,10 @@
       </div>
    </div>
 </div>
+<footer class="mt-70 p-30 bg-[#5e6f52] w-screen flex items-center justify-center py-20">
+    <p class="text-white border-t border-white pt-4 px-6">© 2025 BinaryWaste. All rights reserved.</p>
+ </footer>
 
-<footer class="mt-70 p-30 bg-[#5e6f52] flex items-center justify-center py-20">
-   <p class="text-white border-t border-white pt-4 px-6">© 2025 BinaryWaste. All rights reserved.</p>
-</footer>
 
 {{-- <audio src="{{ asset('build/audios/djterbaru.mp3') }}" autoplay></audio> --}}
 

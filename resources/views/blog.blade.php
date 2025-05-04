@@ -50,7 +50,6 @@
                 </div>
             </div>
 
-    
             <article class="bg-white shadow-lg rounded-xl p-6 transition-transform hover:scale-105 hover:shadow-xl">
                 <img src="{{ asset('build/images/awn.jpg') }}" class="w-full h-56 object-cover rounded-md mb-4" alt="Event Image">
                 <h3 class="text-2xl font-bold mb-2 text-green-800">Judul Event</h3>
@@ -75,6 +74,7 @@
                 </button>
             </article>
         </div>
+        
     </div>
     <footer class="mt-70 p-30 bg-[#5e6f52] w-screen flex items-center justify-center py-20">
         <p class="text-white border-t border-white pt-4 px-6">© 2025 BinaryWaste. All rights reserved.</p>

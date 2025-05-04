@@ -21,9 +21,11 @@ Route::get('/blog', function () {
 Route::get('anu', function () {
     return view('anu');
 });
+
 Route::get('/faq', function () {
     return view('faq');
 });
+
 
 // Login
 Route::get('auth/login', [AuthController::class, 'showLogin'])->name('login');
