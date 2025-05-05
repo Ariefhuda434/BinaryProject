@@ -24,9 +24,9 @@ class AuthController extends Controller
             'remember' => 'required',
         ]);
     
-        if (Auth::attempt($request->only('email', 'password','remember'))) {
+        if (Auth::attempt($request->only('email', 'password'),$request-> filled('remember'))) {
             $request->session()->regenerate();
-            return redirect()->route('report.create');
+            return redirect()->route('login');
         }
     
         return back()->with('error', 'Email atau password salah');

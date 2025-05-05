@@ -54,6 +54,6 @@ class ReportController extends Controller
 
         // Redirect dengan pesan sukses
         return redirect()->route('report.create')
-               ->with('successReport', 'Laporan berhasil dikirim!');
+               ->with('succesReport', 'Laporan berhasil dikirim!');
     }
 }

@@ -9,14 +9,19 @@
 
         <h2 class="text-2xl font-semibold text-gray-700 text-center">Ceritakan Lingkungan Mu</h2>
 
-        @if(session('successReport'))
+        @if(session('succesReport'))
         <div class="bg-green-100 text-green-700 p-3 rounded-lg text-sm">
             berhasil berhasil hore hore
         </div>
+        @elseif (session('error'))
+        <div class="bg-red-100 text-red-700 p-3 rounded-lg text-sm">
+            what the helll omagat
+        </div>
+
         @endif
 
         <div>
-            <label for="kategori" class="block mb-1 font-medium text-gray-600">Kategori</label>
+            <label for="category" class="block mb-1 font-medium text-gray-600">Kategori</label>
             <select name="category" id="category" class="w-full border border-gray-300 rounded-lg p-3 bg-white focus:outline-none focus:ring-2 focus:ring-gray-400">
                 <option value="sampah berserakan">Sampah Berserakan</option>
                 <option value="Saluran air tersumbat">Saluran Air Tersumbat</option>

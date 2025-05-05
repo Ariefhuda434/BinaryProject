@@ -7,8 +7,8 @@
 <div class="flex flex-col items-center w-full mx-auto h-full px-4 ">      
     <p class="text-xl mt-5 h-7 text-gray-500">Let's See About Binary Waste</p>
 
-    <div class="flex items-center mb-4 mt-4">
-        <img class="h-24 mr-6" src="{{ asset('build/images/logo.png') }}" alt="Logo">
+    <div class="flex items-center mb-4 mt-4 mr-6">
+        <img class="h-24 mr-5 " src="{{ asset('build/images/logo.png') }}" alt="Logo">
         <div>
             <h1 class="text-6xl font-black">BINARY WASTE</h1>
             <p class="text-2xl font-bold">Digital Solution for a Zero-Waste World!</p>

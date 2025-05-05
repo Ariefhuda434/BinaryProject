@@ -6,12 +6,12 @@
     <title>Register</title>
     @vite('resources/css/app.css')
 </head>
-<body class="h-screen bg-white font-sans">
+<body style="background-image: url('{{ asset('build/images/Blob.svg') }}')" class="h-full bg-cover  font-sans">
     <a href="/">
         <img src="{{ asset('build/images/iconsbackto.png') }}" class="h-10 m-5" alt="back">
-      </a>
-    <div class="flex justify-center  -mt-20  items-center h-full">
-        <div class="w-[400px] p-8 rounded-lg shadow-md bg-[#a8b387]">
+    </a>
+    <div class="flex justify-center -mt-20 items-center h-full">
+        <div class="w-[900px] h-screen mt-30 mb-30 p-8 rounded-lg shadow-md bg-white">
             @if(session('success'))
                 <div class="bg-green-100 text-green-700 p-2 rounded mb-3">
                     {{ session('success') }}
@@ -26,17 +26,59 @@
                 </div>
             @endif
 
-            <form method="POST" action="{{ route('register') }}">
+            <form method="POST" action="{{ route('register') }}" class="px-20">
                 @csrf
-                <h2 class="text-2xl font-semibold mb-4">Register</h2>
-                <input type="text" name="name" placeholder="Nama Lengkap" required class="w-full p-3 mb-4 border rounded text-sm bg-gray-100">
-                <input type="text" name="username" placeholder="Username" required class="w-full p-3 mb-4 border rounded text-sm bg-gray-100">
-                <input type="email" name="email" placeholder="Email" required class="w-full p-3 mb-4 border rounded text-sm bg-gray-100">
-                <input type="password" name="password" placeholder="Password" required class="w-full p-3 mb-4 border rounded text-sm bg-gray-100">
-                <button type="submit" class="w-full p-3 bg-[#5e6f52] text-white rounded">Daftar</button>
-                <p class="mt-4 text-sm">Sudah punya akun? <a href="{{ route('login') }}" class="text-[#234666]">Login</a></p>
+                <h2 class="text-2xl font-semibold mb-5 mt-5 text-center ">Registrasi Akun</h2>
+
+                <input type="text" name="name" placeholder="Nama Lengkap" required class="w-1/1 p-3 mb-8 rounded text-sm bg-gray-100 focus:outline-none focus:border-l-10 focus:border-[#5e6f52] transition-all duration-300 ease-in-out">
+
+                <div class="flex  mb-8 gap-7">
+                    <input type="text" name="username" placeholder="Username" required class="w-1/2 p-3  rounded text-sm bg-gray-100 focus:outline-none focus:border-l-10 focus:border-[#5e6f52] transition-all duration-300 ease-in-out">
+                    <input type="email" name="email" placeholder="Email" required class="w-1/2 p-3  rounded text-sm bg-gray-100 focus:outline-none focus:border-l-10 focus:border-[#5e6f52] transition-all duration-300 ease-in-out">
+                </div>
+
+                <div class="flex mb-8 gap-7">
+                    <input type="password" name="password" placeholder="Password" required class="w-1/2 p-3 mb-4 rounded text-sm bg-gray-100 focus:outline-none focus:border-l-10 focus:border-[#5e6f52] transition-all duration-300 ease-in-out">
+                    <input type="password" name="password_confirmation" placeholder="Konfirmasi Password" required class="w-1/2 p-3 mb-4 rounded text-sm bg-gray-100 focus:outline-none focus:border-l-10 focus:border-[#5e6f52] transition-all duration-300 ease-in-out">
+                </div>
+
+                <div class="border-b mb-8"></div>
+
+                <div class="flex gap-7 mb-7">
+                    <input type="date" name="date_of_birth" required class="w-1/2 p-3 rounded text-sm bg-gray-100 focus:outline-none focus:border-l-10 focus:border-[#5e6f52] transition-all duration-300 ease-in-out">
+                    <select name="gender" required class="w-1/2 p-3   rounded text-sm bg-gray-100 focus:outline-none focus:border-l-10 focus:border-[#5e6f52] transition-all duration-300 ease-in-out">
+                        <option value="">Jenis Kelamin</option>
+                        <option value="pria">Pria</option>
+                        <option value="perempuan">Perempuan</option>
+                        <option value="lainnya">Lainnya</option>
+                    </select>
+                </div>
+
+                <div class="flex gap-7 mb-7">
+                    <select name="provinsi" required class="w-1/2 p-3 rounded text-sm bg-gray-100 focus:outline-none focus:border-l-10 focus:border-[#5e6f52] transition-all duration-300 ease-in-out">
+                        <option value="">Pilih Provinsi</option>
+                        <option value="jawa_barat">Jawa Barat</option>
+                        <option value="jawa_tengah">Jawa Tengah</option>
+                        <option value="jakarta">DKI Jakarta</option>
+                    </select>
+
+                    <select name="kota" required class="w-1/2 p-3 rounded text-sm bg-gray-100 focus:outline-none focus:border-l-10 focus:border-[#5e6f52] transition-all duration-300 ease-in-out">
+                        <option value="">Pilih Kota</option>
+                        <option value="bandung">Bandung</option>
+                        <option value="semarang">Semarang</option>
+                        <option value="jakarta">Jakarta</option>
+                    </select>
+                </div>
+
+                <div class="flex gap-7">
+                    <input type="text" name="profesi" placeholder="Profesi" required class="w-1/2 p-3 mb-4 rounded text-sm bg-gray-100 focus:outline-none focus:border-l-10 focus:border-[#5e6f52] transition-all duration-300 ease-in-out">
+                    <input type="tel" name="telepon" placeholder="Nomor Telepon" required class="w-1/2 p-3 mb-4 rounded text-sm bg-gray-100 focus:outline-none focus:border-l-10 focus:border-[#5e6f52] transition-all duration-300 ease-in-out">
+                </div>
+
+                <button type="submit" class="w-full mt-3 p-3 bg-[#5e6f52] text-white rounded">Daftar</button>
+                <p class="mt-4 text-sm text-center">Sudah punya akun? <a href="{{ route('login') }}" class="text-[#234666]">Login</a></p>
             </form>
         </div>
-    </div>
+    </div>    
 </body>
 </html>

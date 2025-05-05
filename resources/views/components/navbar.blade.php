@@ -17,7 +17,7 @@
                 </li>
                 <li>
                     <a href="/tentang" class="{{ Request::is('tentang') ? 'text-[#ccc14e] font-black' : 'text-white font-normal hover:text-[#ccc14e]' }} transition duration-300">
-                        Tentang
+                        Event 
                     </a>
                 </li>
                 <li>
@@ -26,7 +26,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="/report" class="{{ Request::is('event') ? 'text-[#ccc14e] font-black' : 'text-white font-normal hover:text-[#ccc14e]' }} transition duration-300">
+                    <a href="/report" class="{{ Request::is('report') ? 'text-[#ccc14e] font-black' : 'text-white font-normal hover:text-[#ccc14e]' }} transition duration-300">
                         Report
                     </a>
                 </li>
