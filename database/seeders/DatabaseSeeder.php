@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Report;
 use App\Models\User;
 
 use Illuminate\Database\Seeder;
@@ -13,12 +14,19 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+        // Report::create([
+        //     'laporan' => 'sampah di rumah bg ujang',
+        //     'images' => '/images/buset.src', 
+        //     'description' => 'sampah nya sangat kotor dia parah men',
+        //     'location' => 'medan kota kita',
+        //     'category' => 'value',
+        //     'date' => '2025-12-05',
+        // ]);
         // User::create([
         //         'name' => 'Arief wicaksono',
-        //         'username' => 'ariefwicak18',
         //         'email' => 'test1@example.com',
-        //         'password' => bcrypt('12345')
-                
+        //         'username' => 'ariefwicak18',
+        //         'password' => bcrypt('12345'),
         //     ]);
         // User::factory(10)->create();
 

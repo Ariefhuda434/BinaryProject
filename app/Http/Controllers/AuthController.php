@@ -21,9 +21,10 @@ class AuthController extends Controller
         $request->validate([
             'email' => 'required|email',
             'password' => 'required',
+            'remember' => 'required',
         ]);
     
-        if (Auth::attempt($request->only('email', 'password'))) {
+        if (Auth::attempt($request->only('email', 'password','remember'))) {
             $request->session()->regenerate();
             return redirect()->route('report.create');
         }
@@ -44,7 +45,7 @@ class AuthController extends Controller
             'name' => 'required|max:30',
             'username' => 'required|unique:users',
             'email' => 'required|email|unique:users',
-            'password' => 'required|min:6|confirmed',
+            'password' => 'required|min:6',
         ]);
 
         User::create([
@@ -54,7 +55,7 @@ class AuthController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
-        return redirect()->route('login')->with('success', 'Registrasi berhasil! Silakan login');
+        return redirect()->route('loginpage')->with('success', 'Registrasi berhasil! Silakan login');
     }
 
     // Proses logout
@@ -64,6 +65,6 @@ class AuthController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
         
-        return redirect()->route('login');
+        return redirect()->route('loginpage');
     }
 }

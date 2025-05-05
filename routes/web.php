@@ -29,7 +29,7 @@ Route::get('/faq', function () {
 
 // Login
 Route::get('auth/login', [AuthController::class, 'showLogin'])->name('login');
-Route::post('auth/login', [AuthController::class, 'login'])->name('login');
+Route::post('auth/login', [AuthController::class, 'login'])->name('loginpage');
 
 // Register
 Route::get('auth/register', [AuthController::class, 'showRegister'])->name('register');

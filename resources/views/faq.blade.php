@@ -4,5 +4,4 @@
 
 @section('content')
     <x-header>faq</x-header>
-    <x-footer></x-footer>
 @endsection

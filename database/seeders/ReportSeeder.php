@@ -14,7 +14,7 @@ class ReportSeeder extends Seeder
     public function run(): void
     {
         Report::create([
-                'laporan' => 'sampah di rumah bg ujang',
+                'category' => 'value',
                 'images' => '/images/buset.src', 
                 'description' => 'sampah nya sangat kotor dia parah men',
                 'location' => 'medan kota kita',

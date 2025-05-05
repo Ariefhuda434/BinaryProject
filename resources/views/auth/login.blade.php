@@ -28,12 +28,12 @@
                 
                 <form method="POST" action="{{ route('login') }}">
                     @csrf
-                    <legend>Login</legend>
+               
                     <h2 class="text-2xl font-semibold mb-4">Login</h2>
                     <input type="email" name="email" placeholder="Email" required class="w-full p-3 mb-4 border rounded text-sm bg-gray-100">
                     <input type="password" name="password" placeholder="Password" required class="w-full p-3 mb-4 border rounded text-sm bg-gray-100">
                     
-                    <label for=""><input type="checkbox" value="remember"> remember me?</label>
+                    <label class="" for=""><input type="checkbox" class="mb-5" name="remember"> Remember Me?</label>
 
                     <button type="submit" class="w-full p-3 bg-[#5e6f52] text-white rounded">Login</button>
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Report;
+use Illuminate\Auth\Events\Validated;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
@@ -30,8 +31,8 @@ class ReportController extends Controller
         }
     
         // Validasi input
-        $validatedData = $request->validate([
-            'laporan' => 'required|string|max:255',
+        $validatedData = $request->validate([   
+            'category' => 'required|string',
             'images' => 'required|image|mimes:jpg,jpeg,png|max:2048',
             'description' => 'required|string',
             'location' => 'required|string|max:255',
@@ -44,7 +45,7 @@ class ReportController extends Controller
         // Simpan ke database
         Report::create([
             'id_user' => Auth::id(),
-            'laporan' => $validatedData['laporan'],
+            'category' => $validatedData['category'],
             'images' => str_replace('public/', '', $imagePath),
             'description' => $validatedData['description'],
             'location' => $validatedData['location'],
@@ -53,6 +54,6 @@ class ReportController extends Controller
 
         // Redirect dengan pesan sukses
         return redirect()->route('report.create')
-               ->with('success', 'Laporan berhasil dikirim!');
+               ->with('successReport', 'Laporan berhasil dikirim!');
     }
 }
