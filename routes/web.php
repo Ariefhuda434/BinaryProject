@@ -26,6 +26,10 @@ Route::get('/faq', function () {
     return view('faq');
 });
 
+Route::get('auth/verivy', function () {
+    return view('auth/verivy');
+})->name('verivyPage');
+
 
 // Login
 Route::get('auth/login', [AuthController::class, 'showLogin'])->name('login');

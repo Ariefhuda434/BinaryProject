@@ -21,14 +21,9 @@
         @endif
 
         <div>
-            <label for="category" class="block mb-1 font-medium text-gray-600">Kategori</label>
-            <select name="category" id="category" class="w-full border border-gray-300 rounded-lg p-3 bg-white focus:outline-none focus:ring-2 focus:ring-gray-400">
-                <option value="sampah berserakan">Sampah Berserakan</option>
-                <option value="Saluran air tersumbat">Saluran Air Tersumbat</option>
-                <option value="polusi bau/udara ">Polusi Bau/Udara </option>
-                <option value="barang bekas">Barang Bekas</option>
-                <option value="lainnya">Lainnya</option>
-            </select>
+            <label for="category" class="block mb-1 font-medium text-gray-600">Report</label>
+            <input name="category" id="category" class="w-full border border-gray-300 rounded-lg p-3 bg-white focus:outline-none focus:ring-2 focus:ring-gray-400">
+            </input>
         </div>
         <div>
             <label for="images" class="<img id="preview-image" src="#" alt="Preview" class="hidden mt-2 w-full h-auto max-h-64 text-gray-600 border">Upload Gambar</label>

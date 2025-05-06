@@ -54,6 +54,27 @@
                     </select>
                 </div>
 
+                
+                <div class="flex gap-7">
+                    <select name="profesi" required class="w-1/2 p-3 rounded text-sm bg-gray-100 mb-7 focus:outline-none focus:border-l-10 focus:border-[#5e6f52] transition-all duration-300 ease-in-out">
+                        <option value="">Pilih Profesi</option>
+                        <option value="dokter">Dokter</option>
+                        <option value="guru">Guru</option>
+                        <option value="pengacara">Pengacara</option>
+                        <option value="petani">Petani</option>
+                        <option value="programmer">Programmer</option>
+                        <option value="desainer">Desainer</option>
+                        <option value="karyawan_swasta">Karyawan Swasta</option>
+                        <option value="wirausaha">Wirausaha</option>
+                        <option value="polisi">Polisi</option>
+                        <option value="tentara">Tentara</option>
+                        <option value="pelajar">Pelajar</option>
+                        <option value="mahasiswa">Mahasiswa</option>
+                    </select>
+                    
+                    <input type="tel" name="telepon" placeholder="Nomor Telepon" required class="w-1/2 p-3 mb-7 rounded text-sm bg-gray-100 focus:outline-none focus:border-l-10 focus:border-[#5e6f52] transition-all duration-300 ease-in-out">
+                </div>
+                
                 <div class="flex gap-7 mb-7">
                     <select name="provinsi" required class="w-1/2 p-3 rounded text-sm bg-gray-100 focus:outline-none focus:border-l-10 focus:border-[#5e6f52] transition-all duration-300 ease-in-out">
                         <option value="">Pilih Provinsi</option>
@@ -69,12 +90,6 @@
                         <option value="jakarta">Jakarta</option>
                     </select>
                 </div>
-
-                <div class="flex gap-7">
-                    <input type="text" name="profesi" placeholder="Profesi" required class="w-1/2 p-3 mb-4 rounded text-sm bg-gray-100 focus:outline-none focus:border-l-10 focus:border-[#5e6f52] transition-all duration-300 ease-in-out">
-                    <input type="tel" name="telepon" placeholder="Nomor Telepon" required class="w-1/2 p-3 mb-4 rounded text-sm bg-gray-100 focus:outline-none focus:border-l-10 focus:border-[#5e6f52] transition-all duration-300 ease-in-out">
-                </div>
-
                 <button type="submit" class="w-full mt-3 p-3 bg-[#5e6f52] text-white rounded">Daftar</button>
                 <p class="mt-4 text-sm text-center">Sudah punya akun? <a href="{{ route('login') }}" class="text-[#234666]">Login</a></p>
             </form>

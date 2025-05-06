@@ -55,7 +55,7 @@ class AuthController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
-        return redirect()->route('loginpage')->with('success', 'Registrasi berhasil! Silakan login');
+        return redirect()->route('verivypage')->with('success', 'Registrasi berhasil! Silakan login');
     }
 
     // Proses logout
