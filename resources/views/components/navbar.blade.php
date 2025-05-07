@@ -17,12 +17,12 @@
                 </li>
                 <li>
                     <a href="/tentang" class="{{ Request::is('tentang') ? 'text-[#ccc14e] font-black' : 'text-white font-normal hover:text-[#ccc14e]' }} transition duration-300">
-                        Event 
+                        Tentang
                     </a>
                 </li>
                 <li>
                     <a href="/blog" class="{{ Request::is('blog') ? 'text-[#ccc14e] font-black max-w-100%' : 'text-white max-w-100% font-normal hover:text-[#ccc14e]' }} transition duration-300">
-                        Blog
+                        Perpustakaan
                     </a>
                 </li>
                 <li>

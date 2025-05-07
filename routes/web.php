@@ -18,7 +18,7 @@ Route::get('/blog', function () {
 // Route::get('/event', function () {
 //     return view('event');
 // });
-Route::get('anu', function () {
+Route::get('/anu', function () {
     return view('anu');
 });
 

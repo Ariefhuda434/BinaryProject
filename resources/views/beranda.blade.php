@@ -24,12 +24,12 @@
          </p>
          <div class="flex space-x-4">
             <button class="bg-[#5e6f52] rounded-full px-6 py-2 text-white">Selengkapnya</button>
-            <details> 
+            {{-- <details> 
                <summary>
                Lihat spesifikasi   
                </summary>
                borup mobil keren mantul nich
-            </details>
+            </details> --}}
             <a href="{{ route('register') }}"
                class="bg-[#5e6f52] rounded-full px-6 py-2 text-white transition-all duration-300 ease-in-out 
                hover:scale-105 hover:bg-[#4a5a40] active:scale-95 
@@ -50,6 +50,6 @@
  </footer>
 
 
-{{-- <audio src="{{ asset('build/audios/djterbaru.mp3') }}" autoplay></audio> --}}
+<audio src="{{ asset('build/audios/djterbaru.mp3') }}" autoplay></audio>
 
 @endsection
