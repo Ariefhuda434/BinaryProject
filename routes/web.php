@@ -1,14 +1,18 @@
 <?php
 
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\EventController;
-use App\Http\Controllers\ReportController;
-use Illuminate\Support\Facades\Route;
 
-// Halaman yang bisa diakses tanpa login
-Route::get('/', function () {
+use App\Http\Controllers\ReportController;
+use App\Models\Beranda;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BerandaController;
+
+Route::get('/beranda', function () {
     return view('beranda');
-});
+})->name('beranda');
+
+Route::get('/beranda/{id}', [BerandaController::class, 'show']);
+
 Route::get('/tentang', function () {
     return view('tentang');
 });
@@ -29,6 +33,9 @@ Route::get('/faq', function () {
 Route::get('auth/verivy', function () {
     return view('auth/verivy');
 })->name('verivyPage');
+
+
+
 
 
 // Login

@@ -23,7 +23,7 @@
             Setor sampah, kumpulkan poin, dan bantu selamatkan bumi bareng kita di Binary Waste!
          </p>
          <div class="flex space-x-4">
-            <button class="bg-[#5e6f52] rounded-full px-6 py-2 text-white">Selengkapnya</button>
+            <a href="beranda/{$id}" class="bg-[#5e6f52] rounded-full px-6 py-2 text-white">Selengkapnya</a>
             {{-- <details> 
                <summary>
                Lihat spesifikasi   

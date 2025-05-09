@@ -10,7 +10,7 @@
 
 <body style="background-image: url('{{ asset('build/images/Blob.svg') }}')" class="h-screen bg-cover font-sans">
     <div class="h-screen flex items-center justify-center">
-        <a href="/" class="absolute top-5 left-5">
+        <a href="{{ route('beranda') }}" class="absolute top-5 left-5">
             <img src="{{ asset('build/images/iconsbackto.png') }}" class="h-10" alt="back">
         </a>
 
