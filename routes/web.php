@@ -7,11 +7,11 @@ use App\Models\Beranda;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BerandaController;
 
-Route::get('/beranda', function () {
+Route::get('/', function () {
     return view('beranda');
 })->name('beranda');
 
-Route::get('/beranda/{id}', [BerandaController::class, 'show']);
+Route::get('beranda/{id}', [BerandaController::class, 'show']);
 
 Route::get('/tentang', function () {
     return view('tentang');
@@ -19,9 +19,7 @@ Route::get('/tentang', function () {
 Route::get('/blog', function () {
     return view('blog');
 });
-// Route::get('/event', function () {
-//     return view('event');
-// });
+
 Route::get('/anu', function () {
     return view('anu');
 });

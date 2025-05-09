@@ -4,7 +4,7 @@
 
 {{-- Tambahkan padding-top untuk menghindari navbar fixed --}}
 
-<div class="pt-24 px-14 font-sans"> 
+<div class="pt-24 px-14  font-sans"> 
 
    {{-- Header section --}}
    <div class="flex items-start">
@@ -18,7 +18,7 @@
             </div>
          </div>
          <h2 class="font-bold text-2xl mb-4">Hai, Binarians!</h2>
-         <p class="text-xl tracking-wide mb-6 text-first">
+         <p class="text-xl tracking-wide mb-6 textfirst">
             Saatnya kelola sampah dengan cara yang lebih cerdas dan berdampak.<br>
             Setor sampah, kumpulkan poin, dan bantu selamatkan bumi bareng kita di Binary Waste!
          </p>

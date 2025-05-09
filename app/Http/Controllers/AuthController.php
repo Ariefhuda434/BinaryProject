@@ -38,14 +38,19 @@ class AuthController extends Controller
         return view('auth.register');
     }
 
-    // Proses register
     public function register(Request $request)
     {
         $request->validate([
             'name' => 'required|max:30',
             'username' => 'required|unique:users',
             'email' => 'required|email|unique:users',
-            'password' => 'required|min:6',
+            'password' => 'required|min:6|confirmed',
+            'birth' => 'required',
+            'jenis_kel'=>'required',
+            'profesi' => 'required',
+            'phone' => 'required|unique:users',
+            'kota'=> 'required',
+            'kecamatan' => 'required',
         ]);
 
         User::create([
@@ -53,12 +58,17 @@ class AuthController extends Controller
             'username' => $request->username,
             'email' => $request->email,
             'password' => Hash::make($request->password),
+            'birth' => $request->birth,
+            'jenis_kel'=>$request->jenis_kel,
+            'profesi' => $request->profesi,
+            'phone' => $request->phone,
+            'kota'=> $request->kota,
+            'kecamatan' => $request->kecamatan,
         ]);
 
-        return redirect()->route('verivypage')->with('success', 'Registrasi berhasil! Silakan login');
+        return redirect()->route('register')->with('success', 'Registrasi berhasil! Silakan login');
     }
 
-    // Proses logout
     public function logout(Request $request)
     {
         Auth::logout();

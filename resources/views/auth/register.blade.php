@@ -45,8 +45,8 @@
                 <div class="border-b mb-8"></div>
 
                 <div class="flex gap-7 mb-7">
-                    <input type="date" name="date_of_birth" required class="w-1/2 p-3 rounded text-sm bg-gray-100 focus:outline-none focus:border-l-10 focus:border-[#5e6f52] transition-all duration-300 ease-in-out">
-                    <select name="gender" required class="w-1/2 p-3   rounded text-sm bg-gray-100 focus:outline-none focus:border-l-10 focus:border-[#5e6f52] transition-all duration-300 ease-in-out">
+                    <input type="date" name="birth" required class="w-1/2 p-3 rounded text-sm bg-gray-100 focus:outline-none focus:border-l-10 focus:border-[#5e6f52] transition-all duration-300 ease-in-out">
+                    <select name="jenis_kel" required class="w-1/2 p-3   rounded text-sm bg-gray-100 focus:outline-none focus:border-l-10 focus:border-[#5e6f52] transition-all duration-300 ease-in-out">
                         <option value="">Jenis Kelamin</option>
                         <option value="pria">Pria</option>
                         <option value="perempuan">Perempuan</option>
@@ -72,22 +72,22 @@
                         <option value="mahasiswa">Mahasiswa</option>
                     </select>
                     
-                    <input type="tel" name="telepon" placeholder="Nomor Telepon" required class="w-1/2 p-3 mb-7 rounded text-sm bg-gray-100 focus:outline-none focus:border-l-10 focus:border-[#5e6f52] transition-all duration-300 ease-in-out">
+                    <input type="tel" name="phone" placeholder="Nomor Telepon" required class="w-1/2 p-3 mb-7 rounded text-sm bg-gray-100 focus:outline-none focus:border-l-10 focus:border-[#5e6f52] transition-all duration-300 ease-in-out">
                 </div>
                 
                 <div class="flex gap-7 mb-7">
-                    <select name="provinsi" required class="w-1/2 p-3 rounded text-sm bg-gray-100 focus:outline-none focus:border-l-10 focus:border-[#5e6f52] transition-all duration-300 ease-in-out">
-                        <option value="">Pilih Provinsi</option>
-                        <option value="jawa_barat">Jawa Barat</option>
-                        <option value="jawa_tengah">Jawa Tengah</option>
-                        <option value="jakarta">DKI Jakarta</option>
-                    </select>
-
                     <select name="kota" required class="w-1/2 p-3 rounded text-sm bg-gray-100 focus:outline-none focus:border-l-10 focus:border-[#5e6f52] transition-all duration-300 ease-in-out">
                         <option value="">Pilih Kota</option>
-                        <option value="bandung">Bandung</option>
-                        <option value="semarang">Semarang</option>
+                        <option value="bandung">Medan</option>
+                        <option value="semarang">Bandung</option>
                         <option value="jakarta">Jakarta</option>
+                    </select>
+
+                    <select name="kecamatan" required class="w-1/2 p-3 rounded text-sm bg-gray-100 focus:outline-none focus:border-l-10 focus:border-[#5e6f52] transition-all duration-300 ease-in-out">
+                        <option value="">Pilih Kota</option>
+                        <option value="bandung">Medan Helvetia</option>
+                        <option value="semarang">Medan Sunggal</option>
+                        <option value="jakarta">Medan Johor</option>
                     </select>
                 </div>
                 <button type="submit" class="w-full mt-3 p-3 bg-[#5e6f52] text-white rounded">Daftar</button>

@@ -11,7 +11,7 @@
         <div class="flex items-center space-x-10 text-2xl font-sans">
             <ul class="flex space-x-10">
                 <li>
-                    <a href="/beranda" class="{{ Request::is('/') ? 'text-[#ccc14e] font-black relative' : 'text-white font-normal hover:text-[#ccc14e]' }} transition duration-300">
+                    <a href="/" class="{{ Request::is('/') ? 'text-[#ccc14e] font-black relative' : 'text-white font-normal hover:text-[#ccc14e]' }} transition duration-300">
                         Beranda
                     </a>
                 </li>

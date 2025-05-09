@@ -3,7 +3,7 @@
 
 <x-head></x-head>
 
-<body class="font-roboto bg-white">
+<body class="font-roboto bg-white scroll-smooth">
 
     <x-navbar></x-navbar>
 
