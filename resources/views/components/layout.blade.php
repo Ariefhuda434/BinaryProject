@@ -5,9 +5,9 @@
 
 <body class="font-roboto bg-white scroll-smooth">
 
-    <x-navbar></x-navbar>
-
+    
     <main>
+        <x-navbar></x-navbar>
         @yield('content') 
     </main>
 

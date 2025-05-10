@@ -21,8 +21,8 @@
 
     <!-- Alpine.js (Latest) -->
     <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
-    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script> <script>
-  AOS.init();
+      <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
 </script>
   </head>
   
