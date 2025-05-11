@@ -2,9 +2,9 @@
 
 @section('title', 'tentang')
 
-@section('content') <x-header></x-header> <div class="mx-auto mt-43"> <div class="text-center mb-10"> <h1 class="font-black text-4xl text-6xl font-sans">Sekilas Tentang Binary Waste</h1> </div>
+@section('content')
+ <x-header></x-header> <div class="mx-auto mt-43"> <div class="text-center mb-10"> <h1 class="font-black text-4xl text-6xl font-sans">Sekilas Tentang Binary Waste</h1> </div>
 
-```
     <div class="flex lg:flex-row items-center ">
         <div class="mr-10">
             <img src="{{ asset('build/images/tentangimages.png') }}" 
