@@ -35,6 +35,7 @@ Route::get('auth/verivy', function () {
 
 
 
+Route::post('/reset-password', [AuthController::class, 'ResetPw'])->name('reset.password');
 
 // Login
 Route::get('auth/login', [AuthController::class, 'showLogin'])->name('login');

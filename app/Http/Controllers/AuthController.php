@@ -9,13 +9,11 @@ use App\Models\User;
 
 class AuthController extends Controller
 {
-    // Tampilkan halaman login
     public function showLogin()
     {
         return view('auth.login');
     }
 
-    // Proses login
     public function login(Request $request)
     {
         $request->validate([
@@ -31,6 +29,25 @@ class AuthController extends Controller
     
         return back()->with('error', 'Email atau password salah');
     }
+
+    public function ResetPw(Request $request)
+{
+    $request->validate([
+        'password' => 'required',
+        'password_reset' => 'required',
+    ]);
+
+   /** @var \App\Models\User $user */
+    $user = Auth::user();
+
+    if ($user && Hash::check($request->password_reset, $user->password)) {
+        $user->password = Hash::make($request->password);
+        $user->save(); 
+        return redirect()->route('dashboard')->with('status', 'Password berhasil direset!');
+    }
+    return back()->with('errorReset', 'Password reset salah atau tidak valid');
+}
+
 
     // Tampilkan halaman register
     public function showRegister()
