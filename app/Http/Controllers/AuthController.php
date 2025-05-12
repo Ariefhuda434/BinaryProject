@@ -30,10 +30,10 @@ class AuthController extends Controller
         return back()->with('error', 'Email atau password salah');
     }
 
-    public function ResetPw(Request $request)
+      public function ResetPw(Request $request)
 {
     $request->validate([
-        'password' => 'required',
+        'password' => 'required|min:8|confirmed', // Require minimum 8 characters and confirmation
         'password_reset' => 'required',
     ]);
 
@@ -41,12 +41,17 @@ class AuthController extends Controller
     $user = Auth::user();
 
     if ($user && Hash::check($request->password_reset, $user->password)) {
+        if ($request->password === $request->password_reset) {
+            return back()->with('errorReset', 'Password baru tidak boleh sama dengan password lama.');
+        }
+
         $user->password = Hash::make($request->password);
         $user->save(); 
-        return redirect()->route('dashboard')->with('status', 'Password berhasil direset!');
+        return back()->with('status', 'Password berhasil direset!');
     }
     return back()->with('errorReset', 'Password reset salah atau tidak valid');
 }
+
 
 
     // Tampilkan halaman register

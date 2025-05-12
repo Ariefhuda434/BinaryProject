@@ -103,16 +103,16 @@
             </div>
         </div>        
     </nav>
-    <section x-data="{isProfil : false}" 
-    id="profil"  class=" flex hidden fixed inset-0 z-50 opacity-0 justify-center items-center py-12 min-h-screen transition-all duration-500 ease-in-out" data-aos = "fade-in">
+    <section x-data="{isProfil : false,isClose : false}" 
+    id="profil"  class=" flex hidden fixed inset-0 z-50 opacity-0 justify-center items-center py-12 min-h-screen transition-all duration-500 ease-in-out" >
        @auth
                     
        <div class="bg-white w-full max-w-6xl p-10 rounded-3xl shadow-2xl grid grid-cols-1 md:grid-cols-2 gap-10 ">
            <div class="flex flex-col items-center text-center md:text-left">
-               <button  @mouseover="isProfil = !isProfil" {{-- belum bisa --}}
-               id="btnProfileClose"><img src="{{ asset('build/images/no.png') }}" alt="" srcset="" class="mr-120 transform-all duration-300 ease-in-out":class="{'rotate-180': isProfil}"></button>
-               <img src="{{ asset('build/images/awn.jpg') }}" alt="Profile Picture"
-       class="h-40 w-40 rounded-full border-4 border-green-500 shadow-lg mb-5 object-cover" />
+               <button  @mouseover="isClose = !isClose" {{-- belum bisa --}}
+               id="btnProfileClose"><img src="{{ asset('build/images/no.png') }}" alt="" srcset="" class="mr-120 transform-all duration-300 ease-in-out":class="{'rotate-180': isClose}"></button>
+               <img src="{{Avatar::create(Auth::user()->name)->toBase64()}}" alt="Profile Picture"
+       class="h-42 w-42 rounded-full border-10 bg-[#ccc14e] border-[#ccc14e] shadow-lg mb-5 object-cover" />
        
        <h2 class="text-3xl font-bold text-gray-800"> {{ Auth::user()->name }}</h2>
        <p class="text-sm italic text-gray-500 mb-6"> {{ Auth::user()->jenis_kel }}</p>
@@ -160,14 +160,14 @@
                {{ session('status') }}
             </div>
             @elseif (session('errorReset'))
-            <div class="bg-red-100 text-green-700 p-2 rounded mb-3">
+            <div class="bg-red-100 text-red-700 p-2 rounded mb-3">
                 {{ session('errorReset') }}
             </div>
             @endif
             <form action="{{ route('reset.password') }}" method="POST">
                 @csrf
-                <input type="password" name="password" class="p-3 w-full rounded-lg bg-gray-100 mb-3" required placeholder="Masukan Password Lama">
-                <input type="password" name="password_reset" class="p-3 w-full rounded-lg bg-gray-100 mb-3" required placeholder="Masukan Password Baru">
+                <input type="password" name="password-reset" class="p-3 w-full rounded-lg bg-gray-100 mb-3" required placeholder="Masukan Password Lama">
+                <input type="password" name="password" class="p-3 w-full rounded-lg bg-gray-100 mb-3" required placeholder="Masukan Password Baru">
                 <button class="p-2 w-40 rounded-full bg-gray-200">Konfirmasi</button>
             </form>
             <p class="text-sm text-gray-500 mt-4">

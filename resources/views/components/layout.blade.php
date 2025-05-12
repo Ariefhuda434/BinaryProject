@@ -3,7 +3,7 @@
 
 <x-head></x-head>
 
-<body class="font-roboto bg-white scroll-smooth">
+<body class="font-roboto bg-green-200 scroll-smooth">
 
     
     <main>
