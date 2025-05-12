@@ -30,26 +30,21 @@ class AuthController extends Controller
         return back()->with('error', 'Email atau password salah');
     }
 
-      public function ResetPw(Request $request)
+public function ResetPw(Request $request)
 {
     $request->validate([
-        'password' => 'required|min:8|confirmed', // Require minimum 8 characters and confirmation
-        'password_reset' => 'required',
+        'password_lama' => 'required',
+        'password_baru' => 'required|min:8|confirmed',
     ]);
 
-   /** @var \App\Models\User $user */
     $user = Auth::user();
-
-    if ($user && Hash::check($request->password_reset, $user->password)) {
-        if ($request->password === $request->password_reset) {
-            return back()->with('errorReset', 'Password baru tidak boleh sama dengan password lama.');
-        }
-
-        $user->password = Hash::make($request->password);
-        $user->save(); 
-        return back()->with('status', 'Password berhasil direset!');
+    if (!Hash::check($request->password_lama, $user->password)) {
+        return back()->with('error', 'Password lama salah.');
     }
-    return back()->with('errorReset', 'Password reset salah atau tidak valid');
+    $user->password = Hash::make($request->password_baru);
+    $user->save();
+
+    return back()->with('status', 'Password berhasil direset!');
 }
 
 

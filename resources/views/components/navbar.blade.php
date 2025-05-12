@@ -166,9 +166,10 @@
             @endif
             <form action="{{ route('reset.password') }}" method="POST">
                 @csrf
-                <input type="password" name="password-reset" class="p-3 w-full rounded-lg bg-gray-100 mb-3" required placeholder="Masukan Password Lama">
-                <input type="password" name="password" class="p-3 w-full rounded-lg bg-gray-100 mb-3" required placeholder="Masukan Password Baru">
-                <button class="p-2 w-40 rounded-full bg-gray-200">Konfirmasi</button>
+                <input type="password" name="password_lama" class="p-3 w-full rounded-lg bg-gray-100 mb-3" required placeholder="Masukan Password Lama">
+                <input type="password" name="password_baru" class="p-3 w-full rounded-lg bg-gray-100 mb-3" required placeholder="Masukan Password Baru">
+                <input type="password" name="password_baru_confirmation" class="p-3 w-full rounded-lg bg-gray-100 mb-3" required placeholder="Masukan Password Baru">
+                <button type="submit" class="p-2 w-40 rounded-full bg-gray-200">Konfirmasi</button>
             </form>
             <p class="text-sm text-gray-500 mt-4">
                 Butuh bantuan? <a href="/faq#password" class="text-blue-600 hover:underline">Lihat FAQ</a>

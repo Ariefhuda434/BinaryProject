@@ -2,7 +2,7 @@
    @section('title', 'Beranda')  
    @section('content')
 
-   <section class="relative w-full h-auto pb-20 -mt-40 mb-20 bg-[#a3b398]">
+   <section class="relative w-full h-auto pb-20 -mt-40 mb-20 bg-[#5e6f52]">
    <div class="absolute inset-0 h-screen bg-cover bg-bottom " style="background-image: url('{{ asset('build/images/test.jpg') }}')">
       <div class="absolute inset-0 bg-gradient-to-b from-black/90 to-transparent"></div>
    </div>
@@ -79,16 +79,40 @@
 
    </div>
    </section>
-<section class="flex justify-center">
-   <div class="bg-blue-200 max-w-1/2 h-screen mx-auto overflow-y-scroll  ">
-      <p class="text-xl">
-   Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt sapiente voluptatibus, suscipit esse provident dolor dolores at volu
+   
+<section class="bg-gradient-to-r from-gray-200 -mt-20 via-white to-gray-200 py-20 px-6 md:px-20">
+  <div class="flex flex-col md:flex-row items-center gap-10" data-aos="zoom-out-up">
+    
+    <div class="md:w-1/2">
+      <img src="{{ asset('build/images/awn.jpg') }}" alt="Arief Huda" class="rounded-2xl shadow-lg w-3/4 mx-auto md:mx-0">
+    </div>
 
+    <div class="md:w-1/2 text-center md:text-left">
+      <h2 class="text-4xl font-bold text-green-700 mb-4 leading-tight">
+        Bersama Kita Bisa<br><span class="text-green-500">Mengubah Lingkungan</span>
+      </h2>
+      <p class="text-gray-700 text-lg mb-6">
+        “Kami percaya bahwa perubahan besar dimulai dari langkah kecil. <br class="hidden md:block">
+        <span class="text-green-600 font-semibold">Binary Waste</span> hadir untuk menghubungkan <span class="text-green-600 font-semibold">teknologi</span>, <span class="text-green-600 font-semibold">komunitas</span>, dan <span class="text-green-600 font-semibold">kesadaran lingkungan</span> demi masa depan Indonesia yang lebih baik.”
+      </p>
+      <a href="#visi" class="inline-block bg-green-600 text-white px-6 py-3 rounded-lg shadow-md hover:bg-green-700 transition">
+        Kenali Visi Kami
+      </a>
+
+      <div class="mt-6 flex gap-7">
+        <img src="{{ asset('build/images/usu.png') }}" alt="Tanda Tangan Arief" class="w-20 h-20 mx-auto md:mx-0">
+        <img src="{{ asset('build/images/kfc.png') }}" alt="Tanda Tangan Arief" class="w-20 h-20 mx-auto md:mx-0">
+        <img src="{{ asset('build/images/ferrari.png') }}" alt="Tanda Tangan Arief" class="w-18 h-20 mx-auto md:mx-0">
+      
       </div>
+    </div>
+  </div>
 </section>
 
-   {{-- Footer --}}
-   <footer class="bg-[#5e6f52] w-full  flex items-center justify-center py-20 mt-20">
+
+
+
+   <footer class="bg-blue-200 w-full  flex items-center justify-center py-20 mt-20">
    <p class="text-white border-t border-white pt-4 px-6">© 2025 BinaryWaste. All rights reserved.</p>
    </footer>
 
