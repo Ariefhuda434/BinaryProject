@@ -131,6 +131,45 @@
     </div>
   </div>
 </section>
+<section>
+  <div class="bg-blue-100 min-h-screen flex flex-col justify-center items-center">
+  <p class="text-center text-xl font-semibold mb-4">Daftarkan Perusahaanmu</p>
+  @if (session('succes'))
+                <div class="bg-green-100 text-green-700 p-3 rounded-lg text-sm">
+                    Berhasil berhasil hore hore
+                </div>
+            @elseif (session('error'))
+                <div class="bg-red-100 text-red-700 p-3 rounded-lg text-sm">
+                    What the hell omagat
+                </div>
+            @endif
+
+  <form action="{{ route('jadiMitra') }}" method="POST" class="flex flex-col gap-4 w-3/4 max-w-md">
+    @csrf
+  
+    <input type="text" name="namaMitra" placeholder="Nama Mitra"class="py-2 px-4 bg-white rounded shadow">
+    <input type="text" name="tujuan" placeholder="Tujuan Menjadi Mitra" class="py-2 px-4 bg-white rounded shadow">
+    
+    <select name="kategoriMitra" required class="bg-white py-2 px-4 rounded" id="">
+      <option value="Pilihan">Pilihan</option>
+      <option value="Komunitas Lingkungan">Komunitas Lingkungan</option>
+      <option value="Lingkungan Hidup">Lingkungan Hidup</option>
+      <option value="Pendidikan">Pendidikan</option>
+      <option value="Keagamaan">Keagamaan</option>
+      <option value="Kesehatan">Kesehatan</option>
+      <option value="Lainya">Lainya</option>
+    </select>
+    
+    <input type="text" name="alamatMitra" placeholder="Alamat Mitra" class="py-2 px-4 bg-white rounded shadow">
+    
+    <input type="email" name="emailMitra" placeholder="Email Mitra" class="py-2 px-4 bg-white rounded shadow">
+    
+    <input type="text" name="medsos" placeholder="Instagram/Facebook/Linkedin" class="py-2 px-4 bg-white rounded shadow">
+    
+    <button class="py-2 bg-green-200 rounded-full text-center max-w-auto ">Submit</button>
+  </form>
+  </div>
+</section>
 
 
 

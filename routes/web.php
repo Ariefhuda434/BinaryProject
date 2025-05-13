@@ -7,6 +7,7 @@ use App\Models\Beranda;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BerandaController;
 use App\Http\Controllers\EmailController;
+use App\Http\Controllers\MitraController;
 use Illuminate\Container\Attributes\Auth;
 use Illuminate\Http\Request;
 
@@ -15,9 +16,9 @@ Route::get('/cek', [AuthController::class, 'cek'])->middleware('auth');
 Route::get('/', function () {
     return view('beranda');
 })->name('beranda');
-Route::get('/mitra', function () {
-    return view('mitra');
-})->name('mitra');
+
+// POST / -> proses form mitra
+Route::post('/', [MitraController::class, 'mitraGanteng'])->name('jadiMitra');
 
 Route::get('beranda/{id}', [BerandaController::class, 'show']);
 
@@ -42,6 +43,7 @@ Route::get('auth/verivy', function () {
 
 Route::post('/send-email', [EmailController::class, 'sendEmail']);
 
+Route::post('/',[MitraController::class,'mitraGanteng'])->name('jadiMitra');
 
 Route::post('/update-password', [AuthController::class, 'ResetPw'])->name('reset.password');
 
