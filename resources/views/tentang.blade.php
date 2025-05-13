@@ -78,7 +78,9 @@
     <p class="text-white border-t border-white pt-4 px-6">© 2025 BinaryWaste. All rights reserved.</p>
  </footer>
 <script>
-  AOS.init();
+ console.log("Tentang.js Loaded");
+
+AOS.init();
 let isActive = true;
 document.getElementById('btnScroll').addEventListener('click', () => {
     const visiMisi = document.getElementById('visi-misi');
@@ -126,7 +128,7 @@ window.addEventListener('scroll', () => {
             const index = (startIndex + i) % DataFoto.length;
             const img = document.createElement('img');
             img.src = DataFoto[index];
-            img.className = 'rounded-full h-64 w-64 border-4 border-white shadow-md transition-all duration-500 ease-in-out';
+            img.className = ' rounded-full h-64 w-64 border-4 border-white shadow-md transition-all duration-500 ease-in-out';
             images.appendChild(img);
             if (i === 1) {
                 img.classList.add('scale-110', 'ring-4', 'ring-[#5e6f52]');

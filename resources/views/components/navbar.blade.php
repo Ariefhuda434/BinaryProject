@@ -8,10 +8,10 @@
             lastScrollY = window.scrollY;
         }
     "
-    :class="showNavbar 
-        ? 'fixed top-0 left-0 w-full z-50 transition-all duration-500 ease-in-out transform translate-y-0 opacity-100' 
-        : 'fixed top-0 left-0 w-full z-50 transition-all duration-500 ease-in-out transform -translate-y-full opacity-0'"
-        
+   :class="showNavbar 
+    ? 'fixed top-0 left-0 w- md:w-full z-50 transition-all duration-500 ease-in-out transform translate-y-0 opacity-100' 
+    : 'fixed top-0 left-0 w-full z-50 transition-all duration-500 ease-in-out transform -translate-y-full opacity-0'"
+
     >
     {{--  backdrop-blur-xl bg-white/10 --}}
         <!-- Background blur -->
@@ -19,18 +19,17 @@
 
         <!-- Konten navbar -->
         <div class="relative p-4 flex items-center justify-between">
-            <div class="flex items-center -mb-3">
+            <div class="hidden md:flex items-center -mb-3">
            <img class="h-13 mr-4 " src="{{ asset('build/images/logo.png') }}" alt="Logo">
            <div>
-              <h1 class="text-xl italic font-black text-white">BINARY WASTE</h1>
-              <p class="text-[0.5rem] italic text-white">Digital Solution for a Zero-Waste World!</p>
+              <h1 class="text-xl  font-black text-white">BINARY WASTE</h1>
            </div>
          </div>
             {{-- <div class="w-32">
                 <img src="{{ asset('build/images/logo.png') }}" alt="Logo" class="h-13" />
             </div> --}}
 
-            <div class="flex items-center space-x-10 text-2xl font-sans">
+            <div class="flex items-center space-x-10  text-3l md:text-2xl font-sans">
                 <ul class="flex space-x-10">
                     <li>
                          <a href="/"  class="{{ Request::is('/')  ? 'text-[#ccc14e] font-black pb-3 border-b-4 border-[#ccc14e]' : 'relative text-white font-normal pb-4 after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-full after:h-[5px] after:bg-[#ccc14e] after:origin-center after:scale-x-0  after:transition-transform after:duration-500 hover:after:scale-x-100' }}">
@@ -44,12 +43,12 @@
                     </li>
                     <li>
                         <a href="/blog"  class="{{ Request::is('blog')  ? 'text-[#ccc14e] font-black pb-3 border-b-4 border-[#ccc14e]' : 'relative text-white font-normal pb-4 after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-full after:h-[5px] after:bg-[#ccc14e] after:origin-center after:scale-x-0  after:transition-transform after:duration-500 hover:after:scale-x-100' }}">
-                            Blog
+                            Gerakan
                         </a>
                     </li>
                     <li>
                       <a href="/report"  class="{{ Request::is('report')  ? 'text-[#ccc14e] font-black pb-3 border-b-4 border-[#ccc14e]' : 'relative text-white font-normal pb-4 after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-full after:h-[5px] after:bg-[#ccc14e] after:origin-center after:scale-x-0  after:transition-transform after:duration-500 hover:after:scale-x-100' }}">
-                            perpustakaan
+                            Laporan
                         </a>
                     </li>
                     <li>
@@ -58,26 +57,27 @@
                         </a>
                     </li>
                 </ul>
-                
-                <button @click="isOpen = !isOpen" class="inline-flex items-center font-black text-[#ccc14e]">
-                    @auth
+                <div class="hidden md:flex space-x-5">
+
+                    <button @click="isOpen = !isOpen" class="inline-flex items-center font-black text-[#ccc14e]">
+                        @auth
                         {{ Auth::user()->name }}
-                    @else
+                        @else
                         Masuk
-                    @endauth
-                </button>
-        
-                <!-- Ikon Expand -->
-                <img
+                        @endauth
+                    </button>
+                    
+                    <!-- Ikon Expand -->
+                    <img
                     @click="isOpen = !isOpen"
                     src="{{ asset('build/images/iconexpands.png') }}"
-                    class="h-7 mt-1 -ml-7 cursor-pointer transition ease-in-out duration-500"
+                    class="h-7 mt-1 -ml-7 cursor- ml-0 transition ease-in-out duration-500"
                     :class="{'rotate-180': isOpen}"
                     alt="expand icon"
-                />
-            
-                <!-- Dropdown -->
-                <div
+                    />
+                    
+                    <!-- Dropdown -->
+                    <div
                     x-show="isOpen"
                     @mouseover="isHovered = true"
                     @click="isHovered = false; isOpen = false"
@@ -88,27 +88,28 @@
                     x-transition:leave-start="opacity-100 scale-100"
                     x-transition:leave-end="opacity-0 scale-x-95"
                     class="absolute right-15 mt-40 w-35 origin-top-right rounded-md bg-white py-1 ring-1 shadow-lg ring-black/5 z-50"
-                >
+                    >
                     @auth
-                        <a @click="isBuka = !isBuka" id="btnProfil" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-200">Profile</a>
-                        <form action="{{ route('logout') }}" method="post" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-200">
-                            @csrf
-                            <button type="submit">Logout</button>
-                        </form>
+                    <a @click="isBuka = !isBuka" id="btnProfil" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-200">Profile</a>
+                    <form action="{{ route('logout') }}" method="post" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-200">
+                        @csrf
+                        <button type="submit">Logout</button>
+                    </form>
                     @else
-                        <a href="/auth/login" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-200">Login</a>
-                        <a href="/auth/register" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-200">Register</a>
+                    <a href="/auth/login" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-200">Login</a>
+                    <a href="/auth/register" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-200">Register</a>
                     @endauth
                 </div>
             </div>
         </div>        
+    </div>
     </nav>
     <section x-data="{isProfil : false,isClose : false}" 
     id="profil"  class=" flex hidden fixed inset-0 z-50 opacity-0 justify-center items-center py-12 min-h-screen transition-all duration-500 ease-in-out" >
-       @auth
-                    
-       <div class="bg-white w-full max-w-6xl p-10 rounded-3xl shadow-2xl grid grid-cols-1 md:grid-cols-2 gap-10 ">
-           <div class="flex flex-col items-center text-center md:text-left">
+    @auth
+    
+    <div class="bg-white w-full max-w-6xl p-10 rounded-3xl shadow-2xl grid grid-cols-1 md:grid-cols-2 gap-10 ">
+        <div class="flex flex-col items-center text-center md:text-left">
                <button  @mouseover="isClose = !isClose" {{-- belum bisa --}}
                id="btnProfileClose"><img src="{{ asset('build/images/no.png') }}" alt="" srcset="" class="mr-120 transform-all duration-300 ease-in-out":class="{'rotate-180': isClose}"></button>
                <img src="{{Avatar::create(Auth::user()->name)->toBase64()}}" alt="Profile Picture"
@@ -180,7 +181,7 @@
     @endauth    
 </section>
 
- <script>
+ <script src="">
     AOS.init();
     document.getElementById('btnProfil').addEventListener('click',()=>{
         const Profil = document.getElementById('profil');

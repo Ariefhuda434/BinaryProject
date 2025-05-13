@@ -42,11 +42,15 @@ public function ResetPw(Request $request)
         return back()->with('error', 'Password lama salah.');
     }
     $user->password = Hash::make($request->password_baru);
-    $user->save();
+    // $user->save();
 
     return back()->with('status', 'Password berhasil direset!');
 }
 
+// public function cek(Request $request){
+//      $user = Auth::user();
+//     dd($user);
+// }
 
 
     // Tampilkan halaman register

@@ -5,14 +5,14 @@
 @section('content')
     
 <div class="flex flex-col items-center w-full mx-auto h-full px-4 ">      
-    <p class="text-xl mt-5 h-7 text-gray-500">Let's See About Binary Waste</p>
+    {{-- <p class="text-xl mt-5 h-7 text-gray-500">Let's See About Binary Waste</p> --}}
 
     <div class="flex items-center mt-4 mr-6">
-        <img class="h-24 mr-5 " src="{{ asset('build/images/logo.png') }}" alt="Logo">
+        {{-- <img class="h-24 mr-5 " src="{{ asset('build/images/logo.png') }}" alt="Logo">
         <div>
             <h1 class="text-6xl font-black">BINARY WASTE</h1>
-            <p class="text-2xl font-bold">Digital Solution for a Zero-Waste World!</p>
-        </div>
+        </div> --}}
+        <p class="text-5xl font-black font-sans mt-20 mb-10 text-white ">Get Involved with Binary Waste</p>
     </div>
     <div class="max-w-[1500px]  mx-auto px-4">
         <div class="grid grid-cols-1 md:grid-cols-4 gap-8">

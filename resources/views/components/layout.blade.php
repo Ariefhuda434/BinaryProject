@@ -2,8 +2,8 @@
 <html lang="en">
 
 <x-head></x-head>
-
-<body class="font-roboto bg-[#5e6f52] scroll-smooth">
+@vite(['resources/css/app.css', 'resources/js/app.js'])
+<body class="bg-[#5e6f52] scroll-smooth">
 
     
     <main>

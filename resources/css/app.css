@@ -1,4 +1,5 @@
 @import 'tailwindcss';
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
 @source '../../storage/framework/views/*.php';
@@ -10,19 +11,11 @@
     --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
         'Segoe UI Symbol', 'Noto Color Emoji';
         --font-roboto: 'Roboto', sans-serif; 
+        --font-bebas:'Bebas Neue';
+
 }
 
-.bg-olive {
-    background-color: var(--olive);
-  }
-  
-  .text-olive {
-    color: var(--olive);
-  }
-  
-  .text-olivedarker{
-    color: var(--olivedarker);
-  }
+
   @layer utilities {
     @keyframes slideLeft {
       0% {

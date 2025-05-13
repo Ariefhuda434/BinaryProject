@@ -6,10 +6,18 @@ use App\Http\Controllers\ReportController;
 use App\Models\Beranda;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BerandaController;
+use App\Http\Controllers\EmailController;
+use Illuminate\Container\Attributes\Auth;
+use Illuminate\Http\Request;
+
+Route::get('/cek', [AuthController::class, 'cek'])->middleware('auth');
 
 Route::get('/', function () {
     return view('beranda');
 })->name('beranda');
+Route::get('/mitra', function () {
+    return view('mitra');
+})->name('mitra');
 
 Route::get('beranda/{id}', [BerandaController::class, 'show']);
 
@@ -32,7 +40,7 @@ Route::get('auth/verivy', function () {
     return view('auth/verivy');
 })->name('verivyPage');
 
-
+Route::post('/send-email', [EmailController::class, 'sendEmail']);
 
 
 Route::post('/update-password', [AuthController::class, 'ResetPw'])->name('reset.password');
