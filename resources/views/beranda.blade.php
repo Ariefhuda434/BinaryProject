@@ -74,6 +74,7 @@
    </div>
 
    </div>
+
    <section>
  <div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto mt-20 px-4">
     <div class="p-6 flex flex-col items-center justify-center text-center" >
@@ -96,10 +97,9 @@
         <p class="text-sm md:text-lg text-white mt-2">Proyek Lingkungan</p>
     </div>
 </div>
-
-
    </section>
-   </section>
+   
+  </section>
 
 
    
@@ -131,6 +131,7 @@
     </div>
   </div>
 </section>
+
 <section>
   <div class="bg-blue-100 min-h-screen flex flex-col justify-center items-center">
   <p class="text-center text-xl font-semibold mb-4">Daftarkan Perusahaanmu</p>

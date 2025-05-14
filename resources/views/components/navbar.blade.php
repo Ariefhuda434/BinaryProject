@@ -1,4 +1,4 @@
-    <nav x-data="{ isOpen: false, isBuka: false, showNavbar: true, lastScrollY: window.scrollY}"
+    <nav x-data="{ isOpen: false, isBuka: false, showNavbar: true, isKecil: false, lastScrollY: window.scrollY}"
     @scroll.window="
         if (window.scrollY - lastScrollY > 90) {
             showNavbar = false;
@@ -8,37 +8,62 @@
             lastScrollY = window.scrollY;
         }
     "
-   :class="showNavbar 
-  ? 'fixed top-0 left-0 hidden md:w-screen z-50 transition-all duration-500 ease-in-out transform translate-y-0 opacity-100' 
+    :class="showNavbar 
+  ? 'fixed top-0 left-0 w-screen z-50 transition-all duration-500 ease-in-out transform translate-y-0 opacity-100' 
   : 'fixed top-0 left-0 w-full z-50 transition-all duration-500 ease-in-out transform -translate-y-full opacity-0'"
     >
- <nav x-data="{ isOpen: false, showNavbar: true }" @scroll.window="
-        if (window.scrollY - lastScrollY > 90)
-         { showNavbar = false; lastScrollY = window.scrollY; } 
-        else if (lastScrollY - window.scrollY > 30) 
-        { showNavbar = true; lastScrollY = window.scrollY; }"
-    :class="showNavbar ? 'fixed top-0 left-0 w-full md:w-screen z-50 transition-all duration-500 ease-in-out transform translate-y-0 opacity-100' 
-                      : 'fixed top-0 left-0 w-full z-50 transition-all duration-500 ease-in-out transform -translate-y-full opacity-0'">
-
-    <button @click="isOpen = !isOpen" class="md:hidden flex flex-col items-center p-4 text-white">
-        <span class="block w-7 h-1 bg-white mb-1"></span>
-        <span class="block w-7 h-1 bg-white mb-1"></span>
-        <span class="block w-7 h-1 bg-white"></span>
-    </button>
-    <div x-show="isOpen" class="absolute top-0 left-0 w-1/3 h-screen bg-black">
-        <div>
+    
+         <!-- navbar kecil) -->
+    <div class="md:hidden flex justify-between items-center p-4">
+        <div class="flex items-center">
+            <img class="h-10 mr-2" src="{{ asset('build/images/logo.png') }}" alt="Logo">
+            <h1 class="text-xl font-black text-white">BINARY WASTE</h1>
+        </div>
+        <button @click="isKecil = !isKecil" class="text-white">
+            <span class="block w-7 h-1 bg-white mb-1"></span>
+            <span class="block w-7 h-1 bg-white mb-1"></span>
+            <span class="block w-7 h-1 bg-white"></span>
+        </button>
+    </div>
+    <div x-show="isKecil" 
+         x-transition
+         class="md:hidden bg-white p-4 space-y-4">
+        <a href="/" class="block">Beranda</a>
+        <a href="/tentang" class="block">Tentang</a>
+        <a href="/blog" class="block">Gerakan</a>
+        <a href="/report" class="block">Laporan</a>
+        <a href="/faq" class="block">FAQ</a>
+        
+        <div class="pt-4 border-t">
+            <button @click="isOpen = !isOpen" class="flex items-center font-black text-[#ccc14e]">
+                @auth
+                {{ Auth::user()->name }}
+                @else
+                Masuk
+                @endauth
+                <img src="{{ asset('build/images/iconexpands.png') }}" 
+                     class="h-5 ml-2 transition-transform duration-300"
+                     :class="{'rotate-180': isOpen}">
+            </button>
             
+            <div x-show="isOpen" x-transition class="mt-2 space-y-2 pl-4">
+                @auth
+                <a @click="isBuka = !isBuka" class="block">Profile</a>
+                <form action="{{ route('logout') }}" method="post">
+                    @csrf
+                    <button type="submit" class="block">Logout</button>
+                </form>
+                @else
+                <a href="/auth/login" class="block">Login</a>
+                <a href="/auth/register" class="block">Register</a>
+                @endauth
+            </div>
         </div>
     </div>
-</nav>
-    
-    {{--  backdrop-blur-xl bg-white/10 --}}
-        <!-- Background blur -->
-        <div class="absolute inset-0"></div>
 
-        <!-- Konten navbar -->
-        <div class="relative p-4 flex items-center justify-between">
-            <div class="hidden md:flex items-center -mb-3">
+
+        <div class="hidden md:flex md:relative md:p-4 md:items-center md:justify-between w-full">
+            <div class="md:flex items-center -mb-3">
            <img class="h-13 mr-4 " src="{{ asset('build/images/logo.png') }}" alt="Logo">
            <div>
               <h1 class="text-xl  font-black text-white">BINARY WASTE</h1>
