@@ -9,10 +9,29 @@
         }
     "
    :class="showNavbar 
-    ? 'fixed top-0 left-0 w- md:w-full z-50 transition-all duration-500 ease-in-out transform translate-y-0 opacity-100' 
-    : 'fixed top-0 left-0 w-full z-50 transition-all duration-500 ease-in-out transform -translate-y-full opacity-0'"
-
+  ? 'fixed top-0 left-0 hidden md:w-screen z-50 transition-all duration-500 ease-in-out transform translate-y-0 opacity-100' 
+  : 'fixed top-0 left-0 w-full z-50 transition-all duration-500 ease-in-out transform -translate-y-full opacity-0'"
     >
+ <nav x-data="{ isOpen: false, showNavbar: true }" @scroll.window="
+        if (window.scrollY - lastScrollY > 90)
+         { showNavbar = false; lastScrollY = window.scrollY; } 
+        else if (lastScrollY - window.scrollY > 30) 
+        { showNavbar = true; lastScrollY = window.scrollY; }"
+    :class="showNavbar ? 'fixed top-0 left-0 w-full md:w-screen z-50 transition-all duration-500 ease-in-out transform translate-y-0 opacity-100' 
+                      : 'fixed top-0 left-0 w-full z-50 transition-all duration-500 ease-in-out transform -translate-y-full opacity-0'">
+
+    <button @click="isOpen = !isOpen" class="md:hidden flex flex-col items-center p-4 text-white">
+        <span class="block w-7 h-1 bg-white mb-1"></span>
+        <span class="block w-7 h-1 bg-white mb-1"></span>
+        <span class="block w-7 h-1 bg-white"></span>
+    </button>
+    <div x-show="isOpen" class="absolute top-0 left-0 w-1/3 h-screen bg-black">
+        <div>
+            
+        </div>
+    </div>
+</nav>
+    
     {{--  backdrop-blur-xl bg-white/10 --}}
         <!-- Background blur -->
         <div class="absolute inset-0"></div>
@@ -57,7 +76,7 @@
                         </a>
                     </li>
                 </ul>
-                <div class="hidden md:flex space-x-5">
+                <div class="md:flex space-x-5">
 
                     <button @click="isOpen = !isOpen" class="inline-flex items-center font-black text-[#ccc14e]">
                         @auth
@@ -104,6 +123,9 @@
         </div>        
     </div>
     </nav>
+
+
+    
     <section x-data="{isProfil : false,isClose : false}" 
     id="profil"  class=" flex hidden fixed inset-0 z-50 opacity-0 justify-center items-center py-12 min-h-screen transition-all duration-500 ease-in-out" >
     @auth

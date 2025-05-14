@@ -87,7 +87,7 @@
     </div>
 
     <div class="p-6 flex flex-col items-center justify-center text-center">
-        <p id="numberCount2" data-max="920" class="text-4xl md:text-5xl font-extrabold text-green-600">920</p>
+        <p id="numberCount2" data-max="920" class="text-4xl md:text-5xl font-extrabold font-[var(--font-bebas)]">920</p>
         <p class="text-sm md:text-lg text-white mt-2">Jumlah Gol Ronaldo</p>
     </div>
 

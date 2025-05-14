@@ -1,5 +1,4 @@
 @import 'tailwindcss';
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
 @source '../../storage/framework/views/*.php';
@@ -15,8 +14,11 @@
 
 }
 
-
+  @layer components{
+    fonsfamily : bebas:'Bebas Neue'
+  }
   @layer utilities {
+    
     @keyframes slideLeft {
       0% {
         transform: translateX(100px);
