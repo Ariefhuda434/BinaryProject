@@ -60,7 +60,7 @@
 
    <article class="flex flex-col items-center justify-center h-60 w-80 text-center bg-white text-black rounded-xl shadow-lg p-6 transition-transform duration-300 hover:scale-105 hover:shadow-xl hover:bg-gray-100">
       <div class="bg-[#ccc14e] p-4 rounded-full mb-4">
-         <img src="{{ asset('build/images/hero.png') }}" alt="hero" class="w-10 h-10">
+         <img src="{{ asset('build/images/hero.png') }}" alt="hero" class="hover:rotate-20 transform-all duration-300 hover:h-11 hover:w-11  ease-in-out w-10 h-10">
       </div>
       <h2 class="text-xl font-bold text-gray-800 mb-2">Pahlawan Lingkungan</h2>
       <p class="text-sm text-gray-600 leading-snug">
@@ -100,9 +100,6 @@
    </section>
    
   </section>
-
-
-   
 <section class="bg-gradient-to-r from-gray-200 -mt-20 via-white to-gray-200 py-20 px-6 md:px-20">
   <div class="flex flex-col md:flex-row items-center gap-10" data-aos="zoom-out-up">
     
@@ -117,7 +114,7 @@
       <p class="text-gray-700 text-lg mb-6">
         “Kami percaya bahwa perubahan besar dimulai dari langkah kecil. <br class="hidden md:block">
         <span class="text-green-600 font-semibold">Binary Waste</span> hadir untuk menghubungkan <span class="text-green-600 font-semibold">teknologi</span>, <span class="text-green-600 font-semibold">komunitas</span>, dan <span class="text-green-600 font-semibold">kesadaran lingkungan</span> demi masa depan Indonesia yang lebih baik.”
-      <button id="btnMitra" class="inline-block bg-green-600 text-white px-6 py-3 rounded-full shadow-md hover:bg-green-700 transition">
+      <button id="btnMitra" class="block bg-green-600 text-white px-6 mx-auto md:mx-0 py-3 rounded-full mt-5 shadow-md hover:bg-green-700 transition">
         Gabung Sebagai Mitra
       </button>
 
@@ -131,45 +128,70 @@
   </div>
 </section>
 
-<section id="mitra" class="hidden">
-  <div class="bg-blue-100 min-h-screen flex flex-col justify-center items-center">
-  <p class="text-center text-xl font-semibold mb-4">Daftarkan Perusahaanmu</p>
-  @if (session('succes'))
-                <div class="bg-green-100 text-green-700 p-3 rounded-lg text-sm">
-                    Berhasil berhasil hore hore
-                </div>
-            @elseif (session('error'))
-                <div class="bg-red-100 text-red-700 p-3 rounded-lg text-sm">
-                    What the hell omagat
-                </div>
-            @endif
 
-  <form action="{{ route('jadiMitra') }}" method="POST" class="flex flex-col gap-4 w-3/4 max-w-md">
-    @csrf
-  
-    <input type="text" name="namaMitra" placeholder="Nama Mitra"class="py-2 px-4 bg-white rounded shadow" data-aos="fade-up-right" data-aos-duration="300">
-    <input type="text" name="tujuan" placeholder="Tujuan Menjadi Mitra" class="py-2 px-4 bg-white rounded shadow" data-aos="fade-up-left" data-aos-duration="800">
-    
-    <select name="kategoriMitra" required class="bg-white py-2 px-4 rounded" id="" data-aos="fade-up-right" data-aos-duration="1000">
-      <option value="Pilihan">Pilihan</option>
-      <option value="Komunitas Lingkungan">Komunitas Lingkungan</option>
-      <option value="Lingkungan Hidup">Lingkungan Hidup</option>
-      <option value="Pendidikan">Pendidikan</option>
-      <option value="Keagamaan">Keagamaan</option>
-      <option value="Kesehatan">Kesehatan</option>
-      <option value="Lainya">Lainya</option>
-    </select>
-    
-    <input type="text" name="alamatMitra" placeholder="Alamat Mitra" class="py-2 px-4 bg-white rounded shadow" data-aos="fade-up-left" data-aos-duration="1200">
-    
-    <input type="email" name="emailMitra" placeholder="Email Mitra" class="py-2 px-4 bg-white rounded shadow" data-aos="fade-up-right" data-aos-duration="1400">
-    
-    <input type="text" name="medsos" placeholder="Instagram/Facebook/Linkedin" class="py-2 px-4 bg-white rounded shadow" data-aos="fade-up-left" data-aos-duration="1600">
-    
-    <button class="py-2 bg-green-200 rounded-full text-center max-w-auto " data-aos="fade-up" data-aos-duration="1800">Submit</button>
-  </form>
+<section id="mitra" class="hidden">
+  <div class="min-h-screen bg-gradient-to-br from-blue-100 via-white to-green-100 flex flex-col justify-center items-center px-4 py-12">
+    <div class="bg-white shadow-2xl rounded-3xl p-8 w-full max-w-xl" data-aos="zoom-in" data-aos-duration="800">
+      <h2 class="text-2xl md:text-3xl font-bold text-center text-green-700 mb-6">
+        Daftarkan Perusahaanmu
+      </h2>
+
+      @if (session('succes'))
+        <div class="bg-green-100 border border-green-300 text-green-800 p-3 rounded-lg text-sm mb-4">
+          Berhasil berhasil hore hore 🎉
+        </div>
+      @elseif (session('error'))
+        <div class="bg-red-100 border border-red-300 text-red-700 p-3 rounded-lg text-sm mb-4">
+          What the hell omagat 😵‍💫
+        </div>
+      @endif
+
+      <form action="{{ route('jadiMitra') }}" method="POST" class="space-y-4">
+        @csrf
+
+        <input type="text" name="namaMitra" placeholder="Nama Mitra"
+          class="w-full py-2.5 px-4  rounded text-sm bg-gray-100 focus:outline-none focus:border-l-10 focus:border-[#5e6f52] transition-all duration-300 ease-in-out"
+          >
+
+        <input type="text" name="tujuan" placeholder="Tujuan Menjadi Mitra"
+          class="w-full py-2.5 px-4  rounded text-sm bg-gray-100 focus:outline-none focus:border-l-10 focus:border-[#5e6f52] transition-all duration-300 ease-in-out"
+          >
+
+        <select name="kategoriMitra" required
+          class="w-full bg-gray-50 py-2.5 px-4  rounded text-sm bg-gray-100 focus:outline-none focus:border-l-10 focus:border-[#5e6f52] transition-all duration-300 ease-in-out"
+          >
+          <option disabled selected value="">Pilih Kategori Mitra</option>
+          <option value="Komunitas Lingkungan">Komunitas Lingkungan</option>
+          <option value="Lingkungan Hidup">Lingkungan Hidup</option>
+          <option value="Pendidikan">Pendidikan</option>
+          <option value="Keagamaan">Keagamaan</option>
+          <option value="Kesehatan">Kesehatan</option>
+          <option value="Lainya">Lainya</option>
+        </select>
+
+        <input type="text" name="alamatMitra" placeholder="Alamat Mitra"
+          class="w-full py-2.5 px-4  rounded text-sm bg-gray-100 focus:outline-none focus:border-l-10 focus:border-[#5e6f52] transition-all duration-300 ease-in-out"
+        >
+
+        <input type="email" name="emailMitra" placeholder="Email Mitra"
+          class="w-full py-2.5 px-4  rounded text-sm bg-gray-100 focus:outline-none focus:border-l-10 focus:border-[#5e6f52] transition-all duration-300 ease-in-out"
+          >
+
+        <input type="text" name="medsos" placeholder="Instagram/Facebook/LinkedIn"
+          class="w-full py-2.5 px-4  rounded text-sm bg-gray-100 focus:outline-none focus:border-l-10 focus:border-[#5e6f52] transition-all duration-300 ease-in-out"
+          >
+
+        <button type="submit"
+          class="w-full bg-[#5e6f52] text-white font-semibold py-3 rounded-full shadow-md transition duration-300 ease-in-out transform hover:scale-105"
+          >
+          Kirim
+        </button>
+      </form>
+    </div>
   </div>
 </section>
+
+
 
 
 
