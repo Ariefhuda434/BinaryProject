@@ -117,10 +117,9 @@
       <p class="text-gray-700 text-lg mb-6">
         “Kami percaya bahwa perubahan besar dimulai dari langkah kecil. <br class="hidden md:block">
         <span class="text-green-600 font-semibold">Binary Waste</span> hadir untuk menghubungkan <span class="text-green-600 font-semibold">teknologi</span>, <span class="text-green-600 font-semibold">komunitas</span>, dan <span class="text-green-600 font-semibold">kesadaran lingkungan</span> demi masa depan Indonesia yang lebih baik.”
-      </p>
-      <a href="/mitra" class="inline-block bg-green-600 text-white px-6 py-3 rounded-full shadow-md hover:bg-green-700 transition">
+      <button id="btnMitra" class="inline-block bg-green-600 text-white px-6 py-3 rounded-full shadow-md hover:bg-green-700 transition">
         Gabung Sebagai Mitra
-      </a>
+      </button>
 
       <div class="mt-6 flex gap-7">
         <img src="{{ asset('build/images/usu.png') }}" alt="Tanda Tangan Arief" class="w-20 h-20 mx-auto md:mx-0">
@@ -132,7 +131,7 @@
   </div>
 </section>
 
-<section>
+<section id="mitra" class="hidden">
   <div class="bg-blue-100 min-h-screen flex flex-col justify-center items-center">
   <p class="text-center text-xl font-semibold mb-4">Daftarkan Perusahaanmu</p>
   @if (session('succes'))
@@ -148,10 +147,10 @@
   <form action="{{ route('jadiMitra') }}" method="POST" class="flex flex-col gap-4 w-3/4 max-w-md">
     @csrf
   
-    <input type="text" name="namaMitra" placeholder="Nama Mitra"class="py-2 px-4 bg-white rounded shadow">
-    <input type="text" name="tujuan" placeholder="Tujuan Menjadi Mitra" class="py-2 px-4 bg-white rounded shadow">
+    <input type="text" name="namaMitra" placeholder="Nama Mitra"class="py-2 px-4 bg-white rounded shadow" data-aos="fade-up-right" data-aos-duration="300">
+    <input type="text" name="tujuan" placeholder="Tujuan Menjadi Mitra" class="py-2 px-4 bg-white rounded shadow" data-aos="fade-up-left" data-aos-duration="800">
     
-    <select name="kategoriMitra" required class="bg-white py-2 px-4 rounded" id="">
+    <select name="kategoriMitra" required class="bg-white py-2 px-4 rounded" id="" data-aos="fade-up-right" data-aos-duration="1000">
       <option value="Pilihan">Pilihan</option>
       <option value="Komunitas Lingkungan">Komunitas Lingkungan</option>
       <option value="Lingkungan Hidup">Lingkungan Hidup</option>
@@ -161,13 +160,13 @@
       <option value="Lainya">Lainya</option>
     </select>
     
-    <input type="text" name="alamatMitra" placeholder="Alamat Mitra" class="py-2 px-4 bg-white rounded shadow">
+    <input type="text" name="alamatMitra" placeholder="Alamat Mitra" class="py-2 px-4 bg-white rounded shadow" data-aos="fade-up-left" data-aos-duration="1200">
     
-    <input type="email" name="emailMitra" placeholder="Email Mitra" class="py-2 px-4 bg-white rounded shadow">
+    <input type="email" name="emailMitra" placeholder="Email Mitra" class="py-2 px-4 bg-white rounded shadow" data-aos="fade-up-right" data-aos-duration="1400">
     
-    <input type="text" name="medsos" placeholder="Instagram/Facebook/Linkedin" class="py-2 px-4 bg-white rounded shadow">
+    <input type="text" name="medsos" placeholder="Instagram/Facebook/Linkedin" class="py-2 px-4 bg-white rounded shadow" data-aos="fade-up-left" data-aos-duration="1600">
     
-    <button class="py-2 bg-green-200 rounded-full text-center max-w-auto ">Submit</button>
+    <button class="py-2 bg-green-200 rounded-full text-center max-w-auto " data-aos="fade-up" data-aos-duration="1800">Submit</button>
   </form>
   </div>
 </section>
@@ -180,7 +179,7 @@
    </footer>
 
    <script>
-
+    AOS.init();
     let bogem = true;
     const scrollDulu = window.scrollY;
    
@@ -214,6 +213,19 @@
   kiyomasa('numberCount1');
   kiyomasa('numberCount2');
   kiyomasa('numberCount3');
+
+  let isActive = true;
+  document.getElementById('btnMitra').addEventListener('click',() =>{
+    const mitra = document.getElementById('mitra');
+    mitra.classList.remove('hidden');
+     setTimeout(() => {
+        mitra.classList.add('opacity-100');
+        mitra.classList.remove('opacity-0');   
+        AOS.refresh();
+        mitra.scrollIntoView({ behavior: 'smooth' });
+        isActive = false;
+    }, 50); 
+  })
     </script>
     @endsection
     
