@@ -23,7 +23,7 @@
     : 'fixed top-0 left-0 w-full z-50 transition-all duration-500 ease-in-out transform -translate-y-full opacity-0'">
 
     <!-- Mobile Navbar -->
-    <div class="md:hidden flex justify-between items-center p-4 bg-black">
+    <div class="md:hidden flex w-screen justify-between items-center p-4 bg-black">
         <div class="flex items-center">
             <img class="h-10 mr-2" src="{{ asset('build/images/logo.png') }}" alt="Logo">
             <h1 class="text-xl font-black text-white">BINARY WASTE</h1>
@@ -46,7 +46,7 @@
                 <a href="/tentang" class="{{ Request::is('tentang') ? 'text-[#ccc14e] font-black' : 'text-gray-700' }}">Tentang</a>
             </li>
             <li>
-                <a href="/blog" class="{{ Request::is('blog') ? 'text-[#ccc14e] font-black' : 'text-gray-700' }}">Gerakan</a>
+                <a href="/blogs" class="{{ Request::is('blog') ? 'text-[#ccc14e] font-black' : 'text-gray-700' }}">Gerakan</a>
             </li>
             <li>
                 <a href="/report" class="{{ Request::is('report') ? 'text-[#ccc14e] font-black' : 'text-gray-700' }}">Laporan</a>
@@ -103,7 +103,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="/blog" class="{{ Request::is('blog') ? 'text-[#ccc14e] font-black pb-4 text-xl border-b-7 border-[#ccc14e]' : 'relative text-xl text-white font-normal pb-3.5 after:absolute after:-bottom-1.5 after:left-1/2 after:-translate-x-1/2 after:w-full after:h-[4px] after:bg-[#ccc14e] after:origin-center after:scale-x-0 after:transition-transform after:duration-500 hover:after:scale-x-100' }}">
+                    <a href="/blogs" class="{{ Request::is('blog') ? 'text-[#ccc14e] font-black pb-4 text-xl border-b-7 border-[#ccc14e]' : 'relative text-xl text-white font-normal pb-3.5 after:absolute after:-bottom-1.5 after:left-1/2 after:-translate-x-1/2 after:w-full after:h-[4px] after:bg-[#ccc14e] after:origin-center after:scale-x-0 after:transition-transform after:duration-500 hover:after:scale-x-100' }}">
                         Gerakan
                     </a>
                 </li>

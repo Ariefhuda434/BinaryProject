@@ -39,16 +39,18 @@
       </div>
 
       <div class="flex justify-center mt-8">
-   <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-<article class="flex flex-col items-center justify-center h-60 w-80 text-center bg-white text-black rounded-xl shadow-lg drop-shadow-lg drop-shadow-black/40 p-6 transition-transform duration-300 hover:scale-105 hover:shadow-xl hover:bg-gray-100">
-  <div class="bg-[#ccc14e] p-4 rounded-full mb-4">
-    <img src="{{ asset('build/images/suaraWarga.png') }}" alt="suara warga" class="w-10 h-10">
-  </div>
-  <h2 class="text-xl font-bold text-gray-800 mb-2">Suara Warga</h2>
-  <p class="text-sm text-gray-600 leading-snug">
-    Tempat bagi masyarakat untuk menyuarakan aspirasi dan keluhan demi lingkungan yang lebih baik.
-  </p>
-</article>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+     <a href="/perpustakaan">
+     <article class="flex flex-col items-center justify-center h-60 w-80 text-center bg-white text-black rounded-xl shadow-lg drop-shadow-lg drop-shadow-black/40 p-6 transition-transform duration-300 hover:scale-105 hover:shadow-xl hover:bg-gray-100">
+      <div class="bg-[#ccc14e] p-4 rounded-full mb-4">
+        <img src="{{ asset('build/images/suaraWarga.png') }}" alt="suara warga" class="w-10 h-10">
+      </div>
+      <h2 class="text-xl font-bold text-gray-800 mb-2">Suara Warga</h2>
+      <p class="text-sm text-gray-600 leading-snug">
+        Tempat bagi masyarakat untuk menyuarakan aspirasi dan keluhan demi lingkungan yang lebih baik.
+      </p>
+    </article>
+    </a>
 <article class="flex flex-col items-center justify-center h-60 w-80 text-center bg-white text-black rounded-xl shadow-lg drop-shadow-lg drop-shadow-black/40 p-6 transition-transform duration-300 hover:scale-105 hover:shadow-xl hover:bg-gray-100">
   <div class="bg-[#ccc14e] p-4 rounded-full mb-4">
     <img src="{{ asset('build/images/gerakan.png') }}" alt="sampah" class="w-10 h-10">
@@ -114,7 +116,7 @@
       <img src="{{ asset('build/images/Desain tanpa judul.gif') }}" alt="Arief Huda" class="w-300 mx-auto md:mx-0">
     </div>
 
-    <div class="md:w-1/2 text-center -mt-30 md:text-left">
+    <div class="md:w-1/2 text-center md:-mt-10  -mt-30 md:text-left">
       <h2 class="text-3xl md:text-4xl font-bold text-green-700 mb-4 leading-tight">
         Bersama Kita Bisa<br><span class="text-green-500">Mengubah Lingkungan</span>
       </h2>

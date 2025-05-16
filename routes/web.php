@@ -1,15 +1,17 @@
 <?php
 
-use App\Http\Controllers\AuthController;
 
-use App\Http\Controllers\ReportController;
-use App\Models\Beranda;
+use App\Models\Blog;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\BerandaController;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\EmailController;
 use App\Http\Controllers\MitraController;
-use Illuminate\Container\Attributes\Auth;
-use Illuminate\Http\Request;
+
+use App\Http\Controllers\ReportController;
+use App\Http\Controllers\BerandaController;
+
+
 
 Route::get('/cek', [AuthController::class, 'cek'])->middleware('auth');
 
@@ -25,9 +27,20 @@ Route::get('beranda/{id}', [BerandaController::class, 'show']);
 Route::get('/tentang', function () {
     return view('tentang');
 });
-Route::get('/blog', function () {
-    return view('blog');
+
+Route::get('/blogs', function () {
+    return view('blogs', [ 
+        'blogs' => Blog::all()
+    ]);
+})->name('blogs');
+
+Route::get('/blogs/{blog:slug}', function(Blog $blog){
+ 
+        if (!$blog) abort(404);
+
+    return view('blog', ['blog' => $blog]);
 });
+
 
 Route::get('/anu', function () {
     return view('anu');
@@ -36,6 +49,10 @@ Route::get('/anu', function () {
 Route::get('/faq', function () {
     return view('faq');
 });
+Route::get('/perpustakaan', function () {
+    return view('perpustakaan');
+});
+
 
 Route::get('auth/verivy', function () {
     return view('auth/verivy');

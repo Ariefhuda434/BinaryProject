@@ -8,11 +8,12 @@
 
 <div class="mx-auto mt-20 px-6 md:px-20">
     <div class="text-center mb-12">
-        <h1 class="text-3xl md:text-5xl font-bold text-[#5e6f52]">sedondh</h1>
+        <h1 class="text-3xl md:text-5xl font-bold text-[#5e6f52]">Gerakan Peduli Sampah</h1>
         <p class="text-gray-600 mt-4">Ikuti berbagai aksi nyata demi lingkungan yang lebih baik.</p>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        @foreach ($blogs as $blog)
             <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
                 <img src="{{ asset('build/images/awn.jpg') }}" alt="Event" class="w-full h-48 object-cover">
                 <div class="p-5">
@@ -37,13 +38,14 @@
                         <p class="text-gray-600 text-sm">{{ $blog['lokasi'] }}</p>
                     </div>
 
-                    <a href="/blogs/{{ $blog['id'] }}">
+                    <a href="/blogs/{{ $blog['slug'] }}">
                         <button class="mt-4 bg-[#5e6f52] text-white px-4 py-2 rounded-full text-sm hover:bg-[#4a5a40] transition">
                             Gabung
                         </button>
                     </a>
                 </div>
             </div>
+        @endforeach
     </div>
 </div>
 
