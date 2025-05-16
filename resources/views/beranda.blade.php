@@ -2,9 +2,13 @@
    @section('title', 'Beranda')  
    @section('content')
 
-   <section class="relative w-full h-auto pb-20 -mt-40 mb-20 bg-[#5e6f52]">
-   <div class="absolute inset-0 h-screen bg-cover bg-top " style="background-image: url('{{ asset('build/images/trashBeranda.jpg') }}')">
-      <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-transparent"></div>
+   <section class="relative w-full h-auto pb-20 -mt-40 mb-20 bg-[#57674c]">
+   <div class="absolute inset-0 h-screen bg-cover  opacity-90 " style="background-videos: url('{{ asset('build/images/trashBeranda.jpg') }}')">
+      <video class="absolute inset-0 h-full w-full object-cover" autoplay muted loop playsinline>
+    <source src="{{ asset('build/videos/vidio kelompok terbaik.mp4') }}" type="video/mp4" />
+    Browser Anda tidak mendukung video.
+    </video>  
+    <div class="absolute inset-0 bg-gradient-to-r  from-black/80 via-black/60 to-transparent"></div>
    </div>
 
    <div class="relative z-10 max-w-screen-xl mx-auto px-6 pt-70">
@@ -34,9 +38,9 @@
          </div>
       </div>
 
-      <div class="flex justify-center mt-4">
+      <div class="flex justify-center mt-8">
    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-<article class="flex flex-col items-center justify-center h-60 w-80 text-center bg-white text-black rounded-xl shadow-lg drop-shadow-lg drop-shadow-black/50 p-6 transition-transform duration-300 hover:scale-105 hover:shadow-xl hover:bg-gray-100">
+<article class="flex flex-col items-center justify-center h-60 w-80 text-center bg-white text-black rounded-xl shadow-lg drop-shadow-lg drop-shadow-black/40 p-6 transition-transform duration-300 hover:scale-105 hover:shadow-xl hover:bg-gray-100">
   <div class="bg-[#ccc14e] p-4 rounded-full mb-4">
     <img src="{{ asset('build/images/suaraWarga.png') }}" alt="suara warga" class="w-10 h-10">
   </div>
@@ -45,7 +49,7 @@
     Tempat bagi masyarakat untuk menyuarakan aspirasi dan keluhan demi lingkungan yang lebih baik.
   </p>
 </article>
-<article class="flex flex-col items-center justify-center h-60 w-80 text-center bg-white text-black rounded-xl shadow-lg p-6 transition-transform duration-300 hover:scale-105 hover:shadow-xl hover:bg-gray-100">
+<article class="flex flex-col items-center justify-center h-60 w-80 text-center bg-white text-black rounded-xl shadow-lg drop-shadow-lg drop-shadow-black/40 p-6 transition-transform duration-300 hover:scale-105 hover:shadow-xl hover:bg-gray-100">
   <div class="bg-[#ccc14e] p-4 rounded-full mb-4">
     <img src="{{ asset('build/images/gerakan.png') }}" alt="sampah" class="w-10 h-10">
   </div>
@@ -58,13 +62,13 @@
 
 <button id="tombolDitekan">
 
-   <article class="flex flex-col items-center justify-center h-60 w-80 text-center bg-white text-black rounded-xl shadow-lg p-6 transition-transform duration-300 hover:scale-105 hover:shadow-xl hover:bg-gray-100">
+   <article class="flex flex-col items-center justify-center h-60 w-80 text-center bg-white text-black rounded-xl  shadow-lg drop-shadow-lg drop-shadow-black/40 p-6 transition-transform duration-300 hover:scale-105 hover:shadow-xl hover:bg-gray-100">
       <div class="bg-[#ccc14e] p-4 rounded-full mb-4">
          <img src="{{ asset('build/images/hero.png') }}" alt="hero" class="hover:rotate-20 transform-all duration-300 hover:h-11 hover:w-11  ease-in-out w-10 h-10">
       </div>
-      <h2 class="text-xl font-bold text-gray-800 mb-2">Pahlawan Lingkungan</h2>
+      <h2 class="text-xl font-bold text-gray-800 mb-2">Sahabat Bumi</h2>
       <p class="text-sm text-gray-600 leading-snug">
-         Apresiasi untuk individu dan komunitas yang konsisten menjaga dan melestarikan lingkungan.
+      Sahabat setia bumi yang selalu hadir menjaga kebersihan dan kelestarian lingkungan bersama Binary Waste.
       </p>  
    </p>
 </article>
@@ -75,53 +79,56 @@
 
    </div>
 
-   <section>
- <div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto mt-20 px-4">
-    <div class="p-6 flex flex-col items-center justify-center text-center" >
-        <p id="numberCount" data-max="300" class="text-4xl md:text-5xl font-extrabold text-green-600">300</p>
-        <p class="text-sm md:text-lg text-white mt-2">Jumlah Mitra Aktif</p>
-    </div>
+   <section class="mt-23 px-4 font-inter">
+  <div class="max-w-6xl mx-auto p-8 rounded-2xl shadow-xl bg-white ">
+    <div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-center">
+      <div class="flex flex-col items-center">
+        <p id="numberCount" data-max="300" class="text-4xl md:text-5xl font-extrabold text-gray-900">300</p>
+        <p class="text-base md:text-lg text-gray-500 mt-2">Mitra Terafiliasi</p>
+      </div>
 
-    <div class="p-6 flex flex-col items-center justify-center text-center">
-        <p id="numberCount1" data-max="280" class="text-4xl md:text-5xl font-extrabold text-green-600">280</p>
-        <p class="text-sm md:text-lg text-white mt-2">Pengguna Terdaftar</p>
-    </div>
+      <div class="flex flex-col items-center">
+        <p id="numberCount1" data-max="280" class="text-4xl md:text-5xl font-extrabold text-gray-900">280</p>
+        <p class="text-base md:text-lg text-gray-500 mt-2">Binarians Terdaftar</p>
+      </div>
 
-    <div class="p-6 flex flex-col items-center justify-center text-center">
-        <p id="numberCount2" data-max="920" class="text-4xl md:text-5xl font-extrabold font-[var(--font-bebas)]">920</p>
-        <p class="text-sm md:text-lg text-white mt-2">Jumlah Gol Ronaldo</p>
-    </div>
+      <div class="flex flex-col items-center">
+        <p id="numberCount2" data-max="350" class="text-4xl md:text-5xl font-extrabold text-gray-900">350</p>
+        <p class="text-base md:text-lg text-gray-500 mt-2">Laporan Diterima</p>
+      </div>
 
-    <div class="p-6 flex flex-col items-center justify-center text-center">
-        <p id="numberCount3" data-max="120" class="text-4xl md:text-5xl font-extrabold text-green-600">120</p>
-        <p class="text-sm md:text-lg text-white mt-2">Proyek Lingkungan</p>
+      <div class="flex flex-col items-center">
+        <p id="numberCount3" data-max="120" class="text-4xl md:text-5xl font-extrabold text-gray-900">120</p>
+        <p class="text-base md:text-lg text-gray-500 mt-2">Gerakan Terealisasi</p>
+      </div>
     </div>
-</div>
-   </section>
+  </div>
+</section>
+
    
   </section>
-<section class="bg-gradient-to-r from-gray-200 -mt-20 via-white to-gray-200 py-20 px-6 md:px-20">
+<section class="bg-white md:-mt-80 -mt-60  py-20 px-6 md:px-20">
   <div class="flex flex-col md:flex-row items-center gap-10" data-aos="zoom-out-up">
     
     <div class="md:w-1/2">
-      <img src="{{ asset('build/images/Binary.svg') }}" alt="Arief Huda" class="w-300 mx-auto md:mx-0">
+      <img src="{{ asset('build/images/Desain tanpa judul.gif') }}" alt="Arief Huda" class="w-300 mx-auto md:mx-0">
     </div>
 
-    <div class="md:w-1/2 text-center md:text-left">
-      <h2 class="text-4xl font-bold text-green-700 mb-4 leading-tight">
+    <div class="md:w-1/2 text-center -mt-30 md:text-left">
+      <h2 class="text-3xl md:text-4xl font-bold text-green-700 mb-4 leading-tight">
         Bersama Kita Bisa<br><span class="text-green-500">Mengubah Lingkungan</span>
       </h2>
       <p class="text-gray-700 text-lg mb-6">
         “Kami percaya bahwa perubahan besar dimulai dari langkah kecil. <br class="hidden md:block">
         <span class="text-green-600 font-semibold">Binary Waste</span> hadir untuk menghubungkan <span class="text-green-600 font-semibold">teknologi</span>, <span class="text-green-600 font-semibold">komunitas</span>, dan <span class="text-green-600 font-semibold">kesadaran lingkungan</span> demi masa depan Indonesia yang lebih baik.”
-      <button id="btnMitra" class="block bg-green-600 text-white px-6 mx-auto md:mx-0 py-3 rounded-full mt-5 shadow-md hover:bg-green-700 transition">
+      <button id="btnMitra" class="block bg-[#57674c] text-white px-6 mx-auto md:mx-0 py-3 rounded-full mt-5 shadow-md hover:bg-[#ccc14e] transition">
         Gabung Sebagai Mitra
       </button>
 
       <div class="mt-6 flex gap-7">
         <img src="{{ asset('build/images/usu.png') }}" alt="Tanda Tangan Arief" class="w-20 h-20 mx-auto md:mx-0">
-        <img src="{{ asset('build/images/kfc.png') }}" alt="Tanda Tangan Arief" class="w-20 h-20 mx-auto md:mx-0">
-        <img src="{{ asset('build/images/ferrari.png') }}" alt="Tanda Tangan Arief" class="w-18 h-20 mx-auto md:mx-0">
+        <img src="{{ asset('build/images/ui.png') }}" alt="Tanda Tangan Arief" class="w-20 h-20 mx-auto md:mx-0">
+        <img src="{{ asset('build/images/unilever.png') }}" alt="Tanda Tangan Arief" class="w-18 h-20 mx-auto md:mx-0">
       
       </div>
     </div>
@@ -130,10 +137,10 @@
 
 
 <section id="mitra" class="hidden">
-  <div class="min-h-screen bg-gradient-to-br from-blue-100 via-white to-green-100 flex flex-col justify-center items-center px-4 py-12">
+  <div class="min-h-screen bg-gradient-to-br from-white via-white to-green-100 flex flex-col justify-center items-center px-4 py-12">
     <div class="bg-white shadow-2xl rounded-3xl p-8 w-full max-w-xl" data-aos="zoom-in" data-aos-duration="800">
       <h2 class="text-2xl md:text-3xl font-bold text-center text-green-700 mb-6">
-        Daftarkan Perusahaanmu
+        Daftarkan 
       </h2>
 
       @if (session('succes'))
@@ -196,7 +203,7 @@
 
 
 
-   <footer class="bg-blue-200 w-full  flex items-center justify-center py-20 mt-20">
+   <footer class="bg-[#57674c] w-full  flex items-center justify-center py-20 mt-20">
    <p class="text-white border-t border-white pt-4 px-6">© 2025 BinaryWaste. All rights reserved.</p>
    </footer>
 

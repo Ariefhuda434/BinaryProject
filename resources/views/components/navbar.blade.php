@@ -84,7 +84,7 @@
     </div>
 
     <!-- Desktop Navbar -->
-    <div class="hidden md:flex md:relative p-4 items-center justify-between w-full bg-[#5e6f52]">
+    <div class="{{ Request::is('/') ? 'hidden md:flex md:relative p-2 items-center justify-between w-full backdrop-blur-sm' : 'hidden md:flex md:relative p-2 items-center justify-between w-full bg-[#57674c]'   }}">
         <div class="flex items-center">
             <img class="h-13 mr-4" src="{{ asset('build/images/logoPutih.png') }}" alt="Logo">
             <h1 class="text-xl font-black text-white">BINARY WASTE</h1>
@@ -93,27 +93,27 @@
         <div class="flex items-center space-x-10">
             <ul class="flex space-x-10">
                 <li>
-                    <a href="/" class="{{ Request::is('/') ? 'text-[#ccc14e] font-black pb-5.5 text-xl border-b-7 border-[#ccc14e]' : 'relative text-white font-normal pb-7 text-xl after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-full after:h-[6.5px] after:bg-[#ccc14e] after:origin-center after:scale-x-0 after:transition-transform after:duration-500 hover:after:scale-x-100' }}">
+                    <a href="/" class="{{ Request::is('/') ? 'text-[#ccc14e] font-black pb-5  border-b-4 border-[#ccc14e]' : 'relative text-white font-normal pb-3.5 text-xl after:absolute after:-bottom-1.5 after:left-1/2 after:-translate-x-1/2 after:w-full after:h-[4px] after:bg-[#ccc14e] after:origin-center after:scale-x-0 after:transition-transform after:duration-500 hover:after:scale-x-100' }}">
                         Beranda
                     </a>
                 </li>
                 <li>
-                    <a href="/tentang" class="{{ Request::is('tentang') ? 'text-[#ccc14e] font-black pb-5.5 text-xl border-b-7 border-[#ccc14e]' : 'relative text-white font-normal text-xl pb-7 after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-full after:h-[6.5px] after:bg-[#ccc14e] after:origin-center after:scale-x-0 after:transition-transform after:duration-500 hover:after:scale-x-100' }}">
+                    <a href="/tentang" class="{{ Request::is('tentang') ? 'text-[#ccc14e] font-black pb-4 text-xl border-b-4 border-[#ccc14e]' : 'relative text-white font-normal text-xl pb-3.5 after:absolute after:-bottom-1.5 after:left-1/2 after:-translate-x-1/2 after:w-full after:h-[4px] after:bg-[#ccc14e] after:origin-center after:scale-x-0 after:transition-transform after:duration-500 hover:after:scale-x-100' }}">
                         Tentang
                     </a>
                 </li>
                 <li>
-                    <a href="/blog" class="{{ Request::is('blog') ? 'text-[#ccc14e] font-black pb-5.5 text-xl border-b-7 border-[#ccc14e]' : 'relative text-xl text-white font-normal pb-7 after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-full after:h-[6.5px] after:bg-[#ccc14e] after:origin-center after:scale-x-0 after:transition-transform after:duration-500 hover:after:scale-x-100' }}">
+                    <a href="/blog" class="{{ Request::is('blog') ? 'text-[#ccc14e] font-black pb-4 text-xl border-b-7 border-[#ccc14e]' : 'relative text-xl text-white font-normal pb-3.5 after:absolute after:-bottom-1.5 after:left-1/2 after:-translate-x-1/2 after:w-full after:h-[4px] after:bg-[#ccc14e] after:origin-center after:scale-x-0 after:transition-transform after:duration-500 hover:after:scale-x-100' }}">
                         Gerakan
                     </a>
                 </li>
                 <li>
-                    <a href="/report" class="{{ Request::is('report') ? 'text-[#ccc14e] font-black pb-5.5 text-xl border-b-7 border-[#ccc14e]' : 'relative text-xl text-white font-normal pb-7 after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-full after:h-[6.5px] after:bg-[#ccc14e] after:origin-center after:scale-x-0 after:transition-transform after:duration-500 hover:after:scale-x-100' }}">
+                    <a href="/report" class="{{ Request::is('report') ? 'text-[#ccc14e] font-black pb-4 text-xl border-b-7 border-[#ccc14e]' : 'relative text-xl text-white font-normal pb-3.5 after:absolute after:-bottom-1.5 after:left-1/2 after:-translate-x-1/2 after:w-full after:h-[4px] after:bg-[#ccc14e] after:origin-center after:scale-x-0 after:transition-transform after:duration-500 hover:after:scale-x-100' }}">
                         Laporan
                     </a>
                 </li>
                 <li>
-                    <a href="/faq" class="{{ Request::is('faq') ? 'text-[#ccc14e] font-black pb-5.5 text-xl border-b-7 border-[#ccc14e]' : 'relative text-white text-xl font-normal pb-7 after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-full after:h-[6.5px] after:bg-[#ccc14e] after:origin-center after:scale-x-0 after:transition-transform after:duration-500 hover:after:scale-x-100' }}">
+                    <a href="/faq" class="{{ Request::is('faq') ? 'text-[#ccc14e] font-black pb-4 text-xl border-b-7 border-[#ccc14e]' : 'relative text-white text-xl font-normal pb-3.5 after:absolute after:-bottom-1.5 after:left-1/2 after:-translate-x-1/2 after:w-full after:h-[4px] after:bg-[#ccc14e] after:origin-center after:scale-x-0 after:transition-transform after:duration-500 hover:after:scale-x-100' }}">
                         FAQ
                     </a>
                 </li>

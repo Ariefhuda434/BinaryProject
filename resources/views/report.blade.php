@@ -5,7 +5,7 @@
 @section('content')
     <div class="p-8.5 bg-[#687161]"></div>
 
-    <div class="flex items-center justify-evenly bg-gray-100 py-10">
+    <div class="flex items-center bg-gray-100 py-10">
         <form action="{{ route('report.passing') }}" method="POST" enctype="multipart/form-data"
             class="ml-20 bg-white p-8 w-300 max-w-lg rounded-2xl shadow-xl space-y-4">
             @csrf
