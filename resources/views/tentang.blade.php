@@ -17,7 +17,6 @@
     </p>
   </div>
 
-  <!-- Seksi Penjelasan + Gambar -->
   <section class="mt-5 px-6 md:px-20">
     <div class="flex flex-col md:flex-row items-center justify-center gap-10">
       <!-- Gambar Ilustrasi -->
@@ -38,6 +37,10 @@
           </button>
         </div>
       </div>
+      
+@if(auth()->check() && auth()->user()->role === 'admin')
+    <a href="{{ url('/admin') }}">Admin Dashboard</a>
+@endif
 
 
     </div>

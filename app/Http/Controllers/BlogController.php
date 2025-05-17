@@ -27,9 +27,24 @@ class BlogController extends Controller
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
-    {
-        //
+{
+    $validated = $request->validate([
+        'judul' => 'required|string|max:255',
+        'slug' => 'required|string|unique:blogs',
+        'deskripsi' => 'required|string',
+        'foto' => 'nullable|image|max:2048',
+        'isiBlog'=>'required|string' 
+    ]);
+
+    if ($request->hasFile('foto')) {
+        $validated['foto'] = $request->file('foto')->store('fotos', 'public');
     }
+
+    Blog::create($validated);
+
+    return redirect()->back()->with('success', 'Blog baru berhasil ditambahkan.');
+}
+
 
     /**
      * Display the specified resource.
@@ -37,7 +52,7 @@ class BlogController extends Controller
     public function show($id) {
     $blog = Blog::findOrFail($id);
     return view('blog.show', compact('blog'));
-}
+    }
     /**
      * Show the form for editing the specified resource.
      */

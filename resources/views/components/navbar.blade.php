@@ -103,7 +103,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="/blogs" class="{{ Request::is('blog') ? 'text-[#ccc14e] font-black pb-4 text-xl border-b-7 border-[#ccc14e]' : 'relative text-xl text-white font-normal pb-3.5 after:absolute after:-bottom-1.5 after:left-1/2 after:-translate-x-1/2 after:w-full after:h-[4px] after:bg-[#ccc14e] after:origin-center after:scale-x-0 after:transition-transform after:duration-500 hover:after:scale-x-100' }}">
+                    <a href="/gerakan" class="{{ Request::is('blog') ? 'text-[#ccc14e] font-black pb-4 text-xl border-b-7 border-[#ccc14e]' : 'relative text-xl text-white font-normal pb-3.5 after:absolute after:-bottom-1.5 after:left-1/2 after:-translate-x-1/2 after:w-full after:h-[4px] after:bg-[#ccc14e] after:origin-center after:scale-x-0 after:transition-transform after:duration-500 hover:after:scale-x-100' }}">
                         Gerakan
                     </a>
                 </li>
@@ -146,13 +146,13 @@
                     class="absolute right-5 mt-2 w-33 text-center origin-top-right rounded-md bg-white py-1 shadow-lg z-50">
                     @auth
                     <a onclick="navbarKore('btnProfil2')" id="btnProfil2" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-200">Profile</a>
-                    <form action="{{ route('logout') }}" method="post" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-200">
+                    <form action="{{ route('logout') }}" method="POST" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-200">
                         @csrf
                         <button type="submit">Logout</button>
                     </form>
                     @else
-                    <a href="/auth/login" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-200">Login</a>
-                    <a href="/auth/register" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-200">Register</a>
+                    <a href="login" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-200">Login</a>
+                    <a href="register" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-200">Register</a>
                     @endauth
                 </div>
             </div>

@@ -15,10 +15,9 @@ return new class extends Migration
             $table->id();
             $table->string('slug')->unique();
             $table->string  ('judul');
-            $table->string('deskripsi');
-            $table->string ('tanggal');
-            $table->string ('waktu');
-            $table->string('lokasi');
+            $table->string ('deskripsi');
+            $table->string ('foto')->nullable();
+            $table->longText ('isiBlog');
             $table->timestamps();
         });
     }

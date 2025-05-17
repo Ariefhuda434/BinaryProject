@@ -13,23 +13,43 @@ class AuthController extends Controller
     {
         return view('auth.login');
     }
-
+    
     public function login(Request $request)
-    {
-        $request->validate([
-            'email' => 'required|email',
-            'password' => 'required',
-            'remember' => 'required',
-        ]);
-    
-        if (Auth::attempt($request->only('email', 'password'),$request-> filled('remember'))) {
-            $request->session()->regenerate();
-            return redirect()->route('login');
+{
+    $request->validate([
+        'email' => 'required|email',
+        'password' => 'required',
+        // remember itu opsional
+    ]);
+
+    $remember = $request->filled('remember');
+
+    if (Auth::attempt($request->only('email', 'password'), $remember)) {
+        $request->session()->regenerate();
+
+        if (Auth::user()->role == 'admin') {
+            return redirect('/admin');
+        } elseif (Auth::user()->role == 'mitra') {
+            return redirect('/mitra');
+        } else {
+            return redirect('/');  
         }
-    
-        return back()->with('error', 'Email atau password salah');
     }
 
+    return back()->withErrors([
+        'email' => 'Email atau password salah.',
+    ]);
+}
+
+
+    public function logout(Request $request)
+    {
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+        
+        return redirect()->route('loginpage');
+    }
 public function ResetPw(Request $request)
 {
     $request->validate([
@@ -53,7 +73,6 @@ public function ResetPw(Request $request)
 // }
 
 
-    // Tampilkan halaman register
     public function showRegister()
     {
         return view('auth.register');
@@ -86,16 +105,7 @@ public function ResetPw(Request $request)
             'kota'=> $request->kota,
             'kecamatan' => $request->kecamatan,
         ]);
-
-        return redirect()->route('register')->with('success', 'Registrasi berhasil! Silakan login');
+        return redirect()->route('login')->with('success', 'Registrasi berhasil! Silakan login');
     }
 
-    public function logout(Request $request)
-    {
-        Auth::logout();
-        $request->session()->invalidate();
-        $request->session()->regenerateToken();
-        
-        return redirect()->route('loginpage');
-    }
 }

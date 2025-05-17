@@ -205,6 +205,7 @@
 
 
 
+
    <footer class="bg-[#57674c] w-full  flex items-center justify-center py-20 mt-20">
    <p class="text-white border-t border-white pt-4 px-6">© 2025 BinaryWaste. All rights reserved.</p>
    </footer>

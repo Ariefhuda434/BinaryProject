@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     @vite('resources/css/app.css')
-        <!-- ... -->
 </head>
 
 <body style="background-image: url('{{ asset('build/images/Blob.svg') }}')" class="h-screen bg-cover font-sans">
@@ -23,20 +22,22 @@
                     </div>
                 @endif
 
-                @if(session('error'))
-                    <div class="bg-red-100 text-red-700 p-2 rounded mb-3">
-                        {{ session('error') }}
-                    </div>
+                @if($errors->any())
+                   <div class="alert alert-danger">
+                    <ul>@foreach ($errors-> all() as $item )
+                        <li>{{ $item }}</li>
+                        
+                    @endforeach</ul>
+                   </div>
                 @endif
-                <form method="POST" action="{{ route('login') }}">
+                <form method="POST" action="{{ route('loginpage') }}">
                     @csrf
                     <h2 class="text-3xl font-bold mb-6 text-center">Masuk</h2>
-                    <input type="email" name="email" placeholder="Email"
-                    required
+                    <input type="email" value="{{ old('email') }}" name="email" placeholder="Email"
                     class="w-full p-3 mb-4 border-white rounded text-sm bg-gray-100 focus:outline-none focus:border-l-10 focus:border-[#5e6f52] transition-all duration-300 ease-in-out">
              
                     <input type="password" name="password" placeholder="Password"
-                        required class="w-full p-3 mb-4  border-white rounded text-sm bg-gray-100 focus:outline-none focus:border-l-10 focus:border-[#5e6f52]
+                     class="w-full p-3 mb-4  border-white rounded text-sm bg-gray-100 focus:outline-none focus:border-l-10 focus:border-[#5e6f52]
                     transition-all duration-300 ease-in-out ">
 
                     <label class="flex items-center text-sm mb-5">

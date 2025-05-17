@@ -8,5 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Blog extends Model
 {
+protected $fillable = [
+    'judul',
+    'slug',
+    'deskripsi',
+    'foto',
+    'isiBlog'
+];
 
 };
