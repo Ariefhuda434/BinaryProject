@@ -28,12 +28,12 @@ Route::middleware(['auth'])->group(function () {
         return "Mitra dashboard";
     })->middleware([RoleMiddleware::class . ':mitra']);
 
+    
+    Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+});
 
     Route::get('/report', [ReportController::class, 'create'])->name('report.create');
     Route::post('/report', [ReportController::class, 'passingData'])->name('report.passing');
-
-    Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
-});
 
 // Halaman public
 Route::post('/', [MitraController::class, 'mitraGanteng'])->name('jadiMitra');
