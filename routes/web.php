@@ -65,8 +65,8 @@ Route::get('/faq', function () {
     return view('faq');
 });
 
-Route::get('/perpustakaan', function () {
-    return view('perpustakaan');
+Route::get('/gerakan', function () {
+    return view('gerakan');
 });
 
 Route::get('auth/verivy', function () {
