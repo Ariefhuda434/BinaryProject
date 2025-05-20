@@ -87,6 +87,7 @@
     <div class="{{ Request::is('/') ? 'hidden md:flex md:relative p-2 items-center justify-between w-full backdrop-blur-sm' : 'hidden md:flex md:relative p-2 items-center justify-between w-full bg-[#57674c]'   }}">
       <div class="flex items-center">
         @if (Request::is('/')) 
+        <!-- Logo berwarna hanya di halaman beranda -->
         <img class="h-13 mr-4" src="{{ asset('build/images/logo.png') }}" alt="Logo">
          @else
         <img class="h-13 mr-4" src="{{ asset('build/images/logoputih.png') }}" alt="Logo Putih">
@@ -108,7 +109,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="/gerakan" class="{{ Request::is('blog') ? 'text-[#ccc14e] font-black pb-4 text-xl border-b-7 border-[#ccc14e]' : 'relative text-xl text-white font-normal pb-3.5 after:absolute after:-bottom-1.5 after:left-1/2 after:-translate-x-1/2 after:w-full after:h-[4px] after:bg-[#ccc14e] after:origin-center after:scale-x-0 after:transition-transform after:duration-500 hover:after:scale-x-100' }}">
+                    <a href="/gerakans" class="{{ Request::is('/gerakans') ? 'text-[#ccc14e] font-black pb-4 text-xl border-b-7 border-[#ccc14e]' : 'relative text-xl text-white font-normal pb-3.5 after:absolute after:-bottom-1.5 after:left-1/2 after:-translate-x-1/2 after:w-full after:h-[4px] after:bg-[#ccc14e] after:origin-center after:scale-x-0 after:transition-transform after:duration-500 hover:after:scale-x-100' }}">
                         Gerakan
                     </a>
                 </li>

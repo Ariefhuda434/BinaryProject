@@ -59,12 +59,16 @@ Route::get('/blogs/{blog:slug}', function (Blog $blog) {
     if (!$blog) abort(404);
     return view('blog', ['blog' => $blog]);
 });
+Route::get('ger');
 
 
 Route::get('/faq', function () {
     return view('faq');
 });
 
+Route::get('/gerakans', function () {
+    return view('gerakans');
+});
 Route::get('/gerakan', function () {
     return view('gerakan');
 });

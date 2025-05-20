@@ -49,7 +49,7 @@
   </div>
   
   
-<div id="visi-misi" class="mt-10 opacity-0 hidden min-w-full transition-opacity duration-700">
+<div id="visi-misi" class="mt-10  min-w-full transition-opacity duration-700">
   <div class="w-3/4 mx-auto rounded-lg shadow-lg h-100 bg-contain bg-right relative" style="background-image: url('{{ asset('build/images/trashberanda.jpg') }}')">
     
     <div class="h-full w-3/4 bg-[#5e6f52] rounded-l-lg rounded-br-[7rem] relative z-10 p-5">
