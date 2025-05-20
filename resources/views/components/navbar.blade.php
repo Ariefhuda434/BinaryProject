@@ -85,10 +85,15 @@
 
     <!-- Desktop Navbar -->
     <div class="{{ Request::is('/') ? 'hidden md:flex md:relative p-2 items-center justify-between w-full backdrop-blur-sm' : 'hidden md:flex md:relative p-2 items-center justify-between w-full bg-[#57674c]'   }}">
-        <div class="flex items-center">
-            <img class="h-13 mr-4" src="{{ asset('build/images/logoPutih.png') }}" alt="Logo">
-            <h1 class="text-xl font-black text-white">BINARY WASTE</h1>
-        </div>
+      <div class="flex items-center">
+        @if (Request::is('/')) 
+        <img class="h-13 mr-4" src="{{ asset('build/images/logo.png') }}" alt="Logo">
+         @else
+        <img class="h-13 mr-4" src="{{ asset('build/images/logoputih.png') }}" alt="Logo Putih">
+        @endif
+    <h1 class="text-xl font-black text-white">BINARY WASTE</h1>
+</div>
+
 
         <div class="flex items-center space-x-10">
             <ul class="flex space-x-10">
