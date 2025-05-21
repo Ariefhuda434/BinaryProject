@@ -15,19 +15,19 @@
   </div>
   <div class="text-center">
     <div class="w-16 h-16 rounded-full bg-[#5e6f52] text-white flex items-center justify-center mx-auto text-xl font-bold">2</div>
-    <h4 class="mt-4 font-semibold">Laporkan</h4>
-    <p class="text-sm text-gray-600 mt-1">Kirim laporan tentang sampah ilegal</p>
+    <h4 class="mt-4 font-semibold">Verivikkasi email</h4>
+    <p class="text-sm text-gray-600 mt-1">Verivikasi email anda</p>
   </div>
   <div class="text-center">
     <div class="w-16 h-16 rounded-full bg-[#5e6f52] text-white flex items-center justify-center mx-auto text-xl font-bold">3</div>
-    <h4 class="mt-4 font-semibold">Tindak Lanjut</h4>
-    <p class="text-sm text-gray-600 mt-1">Pantau aksi dan progresnya</p>
+    <h4 class="mt-4 font-semibold">Login Binary Waste</h4>
+    <p class="text-sm text-gray-600 mt-1">Login dan mulai aksi dan progresnya</p>
   </div>
 </div>
     <a href="{{ route('beranda') }}">
-        <img src="{{ asset('build/images/iconsbackto.png') }}" class="h-10 m-5" alt="back">
+        <img src="{{ asset('build/images/iconsbackto.png') }}" class="h-10 m-5 absolute top-0" alt="back">
     </a>
-    <div class="flex justify-center -mt-20 items-center h-full">
+    <div class="flex justify-center -mt-30 items-center h-full">
         <div class="w-[900px] h-screen mt-30 mb-30 p-8 rounded-lg shadow-md bg-white">
             
             @if(session('success'))

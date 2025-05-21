@@ -31,29 +31,27 @@ class ReportController extends Controller
         }
     
         // Validasi input
-        $validatedData = $request->validate([   
-            'category' => 'required|string',
-            'images' => 'required|image|mimes:jpg,jpeg,png|max:2048',
-            'description' => 'required|string',
+        $validatedData = $request->validate([  
+            'judul' => 'required|string',
+            'deskripsi' => 'required|string',
             'location' => 'required|string|max:255',
-            'date' => 'required|date',
+            'foto' => 'required|image|mimes:jpg,jpeg,png|max:2048',
         ]);
 
         // Upload gambar
-        $imagePath = $request->file('images')->store('public/reports');
+        $imagePath = $request->file('foto')->store('public/reports');
 
         // Simpan ke database
         Report::create([
             'id_user' => Auth::id(),
-            'category' => $validatedData['category'],
-            'images' => str_replace('public/', '', $imagePath),
-            'description' => $validatedData['description'],
+            'judul' => $validatedData['judul'],
+            'deskripsi' => $validatedData['deskripsi'],
             'location' => $validatedData['location'],
-            'date' => $validatedData['date'],
+            'foto' => str_replace('public/', '', $imagePath),
         ]);
 
         // Redirect dengan pesan sukses
-        return redirect()->route('report.create')
+        return redirect()->route('report')
                ->with('succesReport', 'Laporan berhasil dikirim!');
     }
 }

@@ -19,16 +19,20 @@
     }
 "
 :class="showNavbar 
-    ? 'fixed top-0 left-0 w-screen z-50 transition-all duration-500 ease-in-out transform translate-y-0 opacity-100' 
+    ? 'fixed top-0 left-0 w-full z-50 transition-all duration-500 ease-in-out transform translate-y-0 opacity-100' 
     : 'fixed top-0 left-0 w-full z-50 transition-all duration-500 ease-in-out transform -translate-y-full opacity-0'">
 
     <!-- Mobile Navbar -->
-    <div class="md:hidden flex w-screen justify-between items-center p-4 bg-black">
+    <div class="{{ Request::is('/') ? 'md:hidden flex w-full pl-10  justify-between items-center p-4 backdrop-blur' : 'md:hidden flex w-full pl-10  justify-between items-center p-4 bg-[#57674c]'  }}" >
         <div class="flex items-center">
+            @if(Request::is('/'))
             <img class="h-10 mr-2" src="{{ asset('build/images/logo.png') }}" alt="Logo">
+            @else
+            <img class="h-10 mr-2" src="{{ asset('build/images/logoPutih.png') }}" alt="Logo">
+            @endif
             <h1 class="text-xl font-black text-white">BINARY WASTE</h1>
         </div>
-        <button @click="isKecil = !isKecil" class="text-white mr-2 ">
+        <button @click="isKecil = !isKecil" class="text-white mr-2 transform-all duration-500 ease-in-out">
             <span class="block w-7 h-1 rounded-2xl bg-white mb-1"></span>
             <span class="block w-7 h-1 rounded-2xl bg-white mb-1"></span>
             <span class="block w-7 h-1 rounded-2xl bg-white"></span>
@@ -37,7 +41,7 @@
 
     <!-- Mobile Menu (Dropdown) -->
     <div x-show="isKecil" x-transition
-        class="md:hidden bg-gray-200 p-4 w-40 rounded-lg absolute right-0  mr-5 space-y-4 z-50">
+        class="md:hidden bg-gray-200 p-4 w-40 rounded-lg absolute right-0 transform-all duration-500 ease-in-out mr-5 space-y-4 z-50">
         <ul class="flex flex-col space-y-4">
             <li>
                 <a href="/" class="{{ Request::is('/') ? 'text-[#ccc14e] font-black' : 'text-gray-700' }}">Beranda</a>
@@ -85,10 +89,16 @@
 
     <!-- Desktop Navbar -->
     <div class="{{ Request::is('/') ? 'hidden md:flex md:relative p-2 items-center justify-between w-full backdrop-blur-sm' : 'hidden md:flex md:relative p-2 items-center justify-between w-full bg-[#57674c]'   }}">
-        <div class="flex items-center">
-            <img class="h-13 mr-4" src="{{ asset('build/images/logoPutih.png') }}" alt="Logo">
-            <h1 class="text-xl font-black text-white">BINARY WASTE</h1>
-        </div>
+      <div class="flex items-center">
+        @if (Request::is('/')) 
+        <!-- Logo berwarna hanya di halaman beranda -->
+        <img class="h-13 mr-4" src="{{ asset('build/images/logo.png') }}" alt="Logo">
+         @else
+        <img class="h-13 mr-4" src="{{ asset('build/images/logoputih.png') }}" alt="Logo Putih">
+        @endif
+    <h1 class="text-xl font-black text-white">BINARY WASTE</h1>
+</div>
+
 
         <div class="flex items-center space-x-10">
             <ul class="flex space-x-10">
@@ -103,7 +113,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="/gerakan" class="{{ Request::is('blog') ? 'text-[#ccc14e] font-black pb-4 text-xl border-b-7 border-[#ccc14e]' : 'relative text-xl text-white font-normal pb-3.5 after:absolute after:-bottom-1.5 after:left-1/2 after:-translate-x-1/2 after:w-full after:h-[4px] after:bg-[#ccc14e] after:origin-center after:scale-x-0 after:transition-transform after:duration-500 hover:after:scale-x-100' }}">
+                    <a href="/gerakans" class="{{ Request::is('/gerakans') ? 'text-[#ccc14e] font-black pb-4 text-xl border-b-7 border-[#ccc14e]' : 'relative text-xl text-white font-normal pb-3.5 after:absolute after:-bottom-1.5 after:left-1/2 after:-translate-x-1/2 after:w-full after:h-[4px] after:bg-[#ccc14e] after:origin-center after:scale-x-0 after:transition-transform after:duration-500 hover:after:scale-x-100' }}">
                         Gerakan
                     </a>
                 </li>

@@ -22,7 +22,6 @@
     </div>
 </div>
 
-
 <footer class="bg-[#5e6f52] w-full text-center text-white py-10 mt-50">
     <p class="border-t border-white pt-4">© 2025 BinaryWaste. All rights reserved.</p>
 </footer>

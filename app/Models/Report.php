@@ -9,11 +9,10 @@ class Report extends Model
 {
     protected $fillable = [
         'id_user',
-        'laporan',
-        'images',
-        'description',
+        'judul',
+        'deskripsi',
         'location',
-        'date',
+        'foto',
     ];
     public function user(){
         return $this -> belongsTo(Auth::class);
