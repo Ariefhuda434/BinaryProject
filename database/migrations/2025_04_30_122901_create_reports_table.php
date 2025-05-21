@@ -14,11 +14,10 @@ return new class extends Migration
         Schema::create('reports', function (Blueprint $table) {
             $table->id();
             $table->foreignId('id_user')->nullable()->constrained('users')->OnDelete('cascade')->change();
-            $table->string('category');
-            $table->string('images');
-            $table->text('description');
+            $table->string('judul');
+            $table->text('deskripsi');
             $table->string('location');
-            $table->dateTime('date');
+            $table->string('foto');
             $table->timestamps();
         });
     }

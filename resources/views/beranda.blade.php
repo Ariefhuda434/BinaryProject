@@ -4,21 +4,21 @@
 
    <section class="relative w-full h-auto pb-20 -mt-40 mb-20 bg-[#57674c]">
    <div class="absolute inset-0 h-screen bg-cover  opacity-90 " style="background-videos: url('{{ asset('build/images/trashBeranda.jpg') }}')">
-      <video class="absolute inset-0 h-full w-full object-cover" autoplay muted loop playsinline>
+      <video class="md:absolute inset-0 h-full w-full object-cover" autoplay muted loop playsinline>
     <source src="{{ asset('build/videos/vidio kelompok terbaik.mp4') }}" type="video/mp4" />
     Browser Anda tidak mendukung video.
     </video>  
-    <div class="absolute inset-0 bg-gradient-to-r  from-black/80 via-black/60 to-transparent"></div>
+    <div class="absolute pb-2 inset-0 bg-gradient-to-r  from-black/80 via-black/60 to-transparent"></div>
    </div>
 
-   <div class="relative z-10 max-w-screen-xl mx-auto px-6 pt-70">
+   <div class="relative z-10 max-w-screen-xl mx-auto px-6 pt-60">
       <div class="flex flex-col lg:flex-row items-start">
          
          
          <div class="w-full lg:w-250 space-y-6">
-         <p class="text-4xl font-black font-sans mb-20 text-white">Digital Solution for a Zero-Waste World!</p>
+         <p class="mb:text-4xl text-3xl font-black font-sans md:mb-20 mb-15 text-white">Digital Solution for a Zero-Waste World!</p>
 
-         <h2 class="font-bold font-monospace  text-2xl text-white">Hai, Binarians!</h2>
+         <h2 class="font-bold font-monospace text-2xl text-white">Hai, Binarians!</h2>
          <p class="text-xl text-center md:text-start tracking-wide text-white">
             Saatnya kelola sampah dengan cara yang lebih cerdas dan berdampak.
             Setor sampah, kumpulkan poin, dan bantu selamatkan bumi bareng kita di Binary Waste!
@@ -109,7 +109,7 @@
 
    
   </section>
-<section class="bg-white md:-mt-80 -mt-60  py-20 px-6 md:px-20">
+<section class="bg-white md:-mt-80 -mt-50  py-20 px-6 md:px-20">
   <div class="flex flex-col md:flex-row items-center gap-10" data-aos="zoom-out-up">
     
     <div class="md:w-1/2">
@@ -205,9 +205,25 @@
 
 
 
-   <footer class="bg-[#57674c] w-full  flex items-center justify-center py-20 mt-20">
-   <p class="text-white border-t border-white pt-4 px-6">© 2025 BinaryWaste. All rights reserved.</p>
-   </footer>
+  <footer class="bg-[#5e6f52] pt-30 w-screen text-white mt-20">
+  <div class="container mx-auto flex justify-center gap-12">
+    <div class="flex items-center space-x-3">
+      <img src="{{ asset('build/images/youtube.png') }}" alt="YouTube" class="md:h-10 h-5">
+      <p class="">Binary Waste Official</p>
+    </div>
+    <div class="flex items-center space-x-3">
+      <img src="{{ asset('build/images/email.png') }}" alt="Email" class="h-8">
+      <p>binarywaste@gmail.com</p>
+    </div>
+    <div class="flex items-center space-x-3">
+      <img src="{{ asset('build/images/contact.png') }}" alt="Contact" class="h-8">
+      <p>0822-1221-2123</p>
+    </div>
+  </div>
+  <p class="border-t border-white mb-10 w-2/3 mx-auto text-center pt-4 pb-4 mt-8 text-sm">
+    © 2025 BinaryWaste. All rights reserved.
+  </p>
+</footer>
 
    <script>
     AOS.init();

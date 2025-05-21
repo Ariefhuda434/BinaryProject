@@ -17,11 +17,11 @@
 
 </div>
 
-    <div class="w-11/12 max-w-6xl mx-auto min-h-[440px] mr-40 rounded-xl">
+    <div class="w-11/12 max-w-6xl ml-7 md:mx-auto min-h-[440px] mr-40 rounded-xl">
         <div class="flex flex-col md:flex-row gap-4 h-full">
          
-            <div class="relative w-full md:w-80 h-100 rounded-lg overflow-hidden hover:scale-105 transition-transform duration-300 ease-in-out ">
-                <img src="{{ asset('build/images/go.png') }}" alt="" class="absolute top-4 right-4 bg-white rounded-full h-9 p-2 rotate-220">
+            <div class="relative w-full mx-auto md:w-80 h-100 rounded-lg overflow-hidden hover:scale-105 transition-transform duration-300 ease-in-out ">
+                <img src="{{ asset('build/images/go.png') }}" alt="" class="absolute md:top-4  md:right-4 bg-white rounded-full h-9 p-2 rotate-220">
                 <img src="{{ asset('build/images/report1.jpg') }}" alt="Report Image" class="w-full  hover:scale-105 transition-transform duration-300 ease-in-out  h-full object-cover rounded-lg" />
                 <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent rounded-lg pointer-events-none"></div>
                 <p class="absolute bottom-4 left-4 right-4 text-white text-lg md:text-xl font-semibold leading-snug text-center">
@@ -63,10 +63,10 @@
     </div>
 
     <div class="bg-[#a8b387] pb-20">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#ffffff" fill-opacity="1" d="M0,96L8.6,90.7C17.1,85,34,75,51,101.3C68.6,128,86,192,103,213.3C120,235,137,213,154,197.3C171.4,181,189,171,206,181.3C222.9,192,240,224,257,240C274.3,256,291,256,309,245.3C325.7,235,343,213,360,202.7C377.1,192,394,192,411,165.3C428.6,139,446,85,463,64C480,43,497,53,514,80C531.4,107,549,149,566,176C582.9,203,600,213,617,224C634.3,235,651,245,669,256C685.7,267,703,277,720,245.3C737.1,213,754,139,771,101.3C788.6,64,806,64,823,101.3C840,139,857,213,874,245.3C891.4,277,909,267,926,256C942.9,245,960,235,977,208C994.3,181,1011,139,1029,144C1045.7,149,1063,203,1080,234.7C1097.1,267,1114,277,1131,277.3C1148.6,277,1166,267,1183,272C1200,277,1217,299,1234,288C1251.4,277,1269,235,1286,202.7C1302.9,171,1320,149,1337,160C1354.3,171,1371,213,1389,224C1405.7,235,1423,213,1431,202.7L1440,192L1440,0L1431.4,0C1422.9,0,1406,0,1389,0C1371.4,0,1354,0,1337,0C1320,0,1303,0,1286,0C1268.6,0,1251,0,1234,0C1217.1,0,1200,0,1183,0C1165.7,0,1149,0,1131,0C1114.3,0,1097,0,1080,0C1062.9,0,1046,0,1029,0C1011.4,0,994,0,977,0C960,0,943,0,926,0C908.6,0,891,0,874,0C857.1,0,840,0,823,0C805.7,0,789,0,771,0C754.3,0,737,0,720,0C702.9,0,686,0,669,0C651.4,0,634,0,617,0C600,0,583,0,566,0C548.6,0,531,0,514,0C497.1,0,480,0,463,0C445.7,0,429,0,411,0C394.3,0,377,0,360,0C342.9,0,326,0,309,0C291.4,0,274,0,257,0C240,0,223,0,206,0C188.6,0,171,0,154,0C137.1,0,120,0,103,0C85.7,0,69,0,51,0C34.3,0,17,0,9,0L0,0Z"></path></svg>
-        <div class="-mt-130">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-full "  viewBox="0 0 1440 320"><path fill="#ffffff" fill-opacity="1" d="M0,96L8.6,90.7C17.1,85,34,75,51,101.3C68.6,128,86,192,103,213.3C120,235,137,213,154,197.3C171.4,181,189,171,206,181.3C222.9,192,240,224,257,240C274.3,256,291,256,309,245.3C325.7,235,343,213,360,202.7C377.1,192,394,192,411,165.3C428.6,139,446,85,463,64C480,43,497,53,514,80C531.4,107,549,149,566,176C582.9,203,600,213,617,224C634.3,235,651,245,669,256C685.7,267,703,277,720,245.3C737.1,213,754,139,771,101.3C788.6,64,806,64,823,101.3C840,139,857,213,874,245.3C891.4,277,909,267,926,256C942.9,245,960,235,977,208C994.3,181,1011,139,1029,144C1045.7,149,1063,203,1080,234.7C1097.1,267,1114,277,1131,277.3C1148.6,277,1166,267,1183,272C1200,277,1217,299,1234,288C1251.4,277,1269,235,1286,202.7C1302.9,171,1320,149,1337,160C1354.3,171,1371,213,1389,224C1405.7,235,1423,213,1431,202.7L1440,192L1440,0L1431.4,0C1422.9,0,1406,0,1389,0C1371.4,0,1354,0,1337,0C1320,0,1303,0,1286,0C1268.6,0,1251,0,1234,0C1217.1,0,1200,0,1183,0C1165.7,0,1149,0,1131,0C1114.3,0,1097,0,1080,0C1062.9,0,1046,0,1029,0C1011.4,0,994,0,977,0C960,0,943,0,926,0C908.6,0,891,0,874,0C857.1,0,840,0,823,0C805.7,0,789,0,771,0C754.3,0,737,0,720,0C702.9,0,686,0,669,0C651.4,0,634,0,617,0C600,0,583,0,566,0C548.6,0,531,0,514,0C497.1,0,480,0,463,0C445.7,0,429,0,411,0C394.3,0,377,0,360,0C342.9,0,326,0,309,0C291.4,0,274,0,257,0C240,0,223,0,206,0C188.6,0,171,0,154,0C137.1,0,120,0,103,0C85.7,0,69,0,51,0C34.3,0,17,0,9,0L0,0Z"></path></svg>
+        <div class="md:-mt-130 -mt-50">
             <div class="relative z-10 ">
-                <div class="bg-[#5e6f52] shadow-lg h-20 w-[20rem] md:w-[69rem] rounded-2xl mx-auto -mb-34 mt-50 flex items-center  ">
+                <div class="bg-[#5e6f52] shadow-lg h-20 w-[25rem] md:w-[69rem] rounded-2xl mx-auto -mb-34 mt-50 flex items-center  ">
                     <h2 class="text-xl text-white font-semibold ml-10">Binary Event Project</h2>
                 </div>
             </div>
@@ -142,7 +142,7 @@
     
     <!-- Report Form (Hidden by default) -->
     <div id="formlapor" class="flex hidden opacity-0  transition-opacity duration-500 ease-in-out items-center justify-center bg-[#a8b387] py-10">
-        <form action="{{ route('report.passing') }}" method="POST" enctype="multipart/form-data"
+        <form action="{{ route('passing') }}" method="POST" enctype="multipart/form-data"
         class="bg-white p-8 w-[72rem] rounded-2xl shadow-xl space-y-4">
         @csrf
         
@@ -155,27 +155,28 @@
         @endif
         
         <div>
-            <label for="category" class="block mb-1 font-medium text-gray-600">Judul Laporan</label>
-            <input type="text" name="category" id="category"
+            <label for="judul" class="block mb-1 font-medium text-gray-600">Judul Laporan</label>
+            <input type="text" name="judul" id="judul"
             class="w-full border border-gray-300 rounded-lg p-3">
         </div>
         
         <div>
-            <label for="description" class="block mb-1 font-medium text-gray-600">Isi Laporan</label>
-            <textarea name="description" id="description" rows="3"
+            <label for="deskripsi" class="block mb-1 font-medium text-gray-600">Isi Laporan</label>
+            <textarea name="deskripsi" id="deskripsi" rows="3"
             class="w-full border border-gray-300 rounded-lg p-3 resize-y"
             placeholder="Isi laporan..."></textarea>
         </div>
         
         
-                    <div class="w-full">
-                        <label for="location" class="block mb-1 font-medium text-gray-600">Lokasi</label>
-                        <input type="text" name="location" id="location"
-                        class="w-full border border-gray-300 rounded-lg p-3">
-                    </div>
+        <div class="w-full">
+            <label for="location" class="block mb-1 font-medium text-gray-600">Lokasi</label>
+            <input type="text" name="location" id="location"
+            class="w-full border border-gray-300 rounded-lg p-3">
+        </div>
+
         <div>
             <label for="images" class="block mb-1 font-medium text-gray-600">Upload Gambar</label>
-            <input type="file" name="images" id="images" accept="image/*"
+            <input type="file" name="foto" id="foto" accept="image/*"
             class="w-full border border-gray-300 rounded-lg p-3">
             <img id="preview-image" src="#" alt="Preview"
             class="hidden mt-2 w-full max-h-64 object-cover">

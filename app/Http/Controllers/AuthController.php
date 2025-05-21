@@ -19,7 +19,6 @@ class AuthController extends Controller
     $request->validate([
         'email' => 'required|email',
         'password' => 'required',
-        // remember itu opsional
     ]);
 
     $remember = $request->filled('remember');
@@ -32,7 +31,7 @@ class AuthController extends Controller
         } elseif (Auth::user()->role == 'mitra') {
             return redirect('/mitra');
         } else {
-            return redirect('/');  
+            return redirect('login');  
         }
     }
 

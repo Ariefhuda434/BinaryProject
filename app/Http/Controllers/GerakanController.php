@@ -18,26 +18,36 @@ class GerakanController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
-    {
-        //
+    public function store(Request $request)
+{
+    $validated = $request->validate([
+        'judul' => 'required|string|max:255',
+        'slug' => 'required|string|unique:blogs',
+        'deskripsi' => 'required|string',
+        'location' => 'required|string',
+        'foto' => 'nullable|image|max:2048',
+    ]);
+
+    if ($request->hasFile('foto')) {
+        $validated['foto'] = $request->file('foto')->store('fotos', 'public');
     }
+
+    Gerakan::create($validated);
+
+    return redirect()->back()->with('success', 'Blog baru berhasil ditambahkan.');
+}
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
-    {
-        //
+    public function show($id) {
+    $gerakan = Gerakan::findOrFail($id);
+    return view('gerakan.show', compact('gerakan'));
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Gerakan $gerakan)
-    {
-        //
-    }
 
     /**
      * Show the form for editing the specified resource.

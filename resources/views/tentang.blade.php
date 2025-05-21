@@ -18,12 +18,11 @@
 
   <section class="mt-5 px-6 md:px-20">
     <div class="flex flex-col md:flex-row items-center justify-center gap-10">
-      <div class="md:w-1/2 text-center">
-        <img src="{{ asset('build/images/Video.gif') }}" alt="Ilustrasi Binary Waste" class="w-full max-w-md mx-auto md:h-[300px] object-contain">
+      <div class="md:w-1/2 text-center -mb-10 ">
+        <img src="{{ asset('build/images/Video.gif') }}" alt="Ilustrasi Binary Waste" class="md:w-full w-60 max-w-md mx-auto md:h-[300px] object-contain">
       </div>
-
       <div class="md:w-500">
-        <p class="md:text-xl text-justify font-sans font-normal text-gray-700 leading-relaxed text-center ">
+        <p class="md:text-xl indent-8 text-justify font-sans font-normal text-gray-700 leading-relaxed text-center ">
           Binary Waste adalah sebuah platform digital berbasis web yang dikembangkan sebagai solusi inovatif dalam pengelolaan sampah secara berkelanjutan. Platform ini lahir dari kepedulian terhadap isu lingkungan serta rendahnya kesadaran masyarakat akan pentingnya pengelolaan sampah yang efektif. Binary Waste hadir untuk memfasilitasi partisipasi aktif masyarakat dalam pelaporan pembuangan sampah ilegal dan kolaborasi aksi lingkungan secara langsung, melalui sistem yang mudah diakses dan berdampak nyata.
         </p>
 
@@ -38,10 +37,9 @@
 </div>
   </section>
   <div class="bg-[#a8b387]">
-
     <div  class="mt-4 min-w-full">
       <div class=" bg-[#5e6f52] h-30 md:h-60 flex">
-        <img src="{{ asset('build/images/test1.jpg') }}" alt="" srcset="" class="md:m-5 m-5 h-21 md:h-50 md:w-1/2 bg-white object-cover object-bottom">
+        <img src="{{ asset('build/images/test1.jpg') }}" alt="" srcset="" class="md:m-5 m-2 h-26 md:h-50 md:w-1/2 bg-white object-cover object-bottom">
         <img src="{{ asset('build/images/fotokerjasama.jpg') }}" alt="" srcset="" class="h-full w-40 md:w-120 bg-white">
         <div class="md:h-30 md:mt-30 md:w-30 bg-[#fefadf]"></div>
         <div class="md:h-full  md:w-30 bg-[#ccc14e]"></div>
@@ -50,25 +48,32 @@
   
   
 <div id="visi-misi" class="mt-10  min-w-full transition-opacity duration-700">
-  <div class="w-3/4 mx-auto rounded-lg shadow-lg h-100 bg-contain bg-right relative" style="background-image: url('{{ asset('build/images/trashberanda.jpg') }}')">
+   
+ <div class="flex flex-col md:flex-row w-full md:w-3/4 mx-auto rounded-lg shadow-lg overflow-hidden relative">  
+  <div class="w-full md:w-3/4 bg-[#5e6f52] md:rounded-l-lg md:rounded-br-[7rem] relative z-0 p-5">
+    <p class="text-white font-sans leading-tight text-2xl md:text-4xl font-black text-center pt-3 md:pt-5">
+      Visi & Misi
+    </p>
     
-    <div class="h-full w-3/4 bg-[#5e6f52] rounded-l-lg rounded-br-[7rem] relative z-10 p-5">
-      <p class="text-white font-sans leading-tight text-4xl font-black text-center pt-5">Visi & Misi</p>
-      
-      <p class="px-10 mt-10 text-justify text-xl text-white font-sans font-light">
-        Binary Waste hadir sebagai jembatan antara masyarakat dan lingkungan yang lebih baik sebuah platform sebagai solusi digital dalam pengelolaan dan pemantauan sampah ilegal yang berbasis kolaborasi masyarakat, dengan mengintegrasikan teknologi, edukasi, dan aksi nyata untuk menciptakan lingkungan yang bersih, sehat, serta mendukung tercapainya kota berkelanjutan dan kehidupan masyarakat yang lebih peduli terhadap lingkungan menuju Indonesia Emas 2045
-      </p>
-    </div>
-    
-    <div class="absolute bottom-4 right-4 flex items-center space-x-2 z-20">
-      <img src="{{ asset('build/images/logoputih.png') }}" alt="Logo" class="h-10">
+    <p class="px-4 md:px-10 mt-6 md:mt-10 text-justify text-base md:text-xl text-white font-sans font-light">
+      Binary Waste hadir sebagai jembatan antara masyarakat dan lingkungan yang lebih baik — sebuah platform sebagai solusi digital dalam pengelolaan dan pemantauan sampah ilegal yang berbasis kolaborasi masyarakat, dengan mengintegrasikan teknologi, edukasi, dan aksi nyata untuk menciptakan lingkungan yang bersih, sehat, serta mendukung tercapainya kota berkelanjutan dan kehidupan masyarakat yang lebih peduli terhadap lingkungan menuju Indonesia Emas 2045.
+    </p>
+  </div>
+
+  <!-- Bagian gambar -->
+  <div class="w-full md:w-1/2 md:h-64 h-65 md:h-auto  bg-right bg-no-repeat bg-left md:bg-cover relative" style="background-image: url('{{ asset('build/images/trashberanda.jpg') }}')">
+    <!-- Logo di kanan bawah -->
+    <div class="absolute bottom-2 right-2 md:bottom-4 md:right-4 flex items-center space-x-2 z-20">
+      <img src="{{ asset('build/images/logoputih.png') }}" alt="Logo" class="h-8 bg-cover md:h-10">
       <div class="text-white">
-        <p class="font-bold text-sm">BINARY WASTE</p>
-        <p class="text-[0.42rem]">Digital Solution for a Zero-Waste World!</p>
+        <p class="font-bold text-xs md:text-sm">BINARY WASTE</p>
+        <p class="text-[0.35rem] md:text-[0.42rem]">Digital Solution for a Zero-Waste World!</p>
       </div>
     </div>
-    
-  </div>  
+  </div>
+
+</div>
+  
   <div class="w-3/4 mx-auto h-40 mt-5 shadow-lg rounded-lg gap-5 bg-white flex">
     <div class="flex my-auto flex-col ml-13 mr-8">
   <p class="text-2xl md:text-3xl font-black leading-tight font-sans text-[#5e6f52]">
@@ -116,20 +121,30 @@ $profiles = [
     <div class="flex overflow-visible">
       <div class="flex">
         <div class="flex mt-5 flex-col">
-          <article class="ml-9 w-80 h-45 bg-green-500 transition-transform duration-300 ease-in-out hover:scale-105 hover:drop-shadow-lg hover:drop-shadow-cyan-500/50 hover:z-10"
-                   style="clip-path: polygon(0% 0, 50% 0, 80% 100%, 0% 100%)"></article>
-          <article class="ml-9 w-166 mt-5 h-40 bg-green-500 transition-transform duration-300 ease-in-out hover:scale-105 drop-shadow-lg drop-shadow-cyan-500/50 hover:z-10"
-                   style="clip-path: polygon(0% 0, 40% 0, 53% 100%, 0% 100%)"></article>
-        </div>
-        <div class="flex flex-col">
+          <article class="ml-9 w-80 h-45 bg-gradient-to-br from-white to-green-800  transition-transform duration-300 ease-in-out hover:scale-105 hover:drop-shadow-lg hover:drop-shadow-cyan-500/50 hover:z-10"
+                   style="clip-path: polygon(0% 0, 50% 0, 80% 100%, 0% 100%)">
+                   <img src="{{ asset('build/images/bill.png') }}" alt="" srcset="" class="h-80 -mt-27 -ml-5">
+                  </article>
+                  <article class="ml-9 w-166 mt-5 h-40 bg-green-500 transition-transform duration-300 ease-in-out hover:scale-105 drop-shadow-lg drop-shadow-cyan-500/50 hover:z-10"
+                  style="clip-path: polygon(0% 0, 40% 0, 53% 100%, 0% 100%)">
+                  <img src="{{ asset('build/images/ipeh.png') }}" alt="" srcset="" class="h-80 -mt-30 ml-10">
+                </article>
+                </div>
+                <div class="flex flex-col">
           <div class="flex">
             <article class="mt-5 -ml-120 w-80 h-45 bg-green-500 transition-transform duration-300 ease-in-out hover:scale-105 hover:drop-shadow-lg hover:drop-shadow-cyan-500/50 hover:z-10"
-                     style="clip-path: polygon(0% 0, 60% 0, 30% 100%, 30% 100%)"></article>
-            <article class="-ml-50 h-45 w-81 bg-red-100 mt-5 transition-transform duration-300 ease-in-out hover:scale-105 hover:drop-shadow-lg hover:drop-shadow-cyan-500/50 hover:z-10"
-                     style="clip-path: polygon(30% 0, 100% 0, 100% 100%, 0% 100%)"></article>
-          </div>
-          <article class="-ml-94 mt-5 mb-5 w-85 h-40 bg-green-500 transition-transform duration-300 ease-in-out hover:scale-105 hover:drop-shadow-lg hover:drop-shadow-cyan-500/50 hover:z-10"
-                   style="clip-path: polygon(0% 0, 100% 0, 100% 100%, 26% 100%)"></article>
+                     style="clip-path: polygon(0% 0, 60% 0, 30% 100%, 30% 100%)">
+                    </article>
+                    <article class="-ml-50 h-45 w-81 bg-red-100 mt-5 transition-transform duration-300 ease-in-out hover:scale-105 hover:drop-shadow-lg hover:drop-shadow-cyan-500/50 hover:z-10"
+                    style="clip-path: polygon(30% 0, 100% 0, 100% 100%, 0% 100%)">
+                    <img src="{{ asset('build/images/nahya.png') }}" alt="" srcset="" class="h-80 -mt-30 ml-20">
+                  
+                  </article>
+                  </div>
+                  <article class="-ml-94 mt-5 mb-5 w-85 h-40 bg-gradient-to-tl from-white to-green-900 transition-transform duration-300 ease-in-out hover:scale-105 hover:drop-shadow-lg hover:drop-shadow-cyan-500/50 hover:z-10"
+                  style="clip-path: polygon(0% 0, 100% 0, 100% 100%, 26% 100%)">
+                  <img src="{{ asset('build/images/ariefganteng2.png') }}" alt="" srcset="" class="h-70 -mt-20 ml-25">
+                  </article>
         </div>
       </div>
       <div class="h-100 w-30 bg-[#ccc14e] rounded-r-lg ml-auto text-white flex items-center justify-center"></div>

@@ -9,6 +9,7 @@ use App\Http\Controllers\ReportController;
 use App\Http\Controllers\BerandaController;
 use App\Http\Controllers\BlogController;
 use App\Http\Middleware\RoleMiddleware;
+use App\Models\Gerakan;
 
 Route::middleware(['auth'])->group(function () {
 
@@ -32,8 +33,8 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 });
 
-    Route::get('/report', [ReportController::class, 'create'])->name('report.create');
-    Route::post('/report', [ReportController::class, 'passingData'])->name('report.passing');
+    Route::get('/report', [ReportController::class, 'create'])->name('report');
+    Route::post('/report', [ReportController::class, 'passingData'])->name('passing');
 
 // Halaman public
 Route::post('/', [MitraController::class, 'mitraGanteng'])->name('jadiMitra');
@@ -69,8 +70,10 @@ Route::get('/faq', function () {
 Route::get('/gerakans', function () {
     return view('gerakans');
 });
-Route::get('/gerakan', function () {
-    return view('gerakan');
+
+Route::get('gerakans/{gerakan:slug}', function (Gerakan $gerakan) {
+    if(!$gerakan) abort(404);
+    return view('gerakan',['gerakan' => $gerakan]);
 });
 
 Route::get('auth/verivy', function () {
@@ -80,6 +83,48 @@ Route::get('auth/verivy', function () {
 Route::post('/send-email', [EmailController::class, 'sendEmail']);
 
 Route::post('/update-password', [AuthController::class, 'ResetPw'])->name('reset.password');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // Auth Routes
 Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
