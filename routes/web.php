@@ -76,54 +76,7 @@ Route::get('gerakans/{gerakan:slug}', function (Gerakan $gerakan) {
     return view('gerakan',['gerakan' => $gerakan]);
 });
 
-Route::get('auth/verivy', function () {
-    return view('auth.verivy');
-})->name('verivyPage');
-
-Route::post('/send-email', [EmailController::class, 'sendEmail']);
-
 Route::post('/update-password', [AuthController::class, 'ResetPw'])->name('reset.password');
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 // Auth Routes
@@ -135,3 +88,8 @@ Route::post('/register', [AuthController::class, 'register'])->name('register');
 
 
 Route::post('/blogs', [BlogController::class, 'store'])->name('blogs.store');
+
+Route::get('/verifikasi', [AuthController::class, 'showOtpPage'])->name('verifyPage');
+Route::post('/verifikasi', [AuthController::class, 'verifyOtp'])->name('verifyOtp');
+
+
