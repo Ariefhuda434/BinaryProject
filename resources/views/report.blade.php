@@ -22,7 +22,7 @@
          
             <div class="relative w-full mx-auto md:w-80 h-100 rounded-lg overflow-hidden hover:scale-105 transition-transform duration-300 ease-in-out ">
                 <img src="{{ asset('build/images/go.png') }}" alt="" class="absolute md:top-4  md:right-4 bg-white rounded-full h-9 p-2 rotate-220">
-                <img src="{{ asset('build/images/report1.jpg') }}" alt="Report Image" class="w-full  hover:scale-105 transition-transform duration-300 ease-in-out  h-full object-cover rounded-lg" />
+                <img src="{{ asset('build/images/report1.jpg') }}" alt="Report Image" class="w-full  hover:scale-105 transition-transform duration-700 ease-in-out  h-full object-cover rounded-lg" />
                 <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent rounded-lg pointer-events-none"></div>
                 <p class="absolute bottom-4 left-4 right-4 text-white text-lg md:text-xl font-semibold leading-snug text-center">
                     Laporkan sampah, buat perubahan nyata
@@ -30,15 +30,15 @@
             </div>
 
             <div class="w-full md:w-110 flex flex-col gap-4">
-                <div class="flex-1 bg-[#5e6f52] rounded-lg p-4 relative flex items-center justify-center hover:scale-105  hover:scale-105 transition-transform duration-300 ease-in-out ">
-                    <p class="text-white text-lg md:text-2xl font-semibold font-sans leading-snug text-start">
+                <div class="flex-1 bg-[#5e6f52] rounded-lg -ml-5 p-4 relative flex items-center justify-center hover:scale-105  hover:scale-105 transition-transform duration-700 ease-in-out ">
+                    <p class="text-white text-lg md:text-2xl  font-semibold font-sans leading-snug text-start">
                         Langkah kecilmu hari ini bisa jadi perubahan besar untuk lingkungan,<br>
                         Mulailah Disini!
                     </p>
                     <img src="{{ asset('build/images/go.png') }}" alt="" class="absolute bottom-4 right-4 bg-white rounded-full h-9 p-2 rotate-220">
                 </div>
 
-                <div class="flex-1 bg-[#899d7b] rounded-lg p-4  hover:scale-105 transition-transform duration-300 ease-in-out ">
+                <div class="flex-1 bg-[#899d7b] rounded-lg p-4 -ml-5 hover:scale-105 transition-transform duration-700 ease-in-out ">
                     <div class="p-6">
                         <h3 class="text-gray-800 text-xl font-bold mb-2">Apa kamu merasa lebih sadar lingkungan hari ini?</h3>
                         <p class="text-gray-600 text-sm mb-4">Geser untuk beri penilaian jujurmu ya 🌱</p>
@@ -51,9 +51,9 @@
                 </div>
             </div>
 
-            <div class="relative w-full md:w-80 h-100 rounded-lg shadow-2xl overflow-hidden  hover:scale-105 transition-transform duration-300 ease-in-out ">
+            <div class="relative w-full md:w-80 h-100 rounded-lg shadow-2xl overflow-hidden  hover:scale-105 transition-transform duration-700 ease-in-out ">
                 <img src="{{ asset('build/images/go.png') }}" alt="" class="absolute top-4 right-4 bg-white rounded-full h-9 p-2 rotate-220">
-                <img src="{{ asset('build/images/report2.jpg') }}" alt="Report Image" class="w-full  hover:scale-105 transform-all duration-300 ease-in-out  h-full object-cover rounded-lg" />
+                <img src="{{ asset('build/images/report2.jpg') }}" alt="Report Image" class="w-full  hover:scale-105 transform-all duration-700 ease-in-out  h-full object-cover rounded-lg" />
                 <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent rounded-lg pointer-events-none"></div>
                 <p class="absolute bottom-4 left-4 right-4 text-white text-lg md:text-xl font-semibold leading-snug text-center">
                     Kerja bersama, bersihkan bumi tercinta

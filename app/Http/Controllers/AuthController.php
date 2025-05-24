@@ -90,7 +90,7 @@ class AuthController extends Controller
         'kecamatan' => 'required',
     ]);
 
-    $otp = rand(100000, 999999); // Generate OTP 6 digit
+    $otp = rand(100000, 999999); 
 
     $user = User::create([
         'name' => $request->name,

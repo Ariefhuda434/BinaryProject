@@ -46,17 +46,15 @@
     </div>
   </div>
   
-  
 <div id="visi-misi" class="mt-10  min-w-full transition-opacity duration-700">
-   
  <div class="flex flex-col md:flex-row w-full md:w-3/4 mx-auto rounded-lg shadow-lg overflow-hidden relative">  
   <div class="w-full md:w-3/4 bg-[#5e6f52] md:rounded-l-lg md:rounded-br-[7rem] relative z-0 p-5">
-    <p class="text-white font-sans leading-tight text-2xl md:text-4xl font-black text-center pt-3 md:pt-5">
+    <p class="text-white font-sans leading-tight text-2xl md:text-4xl font-black text-center pt-3 md:pt-1">
       Visi & Misi
     </p>
     
-    <p class="px-4 md:px-10 mt-6 md:mt-10 text-justify text-base md:text-xl text-white font-sans font-light">
-      Binary Waste hadir sebagai jembatan antara masyarakat dan lingkungan yang lebih baik — sebuah platform sebagai solusi digital dalam pengelolaan dan pemantauan sampah ilegal yang berbasis kolaborasi masyarakat, dengan mengintegrasikan teknologi, edukasi, dan aksi nyata untuk menciptakan lingkungan yang bersih, sehat, serta mendukung tercapainya kota berkelanjutan dan kehidupan masyarakat yang lebih peduli terhadap lingkungan menuju Indonesia Emas 2045.
+    <p class="px-4 md:px-10 mt-6 md:mt-5 text-justify text-base md:text-xl text-white font-sans font-light">
+      Binary Waste hadir sebagai jembatan antara masyarakat dan lingkungan yang lebih baik sebuah platform sebagai solusi digital dalam pengelolaan dan pemantauan sampah ilegal yang berbasis kolaborasi masyarakat, dengan mengintegrasikan teknologi, edukasi, dan aksi nyata untuk menciptakan lingkungan yang bersih, sehat, serta mendukung tercapainya kota berkelanjutan dan kehidupan masyarakat yang lebih peduli terhadap lingkungan menuju Indonesia Emas 2045.
     </p>
   </div>
 

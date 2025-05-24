@@ -70,6 +70,9 @@ Route::get('/faq', function () {
 Route::get('/gerakans', function () {
     return view('gerakans');
 });
+Route::get('/gerakan', function () {
+    return view('gerakan');
+});
 
 Route::get('gerakans/{gerakan:slug}', function (Gerakan $gerakan) {
     if(!$gerakan) abort(404);
