@@ -20,7 +20,7 @@
 
          <h2 class="font-bold font-monospace text-2xl text-white">Hai, Binarians!</h2>
          <p class="text-xl text-center md:text-start tracking-wide text-white">
-            Saatnya kelola sampah dengan cara yang lebih cerdas dan berdampak.
+            Saatnya kelola sampah dengan cara yang lebih cerdas dan berdampak.ahhh enakk
             Setor sampah, kumpulkan poin, dan bantu selamatkan bumi bareng kita di Binary Waste!
          </p>
 
