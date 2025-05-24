@@ -3,28 +3,28 @@
 @section('title', 'Event')
 
 @section('content')
-<div class="mt-16 max-w-full px-6 md:px-12 lg:px-20 min-h-screen bg-cover" 
+<div class="mt-16 max-w-full min-w-screen bg-black px-6 md:px-12 lg:px-20 min-h-screen bg-cover" 
     style="background-image: url('{{ asset('build/images/Wave (2).svg') }}')">
 
-    <div class="grid grid-cols-1 md:grid-cols-2 min-h-screen items-center -ml-20 max-w-7xl mx-auto">
+    <div class="grid grid-cols-1 md:grid-cols-2  min-h-screen items-center -ml-20 max-w-9xl mx-auto">
 
-        <section class="bg-white rounded-xl shadow-lg p-10 flex flex-col space-y-8 max-w-md mx-auto">
+        <section class="bg-white rounded-xl shadow-lg w-137 p-10 h-125 flex flex-col space-y-8 max-w-lg mx-auto">
             <h1 class="text-3xl font-extrabold text-gray-900">Pilih Peran Anda</h1>
-            <p class="text-gray-600 leading-relaxed">Silakan pilih bagaimana Anda ingin menggunakan platform kami.</p>
+            <p class="text-gray-600 leading-relaxed">Silakan pilih bagaimana Anda ingin bergabung sebagai apa   </p>
 
             <div class="grid grid-cols-1 gap-6">
                 <div class="flex justify-center items-center gap-6">
                     <a href="#" 
-                       class="role-card block p-6 rounded-2xl border border-gray-200 bg-white hover:shadow-xl hover:border-green-600 transition transform hover:-translate-y-1 cursor-pointer
-                              flex flex-col justify-center items-center text-center h-40 w-40">
-                        <h2 class="text-xl font-semibold mb-2 text-gray-900">User Biasa</h2>
+                       class="role-card block p-6  rounded-2xl border border-gray-200 bg-white hover:shadow-xl hover:border-green-600 transition transform hover:-translate-y-1 cursor-pointer
+                              flex flex-col justify-center items-center text-center h-40 w-50">
+                        <h2 class="text-xl font-semibold mb-2 text-gray-900">Relawan</h2>
                         <p class="text-gray-500 text-sm">Gunakan layanan platform sebagai pengguna umum.</p>
                     </a>
                     <a href="#" 
                        class="role-card block p-6 rounded-2xl border border-gray-200 bg-white hover:shadow-xl hover:border-green-600 transition transform hover:-translate-y-1 cursor-pointer
-                              flex flex-col justify-center items-center text-center h-40 w-40">
+                              flex flex-col justify-center items-center text-center h-40 w-50">
                         <h2 class="text-xl font-semibold mb-2 text-gray-900">Mitra</h2>
-                        <p class="text-gray-500 text-sm">Bergabung sebagai mitra untuk berkontribusi aktif.</p>
+                        <p class="text-gray-500 text-sm">Bergabung sebagai mitra.</p>
                     </a>
                 </div>
             </div>
@@ -39,7 +39,6 @@
             </button>
         </section>
 
-        <!-- Section kanan -->
         <section 
             class="bg-white rounded-xl shadow-lg p-10 flex flex-col space-y-10 mx-auto
                    w-100 max-w-[700px] md:max-w-none md:w-auto"

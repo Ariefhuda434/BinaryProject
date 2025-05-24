@@ -47,22 +47,12 @@
   </div>
   
 <div id="visi-misi" class="mt-10  min-w-full transition-opacity duration-700">
- <div class="flex flex-col md:flex-row w-full md:w-3/4 mx-auto rounded-lg shadow-lg overflow-hidden relative">  
-  <div class="w-full md:w-3/4 bg-[#5e6f52] md:rounded-l-lg md:rounded-br-[7rem] relative z-0 p-5">
-    <p class="text-white font-sans leading-tight text-2xl md:text-4xl font-black text-center pt-3 md:pt-1">
-      Visi & Misi
-    </p>
-    
-    <p class="px-4 md:px-10 mt-6 md:mt-5 text-justify text-base md:text-xl text-white font-sans font-light">
-      Binary Waste hadir sebagai jembatan antara masyarakat dan lingkungan yang lebih baik sebuah platform sebagai solusi digital dalam pengelolaan dan pemantauan sampah ilegal yang berbasis kolaborasi masyarakat, dengan mengintegrasikan teknologi, edukasi, dan aksi nyata untuk menciptakan lingkungan yang bersih, sehat, serta mendukung tercapainya kota berkelanjutan dan kehidupan masyarakat yang lebih peduli terhadap lingkungan menuju Indonesia Emas 2045.
-    </p>
-  </div>
+<div class="relative w-full md:w-3/4 mx-auto h-auto md:h-85 bg-center rounded-lg shadow-lg overflow-hidden">
 
-  <!-- Bagian gambar -->
-  <div class="w-full md:w-1/2 md:h-64 h-65 md:h-auto  bg-right bg-no-repeat bg-left md:bg-cover relative" style="background-image: url('{{ asset('build/images/trashberanda.jpg') }}')">
-    <!-- Logo di kanan bawah -->
-    <div class="absolute bottom-2 right-2 md:bottom-4 md:right-4 flex items-center space-x-2 z-20">
-      <img src="{{ asset('build/images/logoputih.png') }}" alt="Logo" class="h-8 bg-cover md:h-10">
+  <div class="absolute inset-0 bg-cover bg-bottom  bg-no-repeat bg-right  z-0 md:flex md:justify-end"
+       style="background-image: url('{{ asset('build/images/trashberanda.jpg') }}')">
+    <div class="absolute bottom-2 right-2 md:bottom-4 md:right-4 flex items-center space-x-2 z-10">
+      <img src="{{ asset('build/images/logoputih.png') }}" alt="Logo" class="h-8 md:h-10 bg-cover">
       <div class="text-white">
         <p class="font-bold text-xs md:text-sm">BINARY WASTE</p>
         <p class="text-[0.35rem] md:text-[0.42rem]">Digital Solution for a Zero-Waste World!</p>
@@ -70,7 +60,17 @@
     </div>
   </div>
 
+  <!-- Kotak teks yang menimpa dengan border radius -->
+  <div class="relative z-20 w-full md:w-3/4 h-full bg-[#5e6f52] md:rounded-l-lg md:rounded-br-[7rem] p-5">
+    <p class="text-white font-sans leading-tight text-2xl md:text-4xl font-black text-center pt-3 md:pt-1">
+      Visi & Misi
+    </p>
+    <p class="px-4 md:px-10 mt-6 md:mt-5 text-justify text-base md:text-xl text-white font-sans font-light">
+      Binary Waste hadir sebagai jembatan antara masyarakat dan lingkungan yang lebih baik sebuah platform sebagai solusi digital dalam pengelolaan dan pemantauan sampah ilegal yang berbasis kolaborasi masyarakat, dengan mengintegrasikan teknologi, edukasi, dan aksi nyata untuk menciptakan lingkungan yang bersih, sehat, serta mendukung tercapainya kota berkelanjutan dan kehidupan masyarakat yang lebih peduli terhadap lingkungan menuju Indonesia Emas 2045.
+    </p>
+  </div>
 </div>
+
   
   <div class="w-3/4 mx-auto h-40 mt-5 shadow-lg rounded-lg gap-5 bg-white flex">
     <div class="flex my-auto flex-col ml-13 mr-8">

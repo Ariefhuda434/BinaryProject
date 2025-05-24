@@ -60,8 +60,6 @@ Route::get('/blogs/{blog:slug}', function (Blog $blog) {
     if (!$blog) abort(404);
     return view('blog', ['blog' => $blog]);
 });
-Route::get('ger');
-
 
 Route::get('/faq', function () {
     return view('faq');
