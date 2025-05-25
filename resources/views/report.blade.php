@@ -83,48 +83,23 @@
                                 <th class="p-3 text-left">Lokasi</th>
                             </tr>
                         </thead>
-                        <tbody class="bg-white divide-y divide-gray-200">
-                            <tr class="hover:bg-gray-50">
-                                <td class="p-3">Sampah menumpuk</td>
-                                <td class="p-3">Sani</td>
-                            <td class="p-3">2025-05-01</td>
-                            <td class="p-3"><span class="bg-yellow-100 text-yellow-800 px-2 py-1 rounded text-xs">Diproses</span></td>
-                            <td class="p-3">Jakarta Selatan</td>
-                        </tr>
-                        <tr class="hover:bg-gray-50">
-                            <td class="p-3">TPS penuh</td>
-                            <td class="p-3">Agus</td>
-                            <td class="p-3">2025-05-02</td>
-                            <td class="p-3"><span class="bg-red-100 text-red-800 px-2 py-1 rounded text-xs">Belum Diproses</span></td>
-                            <td class="p-3">Bandung</td>
-                        </tr>
-                        <tr class="hover:bg-gray-50">
-                            <td class="p-3">Drainase mampet</td>
-                            <td class="p-3">Nina</td>
-                            <td class="p-3">2025-05-03</td>
-                            <td class="p-3"><span class="bg-green-100 text-green-800 px-2 py-1 rounded text-xs">Selesai</span></td>
-                            <td class="p-3">Depok</td>
-                        </tr>
-                        <tr class="hover:bg-gray-50">
-                            <td class="p-3">Sampah liar</td>
-                            <td class="p-3">Dian</td>
-                            <td class="p-3">2025-05-04</td>
-                            <td class="p-3"><span class="bg-yellow-100 text-yellow-800 px-2 py-1 rounded text-xs">Diproses</span></td>
-                            <td class="p-3">Bogor</td>
-                        </tr>
-                        <tr class="hover:bg-gray-50">
-                            <td class="p-3">Kontainer rusak</td>
-                            <td class="p-3">Raka</td>
-                            <td class="p-3">2025-05-05</td>
-                            <td class="p-3"><span class="bg-red-100 text-red-800 px-2 py-1 rounded text-xs">Belum Diproses</span></td>
-                            <td class="p-3">Bekasi</td>
-                        </tr>
-                    </tbody>
-                </table>
+                      <tbody>
+                            @foreach($report as $lapor)
+                            <tr>
+                                <td>{{ $lapor->judul }}</td>
+                                <td>{{ $lapor->user->name ?? 'Tidak diketahui' }}</td>
+                                <td>{{ $lapor->created_at->format('d M Y') }}</td> {{-- contoh format tanggal --}}
+                                <td>{{ $lapor->status ?? '-' }}</td> {{-- Jika ada kolom status --}}
+                                <td>{{ $lapor->location }}</td>
+                            </tr>
+                            @endforeach
+                      </tbody>
+                    </table>
+                </div>
             </div>
         </div>
-    </div>
-        
+            
+
         <!-- Report Button -->
         <div class="bg-[#5e6f52] rounded-b-xl w-full max-w-6xl mx-auto h-20 relative">
         <button id="btnShow" class="absolute left-10 transform mt-5">
