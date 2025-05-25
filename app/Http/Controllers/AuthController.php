@@ -90,7 +90,6 @@ class AuthController extends Controller
         'kecamatan' => 'required',
     ]);
 
-    $otp = rand(100000, 999999); 
 
     $user = User::create([
         'name' => $request->name,
@@ -103,14 +102,12 @@ class AuthController extends Controller
         'phone' => $request->phone,
         'kota'=> $request->kota,
         'kecamatan' => $request->kecamatan,
-        'otp' => $otp,
     ]);
 
-    Mail::to($user->email)->send(new BinaryMail($user, $otp));
+    Mail::to($user->email)->send(new BinaryMail());
 
     return redirect()->route('verifyPage')->with([
-        'success' => 'Registrasi berhasil! Kode OTP telah dikirim ke email Anda.',
-        'email' => $user->email
+        'success' => 'Registrasi berhasil! Email Verivikasi telah dikirim ke email Anda.',
     ]);
 }
 
@@ -120,36 +117,6 @@ class AuthController extends Controller
         $email = session('email');
         return view('verifyPage', compact('email'));
     }
-
-
-
-    
-    public function showOtpPage()
-{
-    $user = Auth::user(); // contoh ambil user yang login
-    return view('verifyPage', compact('user'));
-    return view('verifyPage');
-}
-
-public function verifyOtp(Request $request)
-{
-    $request->validate([
-        'email' => 'required|email',
-        'otp' => 'required',
-    ]);
-
-    $user = User::where('email', $request->email)->where('otp', $request->otp)->first();
-
-    if (!$user) {
-        return back()->with('error', 'Kode OTP salah atau email tidak cocok.');
-    }
-
-    $user->is_verified = true;
-    $user->otp = null;
-    $user->save();
-
-    return redirect()->route('loginpage')->with('success', 'Akun berhasil diverifikasi, silakan login.');
-}
 
 }
  

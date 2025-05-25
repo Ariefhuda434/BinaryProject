@@ -2,7 +2,7 @@
    @section('title', 'Beranda')  
    @section('content')
    <section class="relative w-full h-auto pb-20 -mt-40 mb-20 bg-[#57674c]">
-     <div class="absolute inset-0 h-screen bg-cover  opacity-90 " style="background-videos: url('{{ asset('build/images/trashBeranda.jpg') }}')">
+     <div class="absolute inset-0 md:h-screen h-[50rem] bg-cover  opacity-90 " style="background-videos: url('{{ asset('build/images/trashBeranda.jpg') }}')">
       <video class="md:absolute inset-0 h-full w-full object-cover" autoplay muted loop playsinline>
         <source src="{{ asset('build/videos/vidio kelompok terbaik.mp4') }}" type="video/mp4" />
         Browser Anda tidak mendukung video.
@@ -108,7 +108,7 @@
 
 
 </section>
-<section class="bg-white md:-mt-80 -mt-50 -mb-20  py-20 px-6 md:px-20">
+<section class="bg-white md:-mt-80 -mt-50  py-20 px-6 md:px-20">
   <div class="flex flex-col md:flex-row items-center gap-10" data-aos="zoom-out-up">
     
     <div class="md:w-1/2">

@@ -42,11 +42,13 @@
                     <div class="p-6">
                         <h3 class="text-gray-800 text-xl font-bold mb-2">Apa kamu merasa lebih sadar lingkungan hari ini?</h3>
                         <p class="text-gray-600 text-sm mb-4">Geser untuk beri penilaian jujurmu ya 🌱</p>
-
-                        <input type="range" min="1" max="5" step="1" value="3"
-                            class="w-full accent-[#5e6f52] transform-all" oninput="updateFeeling(this.value)">
-
-                        <p id="feelingLabel" class="mt-3 font-semibold text-[#5e6f52] text-base">Cukup sadar ♻️</p>
+                        <form method="POST" action="{{ route('edit') }}">
+                            @csrf
+                            <input type="range" min="1" max="5" step="1" value="3"
+                            class="w-full accent-[#5e6f52] transition-all duration-300" name='feedback' onchange="this.form.submit()" oninput="updateFeeling(this.value)">
+                  
+                            <p id="feelingLabel" class="mt-3 font-semibold text-[#5e6f52] text-base">Cukup sadar ♻️</p>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -73,58 +75,49 @@
             
             <div class="mt-20 pt-20 bg-gray-100 rounded-t-xl pb-10 max-w-6xl mx-auto relative overflow-hidden">
                 <div class="overflow-x-auto px-4">
-                    <table class="w-full border border-gray-300 rounded-xl overflow-hidden text-sm">
-                        <thead class="bg-gray-200">
-                            <tr>
-                                <th class="p-3 text-left">Laporan</th>
-                                <th class="p-3 text-left">Pelapor</th>
-                                <th class="p-3 text-left">Tanggal</th>
-                                <th class="p-3 text-left">Status</th>
-                                <th class="p-3 text-left">Lokasi</th>
-                            </tr>
-                        </thead>
-                        <tbody class="bg-white divide-y divide-gray-200">
-                            <tr class="hover:bg-gray-50">
-                                <td class="p-3">Sampah menumpuk</td>
-                                <td class="p-3">Sani</td>
-                            <td class="p-3">2025-05-01</td>
-                            <td class="p-3"><span class="bg-yellow-100 text-yellow-800 px-2 py-1 rounded text-xs">Diproses</span></td>
-                            <td class="p-3">Jakarta Selatan</td>
-                        </tr>
-                        <tr class="hover:bg-gray-50">
-                            <td class="p-3">TPS penuh</td>
-                            <td class="p-3">Agus</td>
-                            <td class="p-3">2025-05-02</td>
-                            <td class="p-3"><span class="bg-red-100 text-red-800 px-2 py-1 rounded text-xs">Belum Diproses</span></td>
-                            <td class="p-3">Bandung</td>
-                        </tr>
-                        <tr class="hover:bg-gray-50">
-                            <td class="p-3">Drainase mampet</td>
-                            <td class="p-3">Nina</td>
-                            <td class="p-3">2025-05-03</td>
-                            <td class="p-3"><span class="bg-green-100 text-green-800 px-2 py-1 rounded text-xs">Selesai</span></td>
-                            <td class="p-3">Depok</td>
-                        </tr>
-                        <tr class="hover:bg-gray-50">
-                            <td class="p-3">Sampah liar</td>
-                            <td class="p-3">Dian</td>
-                            <td class="p-3">2025-05-04</td>
-                            <td class="p-3"><span class="bg-yellow-100 text-yellow-800 px-2 py-1 rounded text-xs">Diproses</span></td>
-                            <td class="p-3">Bogor</td>
-                        </tr>
-                        <tr class="hover:bg-gray-50">
-                            <td class="p-3">Kontainer rusak</td>
-                            <td class="p-3">Raka</td>
-                            <td class="p-3">2025-05-05</td>
-                            <td class="p-3"><span class="bg-red-100 text-red-800 px-2 py-1 rounded text-xs">Belum Diproses</span></td>
-                            <td class="p-3">Bekasi</td>
-                        </tr>
-                    </tbody>
-                </table>
+                <table class="w-full border border-gray-300 rounded-xl overflow-hidden text-sm border-b-1 ">
+    <thead class="bg-gray-200">
+        <tr>
+            <th class="p-3 text-center">Laporan</th>
+            <th class="p-3 text-center">Pelapor</th>
+            <th class="p-3 text-center">Tanggal</th>
+            <th class="p-3 text-center">Status</th>
+            <th class="p-3 text-center">Lokasi</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach($report as $lapor)
+            <tr class="border-b-1 border-gray-300">
+                <td class="p-3 text-center">{{ $lapor->judul }}</td>
+                <td class="p-3 text-center">{{ $lapor->user->name ?? 'Tidak diketahui' }}</td>
+                <td class="p-3 text-center">{{ $lapor->created_at->format('d M Y') }}</td>
+                <td class="flex relative p-3 justify-center">
+                    @if (auth()->check() && auth()->user()->role == 'admin')
+                        <form action="{{ route('edit', $lapor->id) }}" method="POST" class="">
+                            @csrf
+                            @method('PUT')
+                                <select name="status" onchange="this.form.submit()" class="text-sm">
+                                    <option  value="{{ $lapor->status }}" disabled selected>{{ $lapor->status }}</option>
+                                    <option value="Menunggu" {{ $lapor->status == 'Menunggu' ? 'selected' : '' }}>Menunggu</option>
+                                    <option value="Diterima" {{ $lapor->status == 'Diterima' ? 'selected' : '' }}>Diterima</option>
+                                    <option value="Diproses" {{ $lapor->status == 'Diproses' ? 'selected' : '' }}>Diproses</option>
+                                </select>
+                        </form>
+                    @else
+                        <span class="capitalize">{{ $lapor->status }}</span>
+                    @endif
+                </td>
+                <td class="p-3 text-center ">{{ $lapor->location }}</td>
+            </tr>
+        @endforeach
+    </tbody>
+</table>
+
+                </div>
             </div>
         </div>
-    </div>
-        
+            
+
         <!-- Report Button -->
         <div class="bg-[#5e6f52] rounded-b-xl w-full max-w-6xl mx-auto h-20 relative">
         <button id="btnShow" class="absolute left-10 transform mt-5">

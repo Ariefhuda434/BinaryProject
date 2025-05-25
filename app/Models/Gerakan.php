@@ -10,7 +10,9 @@ class Gerakan extends Model
         'judul',
         'slug',
         'deskripsi',
-        'location',
+        'lokasi',
+        'tanggal',
+        'periode',
         'foto',
     ];
 }

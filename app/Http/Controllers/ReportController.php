@@ -4,33 +4,25 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Report;
-use Illuminate\Auth\Events\Validated;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
 class ReportController extends Controller
 {
-    /**
-     * Menampilkan form laporan (GET /report)
-     */
-    public function create()
-    {
-        return view('report');
+    public function create() {
+        $report = Report::get(); 
+        return view('report', [
+            'report' => $report
+        ]);
     }
 
-    /**
-     * Menyimpan laporan baru (POST /report)
-     * Menggunakan passingData sebagai pengganti store
-     */
     public function passingData(Request $request)
     {
-        
         if (!Auth::check()) {
             return redirect()->route('login')
                    ->with('error', 'Anda harus login terlebih dahulu untuk mengirim laporan');
         }
-    
-        // Validasi input
+
         $validatedData = $request->validate([  
             'judul' => 'required|string',
             'deskripsi' => 'required|string',
@@ -38,10 +30,8 @@ class ReportController extends Controller
             'foto' => 'required|image|mimes:jpg,jpeg,png|max:2048',
         ]);
 
-        // Upload gambar
         $imagePath = $request->file('foto')->store('public/reports');
 
-        // Simpan ke database
         Report::create([
             'id_user' => Auth::id(),
             'judul' => $validatedData['judul'],
@@ -50,8 +40,30 @@ class ReportController extends Controller
             'foto' => str_replace('public/', '', $imagePath),
         ]);
 
-        // Redirect dengan pesan sukses
         return redirect()->route('report')
-               ->with('succesReport', 'Laporan berhasil dikirim!');
+               ->with('successReport', 'Laporan berhasil dikirim!');
     }
+
+    public function show($id) {
+        $data = Report::findOrFail($id);
+
+        return view('report', [
+            'report' => $data
+        ]);
+    }
+
+    public function edit(Request $request, $id)
+{
+    $request->validate([
+        'status' => 'required|in:Menunggu,Diterima,Diproses ',
+    ]);
+
+    $report = Report::findOrFail($id);
+    $report->status = $request->status;
+    $report->save();
+
+    return redirect()->back()->with('success', 'Status berhasil diperbarui!');
+}
+
+
 }

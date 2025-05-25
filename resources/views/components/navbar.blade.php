@@ -38,39 +38,36 @@
                 <span class="block w-7 h-1 rounded-2xl bg-white"></span>
             </button>
         </div>
-
         <!-- Mobile Menu (Dropdown) -->
         <div x-show="isKecil" x-transition
-            class="md:hidden bg-gray-200 p-4 w-40 rounded-lg absolute right-0 transform-all duration-500 ease-in-out mr-5 space-y-4 z-50">
-            <ul class="flex flex-col space-y-4">
-                <li>
-    <a href="/" class="
-        relative pl-4 text-gray-700 transition-all duration-300 ease-in-out
-        {{ Request::is('/') ? 'text-[#ccc14e] font-black' : '' }}
-        hover:text-[#ccc14e]
-        before:content-[''] before:absolute before:left-0 before:top-0
-        before:h-full before:w-[4px] before:bg-[#ccc14e]
-        before:transform before:scale-y-0 before:origin-top
-        hover:before:scale-y-100 before:transition-transform before:duration-300
-    ">
+        class="md:hidden bg-gray-200 p-4 w-40 rounded-lg absolute right-0 transform-all duration-500 ease-in-out mr-5 space-y-4 z-50">
+        <ul class="flex flex-col space-y-4">
+    <li>
+    <a href="/" class="relative pl-2 {{ Request::is('/') ? 'text-[#ccc14e] border-[#ccc14e] border-l-4 font-black' : 'before:content-[""] before:absolute before:left-0 before:top-0 before:h-full before:w-[4px] before:bg-[#ccc14e] before:scale-y-0 before:origin-top hover:before:scale-y-100 before:transition before:duration-700' }}">
         Beranda
     </a>
-        </li>
-
-                <li>
-                    <a href="/tentang" class="{{ Request::is('tentang') ? 'text-[#ccc14e] font-black' : 'text-gray-700' }}">Tentang</a>
-                </li>
-                <li>
-                    <a href="/blogs" class="{{ Request::is('blog') ? 'text-[#ccc14e] font-black' : 'text-gray-700' }}">Gerakan</a>
-                </li>
-                <li>
-                    <a href="/report" class="{{ Request::is('report') ? 'text-[#ccc14e] font-black' : 'text-gray-700' }}">Laporan</a>
-                </li>
-                <li>
-                    <a href="/faq" class="{{ Request::is('faq') ? 'text-[#ccc14e] font-black' : 'text-gray-700' }}">FAQ</a>
-                </li>
-            </ul>
-
+</li>
+    <li>
+    <a href="/tentang" class="relative pl-2 {{ Request::is('tentang') ? 'text-[#ccc14e] border-[#ccc14e] border-l-4 font-black' : 'before:content-[""] before:absolute before:left-0 before:top-0 before:h-full before:w-[4px] before:bg-[#ccc14e] before:scale-y-0 before:origin-top hover:before:scale-y-100 before:transition before:duration-700' }}">
+        Tentang
+    </a>
+</li>
+    <li>
+    <a href="/gerakans" class="relative pl-2 {{ Request::is('gerakans') ? 'text-[#ccc14e] border-[#ccc14e] border-l-4 font-black' : 'before:content-[""] before:absolute before:left-0 before:top-0 before:h-full before:w-[4px] before:bg-[#ccc14e] before:scale-y-0 before:origin-top hover:before:scale-y-100 before:transition before:duration-700' }}">
+        Gerakan
+    </a>
+</li>
+    <li>
+    <a href="/report" class="relative pl-2 {{ Request::is('report') ? 'text-[#ccc14e] border-[#ccc14e] border-l-4 font-black' : 'before:content-[""] before:absolute before:left-0 before:top-0 before:h-full before:w-[4px] before:bg-[#ccc14e] before:scale-y-0 before:origin-top hover:before:scale-y-100 before:transition before:duration-700' }}">
+        Laporan
+    </a>
+</li>
+    <li>
+    <a href="/faq" class="relative pl-2 {{ Request::is('faq') ? 'text-[#ccc14e] border-[#ccc14e] border-l-4 font-black' : 'before:content-[""] before:absolute before:left-0 before:top-0 before:h-full before:w-[4px] before:bg-[#ccc14e] before:scale-y-0 before:origin-top hover:before:scale-y-100 before:transition before:duration-700' }}">
+        Faq
+    </a>
+</li>
+</ul>
             <div class="pt-4 border-t border-gray-400">
                 <button @click="isOpen = !isOpen" class="flex items-center font-black text-[#ccc14e]">
                     @auth

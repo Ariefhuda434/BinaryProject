@@ -3,7 +3,7 @@
 @section('title', 'Event')
 
 @section('content')
-<div class="mt-16 max-w-full min-w-screen bg-black px-6 md:px-12 lg:px-20 min-h-screen bg-cover" 
+<div class="mt-5 max-w-full min-w-screen bg-black px-6 md:px-12 lg:px-20 min-h-screen bg-cover" 
     style="background-image: url('{{ asset('build/images/Wave (2).svg') }}')">
 
     <div class="grid grid-cols-1 md:grid-cols-2  min-h-screen items-center -ml-20 max-w-9xl mx-auto">
