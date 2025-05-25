@@ -1,7 +1,7 @@
 @extends('components.layout')  
 @section('title', 'Beranda')  
 @section('content')
-<section class="relative w-full h-auto pb-20 -mt-40 mb-20 bg-[#5e6f52]">
+<section class="relative w-full h-auto pb-2  -mt-40 mb-8 bg-[#5e6f52]">
   <div class="absolute inset-0 md:h-screen h-[50rem] bg-cover opacity-90" style="background-videos: url('{{ asset('build/images/trashBeranda.jpg') }}')">
     <video class="md:absolute inset-0 h-full w-full object-cover" autoplay muted loop playsinline>
       <source src="{{ asset('build/videos/vidio kelompok terbaik.mp4') }}" type="video/mp4" />
@@ -74,8 +74,8 @@
     </div>
   </div>
 
-  <section class="mt-23 px-4 font-inter">
-    <div class="max-w-6xl mx-auto p-8 rounded-2xl shadow-xl bg-white">
+  <section class="mt-12 px-4 font-inter">
+    <div class="max-w-[73.5rem]  mx-auto p-8 rounded-2xl shadow-xl bg-white">
       <div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-center">
         <div class="flex flex-col items-center">
           <p id="numberCount" data-max="300" class="text-4xl md:text-5xl font-extrabold text-gray-900">300</p>
@@ -99,6 +99,7 @@
       </div>
     </div>
   </section>
+
 </section>
 <svg class="-mt-20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
   <path fill="#5e6f52" fill-opacity="1" d="M0,96L48,96C96,96,192,96,288,90.7C384,85,480,75,576,101.3C672,128,768,192,864,186.7C960,181,1056,107,1152,74.7C1248,43,1344,53,1392,58.7L1440,64L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"></path>
@@ -132,15 +133,71 @@
   </div>
 </section>
 
-<section id="mitra" class="hidden -mt-80">
-  <svg xmlns="http://www.w3.org/2000/svg" class="-mb-1" viewBox="0 0 1440 320">
+  <svg xmlns="http://www.w3.org/2000/svg" class="-mb-1 -mt-80" viewBox="0 0 1440 320">
     <path fill="#5e6f52" fill-opacity="1" d="M0,96L48,96C96,96,192,96,288,90.7C384,85,480,75,576,101.3C672,128,768,192,864,186.7C960,181,1056,107,1152,74.7C1248,43,1344,53,1392,58.7L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
   </svg>
-  
+
+<section class="-mt-30 bg-[#5e6f52]  ">
+  <div class="w-4/5 flex  h-[38rem] p-5 mx-auto -mt-[50px]">
+    <div class="rounded-2xl shadow-lg h-full w-1/3 p-7 bg-white flex flex-col gap-6">
+        <img src="{{ asset('build/images/betol.png') }}" alt="" class="h-full w-90  -mt-5  object-cover">
+      <div class="-mt-8">
+        <div class="flex">
+          <img src="{{ asset('build/images/rose.png') }}" class="h-10 w-10" alt="">
+          <p class="text-2xl font-black font-sans mb-4 ml-2">Tips Penggunaan</p>
+        </div>
+        <ul class="list-disc pl-5 space-y-2  text-gray-700">
+          <li>Buat akun dulu supaya semua fitur bisa kamu akses</li>
+          <li>Laporkan sampah lengkap dengan lokasi dan foto agar cepat diterima</li>
+          <li>Rajin cek dashboard untuk pantau status laporanmu</li>
+          <li>Ikut serta dalam event dan gerakan untuk dampak yang lebih besar</li>
+          <li>Ajak keluarga dan teman pakai Binary Waste agar lingkungan kita makin bersih</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="flex flex-col w-2/3 ml-5 gap-5">
+
+      <div class="rounded-2xl shadow-lg p-7 bg-white flex h-[50%] gap-5">
+        <div class="flex flex-col w-2/3">
+          <div class="flex">
+            <img src="{{ asset('build/images/fitur.png') }}" alt="" srcset="" class="h-8 mr-2 ">
+            <p class="text-2xl font-black font-sans mb-4">Fitur Binary Waste</p>  
+          </div>
+          <ul class="list-decimal pl-5 space-y-2 text-gray-700">
+            <li>Lapor Sampah</li>
+            <li>Event dan Gerakan Komunitas</li>
+            <li>Edukasi dan Artikel Lingkungan</li>
+            <li>Pantau Status Laporan</li>
+            <li>Jadi Mitra Binary Waste</li>
+          </ul>
+        </div>
+        <div class="bg-black  rounded-2xl flex">
+          <img src="{{ asset('build/images/orangberanda.png') }}" class="h-55" alt="">
+        </div>
+      </div>
+    
+
+      <div class="flex gap-5  h-[50%]">
+        <div class="rounded-2xl p-7 shadow-lg bg-white w-1/2">
+          <p class="mb-3 text-center">Yuk, Ajak Teman dan Keluarga Peduli Lingkungan!</p>
+          <img src="{{ asset('build/images/global.png') }}" alt="" class="bg-black h-38 w-full rounded-lg  hover:scale-105 trnsition-all duration-300 ease-in-out">
+        </div>
+        <div class="rounded-2xl p-7 flex shadow-lg flex-col bg-white w-1/2">
+        <p class="font-black text-6xl mt-10 mx-auto mb-10">120</p>
+        <p>Bersama Binary Waste, sudah ada 120 jiwa yang tergerak untuk membuat lingkungan lebih bersih dan sehat</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="mitra" class="">
   <div class="min-h-screen bg-gradient-to-br from-white via-white to-green-100 flex flex-col justify-center items-center px-4 py-12 bg-cover bg-center" style="background-image: url('{{ asset('build/images/Wave (7).svg') }}')">
-    <div class="bg-white shadow-2xl rounded-3xl p-8 w-full -mt-60 max-w-xl" data-aos="zoom-in" data-aos-duration="800">
+    <div class="bg-white shadow-2xl rounded-3xl p-8 w-full -mt-20 max-w-xl" data-aos="zoom-in" data-aos-duration="800">
       <h2 class="text-2xl md:text-3xl font-bold text-center text-green-700 mb-6">
-        Daftarkan 
+        Ayo Bergabung
       </h2>
       
       @if (session('succes'))
@@ -194,7 +251,9 @@
   </div>
 </section>
 
-<footer class="bg-[#5e6f52] pt-30 w-screen text-white">
+
+
+<footer class="bg-[#5e6f52]  pt-30 w-screen text-white">
   <div class="container mx-auto flex justify-center gap-12">
     <div class="flex items-center space-x-3">
       <img src="{{ asset('build/images/youtube.png') }}" alt="YouTube" class="md:h-10 h-5">
