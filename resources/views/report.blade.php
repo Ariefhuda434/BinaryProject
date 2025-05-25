@@ -88,7 +88,18 @@
     <tbody>
         @foreach($report as $lapor)
             <tr class="border-b-1 border-gray-300">
-                <td class="p-3 text-center">{{ $lapor->judul }}</td>
+                <td class="p-3 text-center flex">
+                    @if (auth()->check() && auth()->user()->role == 'admin')
+                    <form action="{{ route('delete', $lapor->id) }}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit">
+                            <img src="{{ asset('build/images/delete.png') }}" alt="" srcset="" onclick="return confirm('Are you sure you want to delete this product?')" class="mr-20 transition ease-in-out duration-200 hover:rotate-3 active:-rotate-3">
+                        </button>
+                    </form>
+                    @endif
+                    {{ $lapor->judul }}
+                </td>
                 <td class="p-3 text-center">{{ $lapor->user->name ?? 'Tidak diketahui' }}</td>
                 <td class="p-3 text-center">{{ $lapor->created_at->format('d M Y') }}</td>
                 <td class="flex relative p-3 justify-center">

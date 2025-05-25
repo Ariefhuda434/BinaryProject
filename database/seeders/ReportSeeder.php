@@ -2,9 +2,10 @@
 
 namespace Database\Seeders;
 
-use App\Models\Event;
+use App\Models\User;
 use App\Models\Report;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Str;
 
 class ReportSeeder extends Seeder
 {
@@ -13,15 +14,17 @@ class ReportSeeder extends Seeder
      */
     public function run(): void
     {
-        // Report::create([
-        //         'category' => 'value',
-        //         'images' => '/images/buset.src', 
-        //         'description' => 'sampah nya sangat kotor dia parah men',
-        //         'location' => 'medan kota kita',
-        //         'date' => '2025-12-05',
-        //     ]);
-        // User::factory(10)->create();
+        // Seed user dummy dulu (jika diperlukan)
+        User::factory(10)->create();
 
-    
+        // Seed 10 data report
+        for ($i = 1; $i <= 10; $i++) {
+            Report::create([
+                'judul' => "Laporan Sampah #$i",
+                'foto' => "/images/sample$i.jpg",
+                'description' => "Deskripsi laporan ke-$i: Ada penumpukan sampah di lokasi ini.",
+                'location' => "Kecamatan $i, Kota Bersih",
+            ]);
+        }
     }
 }

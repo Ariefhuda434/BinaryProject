@@ -13,6 +13,7 @@ use App\Http\Controllers\BerandaController;
 use App\Http\Controllers\FeedbackController;
 use App\Http\Controllers\GerakanController;
 use App\Models\Feedback;
+use App\Models\Report;
 
 Route::middleware(['auth'])->group(function () {
 
@@ -30,6 +31,7 @@ Route::middleware(['auth'])->group(function () {
 
     Route::post('report/feedback',[FeedbackController::class, 'create'])->name('edit');
 
+    Route::delete('/report/{id}/delete',[ReportController::class,'destroy'])->name('delete');
 
 // Halaman public
 Route::post('/', [MitraController::class, 'mitraGanteng'])->name('jadiMitra');

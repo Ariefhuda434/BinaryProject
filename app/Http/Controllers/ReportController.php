@@ -65,5 +65,10 @@ class ReportController extends Controller
     return redirect()->back()->with('success', 'Status berhasil diperbarui!');
 }
 
+public function destroy(Request $request, $id)
+{
+    Report::find($id)->delete();
+    return redirect()->back()->with('success', "Laporan berhasil dihapus");
+}
 
 }
