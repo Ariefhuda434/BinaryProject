@@ -20,22 +20,31 @@ class MitraController extends Controller
     }
     
     $validatedData = $request->validate([
-        'namaMitra'     => 'required|max:30|unique:mitra,namaMitra',
-        'tujuan'        => 'required',
+        'namaMitra'     => 'required|max:30|unique:mitras,namaMitra',
+        'emailMitra'    => 'required|email|unique:mitras,emailMitra',
+        'kontak' => 'required',
         'kategoriMitra' => 'required',
         'alamatMitra'   => 'required',
-        'emailMitra'    => 'required|email|unique:mitra,emailMitra',
         'medsos'        => 'required',
+        'logo' => 'nullable|image|max:2048',
     ]);
 
+    if ($request->hasFile('logo')) {
+    $validatedData['logo'] = $request->file('logo')->store('logos', 'public');
+}
+
+    
+    
     Mitra::create([
         'id_user'       => Auth::id(),
         'namaMitra'     => $validatedData['namaMitra'],
-        'tujuan'        => $validatedData['tujuan'],
+        'emailMitra'    => $validatedData['emailMitra'],
+        'kontak'        => $validatedData['kontak'],
         'kategoriMitra' => $validatedData['kategoriMitra'],
         'alamatMitra'   => $validatedData['alamatMitra'],
         'emailMitra'    => $validatedData['emailMitra'],
         'medsos'        => $validatedData['medsos'],
+        'logo'          => $validatedData['logo']??null,
     ]);
 
     return redirect()->route('beranda')->with('success', 'Pendaftaran mitra berhasil!');

@@ -7,15 +7,20 @@ use Illuminate\Database\Eloquent\Model;
 
 class Mitra extends Model
 {
-    protected $table = 'mitra'; 
+    protected $table = 'mitras'; 
     protected $fillable = [
         'id_user',
         'namaMitra',
-        'tujuan',
+        'kontak',
         'kategoriMitra',
         'alamatMitra',
         'emailMitra',
         'medsos',
+        'logo',
     ];
-    
+        public function user()
+    {
+        return $this->belongsTo(User::class, 'id_user');
+    }
 }
+    

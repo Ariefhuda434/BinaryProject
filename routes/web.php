@@ -29,7 +29,7 @@ Route::middleware(['auth'])->group(function () {
 
     Route::put('/report/{id}/edit',[ReportController::class, 'edit'])->name('edit');
 
-    Route::post('report/feedback',[FeedbackController::class, 'create'])->name('edit');
+    Route::post('report/feedback',[FeedbackController::class, 'create'])->name('feedback');
 
     Route::delete('/report/{id}/delete',[ReportController::class,'destroy'])->name('delete');
 
@@ -40,8 +40,8 @@ Route::post('/', [MitraController::class, 'mitraGanteng'])->name('jadiMitra');
         return view('beranda');
     })->name('beranda');
 
+    Route::post('/jadiMitra',[MitraController::class,'mitraGanteng'])->name('Mitra');
 
-Route::get('/beranda/{id}', [BerandaController::class, 'show']);
 
 Route::get('/tentang', function () {
     return view('tentang');

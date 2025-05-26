@@ -55,7 +55,7 @@ class ReportController extends Controller
     public function edit(Request $request, $id)
 {
     $request->validate([
-        'status' => 'required|in:Menunggu,Diterima,Diproses ',
+        'status' => 'required|in:Menunggu,Diterima,Diproses',
     ]);
 
     $report = Report::findOrFail($id);

@@ -15,7 +15,6 @@ class Report extends Model
         'foto', // disamakan dengan yang di controller
     ];
 
-    // Relasi ke user (1 report dimiliki oleh 1 user)
     public function user()
     {
         return $this->belongsTo(User::class, 'id_user');

@@ -195,8 +195,10 @@
 
 <section id="mitra" class="">
   <div class="min-h-screen bg-gradient-to-br from-white via-white to-green-100 flex flex-col justify-center items-center px-4 py-12 bg-cover bg-center" style="background-image: url('{{ asset('build/images/Wave (7).svg') }}')">
-    <div class="bg-white shadow-2xl rounded-3xl p-8 w-full -mt-20 max-w-xl" data-aos="zoom-in" data-aos-duration="800">
-      <h2 class="text-2xl md:text-3xl font-bold text-center text-green-700 mb-6">
+    <div class=" flex bg-white shadow-2xl rounded-3xl p-8 w-full -mt-20 max-w-3/4" data-aos="zoom-in" data-aos-duration="800">
+      
+      <div class="w-1/2">
+      <h2 class="text-2xl md:text-3xl font-bold text-center text-green-700 mb-6"> 
         Ayo Bergabung
       </h2>
       
@@ -209,8 +211,13 @@
           What the hell omagat 😵‍💫
         </div>
       @endif
-      
-      <form action="{{ route('jadiMitra') }}" method="POST" class="space-y-4">
+
+          @if(session('success'))
+                <div class="bg-green-100 text-green-700 p-2 rounded mb-3">
+                    {{ session('success') }}
+                </div>
+            @endif
+      <form action="{{ route('Mitra') }}" method="POST" class="space-y-4">
         @csrf
         
         <input type="text" name="namaMitra" placeholder="Nama Mitra"
@@ -247,7 +254,17 @@
           Kirim
         </button>
       </form>
+      </div>
+      <div class="mx-auto my-auto">
+        <img src="{{ asset('build/images/interview.png') }}" alt="" class=" h-90 w-90" srcset="">
+       <div class="text-center mb-6">
+        <p class="text-2xl font-semibold text-gray-800">Let's go, <span class="text-green-600">Mitra!</span></p>
+        <p class="text-sm text-gray-500 mt-1">Satu klik lagi untuk mulai beraksi 🚀</p>
+      </div>
+
+      </div>
     </div>
+
   </div>
 </section>
 
