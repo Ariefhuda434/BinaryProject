@@ -22,6 +22,7 @@ Route::middleware(['auth'])->group(function () {
     })->name('beranda');
     
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+    Route::post('/jadiMitra',[MitraController::class,'mitraGanteng'])->name('Mitra.kirim');
 });
 
     Route::get('/report', [ReportController::class, 'create'])->name('report');
@@ -39,7 +40,6 @@ Route::middleware(['auth'])->group(function () {
         return view('beranda');
     })->name('beranda');
 
-    Route::post('/jadiMitra',[MitraController::class,'mitraGanteng'])->name('Mitra');
 
 
 Route::get('/tentang', function () {

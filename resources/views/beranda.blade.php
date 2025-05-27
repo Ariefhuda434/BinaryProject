@@ -204,22 +204,19 @@
         Ayo Bergabung
       </h2>
       
-      @if (session('succes'))
-        <div class="bg-green-100 border border-green-300 text-green-800 p-3 rounded-lg text-sm mb-4">
-          Berhasil berhasil hore hore 🎉
-        </div>
-      @elseif (session('error'))
-        <div class="bg-red-100 border border-red-300 text-red-700 p-3 rounded-lg text-sm mb-4">
-          What the hell omagat 😵‍💫
-        </div>
-      @endif
+         @if(session('success'))
+                    <div class="bg-green-100 text-green-700 p-2 rounded mb-3">
+                        {{ session('success') }}
+                    </div>
+                @endif
 
-          @if(session('success'))
-                <div class="bg-green-100 text-green-700 p-2 rounded mb-3">
-                    {{ session('success') }}
-                </div>
-            @endif
-      <form action="{{ route('Mitra') }}" method="POST" class="space-y-4">
+                @if(session('error'))
+               <div class="bg-red-100 text-green-700 p-2 rounded mb-3">
+                        {{ session('error') }}
+                    </div>
+        @endif
+
+      <form action="{{ route('Mitra.kirim') }}" method="POST" enctype="multipart/form-data" class="space-y-4">
         @csrf
         
         <input type="text" name="namaMitra" placeholder="Nama Mitra"
@@ -228,7 +225,7 @@
         <input type="text" name="emailMitra" placeholder="Email Mitra"
           class="w-full py-2.5 px-4 rounded text-sm bg-gray-100 focus:outline-none focus:border-l-10 focus:border-[#5e6f52] transition-all duration-300 ease-in-out">
         
-        <input type="kontak" name="Kontak" placeholder="Kontak Mitra"
+        <input type="kontak" name="kontak" placeholder="Kontak Mitra"
           class="w-full py-2.5 px-4 rounded text-sm bg-gray-100 focus:outline-none focus:border-l-10 focus:border-[#5e6f52] transition-all duration-300 ease-in-out">
 
         <select name="kategoriMitra" required

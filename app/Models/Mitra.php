@@ -11,10 +11,10 @@ class Mitra extends Model
     protected $fillable = [
         'id_user',
         'namaMitra',
+        'emailMitra',
         'kontak',
         'kategoriMitra',
         'alamatMitra',
-        'emailMitra',
         'medsos',
         'logo',
     ];
