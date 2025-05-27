@@ -16,7 +16,9 @@ return new class extends Migration
             $table->string('slug')->unique();
             $table->string('judul');
             $table->string('deskripsi');
-            $table->string('location');
+            $table->string('lokasi');
+            $table->string('tanggal');
+            $table->string('periode');
             $table->string ('foto')->nullable();
             $table->timestamps();
         });

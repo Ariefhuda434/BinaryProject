@@ -15,11 +15,12 @@ return new class extends Migration
     $table->id();
     $table->unsignedBigInteger('id_user');
     $table->string('namaMitra');
-    $table->text('tujuan');
+    $table->string('emailMitra')->unique();
+    $table->string('kontak');
     $table->string('kategoriMitra');
     $table->string('alamatMitra');
-    $table->string('emailMitra')->unique();
     $table->string('medsos');
+    $table->string('logo');
     $table->timestamps();
 });
     }

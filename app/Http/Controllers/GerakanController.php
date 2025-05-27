@@ -24,7 +24,9 @@ class GerakanController extends Controller
         'judul' => 'required|string|max:255',
         'slug' => 'required|string|unique:blogs',
         'deskripsi' => 'required|string',
-        'location' => 'required|string',
+        'lokasi' => 'required|string',
+        'tanggal' => 'required|string',
+        'periode' => 'required|string',
         'foto' => 'nullable|image|max:2048',
     ]);
 
@@ -34,7 +36,7 @@ class GerakanController extends Controller
 
     Gerakan::create($validated);
 
-    return redirect()->back()->with('success', 'Blog baru berhasil ditambahkan.');
+    return redirect()->back()->with('success', 'event baru berhasil ditambahkan.');
 }
 
     /**

@@ -6,30 +6,30 @@
     <title>Register</title>
     @vite('resources/css/app.css')
 </head>
-<body style="background-image: url('{{ asset('build/images/Blob.svg') }}')" class="h-full bg-cover  font-sans">
-   <div class="flex flex-col md:flex-row justify-center gap-8 py-10">
-  <div class="text-center">
-    <div class="w-16 h-16 rounded-full bg-[#5e6f52] text-white flex items-center justify-center mx-auto text-xl font-bold">1</div>
-    <h4 class="mt-4 font-semibold">Daftar</h4>
-    <p class="text-sm text-gray-600 mt-1">Buat akun Anda di Binary Waste</p>
-  </div>
-  <div class="text-center">
-    <div class="w-16 h-16 rounded-full bg-[#5e6f52] text-white flex items-center justify-center mx-auto text-xl font-bold">2</div>
-    <h4 class="mt-4 font-semibold">Verivikkasi email</h4>
-    <p class="text-sm text-gray-600 mt-1">Verivikasi email anda</p>
-  </div>
-  <div class="text-center">
-    <div class="w-16 h-16 rounded-full bg-[#5e6f52] text-white flex items-center justify-center mx-auto text-xl font-bold">3</div>
-    <h4 class="mt-4 font-semibold">Login Binary Waste</h4>
-    <p class="text-sm text-gray-600 mt-1">Login dan mulai aksi dan progresnya</p>
-  </div>
-</div>
+<body style="background-image: url('{{ asset('build/images/Blob.svg') }}')" class="min-h-screen bg-cover font-sans">
     <a href="{{ route('beranda') }}">
         <img src="{{ asset('build/images/iconsbackto.png') }}" class="h-10 m-5 absolute top-0" alt="back">
     </a>
-    <div class="flex justify-center -mt-30 items-center h-full">
-        <div class="w-[900px] h-screen mt-30 mb-30 p-8 rounded-lg shadow-md bg-white">
-            
+
+    <!-- Langkah Daftar -->
+    <div class="flex  justify-center gap-8 py-10">
+        @foreach ([
+            ['step' => '1', 'title' => 'Daftar', 'desc' => 'Buat akun Anda di Binary Waste'],
+            ['step' => '2', 'title' => 'Verifikasi email', 'desc' => 'Verifikasi email anda'],
+            ['step' => '3', 'title' => 'Login Binary Waste', 'desc' => 'Login dan mulai aksi dan progresnya'],
+        ] as $item)
+        <div class="text-center">
+            <div class="w-16 h-16 rounded-full bg-[#5e6f52] text-white flex items-center justify-center mx-auto text-xl font-bold">
+                {{ $item['step'] }}
+            </div>
+            <h4 class="mt-4 font-semibold">{{ $item['title'] }}</h4>
+            <p class="text-sm md:text-gray-600 text-white mt-1">{{ $item['desc'] }}</p>
+        </div>
+        @endforeach
+    </div>
+
+    <div class="flex justify-center items-center px-4 mb-30">
+        <div class="w-full max-w-screen-md bg-white p-6 md:p-10 rounded-lg shadow-md">
             @if(session('success'))
                 <div class="bg-green-100 text-green-700 p-2 rounded mb-3">
                     {{ session('success') }}
@@ -44,27 +44,27 @@
                 </div>
             @endif
 
-            <form method="POST" action="{{ route('register') }}" class="px-20">
+            <form method="POST" action="{{ route('register') }}" class="space-y-6">
                 @csrf
-                <h2 class="text-2xl font-semibold mb-5 mt-5 text-center ">Registrasi Akun</h2>
+                <h2 class="text-2xl font-semibold text-center">Registrasi Akun</h2>
 
-                <input type="text" name="name" placeholder="Nama Lengkap" required class="w-1/1 p-3 mb-8 rounded text-sm bg-gray-100 focus:outline-none focus:border-l-10 focus:border-[#5e6f52] transition-all duration-300 ease-in-out">
+                <input type="text" name="name" placeholder="Nama Lengkap" required class="w-full p-3 rounded text-sm bg-gray-100 focus:outline-none focus:ring-2 focus:ring-[#5e6f52]">
 
-                <div class="flex  mb-8 gap-7">
-                    <input type="text" name="username" placeholder="Username" required class="w-1/2 p-3  rounded text-sm bg-gray-100 focus:outline-none focus:border-l-10 focus:border-[#5e6f52] transition-all duration-300 ease-in-out">
-                    <input type="email" name="email" placeholder="Email" required class="w-1/2 p-3  rounded text-sm bg-gray-100 focus:outline-none focus:border-l-10 focus:border-[#5e6f52] transition-all duration-300 ease-in-out">
+                <div class="flex flex-col md:flex-row gap-6">
+                    <input type="text" name="username" placeholder="Username" required class="w-full p-3 rounded text-sm bg-gray-100 focus:outline-none focus:ring-2 focus:ring-[#5e6f52]">
+                    <input type="email" name="email" placeholder="Email" required class="w-full p-3 rounded text-sm bg-gray-100 focus:outline-none focus:ring-2 focus:ring-[#5e6f52]">
                 </div>
 
-                <div class="flex mb-8 gap-7">
-                    <input type="password" name="password" placeholder="Password" required class="w-1/2 p-3 mb-4 rounded text-sm bg-gray-100 focus:outline-none focus:border-l-10 focus:border-[#5e6f52] transition-all duration-300 ease-in-out">
-                    <input type="password" name="password_confirmation" placeholder="Konfirmasi Password" required class="w-1/2 p-3 mb-4 rounded text-sm bg-gray-100 focus:outline-none focus:border-l-10 focus:border-[#5e6f52] transition-all duration-300 ease-in-out">
+                <div class="flex flex-col md:flex-row gap-6">
+                    <input type="password" name="password" placeholder="Password" required class="w-full p-3 rounded text-sm bg-gray-100 focus:outline-none focus:ring-2 focus:ring-[#5e6f52]">
+                    <input type="password" name="password_confirmation" placeholder="Konfirmasi Password" required class="w-full p-3 rounded text-sm bg-gray-100 focus:outline-none focus:ring-2 focus:ring-[#5e6f52]">
                 </div>
 
-                <div class="border-b mb-8"></div>
+                <div class="border-b"></div>
 
-                <div class="flex gap-7 mb-7">
-                    <input type="date" name="birth" required class="w-1/2 p-3 rounded text-sm bg-gray-100 focus:outline-none focus:border-l-10 focus:border-[#5e6f52] transition-all duration-300 ease-in-out">
-                    <select name="jenis_kel" required class="w-1/2 p-3   rounded text-sm bg-gray-100 focus:outline-none focus:border-l-10 focus:border-[#5e6f52] transition-all duration-300 ease-in-out">
+                <div class="flex flex-col md:flex-row gap-6">
+                    <input type="date" name="birth" required class="w-full p-3 rounded text-sm bg-gray-100 focus:outline-none focus:ring-2 focus:ring-[#5e6f52]">
+                    <select name="jenis_kel" required class="w-full p-3 rounded text-sm bg-gray-100 focus:outline-none focus:ring-2 focus:ring-[#5e6f52]">
                         <option value="">Jenis Kelamin</option>
                         <option value="pria">Pria</option>
                         <option value="perempuan">Perempuan</option>
@@ -72,9 +72,8 @@
                     </select>
                 </div>
 
-                
-                <div class="flex gap-7">
-                    <select name="profesi" required class="w-1/2 p-3 rounded text-sm bg-gray-100 mb-7 focus:outline-none focus:border-l-10 focus:border-[#5e6f52] transition-all duration-300 ease-in-out">
+                <div class="flex flex-col md:flex-row gap-6">
+                    <select name="profesi" required class="w-full p-3 rounded text-sm bg-gray-100 focus:outline-none focus:ring-2 focus:ring-[#5e6f52]">
                         <option value="">Pilih Profesi</option>
                         <option value="dokter">Dokter</option>
                         <option value="guru">Guru</option>
@@ -89,29 +88,34 @@
                         <option value="pelajar">Pelajar</option>
                         <option value="mahasiswa">Mahasiswa</option>
                     </select>
-                    
-                    <input type="tel" name="phone" placeholder="Nomor Telepon" required class="w-1/2 p-3 mb-7 rounded text-sm bg-gray-100 focus:outline-none focus:border-l-10 focus:border-[#5e6f52] transition-all duration-300 ease-in-out">
+
+                    <input type="tel" name="phone" placeholder="Nomor Telepon" required class="w-full p-3 rounded text-sm bg-gray-100 focus:outline-none focus:ring-2 focus:ring-[#5e6f52]">
                 </div>
-                
-                <div class="flex gap-7 mb-7">
-                    <select name="kota" required class="w-1/2 p-3 rounded text-sm bg-gray-100 focus:outline-none focus:border-l-10 focus:border-[#5e6f52] transition-all duration-300 ease-in-out">
+
+                <div class="flex flex-col md:flex-row gap-6">
+                    <select name="kota" required class="w-full p-3 rounded text-sm bg-gray-100 focus:outline-none focus:ring-2 focus:ring-[#5e6f52]">
                         <option value="">Pilih Kota</option>
-                        <option value="bandung">Medan</option>
-                        <option value="semarang">Bandung</option>
+                        <option value="medan">Medan</option>
+                        <option value="bandung">Bandung</option>
                         <option value="jakarta">Jakarta</option>
                     </select>
 
-                    <select name="kecamatan" required class="w-1/2 p-3 rounded text-sm bg-gray-100 focus:outline-none focus:border-l-10 focus:border-[#5e6f52] transition-all duration-300 ease-in-out">
-                        <option value="">Pilih Kota</option>
-                        <option value="bandung">Medan Helvetia</option>
-                        <option value="semarang">Medan Sunggal</option>
-                        <option value="jakarta">Medan Johor</option>
+                    <select name="kecamatan" required class="w-full p-3 rounded text-sm bg-gray-100 focus:outline-none focus:ring-2 focus:ring-[#5e6f52]">
+                        <option value="">Pilih Kecamatan</option>
+                        <option value="medan_helvetia">Medan Helvetia</option>
+                        <option value="medan_sunggal">Medan Sunggal</option>
+                        <option value="medan_johor">Medan Johor</option>
                     </select>
                 </div>
-                <button type="submit" class="w-full mt-3 p-3 bg-[#5e6f52] text-white rounded">Daftar</button>
-                <p class="mt-4 text-sm text-center">Sudah punya akun? <a href="{{ route('login') }}" class="text-[#234666]">Login</a></p>
+
+                <button type="submit" class="w-full bg-[#5e6f52] hover:bg-[#4c5942] text-white p-3 rounded transition">
+                    Daftar
+                </button>
+                <p class="text-center text-sm mt-4">
+                    Sudah punya akun? <a href="{{ route('login') }}" class="text-[#234666] font-medium">Login</a>
+                </p>
             </form>
         </div>
-    </div>    
+    </div>
 </body>
 </html>

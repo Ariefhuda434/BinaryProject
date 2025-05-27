@@ -34,7 +34,6 @@
             @endforeach
         </div>
 
-        {{-- Form Admin (1 kolom) --}}
         
     </div>
 
