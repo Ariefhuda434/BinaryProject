@@ -48,4 +48,16 @@ class MitraController extends Controller
 
         return redirect()->route('beranda')->with(['success' => 'Pendaftaran mitra berhasil!'])->withFragment('mitra');;
     }
+
+    public function jumlahmitra(){
+        $mitra = Mitra::get();
+        $jumlahmitra = Mitra::count();
+        
+        return view('beranda', [
+            'jumlahmitra' => $jumlahmitra
+        ]);
+        
+
+}
+
 }

@@ -74,4 +74,15 @@ class GerakanController extends Controller
     {
         //
     }
+
+     public function jumlahgerakan(){
+        $gerakan = Gerakan::get();
+        $jumlahgerakan = Gerakan::count();
+        
+        return view('beranda', [
+            'jumlahgerakan' => $jumlahgerakan
+        ]);
+        
+
+}
 }

@@ -118,5 +118,16 @@ class AuthController extends Controller
         return view('verifyPage', compact('email'));
     }
 
+     public function jumlahuser(){
+        $user = User::get();
+        $jumlahuser = User::count();
+        
+        return view('beranda', [
+            'jumlahuser' => $jumlahuser
+        ]);
+        
+
+}
+
 }
  

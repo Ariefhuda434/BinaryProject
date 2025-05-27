@@ -17,13 +17,14 @@ use App\Models\Report;
 
 Route::middleware(['auth'])->group(function () {
 
-    Route::get('/', function () {
-        return view('beranda');
-    })->name('beranda');
-    
+    Route::get('/',[ReportController::class, 'jumlahlaporan'])->name('beranda');
+    Route::get('/',[MitraController::class, 'jumlahmitra'])->name('beranda');
+    Route::get('/',[GerakanController::class, 'jumlahgerakan'])->name('beranda');
+    Route::get('/',[ReportController::class, 'jumlahuser'])->name('beranda');
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
     Route::post('/jadiMitra',[MitraController::class,'mitraGanteng'])->name('Mitra.kirim');
 });
+
 
     Route::get('/report', [ReportController::class, 'create'])->name('report');
     Route::post('/report', [ReportController::class, 'passingData'])->name('passing');
@@ -33,13 +34,6 @@ Route::middleware(['auth'])->group(function () {
     Route::post('report/feedback',[FeedbackController::class, 'create'])->name('feedback');
 
     Route::delete('/report/{id}/delete',[ReportController::class,'destroy'])->name('delete');
-
-// Halaman public
-
-   Route::get('/', function () {
-        return view('beranda');
-    })->name('beranda');
-
 
 
 Route::get('/tentang', function () {

@@ -71,4 +71,14 @@ public function destroy(Request $request, $id)
     return redirect()->back()->with('success', "Laporan berhasil dihapus");
 }
 
+public function jumlahlaporan(){
+    $report = Report::get();
+    $jumlahlaporan = Report::count();
+    
+    return view('beranda', [
+        'jumlahlaporan' => $jumlahlaporan
+    ]);
+
+}
+
 }

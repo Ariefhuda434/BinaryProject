@@ -80,22 +80,22 @@
     <div class="max-w-[73.5rem]  mx-auto p-8 rounded-2xl shadow-xl bg-white">
       <div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-center">
         <div class="flex flex-col items-center">
-          <p id="numberCount" data-max="300" class="text-4xl md:text-5xl font-extrabold text-gray-900">300</p>
+          <p id="numberCount" data-max="300" class="text-4xl md:text-5xl font-extrabold text-gray-900">{{ $jumlahmitra }}</p>
           <p class="text-base md:text-lg text-gray-500 mt-2">Mitra Terafiliasi</p>
         </div>
         
         <div class="flex flex-col items-center">
-          <p id="numberCount1" data-max="280" class="text-4xl md:text-5xl font-extrabold text-gray-900">280</p>
+          <p id="numberCount1" data-max="280" class="text-4xl md:text-5xl font-extrabold text-gray-900">{{ $jumlahuser }}</p>
           <p class="text-base md:text-lg text-gray-500 mt-2">Binarians Terdaftar</p>
         </div>
         
         <div class="flex flex-col items-center">
-          <p id="numberCount2" data-max="350" class="text-4xl md:text-5xl font-extrabold text-gray-900">350</p>
+          <p id="numberCount2" data-max="350" class="text-4xl md:text-5xl font-extrabold text-gray-900">{{ $jumlahlaporan }}</p>
           <p class="text-base md:text-lg text-gray-500 mt-2">Laporan Diterima</p>
         </div>
         
         <div class="flex flex-col items-center">
-          <p id="numberCount3" data-max="120" class="text-4xl md:text-5xl font-extrabold text-gray-900">120</p>
+          <p id="numberCount3" data-max="120" class="text-4xl md:text-5xl font-extrabold text-gray-900">{{ $jumlahgerakan }}</p>
           <p class="text-base md:text-lg text-gray-500 mt-2">Gerakan Terealisasi</p>
         </div>
       </div>
