@@ -22,8 +22,7 @@
         ? 'fixed top-0 left-0 w-full z-50 transition-all duration-500 ease-in-out transform translate-y-0 opacity-100' 
         : 'fixed top-0 left-0 w-full z-50 transition-all duration-500 ease-in-out transform -translate-y-full opacity-0'">
 
-        <!-- Mobile Navbar -->
-        <div class="{{ Request::is('/') ? 'md:hidden flex w-full pl-10  justify-between items-center p-4 backdrop-blur' : 'md:hidden flex w-full pl-10  justify-between items-center p-4 bg-[#57674c]'  }}" >
+        <div class="{{ Request::is('/') ? 'md:hidden flex w-screen pl-10  justify-between items-center p-4 backdrop-blur' : 'md:hidden flex w-full pl-10  justify-between items-center p-4 bg-[#57674c]'  }}" >
             <div class="flex items-center">
                 @if(Request::is('/'))
                 <img class="h-10 mr-2" src="{{ asset('build/images/logo.png') }}" alt="Logo">

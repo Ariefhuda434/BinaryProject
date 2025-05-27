@@ -4,8 +4,6 @@
 
 @section('content')
 
-<x-header />
-
 <div class="mx-auto  mt-20">
   <div class="text-center mb-5 px-4">
     <h1 class="font-black text-3xl md:text-6xl font-sans leading-tight">
@@ -32,62 +30,6 @@
           </button>
         </div>
       </div>
-
-
-</div>
-  </section>
-  <div class="bg-[#a8b387]">
-    <div  class="mt-4 min-w-full">
-      <div class=" bg-[#5e6f52] h-30 md:h-60 flex">
-        <img src="{{ asset('build/images/test1.jpg') }}" alt="" srcset="" class="md:m-5 m-2 h-26 md:h-50 md:w-1/2 bg-white object-cover object-bottom">
-        <img src="{{ asset('build/images/fotokerjasama.jpg') }}" alt="" srcset="" class="h-full w-40 md:w-120 bg-white">
-        <div class="md:h-30 md:mt-30 md:w-30 bg-[#fefadf]"></div>
-        <div class="md:h-full  md:w-30 bg-[#ccc14e]"></div>
-    </div>
-  </div>
-  
-<div id="visi-misi" class="mt-10  min-w-full transition-opacity duration-700">
-<div class="relative w-full md:w-3/4 mx-auto h-auto md:h-85 bg-center rounded-lg shadow-lg overflow-hidden">
-
-  <div class="absolute inset-0 bg-cover bg-bottom  bg-no-repeat bg-right  z-0 md:flex md:justify-end"
-       style="background-image: url('{{ asset('build/images/trashberanda.jpg') }}')">
-    <div class="absolute bottom-2 right-2 md:bottom-4 md:right-4 flex items-center space-x-2 z-10">
-      <img src="{{ asset('build/images/logoputih.png') }}" alt="Logo" class="h-8 md:h-10 bg-cover">
-      <div@extends('components.layout')
-
-@section('title', 'tentang')
-
-@section('content')
-
-<x-header />
-
-<div class="mx-auto  mt-20">
-  <div class="text-center mb-5 px-4">
-    <h1 class="font-black text-3xl md:text-6xl font-sans leading-tight">
-      Sekilas Tentang <span class="text-[#5e6f52]">Binary Waste</span>
-    </h1>
-    <p class="mt-4 text-gray-500 text-base md:text-lg max-w-2xl mx-auto">
-      Solusi digital untuk pengelolaan sampah berkelanjutan dan aksi lingkungan nyata.
-    </p>
-  </div>
-
-  <section class="mt-5 px-6 md:px-20">
-    <div class="flex flex-col md:flex-row items-center justify-center gap-10">
-      <div class="md:w-1/2 text-center -mb-10 ">
-        <img src="{{ asset('build/images/Video.gif') }}" alt="Ilustrasi Binary Waste" class="md:w-full w-60 max-w-md mx-auto md:h-[300px] object-contain">
-      </div>
-      <div class="md:w-500">
-        <p class="md:text-xl indent-8 text-justify font-sans font-normal text-gray-700 leading-relaxed text-center ">
-          Binary Waste adalah sebuah platform digital berbasis web yang dikembangkan sebagai solusi inovatif dalam pengelolaan sampah secara berkelanjutan. Platform ini lahir dari kepedulian terhadap isu lingkungan serta rendahnya kesadaran masyarakat akan pentingnya pengelolaan sampah yang efektif. Binary Waste hadir untuk memfasilitasi partisipasi aktif masyarakat dalam pelaporan pembuangan sampah ilegal dan kolaborasi aksi lingkungan secara langsung, melalui sistem yang mudah diakses dan berdampak nyata.
-        </p>
-
-        <div class="text-center ro md:text-left mt-6">
-          <button id="btnScroll" class="bg-[#5e6f52] rounded-full px-6 py-3 text-white text-sm md:text-base shadow-md hover:bg-[#4a5a40] transition-all">
-            Selengkapnya
-          </button>
-        </div>
-      </div>
-
 
 </div>
   </section>

@@ -125,8 +125,6 @@ class AuthController extends Controller
         return view('beranda', [
             'jumlahuser' => $jumlahuser
         ]);
-        
-
 }
 
 }

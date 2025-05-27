@@ -7,7 +7,7 @@
     @vite('resources/css/app.css')
 </head>
 <body style="background-image: url('{{ asset('build/images/Blob.svg') }}')" class="min-h-screen bg-cover font-sans">
-    <a href="{{ route('beranda') }}">
+    <a href="{{ route('/') }}">
         <img src="{{ asset('build/images/iconsbackto.png') }}" class="h-10 m-5 absolute top-0" alt="back">
     </a>
 
