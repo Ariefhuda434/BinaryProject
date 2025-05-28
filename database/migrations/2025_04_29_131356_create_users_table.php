@@ -12,8 +12,7 @@ class CreateUsersTable extends Migration
         $table->id()->primary();
         $table->enum('role', ['admin','user'])->default('user');
         $table->string('name'); 
-        $table->string('avatar')->nullable();   
-        $table->string('username')->unique();
+        $table->string('avatar')->nullable();
         $table->string('email')->unique(); 
         $table->string('password');
         $table->date('birth'); 
@@ -22,9 +21,10 @@ class CreateUsersTable extends Migration
         $table->string('phone');  
         $table->string('kota');
         $table->string('kecamatan');
-        $table->string('otp')->nullable();
-        $table->boolean('is_verifikasi')->nullable();
-        $table->rememberToken();  
+        $table->timestamp('email_verifikasi')->nullable();
+        $table->string('verification_token')->nullable();
+        $table->string('reset_token')->nullable();
+        $table->rememberToken()->nullable();  
         $table->timestamps(); 
     });
 }

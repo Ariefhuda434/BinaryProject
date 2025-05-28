@@ -7,26 +7,33 @@
     @vite('resources/css/app.css')
 </head>
 <body style="background-image: url('{{ asset('build/images/Blob.svg') }}')" class="min-h-screen bg-cover font-sans">
-    <a href="{{ route('/') }}">
+    <a href="{{ route('beranda') }}">
         <img src="{{ asset('build/images/iconsbackto.png') }}" class="h-10 m-5 absolute top-0" alt="back">
     </a>
+      <div class="flex mx-auto gap-8 py-10 items-center max-w-md w-full">
+            
+            @foreach ([
+                ['step' => 1, 'title' => 'Daftar', 'desc' => 'Buat akun Anda di Binary Waste'],
+                ['step' => 2, 'title' => 'Verifikasi email', 'desc' => 'Verifikasi email Anda'],
+                ] as $index => $item)
 
-    <!-- Langkah Daftar -->
-    <div class="flex  justify-center gap-8 py-10">
-        @foreach ([
-            ['step' => '1', 'title' => 'Daftar', 'desc' => 'Buat akun Anda di Binary Waste'],
-            ['step' => '2', 'title' => 'Verifikasi email', 'desc' => 'Verifikasi email anda'],
-            ['step' => '3', 'title' => 'Login Binary Waste', 'desc' => 'Login dan mulai aksi dan progresnya'],
-        ] as $item)
-        <div class="text-center">
-            <div class="w-16 h-16 rounded-full bg-[#5e6f52] text-white flex items-center justify-center mx-auto text-xl font-bold">
-                {{ $item['step'] }}
-            </div>
-            <h4 class="mt-4 font-semibold">{{ $item['title'] }}</h4>
-            <p class="text-sm md:text-gray-600 text-white mt-1">{{ $item['desc'] }}</p>
-        </div>
-        @endforeach
-    </div>
+<div class="flex flex-col items-center relative flex-1">
+    
+    <div class="
+    w-14 h-14 rounded-full
+    flex items-center justify-center text-xl font-bold select-none
+    {{ $item['step'] == 1 ? 'bg-white text-[#5e6f52] shadow-lg' : 'bg-[#5e6f52] text-white' }}
+    z-10 ">
+    {{ $item['step'] }}
+</div>
+
+<h4 class="mt-4 font-semibold text-white">{{ $item['title'] }}</h4>
+<p class="text-sm text-gray-300 mt-1 max-w-xs text-center">{{ $item['desc'] }}</p>
+
+</div>
+
+@endforeach
+</div>
 
     <div class="flex justify-center items-center px-4 mb-30">
         <div class="w-full max-w-screen-md bg-white p-6 md:p-10 rounded-lg shadow-md">
@@ -44,14 +51,13 @@
                 </div>
             @endif
 
-            <form method="POST" action="{{ route('register') }}" class="space-y-6">
+            <form method="POST" action="{{ route('registerPassing') }}" class="space-y-6">
                 @csrf
                 <h2 class="text-2xl font-semibold text-center">Registrasi Akun</h2>
 
                 <input type="text" name="name" placeholder="Nama Lengkap" required class="w-full p-3 rounded text-sm bg-gray-100 focus:outline-none focus:ring-2 focus:ring-[#5e6f52]">
 
                 <div class="flex flex-col md:flex-row gap-6">
-                    <input type="text" name="username" placeholder="Username" required class="w-full p-3 rounded text-sm bg-gray-100 focus:outline-none focus:ring-2 focus:ring-[#5e6f52]">
                     <input type="email" name="email" placeholder="Email" required class="w-full p-3 rounded text-sm bg-gray-100 focus:outline-none focus:ring-2 focus:ring-[#5e6f52]">
                 </div>
 

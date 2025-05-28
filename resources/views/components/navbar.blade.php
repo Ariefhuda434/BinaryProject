@@ -22,7 +22,7 @@
         ? 'fixed top-0 left-0 w-full z-50 transition-all duration-500 ease-in-out transform translate-y-0 opacity-100' 
         : 'fixed top-0 left-0 w-full z-50 transition-all duration-500 ease-in-out transform -translate-y-full opacity-0'">
 
-        <div class="{{ Request::is('/') ? 'md:hidden flex w-screen pl-10  justify-between items-center p-4 backdrop-blur' : 'md:hidden flex w-full pl-10  justify-between items-center p-4 bg-[#57674c]'  }}" >
+        <div class="{{ Request::is('beranda') ? 'md:hidden flex w-screen pl-10  justify-between items-center p-4 backdrop-blur' : 'md:hidden flex w-full pl-10  justify-between items-center p-4 bg-[#57674c]'  }}" >
             <div class="flex items-center">
                 @if(Request::is('/'))
                 <img class="h-10 mr-2" src="{{ asset('build/images/logo.png') }}" alt="Logo">
@@ -42,7 +42,7 @@
         class="md:hidden bg-gray-200 p-4 w-40 rounded-lg absolute right-0 transform-all duration-500 ease-in-out mr-5 space-y-4 z-50">
         <ul class="flex flex-col space-y-4">
     <li>
-    <a href="/" class="relative pl-2 {{ Request::is('/') ? 'text-[#ccc14e] border-[#ccc14e] border-l-4 font-black' : 'before:content-[""] before:absolute before:left-0 before:top-0 before:h-full before:w-[4px] before:bg-[#ccc14e] before:scale-y-0 before:origin-top hover:before:scale-y-100 before:transition before:duration-700' }}">
+    <a href="/" class="relative pl-2 {{ Request::is('beranda') ? 'text-[#ccc14e] border-[#ccc14e] border-l-4 font-black' : 'before:content-[""] before:absolute before:left-0 before:top-0 before:h-full before:w-[4px] before:bg-[#ccc14e] before:scale-y-0 before:origin-top hover:before:scale-y-100 before:transition before:duration-700' }}">
         Beranda
     </a>
 </li>
@@ -87,8 +87,8 @@
                         <button type="submit" class="block text-gray-700 hover:bg-gray-200">Logout</button>
                     </form>
                     @else
-                    <a href="/auth/login" class="block text-gray-700 hover:bg-gray-200">Login</a>
-                    <a href="/auth/register" class="block text-gray-700 hover:bg-gray-200">Register</a>
+                    <a href="{{ route('login') }}" class="block text-gray-700 hover:bg-gray-200">Login</a>
+                    <a href="{{ route('register') }}" class="block text-gray-700 hover:bg-gray-200">Register</a>
                     @endauth
                 </div>
             </div>
@@ -166,8 +166,8 @@
                             <button type="submit">Logout</button>
                         </form>
                         @else
-                        <a href="login" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-200">Login</a>
-                        <a href="register" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-200">Register</a>
+                        <a href="{{ route('login') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-200">Login</a>
+                        <a href="{{ route('register') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-200">Register</a>
                         @endauth
                     </div>
                 </div>
@@ -203,7 +203,7 @@
                     <div><span class="font-semibold">🎂 Tanggal Lahir:</span> {{ Auth::user()->birth }}</div>
                 </div>
                 
-                <button @click="isProfil = true"
+                <button @click="isProfil = true" id="resetClick"
                     class="mt-8 w-full hover:scale-105 active:scale-95 bg-[#5e6f52] hover:bg-[#a3b398] text-white py-2 px-4 rounded-full transition-all duration-300 shadow-md">
                     🔐 Reset Password
                 </button>
@@ -229,6 +229,8 @@
                 </ul>
             </div>
 
+            
+
             <div x-show="isProfil" class="bg-gray-50 rounded-2xl p-6 border border-gray-200 flex flex-col justify-center text-center shadow-inner">
                 <h3 class="text-2xl font-semibold text-gray-800 mb-4">🔐 Reset Password</h3>
                 
@@ -242,9 +244,13 @@
                     </div>
                 @endif
                 
-                <form action="{{ route('reset.password') }}" method="POST">
+                <form action="{{ route('reset.pw') }}" method="POST">
                     @csrf
-                    <input type="password" name="password_lama" 
+                    <input type="email" name="email" 
+                        class="p-3 w-full rounded-lg bg-gray-100 mb-3" 
+                        required placeholder="Masukan Email">
+                   
+                        <input type="password" name="password_lama" 
                         class="p-3 w-full rounded-lg bg-gray-100 mb-3" 
                         required placeholder="Masukan Password Lama">
                     
@@ -266,11 +272,33 @@
                     Butuh bantuan? <a href="/faq#password" class="text-blue-600 hover:underline">Lihat FAQ</a>
                 </p>
             </div>
+        <div x-show="" id="resetpw" class="bg-gray-50 rounded-2xl p-6 border border-gray-200 flex flex-col justify-center text-center shadow-inner">
+             <div class="w-16 h-16 rounded-full bg-[#5e6f52] text-white flex items-center justify-center mx-auto mb-6 shadow-md">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+            </svg>
+        </div>
+        
+        <h2 class="text-2xl font-extrabold mb-3">Verifikasi Email Reset Password Anda</h2>
+        
+        @if(session('success'))
+        <p class="text-sm text-green-600 mb-2 animate-pulse">{{ session('success') }}</p>
+        @endif
+        
+        <p class="text-gray-700 leading-relaxed mb-6">
+            Kami telah mengirimkan link Reset Passowrd ke:
+            <span class="block font-semibold mt-1">{{ Auth::user()->email }}</span>
+            <br>
+            Silakan buka email Anda dan klik link verifikasi untuk Mereset Password akun Anda.
+        </p>
+            </div>
         </div>
         @endauth    
     </section>
-
+   
     <script>
+
+
         function navbarKore(namaId) {
             document.getElementById(namaId).addEventListener('click', () => {
                 const Profil = document.getElementById('profile');
@@ -293,5 +321,30 @@
 
         navbarKore('btnProfil');    
         navbarKore('btnProfil2');
+
+        document.addEventListener('alpine:init', () => {
+  Alpine.data('profileModal', () => ({
+    isProfil: false,
+    init() {
+      if (window.location.hash === '#resetpw') {
+        this.isProfil = true;
+      }
+    }
+  }));
+});
+
+  document.addEventListener('DOMContentLoaded', () => {
+    if (window.location.hash === '#resetpw') {
+      // Trigger Alpine reactive property via event or set class manually
+      // Misal:
+      const modal = document.getElementById('profile');
+      if (modal) {
+        modal.classList.remove('hidden', 'opacity-0');
+        modal.classList.add('flex', 'opacity-100');
+        // Atur juga Alpine property jika perlu
+      }
+    }
+  });
+
     </script>
 

@@ -1,22 +1,18 @@
 <?php
 
 use App\Models\Blog;
-use App\Models\Report;
+use App\Models\User;
 use App\Models\Gerakan;
-use App\Models\Feedback;
 use Illuminate\Support\Facades\Route;
-use App\Http\Middleware\RoleMiddleware;
-use PHPUnit\Framework\Constraint\Count;
+use function Laravel\Prompts\password;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CountController;
-use App\Http\Controllers\EmailController;
 use App\Http\Controllers\MitraController;
 use App\Http\Controllers\ReportController;
-use App\Http\Controllers\BerandaController;
+
 use App\Http\Controllers\GerakanController;
 use App\Http\Controllers\FeedbackController;
-use Pest\Mutate\Mutators\Math\RoundToCeil;
 
 Route::middleware(['auth'])->group(function () {
 
@@ -30,7 +26,7 @@ Route::middleware(['auth'])->group(function () {
 // Route::get('/',[ReportController::class, 'jumlahuser'])->name('beranda');
 
 
-    Route::get('/',[CountController::class,'index'])->name('count');
+    Route::get('/',[CountController::class,'index'])->name('beranda');
 
     Route::get('/report', [ReportController::class, 'create'])->name('report');
     Route::post('/report', [ReportController::class, 'passingData'])->name('passing');
@@ -80,20 +76,48 @@ Route::get('gerakans/{gerakan:slug}', function (Gerakan $gerakan) {
     return view('gerakan',['gerakan' => $gerakan]);
 });
 
-Route::post('/update-password', [AuthController::class, 'ResetPw'])->name('reset.password');
+Route::get('/reset/{token}', function ($token) {
+    $user = User::where('reset_token', $token)->first();
 
+    if (!$user) {
+        return redirect('/')->with('error', 'Token tidak valid.');
+    }
+
+    return view('auth.reset-password', ['token' => $token, 'email' => $user->email]);
+});
+
+
+Route::get('/verify/{token}', function ($token) {
+    $user = User::where('verification_token', $token)->first();
+
+    if (!$user) {
+    return view('verifytoken');
+    }
+
+    $user->email_verifikasi = now();
+    $user->verification_token = null;
+    $user->save();
+
+    return view('verifytoken');
+})->name('verifytoken');
+
+Route::get('/verify',function(){
+    return view('emails.emailverify-info');
+})->name('verify.info');
+
+Route::post('/reset',[AuthController::class,'sendReset'])->name('reset.pw');
+
+Route::get('reset/{token}', [AuthController::class, 'sendResetLink'])->name('sendlink');
 
 // Auth Routes
 Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
 Route::post('/login', [AuthController::class, 'login'])->name('loginpage');
 
 Route::get('/register', [AuthController::class, 'showRegister'])->name('register');
-Route::post('/register', [AuthController::class, 'register'])->name('register');
+Route::post('/register', [AuthController::class, 'register'])->name('registerPassing');
 
 
 Route::post('/blogs', [BlogController::class, 'store'])->name('blogs.store');
 
-Route::get('/verifikasi', [AuthController::class, 'showOtpPage'])->name('verifyPage');
-Route::post('/verifikasi', [AuthController::class, 'verifyOtp'])->name('verifyOtp');
 
 

@@ -46,7 +46,7 @@ class MitraController extends Controller
             'logo'          => $imagePath ? str_replace('public/', '', $imagePath) : null,
         ]);
 
-        return redirect()->route('beranda')->with(['success' => 'Pendaftaran mitra berhasil!'])->withFragment('mitra');;
+        return redirect()->route('beranda')->with(['success' => 'Pendaftaran mitra berhasil!'])->withFragment('mitra');
     }
 
     public function jumlahmitra(){
