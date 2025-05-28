@@ -88,7 +88,7 @@
                     </form>
                     @else
                     <a href="{{ route('login') }}" class="block text-gray-700 hover:bg-gray-200">Login</a>
-                    <a href="{{ route('register') }}" class="block text-gray-700 hover:bg-gray-200">Register</a>
+                    <a href="{{ route('showregister') }}" class="block text-gray-700 hover:bg-gray-200">Register</a>
                     @endauth
                 </div>
             </div>
@@ -167,7 +167,7 @@
                         </form>
                         @else
                         <a href="{{ route('login') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-200">Login</a>
-                        <a href="{{ route('register') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-200">Register</a>
+                        <a href="{{ route('showregister') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-200">Register</a>
                         @endauth
                     </div>
                 </div>
@@ -244,21 +244,21 @@
                     </div>
                 @endif
                 
-                <form action="{{ route('reset.pw') }}" method="POST">
+                <form action="{{ route('resetpw.request') }}" method="POST">
                     @csrf
                     <input type="email" name="email" 
                         class="p-3 w-full rounded-lg bg-gray-100 mb-3" 
                         required placeholder="Masukan Email">
                    
-                        <input type="password" name="password_lama" 
+                        <input type="password" name="old_password" 
                         class="p-3 w-full rounded-lg bg-gray-100 mb-3" 
                         required placeholder="Masukan Password Lama">
                     
-                    <input type="password" name="password_baru" 
+                    <input type="password" name="new_password" 
                         class="p-3 w-full rounded-lg bg-gray-100 mb-3" 
                         required placeholder="Masukan Password Baru">
                     
-                    <input type="password" name="password_baru_confirmation" 
+                    <input type="new_password_confirmation" name="password_baru_confirmation" 
                         class="p-3 w-full rounded-lg bg-gray-100 mb-3" 
                         required placeholder="Konfirmasi Password Baru">
                     
@@ -291,6 +291,11 @@
             <br>
             Silakan buka email Anda dan klik link verifikasi untuk Mereset Password akun Anda.
         </p>
+    <form action="{{ route('resetpw.confirm') }}" method="POST">
+    @csrf
+    <input type="hidden" name="email" value="{{ session('dapet_email')}}">
+    <button type="submit">Konfirmasi Reset Password</button>
+</form>
             </div>
         </div>
         @endauth    
@@ -322,29 +327,6 @@
         navbarKore('btnProfil');    
         navbarKore('btnProfil2');
 
-        document.addEventListener('alpine:init', () => {
-  Alpine.data('profileModal', () => ({
-    isProfil: false,
-    init() {
-      if (window.location.hash === '#resetpw') {
-        this.isProfil = true;
-      }
-    }
-  }));
-});
-
-  document.addEventListener('DOMContentLoaded', () => {
-    if (window.location.hash === '#resetpw') {
-      // Trigger Alpine reactive property via event or set class manually
-      // Misal:
-      const modal = document.getElementById('profile');
-      if (modal) {
-        modal.classList.remove('hidden', 'opacity-0');
-        modal.classList.add('flex', 'opacity-100');
-        // Atur juga Alpine property jika perlu
-      }
-    }
-  });
 
     </script>
 

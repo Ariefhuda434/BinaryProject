@@ -76,45 +76,53 @@ Route::get('gerakans/{gerakan:slug}', function (Gerakan $gerakan) {
     return view('gerakan',['gerakan' => $gerakan]);
 });
 
-Route::get('/reset/{token}', function ($token) {
-    $user = User::where('reset_token', $token)->first();
+// Route::get('/reset/{token}', function ($token) {
+//     $user = User::where('reset_token', $token)->first();
 
-    if (!$user) {
-        return redirect('/')->with('error', 'Token tidak valid.');
-    }
+//     if (!$user) {
+//         return redirect('/')->with('error', 'Token tidak valid.');
+//     }
 
-    return view('auth.reset-password', ['token' => $token, 'email' => $user->email]);
-});
+//     return view('auth.reset-password', ['token' => $token, 'email' => $user->email]);
+// });
 
 
 Route::get('/verify/{token}', function ($token) {
     $user = User::where('verification_token', $token)->first();
 
     if (!$user) {
-    return view('verifytoken');
+    return view('auth.register');
     }
 
     $user->email_verifikasi = now();
     $user->verification_token = null;
     $user->save();
 
-    return view('verifytoken');
-})->name('verifytoken');
+    session()->flash('verified', 'Email kamu berhasil diverifikasi!');
+
+    session()->flash('verified_email', $user->email);
+    return view('emails.emailverify-info');
+
+})->name('verifyPage');
 
 Route::get('/verify',function(){
     return view('emails.emailverify-info');
 })->name('verify.info');
 
-Route::post('/reset',[AuthController::class,'sendReset'])->name('reset.pw');
+Route::post('/reset-password-request', [AuthController::class, 'resetPasswordRequest'])->name('resetpw.request');
 
-Route::get('reset/{token}', [AuthController::class, 'sendResetLink'])->name('sendlink');
+Route::get('/reset-password-verify/{token}', [AuthController::class, 'verifyResetPassword'])->name('resetpw.verify');
+
+Route::post('/reset-password-confirm', [AuthController::class, 'confirmResetPassword'])->name('resetpw.confirm');
+
+
 
 // Auth Routes
 Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
 Route::post('/login', [AuthController::class, 'login'])->name('loginpage');
 
-Route::get('/register', [AuthController::class, 'showRegister'])->name('register');
-Route::post('/register', [AuthController::class, 'register'])->name('registerPassing');
+Route::get('/register', [AuthController::class, 'showRegister'])->name('showregister');
+Route::post('/register', [AuthController::class, 'register'])->name('register');
 
 
 Route::post('/blogs', [BlogController::class, 'store'])->name('blogs.store');

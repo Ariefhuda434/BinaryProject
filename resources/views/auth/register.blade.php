@@ -51,7 +51,7 @@
                 </div>
             @endif
 
-            <form method="POST" action="{{ route('registerPassing') }}" class="space-y-6">
+            <form method="POST" action="{{ route('register') }}" class="space-y-6">
                 @csrf
                 <h2 class="text-2xl font-semibold text-center">Registrasi Akun</h2>
 

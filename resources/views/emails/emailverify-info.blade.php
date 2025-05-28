@@ -48,21 +48,34 @@
             </svg>
         </div>
         
+        
+        @if(session('verified'))
+        <div class="text-2xl font-extrabold mb-3">
+            {{ session('verified') }}
+        </div>
+        @else
         <h2 class="text-2xl font-extrabold mb-3">Verifikasi Email Anda</h2>
         
-        @if(session('success'))
-        <p class="text-sm text-green-600 mb-2 animate-pulse">{{ session('success') }}</p>
         @endif
-        
+
+        @if(session('verified_email'))
+        <p>Email<strong>{{ session('verified_email') }}</strong> sudah Terverifikasi </p>
+           <br>
+           <p class="mb-5">
+               Silakan Login dengan email Anda.
+            </p>
+        @else
         <p class="text-gray-700 leading-relaxed mb-6">
-            Kami telah mengirimkan link verifikasi ke:
-            <span class="block font-semibold mt-1">{{ Auth::user()->email }}</span>
+            Email anda belum di verifikasi:
+            <span class="block font-semibold mt-1">{{ session('dapet_email')}}</span>
             <br>
             Silakan buka email Anda dan klik link verifikasi untuk mengaktifkan akun Anda.
         </p>
+        @endif
+
         
         <a href="{{ route('login') }}"
-        class="inline-block bg-[#5e6f52] text-white px-6 py-2 rounded-md text-sm font-semibold shadow hover:bg-[#4b5b45] transition duration-300">
+        class="inline-block bg-[#5e6f52] text-white px-6  py-2 rounded-md text-sm font-semibold shadow hover:bg-[#4b5b45] transition duration-300">
         Kembali ke Halaman Login
     </a>
 </div>

@@ -92,55 +92,51 @@ class AuthController extends Controller
 
     return redirect()->route('verify.info')->with('success', 'Registrasi berhasil! Link verifikasi telah dikirim ke email Anda.');
 }
+    public function resetPasswordRequest(Request $request)
+    {
+        $request->validate([
+            'email' => 'required|email|exists:users,email',
+            'old_password' => 'required',
+            'new_password' => 'required|confirmed|min:6',
+        ]);
 
-    
+        $user = User::where('email', $request->email)->first();
 
-    public function sendReset(Request $request) {
-    $request->validate([
-        'email' => 'required|email',
-        'password' => 'required|min:8',
-        'token' => 'required',
-    ]);
+        if (!Hash::check($request->old_password, $user->password)) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Password lama salah.'
+            ]);
+        }
 
-    $user = User::where('email', $request->email)
-                ->where('reset_token', $request->token)
-                ->first();
+        $token = Str::random(60);
+        $user->reset_token = $token;
+        $user->temp_password = Hash::make($request->new_password);
+        $user->save();
 
-    if (!$user) {
-        return back()->with('error', 'Token tidak valid, atau email salah.');
+        Mail::to($user->email)->send(new ResetEmail($user, $token));
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Email verifikasi telah dikirim. Silakan cek email Anda.'
+        ]);
     }
 
-    $user->update([
-        'password' => Hash::make($request->password),
-        'reset_token' => null, 
-    ]);
-    return redirect()-> route('beranda')->withFragment('resetpw');
+    public function verifyResetPassword($token)
+    {
+        $user = User::where('reset_token', $token)->first();
 
-}
-    
+        if (!$user) {
+            return redirect()->route('login')->with('error', 'Token tidak valid atau sudah kadaluarsa.');
+        }
 
-    public function sendResetLink(Request $request) {
-    $request->validate([
-        'email' => 'required|email',
-    ]);
+        $user->password = $user->temp_password;
+        $user->temp_password = null;
+        $user->reset_token = null;
+        $user->save();
 
-    $user = User::where('email', $request->email)->first();
-
-    if (!$user) {
-        return back()->with('error', 'Email tidak ditemukan.');
+        return redirect()->route('login')->with('success', 'Password berhasil direset. Silakan login dengan password baru Anda.');
     }
-
-    $token = Str::random(64); 
-
-    $user->update([
-        'reset_token' => $token,
-    ]);
-
-    Mail::to($user->email)->send(new ResetEmail($user)); 
-    
-    return back()->with('success', 'Link reset password telah dikirim ke email Anda.');
-
-}
 
 }
  
