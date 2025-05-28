@@ -2,23 +2,21 @@
 
 namespace App\Models;
 
-use Illuminate\Container\Attributes\Auth;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\User;
 
 class Report extends Model
 {
     protected $fillable = [
         'id_user',
-        'laporan',
-        'images',
-        'description',
+        'judul',
+        'deskripsi',
         'location',
-        'date',
+        'foto', // disamakan dengan yang di controller
     ];
-    public function user(){
-        return $this -> belongsTo(Auth::class);
-    }
-    public function report(){
-        return $this -> belongsTo(Report::class);
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'id_user');
     }
 }

@@ -10,7 +10,7 @@ class CreateUsersTable extends Migration
 {
     Schema::create('users', function (Blueprint $table) {
         $table->id()->primary();
-        $table->enum('role', ['admin','user', 'mitra'])->default('user');
+        $table->enum('role', ['admin','user'])->default('user');
         $table->string('name'); 
         $table->string('avatar')->nullable();   
         $table->string('username')->unique();
@@ -22,7 +22,8 @@ class CreateUsersTable extends Migration
         $table->string('phone');  
         $table->string('kota');
         $table->string('kecamatan');
-        $table->timestamp('email_verified_at')->nullable();
+        $table->string('otp')->nullable();
+        $table->boolean('is_verifikasi')->nullable();
         $table->rememberToken();  
         $table->timestamps(); 
     });
