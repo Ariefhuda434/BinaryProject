@@ -152,7 +152,7 @@
     d="M0,96L48,96C96,96,192,96,288,90.7C384,85,480,75,576,101.3C672,128,768,192,864,186.7C960,181,1056,107,1152,74.7C1248,43,1344,53,1392,58.7L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z" />
 </svg>
 
-<section class="bg-[#5e6f52] -mt-10  px-6 lg:-mt-20 lg:px-0 pb-20 lg:pb-80">
+<section class="bg-[#5e6f52] -mt-6  px-6 lg:-mt-20 lg:px-0 pb-20 lg:pb-80">
   <div class="max-w-7xl mx-auto flex flex-col lg:flex-row gap-6">
 
     <div class="rounded-2xl shadow-lg bg-white flex flex-col gap-6 p-6 lg:w-1/3" data-aos="fade-up" data-aos-duration="1000">
@@ -218,7 +218,7 @@
 
 <section id="mitra">
   
-    <div class="w-full max-w-6xl  mx-auto text-center mb-10">  
+    <div class="w-full max-w-6xl  mx-auto text-center mb-30 lg:mb-10 md:mb-10">  
 <p class="text-3xl md:text-4xl lg:text-5xl  font-bold text-[#5e6f52]" data-aos="fade-up" data-aos-duration="1000">
   Jadilah Bagian dari <span class="text-green-800">Perubahan</span>,<br>
   <span class="text-[#3e4936]">Bergabunglah sebagai Mitra Kami!</span>

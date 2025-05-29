@@ -55,22 +55,22 @@
                 @csrf
                 <h2 class="text-2xl font-semibold text-center">Registrasi Akun</h2>
 
-                <input type="text" name="name" placeholder="Nama Lengkap" required class="w-full p-3 rounded text-sm bg-gray-100 focus:outline-none focus:ring-2 focus:ring-[#5e6f52]">
+                <input type="text" name="name" placeholder="Nama Lengkap" required class="w-full p-3 rounded text-sm bg-gray-100 focus:outline-none focus:border-l-10 border-[#5e6f52] transition-all duration-300 ease-in-out">
 
                 <div class="flex flex-col md:flex-row gap-6">
-                    <input type="email" name="email" placeholder="Email" required class="w-full p-3 rounded text-sm bg-gray-100 focus:outline-none focus:ring-2 focus:ring-[#5e6f52]">
+                    <input type="email" name="email" placeholder="Email" required class="w-full p-3 rounded text-sm bg-gray-100 focus:outline-none focus:border-l-10 border-[#5e6f52] transition-all duration-300 ease-in-out">
                 </div>
 
                 <div class="flex flex-col md:flex-row gap-6">
-                    <input type="password" name="password" placeholder="Password" required class="w-full p-3 rounded text-sm bg-gray-100 focus:outline-none focus:ring-2 focus:ring-[#5e6f52]">
-                    <input type="password" name="password_confirmation" placeholder="Konfirmasi Password" required class="w-full p-3 rounded text-sm bg-gray-100 focus:outline-none focus:ring-2 focus:ring-[#5e6f52]">
+                    <input type="password" name="password" placeholder="Password" required class="w-full p-3 rounded text-sm bg-gray-100 focus:outline-none focus:border-l-10 border-[#5e6f52] transition-all duration-300 ease-in-out">
+                    <input type="password" name="password_confirmation" placeholder="Konfirmasi Password" required class="w-full p-3 rounded text-sm bg-gray-100 focus:outline-none focus:border-l-10 border-[#5e6f52] transition-all duration-300 ease-in-out">
                 </div>
 
                 <div class="border-b"></div>
 
                 <div class="flex flex-col md:flex-row gap-6">
-                    <input type="date" name="birth" required class="w-full p-3 rounded text-sm bg-gray-100 focus:outline-none focus:ring-2 focus:ring-[#5e6f52]">
-                    <select name="jenis_kel" required class="w-full p-3 rounded text-sm bg-gray-100 focus:outline-none focus:ring-2 focus:ring-[#5e6f52]">
+                    <input type="date" name="birth" required class="w-full p-3 rounded text-sm bg-gray-100 focus:outline-none focus:border-l-10 border-[#5e6f52] transition-all duration-300 ease-in-out">
+                    <select name="jenis_kel" required class="w-full p-3 rounded text-sm bg-gray-100 focus:outline-none focus:border-l-10 border-[#5e6f52] transition-all duration-300 ease-in-out">
                         <option value="">Jenis Kelamin</option>
                         <option value="pria">Pria</option>
                         <option value="perempuan">Perempuan</option>
@@ -79,7 +79,7 @@
                 </div>
 
                 <div class="flex flex-col md:flex-row gap-6">
-                    <select name="profesi" required class="w-full p-3 rounded text-sm bg-gray-100 focus:outline-none focus:ring-2 focus:ring-[#5e6f52]">
+                    <select name="profesi" required class="w-full p-3 rounded text-sm bg-gray-100  focus:outline-none focus:border-l-10 border-[#5e6f52] transition-all duration-300 ease-in-out">
                         <option value="">Pilih Profesi</option>
                         <option value="dokter">Dokter</option>
                         <option value="guru">Guru</option>
@@ -95,18 +95,18 @@
                         <option value="mahasiswa">Mahasiswa</option>
                     </select>
 
-                    <input type="tel" name="phone" placeholder="Nomor Telepon" required class="w-full p-3 rounded text-sm bg-gray-100 focus:outline-none focus:ring-2 focus:ring-[#5e6f52]">
+                    <input type="tel" name="phone" placeholder="Nomor Telepon" required class="w-full p-3 rounded text-sm bg-gray-100 focus:outline-none focus:border-l-10 border-[#5e6f52] transition-all duration-300 ease-in-out">
                 </div>
 
                 <div class="flex flex-col md:flex-row gap-6">
-                    <select name="kota" required class="w-full p-3 rounded text-sm bg-gray-100 focus:outline-none focus:ring-2 focus:ring-[#5e6f52]">
+                    <select name="kota" required class="w-full p-3 rounded text-sm bg-gray-100 focus:outline-none focus:border-l-10 border-[#5e6f52] transition-all duration-300 ease-in-out">
                         <option value="">Pilih Kota</option>
                         <option value="medan">Medan</option>
                         <option value="bandung">Bandung</option>
                         <option value="jakarta">Jakarta</option>
                     </select>
 
-                    <select name="kecamatan" required class="w-full p-3 rounded text-sm bg-gray-100 focus:outline-none focus:ring-2 focus:ring-[#5e6f52]">
+                    <select name="kecamatan" required class="w-full p-3 rounded text-sm bg-gray-100 focus:outline-none focus:border-l-10 border-[#5e6f52] transition-all duration-300 ease-in-out">
                         <option value="">Pilih Kecamatan</option>
                         <option value="medan_helvetia">Medan Helvetia</option>
                         <option value="medan_sunggal">Medan Sunggal</option>
@@ -118,7 +118,7 @@
                     Daftar
                 </button>
                 <p class="text-center text-sm mt-4">
-                    Sudah punya akun? <a href="{{ route('login') }}" class="text-[#234666] font-medium">Login</a>
+                    Sudah punya akun? <a href="{{ route('login') }}" class="text-[#234666] hover:underline font-medium">Login</a>
                 </p>
             </form>
         </div>

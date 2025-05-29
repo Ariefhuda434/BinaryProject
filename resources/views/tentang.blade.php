@@ -48,10 +48,9 @@
       </div>
   </div>
   
-<div id="visi-misi" class="mt-10  min-w-full transition-opacity duration-700">
-<div class="relative w-full md:w-3/4 mx-auto pb-10 h-auto md:h-85 bg-center rounded-xl shadow-lg overflow-hidden" data-aos="fade-up" data-aos-duration="1000">
-
-  <div class="absolute inset-0 bg-cover bg-bottom  bg-no-repeat bg-right  z-0 md:flex md:justify-end"
+<div id="visi-misi" class="mt-10 p-5  min-w-full transition-opacity duration-700">
+<div class="relative w-full lg:w-[71rem] md:w-3/4 mx-auto pb-10 h-150 md:h-85 bg-center rounded-xl shadow-lg overflow-hidden" data-aos="fade-up" data-aos-duration="1000">
+  <div class="absolute inset-0 bg-cover bg-top  bg-no-repeat lg:bg-right  md:flex md:justify-end"
        style="background-image: url('{{ asset('build/images/trashberanda.jpg') }}')">
     <div class="absolute bottom-2 right-2 md:bottom-4 md:right-4 flex items-center space-x-2 z-10">
       <img src="{{ asset('build/images/logoputih.png') }}" alt="Logo" class="h-8 md:h-10 bg-cover">
@@ -61,20 +60,25 @@
       </div>
     </div>
   </div>
-  <div class="relative z-20 w-full md:w-3/4 h-full lg:h-85 bg-[#5e6f52] md:rounded-l-lg md:rounded-br-[7rem]  p-6 md:p-10  shadow-xl ">
+  <div class="relative z-20 w-full md:w-3/4 h-auto lg:h-85 bg-[#5e6f52] md:rounded-l-lg md:rounded-br-[7rem] shadow-xl overflow-hidden">
+  <div class="flex h-full">
+    <div class="lg:w-15 md:w-15 bg-[#ccc14e]"></div>
 
+    <div class="flex-1 p-6 md:p-10">
+      <p class="text-black font-sans leading-tight text-3xl md:text-5xl text-white font-extrabold text-center relative z-10 tracking-tight">
+        Visi & Misi
+      </p>
 
-  <p class="text-white font-sans leading-tight text-3xl md:text-5xl font-extrabold text-center  relative z-10 tracking-tight">
-      Visi & Misi
-  </p>
-
-  <p class="px-4 md:px-10 mt-6 md:mt-5 lg:mt-0 text-justify text-sm md:text-lg text-white font-sans font-light relative z-10 indent-8 leading-relaxed">
-    <span class="block mb-4">Binary Waste hadir sebagai jembatan antara masyarakat dan lingkungan yang lebih baik sebuah platform digital yang menjadi solusi dalam pengelolaan dan pemantauan sampah ilegal berbasis kolaborasi masyarakat.
-      Dengan mengintegrasikan <span class="font-medium text-green-300">teknologi, edukasi, dan aksi nyata</span>, kami menciptakan lingkungan yang bersih, sehat, dan mendukung tercapainya <span class="italic text-green-400">kota berkelanjutan</span>, serta kehidupan masyarakat yang lebih peduli terhadap lingkungan menuju <span class="font-semibold text-white">Indonesia Emas 2045</span>.
-    </span>
-  </p>
-
+      <p class="px-4 md:px-10 mt-6 md:mt-5 lg:mt-0 text-justify text-sm md:text-lg text-gray-100 font-sans font-light relative z-10 indent-8 leading-relaxed">
+        <span class="block mb-4">
+          Binary Waste hadir sebagai jembatan antara masyarakat dan lingkungan yang lebih baik sebuah platform digital yang menjadi solusi dalam pengelolaan dan pemantauan sampah ilegal berbasis kolaborasi masyarakat.
+          Dengan mengintegrasikan <span class="font-medium text-green-600">teknologi, edukasi, dan aksi nyata</span>, kami menciptakan lingkungan yang bersih, sehat, dan mendukung tercapainya <span class="italic text-green-500">kota berkelanjutan</span>, serta kehidupan masyarakat yang lebih peduli terhadap lingkungan menuju <span class="font-semibold text-white">Indonesia Emas 2045</span>.
+        </span>
+      </p>
+    </div>
+  </div>
 </div>
+
 
 </div>
 
@@ -101,7 +105,7 @@
 </div>
 
 </div>
-<div class="mt-6 flex rounded-xl h-100 w-3/4 mx-auto bg-white  overflow-visible" data-aos="fade-up" data-aos-duration="1000">
+<div class="mt-6 flex rounded-xl h-100 md:w-full w-[24.5rem]   lg:w-3/4 mx-auto bg-white  overflow-visible" data-aos="fade-up" data-aos-duration="1000">
 @php
 $profiles = [
   ['name' => 'Arief Huda','role' => 'Full Stack Developer','desc' => 'Bolivia, Bocah Liar Helvetia','img'  => asset('build/images/ariefganteng.png'),],
@@ -112,7 +116,7 @@ $profiles = [
 ];
 @endphp
 
-<div class="relative w-3/4 mx-auto mt-6 overflow-hidden bg-white rounded-lg flex flex-nowrap overflow-x-auto scrollbar-hide snap-x snap-mandatory" id="slider-container" style="scroll-behavior: smooth;">
+<div class="relative w-full  mx-auto mt-6 overflow-hidden  bg-white rounded-lg flex flex-nowrap overflow-x-auto scrollbar-hide snap-x snap-mandatory" id="slider-container" style="scroll-behavior: smooth;">
   @foreach ($profiles as $index => $profile)
   <div class="inline-block flex-shrink-0 w-full snap-center text-center px-4">
   <div class="text-center mb-6">
@@ -123,41 +127,41 @@ $profiles = [
     <p class="text-lg font-semibold text-gray-800">{{ $profile['name'] }}</p>
     <p class="text-sm text-gray-600">{{ $profile['role'] }}</p>
     <p class="mt-3 text-sm italic text-gray-500 max-w-xs mx-auto">{{ $profile['desc'] }}</p>
-    <svg viewBox="0 0 1440 320" class="absolute bottom-0 left-0 w-full h-10" preserveAspectRatio="none">
-         <path fill="#5e6f52" fill-opacity="0.2" d="M0,288L48,272C96,256,192,224,288,202.7C384,181,480,171,576,192C672,213,768,267,864,266.7C960,267,1056,213,1152,176C1248,139,1344,117,1392,106.7L1440,96V320H0Z"></path>
-       </svg>
   </div>
   @endforeach
+  {{-- <svg viewBox="0 0 1440 320" class="absolute bottom-0 left-0 w-full h-10" preserveAspectRatio="none">
+       <path fill="#5e6f52" fill-opacity="0.2" d="M0,288L48,272C96,256,192,224,288,202.7C384,181,480,171,576,192C672,213,768,267,864,266.7C960,267,1056,213,1152,176C1248,139,1344,117,1392,106.7L1440,96V320H0Z"></path>
+     </svg> --}}
 </div>
 
 
 
 
-  <div class="h-full w-2/3 bg-[#5e6f52] rounded-r-lg ml-auto overflow-visible">
+  <div class="h-full hidden md:block w-2/3 bg-[#5e6f52] rounded-r-lg  ml-auto overflow-visible">
     <div class="flex overflow-visible">
       <div class="flex">
         <div class="flex mt-5 flex-col">
-          <article class="ml-9 w-80 h-45 bg-gradient-to-br from-white to-green-800  transition-transform duration-300 ease-in-out hover:scale-105 hover:drop-shadow-lg hover:drop-shadow-cyan-500/50 hover:z-10"
+          <article class="ml-9 w-80 h-45 bg-gray-100  transition-transform duration-300 ease-in-out hover:scale-105 hover:drop-shadow-lg hover:drop-shadow-cyan-500/50 hover:z-10"
           style="clip-path: polygon(0% 0, 50% 0, 80% 100%, 0% 100%)">
           <img src="{{ asset('build/images/bill.png') }}" alt="" srcset="" class="h-80 -mt-27 -ml-5">
         </article>
-        <article class="ml-9 w-166 mt-5 h-40 bg-green-500 transition-transform duration-300 ease-in-out hover:scale-105 drop-shadow-lg drop-shadow-cyan-500/50 hover:z-10"
+        <article class="ml-9 w-166 mt-5 h-40 bg-gray-100 transition-transform duration-300 ease-in-out hover:scale-105 drop-shadow-lg drop-shadow-cyan-500/50 hover:z-10"
         style="clip-path: polygon(0% 0, 40% 0, 53% 100%, 0% 100%)">
         <img src="{{ asset('build/images/ipeh.png') }}" alt="" srcset="" class="h-80 -mt-30 ml-10">
       </article>
     </div>
     <div class="flex flex-col"> 
       <div class="flex">
-        <article class="mt-5 -ml-120 w-80 h-45 bg-green-500 transition-transform duration-300 ease-in-out hover:scale-105 hover:drop-shadow-lg hover:drop-shadow-cyan-500/50 hover:z-10"
+        <article class="mt-5 -ml-120 w-80 h-45 bg-gray-100 transition-transform duration-300 ease-in-out hover:scale-105 hover:drop-shadow-lg hover:drop-shadow-cyan-500/50 hover:z-10"
         style="clip-path: polygon(0% 0, 60% 0, 30% 100%, 30% 100%)">
       </article>
-      <article class="-ml-50 h-45 w-81 bg-red-100 mt-5 transition-transform duration-300 ease-in-out hover:scale-105 hover:drop-shadow-lg hover:drop-shadow-cyan-500/50 hover:z-10"
+      <article class="-ml-50 h-45 w-81 bg-gray-100 mt-5 transition-transform duration-300 ease-in-out hover:scale-105 hover:drop-shadow-lg hover:drop-shadow-cyan-500/50 hover:z-10"
       style="clip-path: polygon(30% 0, 100% 0, 100% 100%, 0% 100%)">
       <img src="{{ asset('build/images/nahya.png') }}" alt="" srcset="" class="h-80 -mt-30 ml-20">
       
     </article>
   </div>
-  <article class="-ml-94 mt-5 mb-5 w-85 h-40 bg-gradient-to-tl from-white to-green-900 transition-transform duration-300 ease-in-out hover:scale-105 hover:drop-shadow-lg hover:drop-shadow-cyan-500/50 hover:z-10"
+  <article class="-ml-94 mt-5 mb-5 w-85 h-40 bg-gray-100 from-white to-green-900 transition-transform duration-300 ease-in-out hover:scale-105 hover:drop-shadow-lg hover:drop-shadow-cyan-500/50 hover:z-10"
   style="clip-path: polygon(0% 0, 100% 0, 100% 100%, 26% 100%)">
   <img src="{{ asset('build/images/ariefganteng2.png') }}" alt="" srcset="" class="h-70 -mt-20 ml-25">
 </article>
@@ -166,6 +170,49 @@ $profiles = [
 <div class="h-100 w-30 bg-[#ccc14e] rounded-r-lg ml-auto text-white flex items-center justify-center"></div>
 </div>
   </div>
+</div>
+
+<div class=" lg:hidden h-120 md:h-120  rounded-b-xl space-y-2 w-[24.5rem] bg-[#5e6f52] mx-auto p-5 ">
+
+<article class="w-88 h-40 bg-white flex items-end overflow-hidden 
+  transition-transform duration-300 ease-in-out hover:scale-105 hover:drop-shadow-lg hover:drop-shadow-cyan-500/50 hover:z-10"
+  style="clip-path: polygon(0% 0, 100% 0, 0% 100%, 0% 100%)">
+
+  <img src="{{ asset('build/images/ariefhuda.png') }}" alt="Arief Huda" 
+       class="h-60 object-left -mb-5" />
+</article>
+
+<article class="w-88 h-40 bg-white flex items-start overflow-hidden -mt-40  
+  transition-transform duration-300 ease-in-out relative hover:scale-105 hover:drop-shadow-lg hover:drop-shadow-cyan-500/50 hover:z-10"
+  style="clip-path: polygon(100% 0, 100% 0, 100% 100%, 0% 100%)">
+
+  <img src="{{ asset('build/images/ariefhuda.png') }}" alt="Arief Huda" 
+       class="h-60 object-left absolute right-40 -top-18" />
+</article>
+
+
+    <article class="w-88 h-20 bg-white transition-transform duration-300 ease-in-out hover:scale-105 hover:drop-shadow-lg hover:drop-white  hover:z-10">
+      </article>
+     
+      
+    <article class="w-88 h-40 bg-white flex items-end overflow-hidden 
+  transition-transform duration-300 ease-in-out hover:scale-105 hover:drop-shadow-lg hover:drop-shadow-black hover:z-10"
+  style="clip-path: polygon(0% 0, 100% 0, 0% 100%, 0% 100%)">
+
+  <img src="{{ asset('build/images/ariefhuda.png') }}" alt="Arief Huda" 
+       class="h-60 object-left -mb-5" />
+</article>
+
+
+<article class="w-88 h-40 bg-white flex items-start overflow-hidden -mt-40  
+  transition-transform duration-300 ease-in-out relative hover:scale-105 hover:drop-shadow-lg hover:drop-black-500/50 hover:z-10"
+  style="clip-path: polygon(100% 0, 100% 0, 100% 100%, 0% 100%)">
+
+  <img src="{{ asset('build/images/ariefhuda.png') }}" alt="Arief Huda" 
+       class="h-60 object-left absolute right-40 -top-18" />
+</article>
+
+
 </div>
 
 </div>
@@ -212,7 +259,6 @@ $profiles = [
     </p>
   </div>
 
-  <!-- Logo Section -->
   <div class="flex flex-col md:flex-row items-center justify-center mt-10 mb-10 gap-3">
     <img src="{{ asset('build/images/logo.png') }}" alt="Logo" class="h-12 md:h-14">
     <div class="text-center md:text-left text-black">
@@ -222,15 +268,7 @@ $profiles = [
   </div>
 </div>
 
-  </div>
-
-
-
-  
-
-
-
-  
+</div>
 
 <script>
   AOS.init();

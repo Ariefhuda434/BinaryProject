@@ -198,27 +198,8 @@
         </div>
     </div>
 </div>
-<footer class="bg-[#5e6f52] pt-20 md:pt-30 w-full text-white">
-    <div class="container mx-auto flex flex-col md:flex-row justify-center gap-4 md:gap-12 px-4">
-        <div class="flex items-center space-x-3">
-            <img src="{{ asset('build/images/youtube.png') }}" alt="YouTube" class="h-8 md:h-10">
-            <p class="text-sm md:text-base">Binary Waste Official</p>
-        </div>
-        <div class="flex items-center space-x-3">
-            <img src="{{ asset('build/images/email.png') }}" alt="Email" class="h-6 md:h-8">
-            <p class="text-sm md:text-base">binarywaste@gmail.com</p>
-        </div>
-        <div class="flex items-center space-x-3">
-            <img src="{{ asset('build/images/contact.png') }}" alt="Contact" class="h-6 md:h-8">
-            <p class="text-sm md:text-base">0822-1221-2123</p>
-        </div>
-    </div>
-    <p class="border-t border-white mb-10 w-4/5 md:w-2/3 mx-auto text-center pt-4 pb-4 mt-4 md:mt-8 text-xs md:text-sm">
-        © 2025 BinaryWaste. All rights reserved.
-    </p>
-</footer>
+     
 
-<!-- Script -->
 <script>
     AOS.init();
     

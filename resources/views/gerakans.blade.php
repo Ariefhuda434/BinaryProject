@@ -121,25 +121,6 @@
     </div>
 @endif
 
-<footer class="bg-[#5e6f52] pt-30 w-screen text-white mt-20">
-  <div class="container mx-auto flex justify-center gap-12">
-    <div class="flex items-center space-x-3">
-      <img src="{{ asset('build/images/youtube.png') }}" alt="YouTube" class="h-10">
-      <p>Binary Waste Official</p>
-    </div>
-    <div class="flex items-center space-x-3">
-      <img src="{{ asset('build/images/email.png') }}" alt="Email" class="h-8">
-      <p>binarywaste@gmail.com</p>
-    </div>
-    <div class="flex items-center space-x-3">
-      <img src="{{ asset('build/images/contact.png') }}" alt="Contact" class="h-8">
-      <p>0822-1221-2123</p>
-    </div>
-  </div>
-  <p class="border-t border-white mb-10 w-2/3 mx-auto text-center pt-4 pb-4 mt-8 text-sm">
-    © 2025 BinaryWaste. All rights reserved.
-  </p>
-</footer>
 
 
 @endsection

@@ -19,8 +19,8 @@
         }
     "
     :class="showNavbar 
-        ? 'fixed top-0 left-0 w-full z-50 transition-all duration-500 ease-in-out transform translate-y-0 opacity-100' 
-        : 'fixed top-0 left-0 w-full z-50 transition-all duration-500 ease-in-out transform -translate-y-full opacity-0'">
+        ? 'fixed top-0 left-0 w-screen z-50 transition-all duration-500 ease-in-out transform translate-y-0 opacity-100' 
+        : 'fixed top-0 left-0 w-screen z-50 transition-all duration-500 ease-in-out transform -translate-y-full opacity-0'">
 
         <div class="{{ Request::is('beranda') ? 'md:hidden flex w-screen pl-10  justify-between items-center p-4 backdrop-blur' : 'md:hidden flex w-full pl-10  justify-between items-center p-4 bg-[#57674c]'  }}" >
             <div class="flex items-center">
@@ -37,7 +37,6 @@
                 <span class="block w-7 h-1 rounded-2xl bg-white"></span>
             </button>
         </div>
-        <!-- Mobile Menu (Dropdown) -->
         <div x-show="isKecil" x-transition
         class="md:hidden bg-gray-200 p-4 w-40 rounded-lg absolute right-0 transform-all duration-500 ease-in-out mr-5 space-y-4 z-50">
         <ul class="flex flex-col space-y-4">
@@ -186,7 +185,6 @@
             <span class="absolute top-4 left-4 w-5 h-0.5 bg-black transform-all duration-300 ease  -rotate-45 rounded"></span>
             </button>
             
-            <!-- Kolom Kiri - Info Profil -->
             <div class="flex flex-col items-center text-center md:text-left">
                 <img src="{{ Avatar::create(Auth::user()->name)->toBase64() }}" 
                     alt="Profile Picture"
