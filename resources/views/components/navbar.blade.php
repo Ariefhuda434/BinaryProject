@@ -244,7 +244,7 @@
                     </div>
                 @endif
                 
-                <form action="{{ route('resetpw.request') }}" method="POST">
+                <form action="" method="POST">
                     @csrf
                     <input type="email" name="email" 
                         class="p-3 w-full rounded-lg bg-gray-100 mb-3" 
@@ -272,31 +272,7 @@
                     Butuh bantuan? <a href="/faq#password" class="text-blue-600 hover:underline">Lihat FAQ</a>
                 </p>
             </div>
-        <div x-show="" id="resetpw" class="bg-gray-50 rounded-2xl p-6 border border-gray-200 flex flex-col justify-center text-center shadow-inner">
-             <div class="w-16 h-16 rounded-full bg-[#5e6f52] text-white flex items-center justify-center mx-auto mb-6 shadow-md">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-            </svg>
-        </div>
-        
-        <h2 class="text-2xl font-extrabold mb-3">Verifikasi Email Reset Password Anda</h2>
-        
-        @if(session('success'))
-        <p class="text-sm text-green-600 mb-2 animate-pulse">{{ session('success') }}</p>
-        @endif
-        
-        <p class="text-gray-700 leading-relaxed mb-6">
-            Kami telah mengirimkan link Reset Passowrd ke:
-            <span class="block font-semibold mt-1">{{ Auth::user()->email }}</span>
-            <br>
-            Silakan buka email Anda dan klik link verifikasi untuk Mereset Password akun Anda.
-        </p>
-    <form action="{{ route('resetpw.confirm') }}" method="POST">
-    @csrf
-    <input type="hidden" name="email" value="{{ session('dapet_email')}}">
-    <button type="submit">Konfirmasi Reset Password</button>
-</form>
-            </div>
+      
         </div>
         @endauth    
     </section>

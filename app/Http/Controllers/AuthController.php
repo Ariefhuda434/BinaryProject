@@ -92,51 +92,6 @@ class AuthController extends Controller
 
     return redirect()->route('verify.info')->with('success', 'Registrasi berhasil! Link verifikasi telah dikirim ke email Anda.');
 }
-    public function resetPasswordRequest(Request $request)
-    {
-        $request->validate([
-            'email' => 'required|email|exists:users,email',
-            'old_password' => 'required',
-            'new_password' => 'required|confirmed|min:6',
-        ]);
-
-        $user = User::where('email', $request->email)->first();
-
-        if (!Hash::check($request->old_password, $user->password)) {
-            return response()->json([
-                'success' => false,
-                'message' => 'Password lama salah.'
-            ]);
-        }
-
-        $token = Str::random(60);
-        $user->reset_token = $token;
-        $user->temp_password = Hash::make($request->new_password);
-        $user->save();
-
-        Mail::to($user->email)->send(new ResetEmail($user, $token));
-
-        return response()->json([
-            'success' => true,
-            'message' => 'Email verifikasi telah dikirim. Silakan cek email Anda.'
-        ]);
-    }
-
-    public function verifyResetPassword($token)
-    {
-        $user = User::where('reset_token', $token)->first();
-
-        if (!$user) {
-            return redirect()->route('login')->with('error', 'Token tidak valid atau sudah kadaluarsa.');
-        }
-
-        $user->password = $user->temp_password;
-        $user->temp_password = null;
-        $user->reset_token = null;
-        $user->save();
-
-        return redirect()->route('login')->with('success', 'Password berhasil direset. Silakan login dengan password baru Anda.');
-    }
-
+    
 }
  

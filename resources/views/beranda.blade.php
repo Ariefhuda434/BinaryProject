@@ -147,16 +147,16 @@
   </div>
 </section>
 
-<svg xmlns="http://www.w3.org/2000/svg" class="-mt-10 md:-mb-1 lg:-mt-40" viewBox="0 0 1440 320">
+<svg xmlns="http://www.w3.org/2000/svg" class="-mt-8 md:-mb-10 lg:-mt-60" viewBox="0 0 1440 320">
   <path fill="#5e6f52" fill-opacity="1"
     d="M0,96L48,96C96,96,192,96,288,90.7C384,85,480,75,576,101.3C672,128,768,192,864,186.7C960,181,1056,107,1152,74.7C1248,43,1344,53,1392,58.7L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z" />
 </svg>
 
-<section class="bg-[#5e6f52] py-10 px-6 lg:-mt-20 lg:px-0">
+<section class="bg-[#5e6f52] -mt-10  px-6 lg:-mt-20 lg:px-0 pb-20 lg:pb-80">
   <div class="max-w-7xl mx-auto flex flex-col lg:flex-row gap-6">
 
-    <div class="rounded-2xl shadow-lg bg-white flex flex-col gap-6 p-6 lg:w-1/3">
-      <img src="{{ asset('build/images/betol.png') }}" alt="" class="w-full object-cover rounded-xl -mt-4">
+    <div class="rounded-2xl shadow-lg bg-white flex flex-col gap-6 p-6 lg:w-1/3" data-aos="fade-up" data-aos-duration="1000">
+      <img src="{{ asset('build/images/betol.png') }}" alt="" class="w-full object-cover rounded-xl -mt-4 hover:scale-105 transition duration-300 ease-in-out">
       <div>
         <div class="flex items-center mb-4">
           <img src="{{ asset('build/images/rose.png') }}" class="h-10 w-10" alt="">
@@ -173,7 +173,7 @@
 
     <div class="flex flex-col gap-6 lg:w-2/3">
 
-      <div class="rounded-2xl shadow-lg bg-white p-6 flex flex-col lg:flex-row gap-4">
+      <div class="rounded-2xl shadow-lg bg-white p-6 flex flex-col lg:flex-row gap-4" data-aos="fade-left" data-aos-duration="1000">
         <div class="lg:w-2/3">
           <div class="flex items-center mb-4">
             <img src="{{ asset('build/images/fitur.png') }}" class="h-8 mr-2" alt="">
@@ -188,20 +188,20 @@
           </ul>
         </div>
         <div class="flex justify-center items-center lg:w-1/3">
-          <img src="{{ asset('build/images/orangberanda.png') }}" class="h-40 object-contain" alt="">
+          <img src="{{ asset('build/images/orangberanda.png') }}" class="h-40 object-contain hover:scale-110 transition duration-300" alt="">
         </div>
       </div>
 
       <div class="flex flex-col md:flex-row gap-6">
-        
-        <div class="rounded-2xl shadow-lg bg-white p-6 md:w-1/2">
-          <p class="mb-3 text-center text-sm md:text-base">Yuk, Ajak Teman dan Keluarga Peduli Lingkungan!</p>
+
+        <div class="rounded-2xl shadow-lg bg-white p-6 md:w-1/2" data-aos="zoom-in-up" data-aos-duration="1000">
+          <p class="mb-3 text-center text-sm md:text-base font-medium text-gray-700">Yuk, Ajak Teman dan Keluarga Peduli Lingkungan!</p>
           <img src="{{ asset('build/images/global.png') }}" alt="" class="h-60 w-full rounded-lg object-cover hover:scale-105 transition duration-300 ease-in-out">
         </div>
 
-        <div class="rounded-2xl shadow-lg bg-white p-6 flex flex-col items-center md:w-1/2 text-center">
-          <p class="font-black text-5xl md:text-6xl ">120</p>
-          <p class="text-sm md:text-base">Bersama Binary Waste, sudah ada 120 jiwa yang tergerak untuk membuat lingkungan lebih bersih dan sehat</p>
+        <div class="rounded-2xl shadow-lg bg-white p-6 flex flex-col justify-center items-center md:w-1/2 text-center" data-aos="fade-up" data-aos-delay="200">
+          <p class="font-black text-5xl md:text-6xl text-green-700 animate-pulse">120</p>
+          <p class="text-sm md:text-base mt-2 text-gray-700">Bersama Binary Waste, sudah ada <span class="font-semibold text-green-600">120 jiwa</span> yang tergerak untuk membuat lingkungan lebih bersih dan sehat</p>
         </div>
 
       </div>
@@ -210,17 +210,27 @@
   </div>
 </section>
 
-<section id="mitra">
-  <div class="min-h-screen bg-gradient-to-br from-white via-white to-green-100 flex items-center justify-center px-4 py-12 bg-cover bg-center"
-    style="background-image: url('{{ asset('build/images/Wave (7).svg') }}')">
+<svg xmlns="http://www.w3.org/2000/svg" class="-mt-20 md:-mb-1  lg:-mt-80" viewBox="0 0 1440 320">
+  <path fill="white" fill-opacity="1"
+    d="M0,96L48,96C96,96,192,96,288,90.7C384,85,480,75,576,101.3C672,128,768,192,864,186.7C960,181,1056,107,1152,74.7C1248,43,1344,53,1392,58.7L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z" />
+</svg>
 
-    <div class="flex flex-col lg:flex-row bg-white shadow-2xl rounded-3xl p-6 md:p-10 w-full max-w-6xl -mt-20" data-aos="zoom-in" data-aos-duration="800">
+
+<section id="mitra">
+  
+    <div class="w-full max-w-6xl  mx-auto text-center mb-10">  
+<p class="text-3xl md:text-4xl lg:text-5xl  font-bold text-[#5e6f52]" data-aos="fade-up" data-aos-duration="1000">
+  Jadilah Bagian dari <span class="text-green-800">Perubahan</span>,<br>
+  <span class="text-[#3e4936]">Bergabunglah sebagai Mitra Kami!</span>
+</p>
+
+</div>
+
+  <div class="min-h-screen bg-[#5e6f52]  flex items-center justify-center px-4 py-12 -mb-22 bg-cover bg-center"
+    style="background-image: url('{{ asset('build/images/WaveLine.svg') }}')">
+    <div class="flex flex-col lg:flex-row bg-white shadow-2xl rounded-3xl p-6 md:p-10 w-full max-w-6xl -mt-50" data-aos="zoom-in" data-aos-duration="800">
 
       <div class="w-full  lg:w-1/2">
-        <h2 class="text-2xl md:text-3xl font-bold text-center text-green-700 mb-6">
-          Ayo Bergabung
-        </h2>
-
         @if(session('success'))
           <div class="bg-green-100 text-green-700 p-2 rounded mb-3">
             {{ session('success') }}
@@ -284,25 +294,7 @@
 </section>
 
 
-<footer class="bg-[#5e6f52]  pt-30 w-screen text-white">
-  <div class="container mx-auto flex justify-center gap-12">
-    <div class="flex items-center space-x-3">
-      <img src="{{ asset('build/images/youtube.png') }}" alt="YouTube" class="md:h-10 h-5">
-      <p>Binary Waste Official</p>
-    </div>
-    <div class="flex items-center space-x-3">
-      <img src="{{ asset('build/images/email.png') }}" alt="Email" class="h-8">
-      <p>binarywaste@gmail.com</p>
-    </div>
-    <div class="flex items-center space-x-3">
-      <img src="{{ asset('build/images/contact.png') }}" alt="Contact" class="h-8">
-      <p>0822-1221-2123</p>
-    </div>
-  </div>
-  <p class="border-t border-white mb-10 w-2/3 mx-auto text-center pt-4 pb-4 mt-8 text-sm">
-    © 2025 BinaryWaste. All rights reserved.
-  </p>
-</footer>
+
 
 <script>
   AOS.init();

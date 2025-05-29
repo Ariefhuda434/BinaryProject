@@ -109,9 +109,11 @@ Route::get('/verify',function(){
     return view('emails.emailverify-info');
 })->name('verify.info');
 
-Route::post('/reset-password-request', [AuthController::class, 'resetPasswordRequest'])->name('resetpw.request');
+Route::post('/reset',function(){
+    return view('emails.resetverify-info');
+})->name('reset.info');
 
-Route::get('/reset-password-verify/{token}', [AuthController::class, 'verifyResetPassword'])->name('resetpw.verify');
+Route::get('/reset/{token}', [AuthController::class, 'verifyResetPassword'])->name('resetpw.verify');
 
 Route::post('/reset-password-confirm', [AuthController::class, 'confirmResetPassword'])->name('resetpw.confirm');
 
