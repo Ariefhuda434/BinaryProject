@@ -13,10 +13,8 @@
         <p class="text-gray-600 mt-4">Ikuti berbagai aksi nyata demi lingkungan yang lebih baik.</p>
     </div>
 
-    {{-- Grid Utama: Artikel + Form --}}
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
 
-        {{-- Bagian Artikel (2 kolom) --}}
         <div class="lg:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-6 pr-2">
             @foreach ($blogs as $blog)
                 <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
@@ -60,7 +58,6 @@
             @csrf
 
             <div class="flex flex-col lg:flex-row gap-4">
-                {{-- Kolom Kiri --}}
                 <div class="w-full lg:w-1/3 space-y-4">
                     <div>
                         <label for="judul" class="block text-gray-600 font-medium mb-1">Judul</label>
@@ -87,7 +84,6 @@
                     </div>
                 </div>
 
-                {{-- Kolom Kanan --}}
                 <div class="w-full lg:w-2/3">
                     <label for="isi" class="block text-gray-600 font-medium mb-1">Isi Artikel</label>
                     <textarea id="isiBlog" name="isiBlog" rows="12" placeholder="Tulis isi artikel di sini..."
@@ -102,8 +98,6 @@
         </form>
     </div>
 @endif
-<footer class="bg-[#5e6f52] w-full text-center text-white py-10 mt-20">
-    <p class="border-t border-white pt-4">© 2025 BinaryWaste. All rights reserved.</p>
-</footer>
+
 
 @endsection

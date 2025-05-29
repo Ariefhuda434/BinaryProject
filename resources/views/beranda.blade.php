@@ -138,7 +138,7 @@
         Gabung Sebagai Mitra
       </button>
 
-      <div class="mt-8 flex justify-center lg:justify-start gap-6 flex-wrap">
+      <div class="mt-8 flex justify-center lg:justify-start gap-6 flex-wrap ">
         <img src="{{ asset('build/images/usu.png') }}" alt="USU" class="w-12 h-12 md:w-15 md:h-15 lg:w-20 lg:h-20 object-contain">
         <img src="{{ asset('build/images/ui.png') }}" alt="UI" class="w-12 h-12 lg:w-20 lg:h-20 md:w-15 md:h-15 object-contain">
         <img src="{{ asset('build/images/unilever.png') }}" alt="Unilever" class="w-12 h-12 lg:w-20 lg:h-20 md:w-15 md:h-15 object-contain">

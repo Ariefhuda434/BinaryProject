@@ -16,12 +16,17 @@
 <div class="w-11/12 max-w-6xl mx-auto min-h-[440px] rounded-xl px-4 lg:px-0">
     <div class="flex flex-col lg:flex-row gap-6 h-full">
         <div class="relative w-full lg:w-1/4 h-64 lg:h-auto rounded-lg overflow-hidden hover:scale-105 transition-transform duration-300 ease-in-out">
-            <img src="{{ asset('build/images/go.png') }}" alt="" class="absolute top-4 right-4 bg-white rounded-full h-9 p-2 rotate-220">
-            <img src="{{ asset('build/images/report1.jpg') }}" alt="Report Image" class="w-full h-full object-cover rounded-lg" />
+            <img src="{{ asset('build/images/awn.jpg') }}" alt="Report Image" class="w-full h-full object-cover rounded-lg" />
             <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent rounded-lg pointer-events-none"></div>
-            <p class="absolute bottom-4 left-4 right-4 text-white text-lg lg:text-xl font-semibold leading-snug text-center">
-                Laporkan sampah, buat perubahan nyata
-            </p>
+        <div class="absolute -bottom-68 hover:-bottom-40 h-full w-full transform-all duration-500 ease-in-out">
+  <p class="text-white text-lg lg:text-xl font-semibold leading-snug text-center">
+    Laporkan sampah, buat perubahan nyata
+  </p>
+  <p class="text-white  mt-3 text-justify px-5 leading-relaxed">
+    Bersama kita ciptakan lingkungan bersih dan sehat lewat aksi kecil: laporkan sampah di sekitarmu
+</p>
+</div>
+
         </div>
 
         <div class="w-full lg:w-2/4 flex flex-col gap-4">
@@ -30,7 +35,10 @@
                     Langkah kecilmu hari ini bisa jadi perubahan besar untuk lingkungan,<br>
                     Mulailah Disini!
                 </p>
-                <img src="{{ asset('build/images/go.png') }}" alt="" class="absolute bottom-4 right-4 bg-white rounded-full h-9 p-2 rotate-220">
+                <button id="golaporan" class="tranform-all duration-700 ease-in-out"  >
+                    <svg xmlns="http://www.w3.org/2000/svg" class="absolute bottom-4 right-4 rounded hover:rotate-137 transform-all duration-700 ease-in-out "  width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-arrow-out-up-right-icon lucide-circle-arrow-out-up-right"><path d="M22 12A10 10 0 1 1 12 2"/><path d="M22 2 12 12"/><path d="M16 2h6v6"/></svg>
+                </button>
+            
             </div>
 
             <div class="flex-1 bg-[#899d7b] rounded-lg p-4 lg:p-6 hover:scale-105 transition-transform duration-300 ease-in-out">
@@ -46,19 +54,168 @@
             </div>
         </div>
 
-        <div class="relative w-full lg:w-1/4 h-64 lg:h-auto rounded-lg shadow-2xl overflow-hidden hover:scale-105 transition-transform duration-300 ease-in-out">
-            <img src="{{ asset('build/images/go.png') }}" alt="" class="absolute top-4 right-4 bg-white rounded-full h-9 p-2 rotate-220">
-            <img src="{{ asset('build/images/report2.jpg') }}" alt="Report Image" class="w-full h-full object-cover rounded-lg" />
+
+          <div class="relative w-full lg:w-1/4 h-64 lg:h-auto rounded-lg overflow-hidden hover:scale-105 transition-transform duration-300 ease-in-out">
+            <img src="{{ asset('build/images/awn.jpg') }}" alt="Report Image" class="w-full h-full object-cover rounded-lg" />
             <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent rounded-lg pointer-events-none"></div>
-            <p class="absolute bottom-4 left-4 right-4 text-white text-lg lg:text-xl font-semibold leading-snug text-center">
+        <div class="absolute -bottom-68 hover:-bottom-40 h-full w-full transform-all duration-500 ease-in-out">
+        <p class="text-white text-lg lg:text-xl font-semibold leading-snug text-center">
                 Kerja bersama, bersihkan bumi tercinta
-            </p>
+            
+        </p>
+         <p class="text-white  mt-3 text-justify px-5 leading-relaxed">
+            Jadikan kebersihan sebagai budaya dengan aktif melapor dan peduli terhadap lingkungan demi masa depan bumi kita.
+        
+        </p>
+        </div>
+
         </div>
     </div>
 </div>
 
+<section class="relative max-w-6xl mx-auto w-full -mt-10 overflow-hidden  bg-white py-5">
+  <div class="marquee flex w-max space-x-5 animate-marquee">
     
-    <div class="bg-[#a8b387] pb-10 md:pb-20">
+    <div class="h-40 w-80 p-4 bg-gray-100 rounded-xl shadow-md flex space-x-4 hover:scale-105 transition-transform duration-300 ease-in-out">
+      
+      <div class="h-24 w-28 bg-white rounded-lg overflow-hidden">
+        <img src="{{ asset('build/images/awn.jpg') }}" alt="Kegiatan Daur Ulang" class="h-full w-full object-cover" />
+      </div>
+      
+      <div class="flex flex-col justify-between py-1">
+        <div>
+          <p class="text-gray-800 font-semibold text-sm leading-tight">
+            Kegiatan daur ulang di SD Barunawati IV, Jakarta Utara.
+          </p>
+          <p class="text-gray-500 text-xs mt-1">Medan, 18 Mei 2006</p>
+        </div>
+
+        <div class="mt-3">
+          <span class="inline-block text-xs font-semibold text-green-700 bg-green-100 px-3 py-1 rounded-full shadow-sm">
+            Edukasi Lingkungan
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    <div class="h-40 w-80 p-4 bg-gray-100 rounded-xl shadow-md flex space-x-4 hover:scale-105 transition-transform duration-300 ease-in-out">
+      
+      <div class="h-24 w-28 bg-white rounded-lg overflow-hidden">
+        <img src="{{ asset('build/images/awn.jpg') }}" alt="Kegiatan Daur Ulang" class="h-full w-full object-cover" />
+      </div>
+      
+      <div class="flex flex-col justify-between py-1">
+        <div>
+          <p class="text-gray-800 font-semibold text-sm leading-tight">
+            Kegiatan daur ulang di SD Barunawati IV, Jakarta Utara.
+          </p>
+          <p class="text-gray-500 text-xs mt-1">Medan, 18 Mei 2006</p>
+        </div>
+
+        <div class="mt-3">
+          <span class="inline-block text-xs font-semibold text-green-700 bg-green-100 px-3 py-1 rounded-full shadow-sm">
+            Edukasi Lingkungan
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    <div class="h-40 w-80 p-4 bg-gray-100 rounded-xl shadow-md flex space-x-4 hover:scale-105 transition-transform duration-300 ease-in-out">
+      
+      <div class="h-24 w-28 bg-white rounded-lg overflow-hidden">
+        <img src="{{ asset('build/images/awn.jpg') }}" alt="Kegiatan Daur Ulang" class="h-full w-full object-cover" />
+      </div>
+      
+      <div class="flex flex-col justify-between py-1">
+        <div>
+          <p class="text-gray-800 font-semibold text-sm leading-tight">
+            Kegiatan daur ulang di SD Barunawati IV, Jakarta Utara.
+          </p>
+          <p class="text-gray-500 text-xs mt-1">Medan, 18 Mei 2006</p>
+        </div>
+
+        <div class="mt-3">
+          <span class="inline-block text-xs font-semibold text-green-700 bg-green-100 px-3 py-1 rounded-full shadow-sm">
+            Edukasi Lingkungan
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    <div class="h-40 w-80 p-4 bg-gray-100 rounded-xl shadow-md flex space-x-4 hover:scale-105 transition-transform duration-300 ease-in-out">
+      
+      <div class="h-24 w-28 bg-white rounded-lg overflow-hidden">
+        <img src="{{ asset('build/images/awn.jpg') }}" alt="Kegiatan Daur Ulang" class="h-full w-full object-cover" />
+      </div>
+      
+      <div class="flex flex-col justify-between py-1">
+        <div>
+          <p class="text-gray-800 font-semibold text-sm leading-tight">
+            Kegiatan daur ulang di SD Barunawati IV, Jakarta Utara.
+          </p>
+          <p class="text-gray-500 text-xs mt-1">Medan, 18 Mei 2006</p>
+        </div>
+
+        <div class="mt-3">
+          <span class="inline-block text-xs font-semibold text-green-700 bg-green-100 px-3 py-1 rounded-full shadow-sm">
+            Edukasi Lingkungan
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    <div class="h-40 w-80 p-4 bg-gray-100 rounded-xl shadow-md flex space-x-4 hover:scale-105 transition-transform duration-300 ease-in-out">
+      
+      <div class="h-24 w-28 bg-white rounded-lg overflow-hidden">
+        <img src="{{ asset('build/images/awn.jpg') }}" alt="Kegiatan Daur Ulang" class="h-full w-full object-cover" />
+      </div>
+      
+      <div class="flex flex-col justify-between py-1">
+        <div>
+          <p class="text-gray-800 font-semibold text-sm leading-tight">
+            Kegiatan daur ulang di SD Barunawati IV, Jakarta Utara.
+          </p>
+          <p class="text-gray-500 text-xs mt-1">Medan, 18 Mei 2006</p>
+        </div>
+
+        <div class="mt-3">
+          <span class="inline-block text-xs font-semibold text-green-700 bg-green-100 px-3 py-1 rounded-full shadow-sm">
+            Edukasi Lingkungan
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    <div class="h-40 w-80 p-4 bg-gray-100 rounded-xl shadow-md flex space-x-4 hover:scale-105 transition-transform duration-300 ease-in-out">
+      
+      <div class="h-24 w-28 bg-white rounded-lg overflow-hidden">
+        <img src="{{ asset('build/images/awn.jpg') }}" alt="Kegiatan Daur Ulang" class="h-full w-full object-cover" />
+      </div>
+      
+      <div class="flex flex-col justify-between py-1">
+        <div>
+          <p class="text-gray-800 font-semibold text-sm leading-tight">
+            Kegiatan daur ulang di SD Barunawati IV, Jakarta Utara.
+          </p>
+          <p class="text-gray-500 text-xs mt-1">Medan, 18 Mei 2006</p>
+        </div>
+
+        <div class="mt-3">
+          <span class="inline-block text-xs font-semibold text-green-700 bg-green-100 px-3 py-1 rounded-full shadow-sm">
+            Edukasi Lingkungan
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+  
+
+
+    
+    <div id="laporan"
+    class="bg-[#a8b387] pb-10 md:pb-20">
         <svg xmlns="http://www.w3.org/2000/svg" class="w-full" viewBox="0 0 1440 320"><path fill="#ffffff" fill-opacity="1" d="M0,96L8.6,90.7C17.1,85,34,75,51,101.3C68.6,128,86,192,103,213.3C120,235,137,213,154,197.3C171.4,181,189,171,206,181.3C222.9,192,240,224,257,240C274.3,256,291,256,309,245.3C325.7,235,343,213,360,202.7C377.1,192,394,192,411,165.3C428.6,139,446,85,463,64C480,43,497,53,514,80C531.4,107,549,149,566,176C582.9,203,600,213,617,224C634.3,235,651,245,669,256C685.7,267,703,277,720,245.3C737.1,213,754,139,771,101.3C788.6,64,806,64,823,101.3C840,139,857,213,874,245.3C891.4,277,909,267,926,256C942.9,245,960,235,977,208C994.3,181,1011,139,1029,144C1045.7,149,1063,203,1080,234.7C1097.1,267,1114,277,1131,277.3C1148.6,277,1166,267,1183,272C1200,277,1217,299,1234,288C1251.4,277,1269,235,1286,202.7C1302.9,171,1320,149,1337,160C1354.3,171,1371,213,1389,224C1405.7,235,1423,213,1431,202.7L1440,192L1440,0L1431.4,0C1422.9,0,1406,0,1389,0C1371.4,0,1354,0,1337,0C1320,0,1303,0,1286,0C1268.6,0,1251,0,1234,0C1217.1,0,1200,0,1183,0C1165.7,0,1149,0,1131,0C1114.3,0,1097,0,1080,0C1062.9,0,1046,0,1029,0C1011.4,0,994,0,977,0C960,0,943,0,926,0C908.6,0,891,0,874,0C857.1,0,840,0,823,0C805.7,0,789,0,771,0C754.3,0,737,0,720,0C702.9,0,686,0,669,0C651.4,0,634,0,617,0C600,0,583,0,566,0C548.6,0,531,0,514,0C497.1,0,480,0,463,0C445.7,0,429,0,411,0C394.3,0,377,0,360,0C342.9,0,326,0,309,0C291.4,0,274,0,257,0C240,0,223,0,206,0C188.6,0,171,0,154,0C137.1,0,120,0,103,0C85.7,0,69,0,51,0C34.3,0,17,0,9,0L0,0Z"></path></svg>
         <div class="md:-mt-80 -mt-20 lg:-mt-120">
             <div class="relative z-10">
@@ -234,6 +391,12 @@
             formLapor.classList.remove('opacity-0');
             formLapor.scrollIntoView({ behavior: 'smooth' });
         }, 10);
+    });
+    document.getElementById('golaporan')?.addEventListener('click', () => {
+        const formLapor = document.getElementById('laporan');
+        setTimeout(() => {
+            formLapor.scrollIntoView({ behavior: 'smooth' });
+        }, 10   );
     });
 </script>
 @endsection
