@@ -148,7 +148,7 @@
                     <div class="flex">
                         <button @click="isOpen = !isOpen" class="inline-flex items-center font-black text-xl text-[#ccc14e]">
                             @auth
-                            {{ Auth::user()->name }}
+                           {{ explode(' ', Auth::user()->name)[0] }}
                         @else
                         Masuk
                         @endauth

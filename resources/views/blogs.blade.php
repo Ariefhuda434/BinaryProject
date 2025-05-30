@@ -13,9 +13,9 @@
         <p class="text-gray-600 mt-4">Ikuti berbagai aksi nyata demi lingkungan yang lebih baik.</p>
     </div>
 
-    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+    <div class=" gap-6">
 
-        <div class="lg:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-6 pr-2">
+        <div class="lg:col-span-2 grid grid-cols-1 md:grid-cols-3 gap-6 pr-2">
             @foreach ($blogs as $blog)
                 <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
                     <img src="{{ asset('storage/' . $blog['foto']) }}" alt="Event" class="w-full h-48 object-cover">
@@ -36,9 +36,63 @@
     </div>
 
 </div>
+@if(auth()->check() && auth()->user()->role == 'admin')
+
+<div class="mt-10 pt-15 bg-white shadow-2xl  rounded-t-xl pb-10 max-w-3/4 mx-auto px-4 md:px-6">
+    <h2 class="text-xl md:text-2xl font-bold text-gray-700 mb-6 text-center">Daftar Artikel</h2>
+
+    <div class="overflow-x-auto">
+        <table class="w-full border border-gray-300 rounded-xl text-xs md:text-sm">
+            <thead class="bg-gray-200">
+                <tr>
+                    <th class="p-2 md:p-3 text-center">ID Artikel</th>
+                    <th class="p-2 md:p-3 text-center">Judul Artikel</th>
+                    <th class="p-2 md:p-3 text-center">Update</th>
+                    <th class="p-2 md:p-3 text-center">Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="border-b border-gray-300">
+                    <td class="p-2 md:p-3 text-center"></td>
+                    <td class="p-2 md:p-3 text-center truncate max-w-xs"></td>
+                    <td class="p-2 md:p-3 text-center">
+                        <button id="uwowow"
+                            class="bg-yellow-400 hover:bg-yellow-500 text-white font-semibold px-3 py-1 rounded-full transition">
+                            Update
+                        </button>
+                    </td>
+                    <td class="p-2 md:p-3 text-center">
+                        <form action="" method="POST"
+                            onsubmit="return confirm('Yakin ingin menghapus artikel ini?')">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit"
+                                class="bg-red-500 hover:bg-red-600 text-white font-semibold px-3 py-1 rounded-full transition">
+                                Delete
+                            </button>
+                        </form>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>        
+        <div class="bg-[#5e6f52] rounded-b-xl w-full max-w-3/4 mx-auto h-16 md:h-20 relative">
+            <button id="artikelbtn" class="absolute left-4 md:left-10 transform mt-3 md:mt-5">
+                <div class="relative flex items-center space-x-3 group">
+                    <div class="relative w-6 h-6 transform transition-transform duration-300 group-hover:rotate-90">
+                        <span class="absolute top-1/2 left-0 w-6 h-1 bg-white rounded transform -translate-y-1/2"></span>
+                        <span class="absolute top-1/2 left-0 w-6 h-1 bg-white rounded transform -translate-y-1/2 -rotate-90"></span>
+                    </div>
+                    <p class="text-lg md:text-xl text-white font-bold">Tambah Artikel</p>
+                </div>
+            </button>
+        </div>
+    @endif
+
 
 @if (auth()->check() && auth()->user()->role == 'admin')
-    <div class="bg-white rounded-lg shadow-md p-6 border-2 w-200 mx-auto mt-10 border-dashed border-gray-300 h-fit lg:h-full ">
+    <div id="uwakuwakmakanbakwan" class="bg-white rounded-lg shadow-md p-6 border-2 w-200 hidden opacity-0 mx-auto mt-10 border-dashed border-gray-300 h-fit lg:h-full ">
         <h2 class="text-2xl font-semibold mb-4 text-gray-700">Tambah Artikel Baru</h2>
 
          @if(session('success'))
@@ -99,5 +153,33 @@
     </div>
 @endif
 
+<script>
+     document.getElementById('artikelbtn')?.addEventListener('click', () => {
+        const itulah = document.getElementById('uwakuwakmakanbakwan');
+        itulah.classList.remove('hidden');
+        setTimeout(() => {
+            itulah.classList.add('opacity-100');
+            itulah.classList.remove('opacity-0');
+            AOS.refresh();
+            itulah.scrollIntoView({ behavior: 'smooth' });
+        }, 10);
+    });
+
+    document.getElementById('uwowow')?.addEventListener('click', () => {
+    const headers = document.querySelectorAll('#uwakuwakmakanbakwan h2');
+    const klik = document.getElementById('uwakuwakmakanbakwan');
+    klik.classList.remove('hidden')
+    headers.forEach(h2 => {
+        h2.textContent = 'Edit Artikel ';
+    });
+      setTimeout(() => {
+            klik.classList.add('opacity-100');
+            klik.classList.remove('opacity-0');
+            AOS.refresh();
+            klik.scrollIntoView({ behavior: 'smooth' });
+        }, 10);
+});
+
+</script>
 
 @endsection

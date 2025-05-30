@@ -237,41 +237,70 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($report as $lapor)
-                            <tr class="border-b-1 border-gray-300">
-                                <td class="p-2 md:p-3 text-center flex items-center justify-center">
-                                    @if (auth()->check() && auth()->user()->role == 'admin')
-                                    <form action="{{ route('delete', $lapor->id) }}" method="POST">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit">
-                                            <img src="{{ asset('build/images/delete.png') }}" alt="" srcset="" onclick="return confirm('Are you sure you want to delete this product?')" class="mr-2 md:mr-20 transition ease-in-out duration-200 hover:rotate-3 active:-+rotate-3 w-4 h-4 md:w-auto md:h-auto">
-                                        </button>
-                                    </form>
-                                    @endif
-                                    <span class="truncate max-w-xs">{{ $lapor->judul }}</span>
-                                </td>
-                                <td class="p-2 md:p-3 text-center">{{ $lapor->user->name ?? 'Tidak diketahui' }}</td>
-                                <td class="p-2 md:p-3 text-center">{{ $lapor->created_at->format('d M Y') }}</td>
-                                <td class="flex relative p-2 md:p-3 justify-center">
-                                    @if (auth()->check() && auth()->user()->role == 'admin')
-                                        <form action="{{ route('edit', $lapor->id) }}" method="POST" class="">
-                                            @csrf
-                                            @method('PUT')
-                                            <select name="status" onchange="this.form.submit()" class="text-xs md:text-sm">
-                                                <option value="{{ $lapor->status }}" disabled selected>{{ $lapor->status }}</option>
-                                                <option value="Menunggu" {{ $lapor->status == 'Menunggu' ? 'selected' : '' }}>Menunggu</option>
-                                                <option value="Diterima" {{ $lapor->status == 'Diterima' ? 'selected' : '' }}>Diterima</option>
-                                                <option value="Diproses" {{ $lapor->status == 'Diproses' ? 'selected' : '' }}>Diproses</option>
-                                            </select>
-                                        </form>
-                                    @else
-                                        <span class="capitalize">{{ $lapor->status }}</span>
-                                    @endif
-                                </td>
-                                <td class="p-2 md:p-3 text-center truncate max-w-xs">{{ $lapor->location }}</td>
-                            </tr>
-                            @endforeach
+                          @foreach($report as $lapor)
+<tr class="border-b border-gray-300">
+    <td class="p-2 md:p-3 text-center">
+        <div class="flex items-center justify-center space-x-2">
+            @if(auth()->check() && auth()->user()->role == 'admin')
+                <form action="{{ route('delete', $lapor->id) }}" method="POST" class="" onsubmit="return confirm('Are you sure you want to delete this product?')">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="-ml-10">
+                        <img 
+                            src="{{ asset('build/images/iconrash.png') }}" 
+                            alt="Delete" 
+                            class="transition ease-in-out duration-200 hover:rotate-3  active:-rotate-3 w-4 h-4 md:w-7 md:h-7 "
+                        >
+                    </button>
+                </form>
+            @endif
+            <span class="truncate max-w-xs">{{ $lapor->judul }}</span>
+        </div>
+    </td>
+
+    <td class="p-2 md:p-3 text-center">
+        {{ $lapor->user->name ?? 'Tidak diketahui' }}
+    </td>
+
+    <td class="p-2 md:p-3 text-center">
+        {{ $lapor->created_at->format('d M Y') }}
+    </td>
+
+    <td class="p-2 md:p-3 text-center">
+        @if(auth()->check() && auth()->user()->role == 'admin')
+            <form action="{{ route('edit', $lapor->id) }}" method="POST">
+                @csrf
+                @method('PUT')
+                <select 
+                    name="status" 
+                    onchange="this.form.submit()" 
+                    class="text-xs md:text-sm  px-2 py-1"
+                >
+                    <option value="{{ $lapor->status }}" disabled selected>
+                        {{ $lapor->status }}
+                    </option>
+                    <option value="Menunggu" {{ $lapor->status == 'Menunggu' ? 'selected' : '' }}>
+                        Menunggu
+                    </option>
+                    <option value="Diterima" {{ $lapor->status == 'Diterima' ? 'selected' : '' }}>
+                        Diterima
+                    </option>
+                    <option value="Diproses" {{ $lapor->status == 'Diproses' ? 'selected' : '' }}>
+                        Diproses
+                    </option>
+                </select>
+            </form>
+        @else
+            <span class="capitalize">{{ $lapor->status }}</span>
+        @endif
+    </td>
+
+    <td class="p-2 md:p-3 text-center truncate max-w-xs">
+        {{ $lapor->location }}
+    </td>
+</tr>
+@endforeach
+
                         </tbody>
                     </table>
                 </div>

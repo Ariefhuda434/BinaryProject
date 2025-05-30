@@ -17,7 +17,7 @@
     <img src="{{ asset('storage/' . $blog['foto']) }}" alt="" class="object-cover object-center overflow-hidden">
 </div>
 <div class="max-w-5xl mx-auto px-4 py-8">
-    <div class="prose prose-lg prose-neutral text-justify text-l justify-center max-w-none">
+    <div class="prose prose-lg  prose-neutral text-justify text-l justify-center max-w-none">
         {!! $blog['isiBlog'] !!}
     </div>
 </div>

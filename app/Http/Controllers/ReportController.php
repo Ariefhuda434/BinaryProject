@@ -41,7 +41,7 @@ class ReportController extends Controller
         ]);
 
         return redirect()->route('report')
-               ->with('successReport', 'Laporan berhasil dikirim!');
+               ->with('successReport', 'Laporan berhasil dikirim!')->withFragment('formlapor');
     }
 
     public function show($id) {
@@ -62,7 +62,7 @@ class ReportController extends Controller
     $report->status = $request->status;
     $report->save();
 
-    return redirect()->back()->with('success', 'Status berhasil diperbarui!');
+    return redirect()->back()->with('success', 'Status berhasil diperbarui!')->withFragment('formlapor');
 }
 
 public function destroy(Request $request, $id)
