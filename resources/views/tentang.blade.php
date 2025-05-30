@@ -191,7 +191,6 @@ $profiles = [
         <p class="text-[0.62rem]">Digital Solution for a Zero-Waste World!</p>
       </div>
     </div>
-    
   </div>
   
 </div>

@@ -12,6 +12,7 @@ use App\Http\Controllers\MitraController;
 use App\Http\Controllers\ReportController;
 
 use App\Http\Controllers\GerakanController;
+use App\Http\Controllers\WilayahController;
 use App\Http\Controllers\FeedbackController;
 
 Route::middleware(['auth'])->group(function () {
@@ -119,5 +120,8 @@ Route::post('/register', [AuthController::class, 'register'])->name('registerPas
 
 Route::post('/blogs', [BlogController::class, 'store'])->name('blogs.store');
 
+Route::get('/cities/{province_id}', [WilayahController::class, 'getCities']);
+Route::get('/districts/{city_id}', [WilayahController::class, 'getDistricts']);
+Route::get('/villages/{district_id}', [WilayahController::class, 'getVillages']);
 
 

@@ -123,5 +123,44 @@
             </form>
         </div>
     </div>
+    <script>
+document.getElementById('provinsi').addEventListener('change', function () {
+    fetch('/cities/' + this.value)
+        .then(response => response.json())
+        .then(data => {
+            let kota = document.getElementById('kota');
+            kota.innerHTML = '<option value="">Pilih Kota</option>';
+            data.forEach(function (city) {
+                kota.innerHTML += `<option value="${city.id}">${city.name}</option>`;
+            });
+        });
+});
+
+document.getElementById('kota').addEventListener('change', function () {
+    fetch('/districts/' + this.value)
+        .then(response => response.json())
+        .then(data => {
+            let kecamatan = document.getElementById('kecamatan');
+            kecamatan.innerHTML = '<option value="">Pilih Kecamatan</option>';
+            data.forEach(function (d) {
+                kecamatan.innerHTML += `<option value="${d.id}">${d.name}</option>`;
+            });
+        });
+});
+
+document.getElementById('kecamatan').addEventListener('change', function () {
+    fetch('/villages/' + this.value)
+        .then(response => response.json())
+        .then(data => {
+            let desa = document.getElementById('desa');
+            desa.innerHTML = '<option value="">Pilih Desa</option>';
+            data.forEach(function (v) {
+                desa.innerHTML += `<option value="${v.id}">${v.name}</option>`;
+            });
+        });
+});
+</script>
+
 </body>
+
 </html>

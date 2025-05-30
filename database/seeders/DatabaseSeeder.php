@@ -2,10 +2,14 @@
 
 namespace Database\Seeders;
 
-use App\Models\Report;
 use App\Models\User;
+use App\Models\Report;
 
+use CitiesTableSeeder;
+use ProvincesTableSeeder;
 use Illuminate\Database\Seeder;
+use Database\Seeders\UserSeeder;
+use Database\Seeders\ReportSeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -35,6 +39,11 @@ class DatabaseSeeder extends Seeder
         $this->call([
             ReportSeeder::class,
         ]);
+        $this->call([
+            ProvincesTableSeeder::class,
+            CitiesTableSeeder::class,
+          ]);   
     }
+     
 }
 

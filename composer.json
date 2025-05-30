@@ -15,6 +15,7 @@
         "laravolt/avatar": "^6.2"
     },
     "require-dev": {
+        "barryvdh/laravel-ide-helper": "^3.5",
         "fakerphp/faker": "^1.23",
         "laravel/pail": "^1.2.2",
         "laravel/pint": "^1.13",
@@ -37,6 +38,12 @@
         }
     },
     "scripts": {
+        "ide-helper": [
+        "@php artisan ide-helper:generate",
+        "@php artisan ide-helper:meta",
+          "@php artisan ide-helper:models -N"
+        ],
+
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
             "@php artisan package:discover --ansi"
@@ -60,6 +67,7 @@
             "@php artisan config:clear --ansi",
             "@php artisan test"
         ]
+        
     },
     "extra": {
         "laravel": {
@@ -77,4 +85,5 @@
     },
     "minimum-stability": "stable",
     "prefer-stable": true
+
 }
