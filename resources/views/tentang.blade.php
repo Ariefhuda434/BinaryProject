@@ -141,11 +141,11 @@ $profiles = [
     <div class="flex overflow-visible">
       <div class="flex">
         <div class="flex mt-5 flex-col">
-          <article class="ml-9 w-80 h-45 bg-gray-100  transition-transform duration-300 ease-in-out hover:scale-105 hover:drop-shadow-lg hover:drop-shadow-cyan-500/50 hover:z-10"
+          <article class="ml-9 lg:w-80 md:w-60 h-45 bg-gray-100  transition-transform duration-300 ease-in-out hover:scale-105 hover:drop-shadow-lg hover:drop-shadow-cyan-500/50 hover:z-10"
           style="clip-path: polygon(0% 0, 50% 0, 80% 100%, 0% 100%)">
           <img src="{{ asset('build/images/bill.png') }}" alt="" srcset="" class="h-80 -mt-27 -ml-5">
         </article>
-        <article class="ml-9 w-166 mt-5 h-40 bg-gray-100 transition-transform duration-300 ease-in-out hover:scale-105 drop-shadow-lg drop-shadow-cyan-500/50 hover:z-10"
+        <article class="ml-9  w-166 mt-5 h-40 bg-gray-100 transition-transform duration-300 ease-in-out hover:scale-105 drop-shadow-lg drop-shadow-cyan-500/50 hover:z-10"
         style="clip-path: polygon(0% 0, 40% 0, 53% 100%, 0% 100%)">
         <img src="{{ asset('build/images/ipeh.png') }}" alt="" srcset="" class="h-80 -mt-30 ml-10">
       </article>

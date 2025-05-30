@@ -155,11 +155,11 @@
 <section class="bg-[#5e6f52] -mt-6  px-6 lg:-mt-20 lg:px-0 pb-20 lg:pb-80">
   <div class="max-w-7xl mx-auto flex flex-col lg:flex-row gap-6">
 
-    <div class="rounded-2xl shadow-lg bg-white flex flex-col gap-6 p-6 lg:w-1/3" data-aos="fade-up" data-aos-duration="1000">
-      <img src="{{ asset('build/images/betol.png') }}" alt="" class="w-full object-cover rounded-xl -mt-4 hover:scale-105 transition duration-300 ease-in-out">
+    <div class="rounded-2xl shadow-lg bg-white flex flex-col gap-6 p-6  lg:w-1/3" data-aos="fade-up" data-aos-duration="1000">
+      <img src="{{ asset('build/images/tips.svg') }}" alt="" class="w-80 mx-auto pt-5 object-cover rounded-xl -mt-4 hover:scale-105 transition duration-300 ease-in-out">
       <div>
-        <div class="flex items-center mb-4">
-          <img src="{{ asset('build/images/rose.png') }}" class="h-10 w-10" alt="">
+        <div class="flex items-center mb-4 -mt-15">
+          <img src="{{ asset('build/images/rose.svg') }}" class="h-10 w-10" alt="">
           <p class="text-2xl font-black font-sans ml-2">Tips Penggunaan</p>
         </div>
         <ul class="list-disc pl-5 space-y-2 text-gray-700 text-sm md:text-base">
@@ -176,7 +176,7 @@
       <div class="rounded-2xl shadow-lg bg-white p-6 flex flex-col lg:flex-row gap-4" data-aos="fade-left" data-aos-duration="1000">
         <div class="lg:w-2/3">
           <div class="flex items-center mb-4">
-            <img src="{{ asset('build/images/fitur.png') }}" class="h-8 mr-2" alt="">
+            <img src="{{ asset('build/images/list.svg') }}" class="h-8 mr-2" alt="">
             <p class="text-2xl font-black font-sans">Fitur Binary Waste</p>
           </div>
           <ul class="list-decimal pl-5 space-y-2 text-gray-700 text-sm md:text-base">
@@ -188,7 +188,7 @@
           </ul>
         </div>
         <div class="flex justify-center items-center lg:w-1/3">
-          <img src="{{ asset('build/images/orangberanda.png') }}" class="h-40 object-contain hover:scale-110 transition duration-300" alt="">
+          <img src="{{ asset('build/images/uwow.svg') }}" class="h-50 object-contain hover:scale-110 transition duration-300" alt="">
         </div>
       </div>
 
@@ -196,7 +196,7 @@
 
         <div class="rounded-2xl shadow-lg bg-white p-6 md:w-1/2" data-aos="zoom-in-up" data-aos-duration="1000">
           <p class="mb-3 text-center text-sm md:text-base font-medium text-gray-700">Yuk, Ajak Teman dan Keluarga Peduli Lingkungan!</p>
-          <img src="{{ asset('build/images/global.png') }}" alt="" class="h-60 w-full rounded-lg object-cover hover:scale-105 transition duration-300 ease-in-out">
+          <img src="{{ asset('build/images/teman.svg') }}" alt="" class="h-40 w-full  rounded-lg object-cover hover:scale-105 transition duration-300 ease-in-out">
         </div>
 
         <div class="rounded-2xl shadow-lg bg-white p-6 flex flex-col justify-center items-center md:w-1/2 text-center" data-aos="fade-up" data-aos-delay="200">
@@ -282,7 +282,7 @@
       </div>
 
       <div class="w-full lg:w-1/2 flex flex-col items-center justify-center mt-10 lg:mt-0">
-        <img src="{{ asset('build/images/interview.png') }}" alt="" class="max-h-60 w-auto mb-6">
+        <img src="{{ asset('build/images/join.svg') }}" alt="" class="max-h-60 w-auto mb-6">
         <div class="text-center">
           <p class="text-xl md:text-2xl font-semibold text-gray-800">Let's go, <span class="text-green-600">Mitra!</span></p>
           <p class="text-sm text-gray-500 mt-1">Satu klik lagi untuk mulai beraksi 🚀</p>

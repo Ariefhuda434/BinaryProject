@@ -215,7 +215,7 @@
 
     
     <div id="laporan"
-    class="bg-[#a8b387] pb-10 md:pb-20">
+    class="bg-[#a8b387] pb-20 md:pb-30 -mb-20 lg:-mb-23">
         <svg xmlns="http://www.w3.org/2000/svg" class="w-full" viewBox="0 0 1440 320"><path fill="#ffffff" fill-opacity="1" d="M0,96L8.6,90.7C17.1,85,34,75,51,101.3C68.6,128,86,192,103,213.3C120,235,137,213,154,197.3C171.4,181,189,171,206,181.3C222.9,192,240,224,257,240C274.3,256,291,256,309,245.3C325.7,235,343,213,360,202.7C377.1,192,394,192,411,165.3C428.6,139,446,85,463,64C480,43,497,53,514,80C531.4,107,549,149,566,176C582.9,203,600,213,617,224C634.3,235,651,245,669,256C685.7,267,703,277,720,245.3C737.1,213,754,139,771,101.3C788.6,64,806,64,823,101.3C840,139,857,213,874,245.3C891.4,277,909,267,926,256C942.9,245,960,235,977,208C994.3,181,1011,139,1029,144C1045.7,149,1063,203,1080,234.7C1097.1,267,1114,277,1131,277.3C1148.6,277,1166,267,1183,272C1200,277,1217,299,1234,288C1251.4,277,1269,235,1286,202.7C1302.9,171,1320,149,1337,160C1354.3,171,1371,213,1389,224C1405.7,235,1423,213,1431,202.7L1440,192L1440,0L1431.4,0C1422.9,0,1406,0,1389,0C1371.4,0,1354,0,1337,0C1320,0,1303,0,1286,0C1268.6,0,1251,0,1234,0C1217.1,0,1200,0,1183,0C1165.7,0,1149,0,1131,0C1114.3,0,1097,0,1080,0C1062.9,0,1046,0,1029,0C1011.4,0,994,0,977,0C960,0,943,0,926,0C908.6,0,891,0,874,0C857.1,0,840,0,823,0C805.7,0,789,0,771,0C754.3,0,737,0,720,0C702.9,0,686,0,669,0C651.4,0,634,0,617,0C600,0,583,0,566,0C548.6,0,531,0,514,0C497.1,0,480,0,463,0C445.7,0,429,0,411,0C394.3,0,377,0,360,0C342.9,0,326,0,309,0C291.4,0,274,0,257,0C240,0,223,0,206,0C188.6,0,171,0,154,0C137.1,0,120,0,103,0C85.7,0,69,0,51,0C34.3,0,17,0,9,0L0,0Z"></path></svg>
         <div class="md:-mt-80 -mt-20 lg:-mt-120">
             <div class="relative z-10">
@@ -290,7 +290,7 @@
             </button>
         </div>
         
-        <div id="formlapor" class="flex hidden opacity-0 transition-opacity duration-500 ease-in-out items-center justify-center bg-[#a8b387] py-10 px-2 md:px-0">
+        <div id="formlapor" class="flex hidden opacity-0 transition-opacity duration-500 ease-in-out items-center justify-center bg-[#a8b387]  pt-10 px-2 md:px-0">
             <form action="{{ route('passing') }}" method="POST" enctype="multipart/form-data"
             class="bg-white p-4 md:p-8 w-full max-w-4xl md:max-w-6xl rounded-2xl shadow-xl space-y-4">
             @csrf
@@ -345,17 +345,20 @@
             </form>
         </div>
         
-        <div id="reportbtn"
-        class="fixed top-1/3 left-1/2 transform -translate-x-1/2 bg-white p-4 md:p-8 rounded-xl shadow-lg hidden opacity-0 transition-opacity duration-300 z-50 max-w-xs md:max-w-md w-full">
+      <div id="reportbtn"
+        class="fixed top-1/3 left-1/2 transform -translate-x-1/2 bg-white p-4 md:p-8 rounded-xl shadow-lg hidden opacity-0 transition-opacity duration-300  z-50 max-w-xs md:max-w-md w-full">
+        <button id="btnReportClose" class="absolute top-4 left-4 hover:scale-105 hover:rotate-180 transform-all duration-700 ease-in-out ">
+          <img src="{{ asset('build/images/no1.png') }}" alt="" srcset="" class="h-5">
+        </button>
+        <img src="{{ asset('build/images/sorry.png') }}" alt="" class="h-10 mx-auto ">
         <p class="text-lg md:text-xl font-semibold text-center text-gray-700">Silakan login terlebih dahulu yaa!</p>
         <a href="{{ route('login') }}"
-        class="block mt-4 md:mt-6 px-4 py-2 md:px-6 md:py-3 bg-gray-600 text-white rounded-full text-center hover:bg-gray-700 transition">
+        class="block mt-4 md:mt-6 px-4 py-2 md:px-6 md:py-3 bg-[#899d7b] text-white rounded-full text-center hover:bg-[#5e6f52] transition">
         Masuk
         </a>
         </div>
     </div>
 </div>
-     
 
 <script>
     AOS.init();
@@ -378,6 +381,17 @@
         setTimeout(() => {
             reportPopup.classList.add('opacity-100');
             reportPopup.classList.remove('opacity-0');
+            AOS.refresh();
+            reportPopup.scrollIntoView({ behavior: 'smooth' });
+        }, 10);
+    });
+    
+    document.getElementById('btnReportClose')?.addEventListener('click', () => {
+        const reportPopup = document.getElementById('reportbtn');
+        reportPopup.classList.add('hidden');
+        setTimeout(() => {
+            reportPopup.classList.add('opacity-0');
+            reportPopup.classList.remove('opacity-100');
             AOS.refresh();
             reportPopup.scrollIntoView({ behavior: 'smooth' });
         }, 10);
