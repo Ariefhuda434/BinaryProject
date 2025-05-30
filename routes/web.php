@@ -45,6 +45,9 @@ Route::middleware(['auth'])->group(function () {
 Route::get('/tentang', function () {
     return view('tentang');
 });
+Route::get('/game', function () {
+    return view('game');
+});
 
 Route::get('/blogs', function () {
     return view('blogs', [
