@@ -20,9 +20,9 @@
 
          <h2 class="font-bold font-monospace text-2xl text-white">Hai, Binarians!</h2>
          <p class="text-xl text-center md:text-start tracking-wide text-white">
-            Saatnya kelola sampah dengan cara yang lebih cerdas dan berdampak.
-            bantu selamatkan bumi bareng kita di Binary Waste!
-         </p>
+           Saatnya ambil peran dan jadi bagian dari perubahan untuk lingkungan yang lebih bersih dan sehat bersama Binary Waste.
+           Gabung sekarang, karena bumi kita butuh suara dan tindakanmu!
+        </p>
 
         <div class="w-full sm:w-auto text-center sm:text-left mt-4">
           <a href="{{ route('register') }}"
@@ -41,7 +41,7 @@
     <a href="/blogs" class="flex justify-center">
       <article class="flex flex-col items-center justify-center w-full max-w-xs text-center bg-white text-black rounded-xl shadow-lg p-6 transition-transform duration-300 hover:scale-105 hover:shadow-xl hover:bg-gray-100">
         <div class="bg-[#ccc14e] p-4 rounded-full mb-4">
-          <img src="{{ asset('build/images/suaraWarga.png') }}" alt="suara warga" class="w-10 h-10">
+          <img src="{{ asset('build/images/suaraWarga.png') }}" alt="suara warga" class="w-10 h-10 hover:rotate-20 transform-all duration-300 hover:h-11 hover:w-11">
         </div>
         <h2 class="text-xl font-bold text-gray-800 mb-2">Suara Warga</h2>
         <p class="text-sm text-gray-600 leading-snug">
@@ -50,19 +50,20 @@
       </article>
     </a>
 
-    <div class="flex justify-center">
+    <a href="gerakans" class="flex justify-center">
       <article class="flex flex-col items-center justify-center w-full max-w-xs text-center bg-white text-black rounded-xl shadow-lg p-6 transition-transform duration-300 hover:scale-105 hover:shadow-xl hover:bg-gray-100">
         <div class="bg-[#ccc14e] p-4 rounded-full mb-4">
-          <img src="{{ asset('build/images/gerakan.png') }}" alt="sampah" class="w-10 h-10">
+          <img src="{{ asset('build/images/gerakan.png') }}" alt="sampah" class="w-10 h-10 hover:rotate-20 transform-all duration-300 hover:h-11 hover:w-11">
         </div>
         <h2 class="text-xl font-bold text-gray-800 mb-2">Gerakan Peduli Sampah</h2>
         <p class="text-sm text-gray-600 leading-snug">
           Ajak masyarakat untuk bersama menjaga kebersihan lewat aksi nyata dan kolaborasi.
         </p>
       </article>
-    </div>
+      
+    </a>
 
-    <div class="flex justify-center">
+    <a href="report" class="flex justify-center">
       <button id="tombolDitekan" class="w-full max-w-xs">
         <article class="flex flex-col items-center justify-center text-center bg-white text-black rounded-xl shadow-lg p-6 transition-transform duration-300 hover:scale-105 hover:shadow-xl hover:bg-gray-100">
           <div class="bg-[#ccc14e] p-4 rounded-full mb-4">
@@ -74,7 +75,7 @@
           </p>
         </article>
       </button>
-    </div>
+    </a>
 
   </div>
 </div>
@@ -274,10 +275,18 @@
 
           <input type="file" name="logo" class="w-full py-2.5 px-4 rounded text-sm bg-gray-100 focus:outline-none focus:border-l-4 focus:border-[#5e6f52] transition-all duration-300 ease-in-out">
 
-          <button type="submit"
+          @guest
+            <button type="button" id="mitraClick"
+            class="w-full p-2 md:p-3 bg-[#687161] text-white rounded-lg hover:bg-[#7b8374] transition">
+            Kirim (Login Diperlukan)
+            </button>
+          @else
+            <button type="submit"
             class="w-full bg-[#5e6f52] text-white font-semibold py-3 rounded-full shadow-md hover:bg-[#4e5f42] transition duration-300 ease-in-out transform hover:scale-105">
             Kirim
           </button>
+          @endguest
+          
         </form>
       </div>
 
@@ -292,7 +301,18 @@
     </div>
   </div>
 </section>
-
+ <div id="mitrabtn"
+        class="fixed top-1/3 left-1/2 -translate-x-1/2 bg-white p-4 md:p-8 rounded-xl shadow-lg hidden opacity-0 transform-all transition-opacity duration-700 ease-in-out z-50 max-w-xs md:max-w-md w-full">
+        <button type="button" id="btnMitraClose" class="absolute top-4 left-4 hover:scale-105 hover:rotate-180 transform-all duration-700 ease-in-out ">
+          <img src="{{ asset('build/images/no1.png') }}" alt="" srcset="" class="h-5">
+        </button>
+        <img src="{{ asset('build/images/sorry.png') }}" alt="" class="h-10 mx-auto ">
+        <p class="text-lg md:text-xl font-semibold text-center text-gray-700">Silakan login terlebih dahulu yaa!</p>
+        <a href="{{ route('login') }}"
+        class="block mt-4 md:mt-6 px-4 py-2 md:px-6 md:py-3 bg-[#687161] text-white rounded-full text-center hover:bg-[#7b8374] transition">
+        Masuk
+        </a>
+</div>
 
 
 
@@ -330,6 +350,28 @@
   kiyomasa('numberCount2');
   kiyomasa('numberCount3');
   
+    // document.getElementById('mitraClick').addEventListener('click', () => {
+    //     const reportPopup = document.getElementById('mitrabtn');
+    //     reportPopup.classList.remove('hidden');
+    //     setTimeout(() => {
+    //         reportPopup.classList.add('opacity-100');
+    //         reportPopup.classList.remove('opacity-0');
+    //         AOS.refresh();
+    //         reportPopup.scrollIntoView({ behavior: 'smooth' });
+    //     }, 10);
+    // });
+
+    //   document.getElementById('btnMitraClose').addEventListener('click', () => {
+    //     const reportPopup = document.getElementById('mitratbtn');
+    //     reportPopup.classList.add('hidden');
+    //     setTimeout(() => {
+    //         reportPopup.classList.add('opacity-0');
+    //         reportPopup.classList.remove('opacity-100');
+    //         AOS.refresh();
+    //         reportPopup.scrollIntoView({ behavior: 'smooth' });
+    //     }, 10);
+    // });
+
   let isActive = true;
   document.getElementById('btnMitra').addEventListener('click', () => {
     const mitra = document.getElementById('mitra');

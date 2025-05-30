@@ -346,14 +346,14 @@
         </div>
         
       <div id="reportbtn"
-        class="fixed top-1/3 left-1/2 transform -translate-x-1/2 bg-white p-4 md:p-8 rounded-xl shadow-lg hidden opacity-0 transition-opacity duration-300  z-50 max-w-xs md:max-w-md w-full">
+        class="fixed top-1/3 left-1/2 -translate-x-1/2 bg-white p-4 md:p-8 rounded-xl shadow-lg hidden opacity-0 transform-all transition-opacity duration-700 ease-in-out z-50 max-w-xs md:max-w-md w-full">
         <button id="btnReportClose" class="absolute top-4 left-4 hover:scale-105 hover:rotate-180 transform-all duration-700 ease-in-out ">
           <img src="{{ asset('build/images/no1.png') }}" alt="" srcset="" class="h-5">
         </button>
         <img src="{{ asset('build/images/sorry.png') }}" alt="" class="h-10 mx-auto ">
         <p class="text-lg md:text-xl font-semibold text-center text-gray-700">Silakan login terlebih dahulu yaa!</p>
         <a href="{{ route('login') }}"
-        class="block mt-4 md:mt-6 px-4 py-2 md:px-6 md:py-3 bg-[#899d7b] text-white rounded-full text-center hover:bg-[#5e6f52] transition">
+        class="block mt-4 md:mt-6 px-4 py-2 md:px-6 md:py-3 bg-[#687161] text-white rounded-full text-center hover:bg-[#7b8374] transition">
         Masuk
         </a>
         </div>

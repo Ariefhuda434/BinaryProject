@@ -107,9 +107,20 @@
             <div class="flex items-center space-x-10">
                 <ul class="flex space-x-10">
                     <li>
+                        @if (Request::is('blogs'))     
+                        <a href="/" class="text-[#ccc14e] font-black pb-[1.05rem] text-xl  border-b-4 border-[#ccc14e]">
+                            Blogs
+                        </a>
+                        @elseif (Request::is('blog'))
+                        <a href="blogs" class="text-[#ccc14e] font-black pb-[1.05rem] text-xl  border-b-4 border-[#ccc14e]">
+                            Blogs
+                        </a>
+                        @else
                         <a href="/" class="{{ Request::is('/') ? 'text-[#ccc14e] font-black pb-[1.05rem] text-xl  border-b-4 border-[#ccc14e]' : 'relative text-white font-normal pb-[0.9rem]  text-xl after:absolute after:-bottom-1.5 after:left-1/2 after:-translate-x-1/2 after:w-full after:h-[4px] after:bg-[#ccc14e] after:origin-center after:ease-in-out after:scale-x-0 after:transition-transform after:duration-900  hover:after:scale-x-100' }}">
                             Beranda
                         </a>
+                        @endif
+
                     </li>
                     <li>
                         <a href="/tentang" class="{{ Request::is('tentang') ? 'text-[#ccc14e] font-black pb-[1.05rem] text-xl border-b-4 border-[#ccc14e]' : 'relative text-white font-normal text-xl pb-[0.9rem]   after:absolute after:-bottom-1.5 after:left-1/2 after:-translate-x-1/2 after:w-full after:h-[4px] after:bg-[#ccc14e] after:origin-center after:scale-x-0 after:transition-transform after:duration-900  hover:after:scale-x-100' }}">
@@ -179,7 +190,6 @@
         
         @auth
         <div class="bg-white w-full max-w-6xl p-10 rounded-3xl shadow-2xl grid grid-cols-1 md:grid-cols-2 gap-10 relative">
-            <!-- Tombol Close -->
             <button id="btnProfileClose" class="absolute top-4 left-4">
             <span class="absolute top-4 left-4 w-5 h-0.5 bg-black tra   nsform-all duration-300 ease  rotate-45 rounded"></span>
             <span class="absolute top-4 left-4 w-5 h-0.5 bg-black transform-all duration-300 ease  -rotate-45 rounded"></span>
