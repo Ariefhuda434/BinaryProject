@@ -15,4 +15,5 @@ class Gerakan extends Model
         'periode',
         'foto',
     ];
+    
 }

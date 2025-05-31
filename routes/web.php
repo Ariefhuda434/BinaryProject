@@ -58,7 +58,7 @@ Route::get('/blogs', function () {
 Route::get('/blogs/{blog:slug}', function (Blog $blog) {
     if (!$blog) abort(404);
     return view('blog', ['blog' => $blog]);
-})->name('blog');
+})->name('bloguk');
 
 Route::get('/faq', function () {
     return view('faq');
