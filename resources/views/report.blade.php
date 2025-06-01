@@ -48,7 +48,7 @@
                     @csrf
                     <input type="range" min="1" max="5" step="1" value="3"
                         class="w-full accent-[#5e6f52] transition-all duration-300" name='feedback'
-                        onchange="this.form.submit()" oninput="updateFeeling(this.value)">
+                        onchange="this.form.submit()"  oninput="updateFeeling(this.value),maaci(  )">
                     <p id="feelingLabel" class="mt-3 font-semibold text-[#5e6f52] text-sm lg:text-base">Cukup sadar ♻️</p>
                 </form>
             </div>
@@ -389,9 +389,41 @@
     </div>
 </div>
 
+<div id="makasiudhbaik" class="fixed inset-0 hidden opacity-0 flex items-center justify-center z-50 shadow-lg">
+  <div class="bg-white text-center rounded-2xl shadow-2xl p-8 max-w-md w-full text-[#5e6f52] relative">
+    
+    <div class="w-16 h-16 rounded-full bg-[#5e6f52] text-white flex items-center justify-center mx-auto mb-6 shadow-md">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+      </svg>
+    </div>
+
+    <h2 class="text-2xl font-extrabold mb-3">Terima Kasih!</h2>
+
+    <p class="text-gray-700 leading-relaxed mb-6">
+      Feedback kamu sangat berarti bagi kami.<br>
+      Dengan masukan dari kamu, kami bisa terus berkembang dan menjadi lebih baik. 🙌
+    </p>
+
+    <button onclick="document.getElementById('popupThanks').classList.add('hidden')" 
+            class="bg-[#5e6f52] text-white px-6 py-2 rounded-md text-sm font-semibold shadow hover:bg-[#4b5b45] transition duration-300">
+      Tutup
+    </button>
+  </div>
+</div>
+
+
+  
 <script>
     AOS.init();
-    
+    function maaci(){
+      const test = document.getElementById('makasiudhbaik');
+      test.classList.remove('hidden');
+      setTimeout(() =>{
+        test.classList.remove('opacity-0');
+        test.classList.add('opacity-100');
+      }, 10);
+    }
     function updateFeeling(value) {
         const label = document.getElementById('feelingLabel');
         const feedback = {
@@ -404,7 +436,8 @@
         label.textContent = feedback[value] || '';
     }
     
-    document.getElementById('reportClick')?.addEventListener('click', () => {
+    document.getElementById('reportClick')?.addEventListener('click', (e) => {
+      e.preventDefault();
         const reportPopup = document.getElementById('reportbtn');
         reportPopup.classList.remove('hidden');
         setTimeout(() => {

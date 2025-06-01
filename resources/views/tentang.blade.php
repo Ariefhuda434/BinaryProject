@@ -136,31 +136,36 @@
                 @php
                     $profiles = [
                         [
-                            'name' => 'Arief Huda',
+                            'target' => '1',
+                            'name' => 'Winson Pardede',
                             'role' => 'Full Stack Developer',
                             'desc' => 'Bolivia, Bocah Liar Helvetia',
                             'img' => asset('build/images/ariefganteng.png'),
                         ],
                         [
-                            'name' => 'Markocop',
+                            'target' => '2',
+                            'name' => 'Nahya Syahkira Ketaren',
                             'role' => 'Full Stack Developer',
                             'desc' => 'Kembaran Arief dari Multiverse',
                             'img' => asset('build/images/ariefganteng.png'),
                         ],
                         [
-                            'name' => 'Bedul',
+                            'target' => '3',
+                            'name' => 'Bill Randa Silangit',
                             'role' => 'Full Stack Developer',
                             'desc' => 'Kembaran Arief dari Multiverse',
                             'img' => asset('build/images/ariefganteng.png'),
                         ],
                         [
-                            'name' => 'Irfan',
+                            'target' => '4',
+                            'name' => 'Syarifah Khadijah',
                             'role' => 'Full Stack Developer',
                             'desc' => 'Kembaran Arief dari Multiverse',
                             'img' => asset('build/images/ariefganteng.png'),
                         ],
                         [
-                            'name' => 'Usman',
+                            'target' => '5',
+                            'name' => 'King Arief',
                             'role' => 'Full Stack Developer',
                             'desc' => 'Kembaran Arief dari Multiverse',
                             'img' => asset('build/images/ariefganteng.png'),
@@ -169,9 +174,10 @@
                 @endphp
 
                 <div class="relative w-full  mx-auto mt-6 overflow-hidden  bg-white rounded-lg flex flex-nowrap overflow-x-auto snap-x snap-mandatory"
-                    id="slider-container" style="scroll-behavior: smooth;  scrollbar-width: none;  ">
+                    id="slider" style="scroll-behavior: smooth;  scrollbar-width: none;  ">
                     @foreach ($profiles as $index => $profile)
-                        <div class="inline-block flex-shrink-0 w-full snap-center text-center px-4">
+                        <div id="target{{ $profile['target'] }}"
+                         class="inline-block flex-shrink-0 w-full snap-center text-center px-4">
                             <div class="text-center mb-6">
                                 <h2 class="text-2xl md:text-3xl font-extrabold text-[#5e6f52]">Binary Buddies</h2>
                                 <p class="text-sm text-gray-500">Temui mereka yang berdedikasi untuk perubahan</p>
@@ -193,19 +199,21 @@
 
 
                 <div class="h-full hidden md:block w-2/3 bg-[#5e6f52] relative rounded-r-lg ml-auto ">
-                    <div class="flex overflow-hidden">
+                    <div class="flex ">
                         <div class="flex">
                             <div class="flex mt-5 flex-col">
-                                <div class="relative ml-9 lg:w-80 md:w-60 h-45">
+                                <div id="babangwinson" onclick="aguslaparbuk('babangwinson','target1')" class="relative ml-9 lg:w-80 md:w-60 h-45 hover:scale-105 transform-all duration-700 ease-in-out">
                                     <article
-                                        class="bg-[#fefae0] transition-transform duration-300 ease-in-out hover:scale-105 overflow-hidden hover:drop-shadow-lg hover:drop-shadow-cyan-500/50 hover:z-10 w-full h-full"
+                                        class="bg-[#fefae0] overflow-hidden w-full h-full"
                                         style="clip-path: polygon(0% 0, 50% 0, 80% 100%, 0% 100%)">
                                     </article>
                                     <img src="{{ asset('build/images/winson.png') }}" alt=""
                                         class="h-80 absolute top-[-140px] left-[-30px] z-10">
                                 </div>
 
-                                <div class="relative ml-9 w-166 mt-5 h-40 overflow-visible">
+                                <div class="relative ml-9 w-166 mt-5 h-40 overflow-visible"
+                                id="kakaknahya" onclick="aguslaparbuk('kakaknahya','target2')"
+                                >
                                     <article
                                         class="bg-[#fefae0] transition-transform duration-300 ease-in-out hover:scale-105  drop-shadow-lg drop-shadow-cyan-500/50  w-full h-full"
                                         style="clip-path: polygon(0% 0, 40% 0, 53% 100%, 0% 100%)">
@@ -216,16 +224,19 @@
                             </div>
                             <div class="flex flex-col">
                                 <div class="flex">
-                                    <div class="mt-5 -ml-120 w-80 h-45">
+                                    <div class="mt-5 -ml-120 w-80 h-45"
+                                       id="babangbill" onclick="aguslaparbuk('babangbill','target3')"
+                                    >
                                         <article
                                             class="bg-[#fefae0] bg-cover transition-transform duration-300 ease-in-out w-full h-full"
                                             style="clip-path: polygon(0% 0, 60% 0, 30% 100%, 30% 100%)">
                                         </article>
-
                                         <img src="{{ asset('build/images/bill.png') }}" alt="" srcset=""
                                             class="h-80 absolute top-[-120px] left-[190px] z-10">
                                     </div>
-                                    <div class="relative -ml-50 mt-5 w-81 h-45">
+                                    <div class="relative -ml-50 mt-5 w-81 h-45"
+                                       id="kakros" onclick="aguslaparbuk('kakros','target4')"
+                                    >
                                         <article
                                             class="bg-[#fefae0] transition-transform duration-300 ease-in-out hover:scale-105 hover:drop-shadow-lg hover:drop-shadow-cyan-500/50 h w-full h-full"
                                             style="clip-path: polygon(30% 0, 100% 0, 100% 100%, 0% 100%)">
@@ -234,7 +245,9 @@
                                             class="h-90 absolute  top-[-180px] left-[30px] z-10">
                                     </div>
                                 </div>
-                                <div class="relative -ml-[23.5rem] mt-5 mb-5 w-[21.25rem] h-40">
+                                <div class="relative -ml-[23.5rem] mt-5 mb-5 w-[21.25rem] h-40"
+                                id="maharajakingariefhudadragonball" onclick="aguslaparbuk('maharajakingariefhudadragonball','target5')"
+                                >
                                     <article
                                         class="bg-[#fefae0] from-white to-green-900 transition-transform duration-300 ease-in-out hover:scale-105 hover:drop-shadow-lg hover:drop-shadow-cyan-500/50 hover:z-10 w-full h-full"
                                         style="clip-path: polygon(0% 0, 100% 0, 100% 100%, 26% 100%)">
@@ -374,10 +387,22 @@
                 });
             }, 5);
         });
-    </script>
 
-    <script>
-        AOS.init();
+        function aguslaparbuk(passing, target) {
+    const kesini = document.getElementById(passing);
+    const slider = document.getElementById('slider');
+    const targetElem = document.getElementById(target);
+
+        kesini.addEventListener('click', (e) => {
+            AOS.refresh();
+            slider.scrollTo({
+                left: targetElem.offsetLeft,
+                behavior: 'smooth'
+            });
+        });
+    }
+
+
 
         document.getElementById('btnScroll').addEventListener('click', () => {
             const visiMisi = document.getElementById('visi-misi');

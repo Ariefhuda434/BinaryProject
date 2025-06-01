@@ -338,9 +338,10 @@
     </section>
     <div id="mitrabtn"
         class="fixed top-1/3 left-1/2 -translate-x-1/2 bg-white p-4 md:p-8 rounded-xl shadow-lg hidden opacity-0 transform-all transition-opacity duration-700 ease-in-out z-50 max-w-xs md:max-w-md w-full">
-        <button type="button" id="btnMitraClose"
+        <button type="button"
+        id="btnMitraClose"
             class="absolute top-4 left-4 hover:scale-105 hover:rotate-180 transform-all duration-700 ease-in-out ">
-            <img src="{{ asset('build/images/no1.png') }}" alt="" srcset="" class="h-5">
+            <img src="{{ asset('build/images/no1.png') }}" alt="" srcset="" class="h-5"  >
         </button>
         <img src="{{ asset('build/images/sorry.png') }}" alt="" class="h-10 mx-auto ">
         <p class="text-lg md:text-xl font-semibold text-center text-gray-700">Silakan login terlebih dahulu yaa!</p>
@@ -375,7 +376,6 @@
                             bogem = false;
                         }
                     }, 3);
-
                     scrollDulu = scrollSekarang;
                 }
             });
@@ -386,27 +386,28 @@
         kiyomasa('numberCount2');
         kiyomasa('numberCount3');
 
-        // document.getElementById('mitraClick').addEventListener('click', () => {
-        //     const reportPopup = document.getElementById('mitrabtn');
-        //     reportPopup.classList.remove('hidden');
-        //     setTimeout(() => {
-        //         reportPopup.classList.add('opacity-100');
-        //         reportPopup.classList.remove('opacity-0');
-        //         AOS.refresh();
-        //         reportPopup.scrollIntoView({ behavior: 'smooth' });
-        //     }, 10);
-        // });
+        document.getElementById('mitraClick')?.addEventListener('click', () => {
+            const reportPopup = document.getElementById('mitrabtn');
+            reportPopup.classList.remove('hidden');
+            setTimeout(() => {
+                reportPopup.classList.add('opacity-100');
+                reportPopup.classList.remove('opacity-0');
+                AOS.refresh();
+                reportPopup.scrollIntoView({ behavior: 'smooth' });
+            }, 10);
+        });
 
-        //   document.getElementById('btnMitraClose').addEventListener('click', () => {
-        //     const reportPopup = document.getElementById('mitratbtn');
-        //     reportPopup.classList.add('hidden');
-        //     setTimeout(() => {
-        //         reportPopup.classList.add('opacity-0');
-        //         reportPopup.classList.remove('opacity-100');
-        //         AOS.refresh();
-        //         reportPopup.scrollIntoView({ behavior: 'smooth' });
-        //     }, 10);
-        // });
+    document.getElementById('btnMitraClose')?.addEventListener('click', () => {
+    const reportPopup = document.getElementById('mitratbtn');
+    reportPopup.classList.add('hidden');
+    
+    setTimeout(() => {
+        reportPopup.classList.remove('opacity-100');
+        reportPopup.classList.add('opacity-0');
+        AOS.refresh();
+        reportPopup.scrollIntoView({ behavior: 'smooth' });
+    }, 10); 
+});
 
         let isActive = true;
         document.getElementById('btnMitra').addEventListener('click', () => {
