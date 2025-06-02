@@ -15,5 +15,8 @@ class Gerakan extends Model
         'periode',
         'foto',
     ];
-    
+    public function users()
+{
+    return $this->belongsToMany(User::class);
+}
 }

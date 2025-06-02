@@ -33,7 +33,7 @@ class ReportController extends Controller
         $imagePath = $request->file('foto')->store('public/reports');
 
         Report::create([
-            'id_user' => Auth::id(),
+            'id_user' => Auth::id(),    
             'judul' => $validatedData['judul'],
             'deskripsi' => $validatedData['deskripsi'],
             'location' => $validatedData['location'],
