@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Blog;
+use App\Models\Blogs;
 use Illuminate\Http\Request;
 
 class BlogController extends Controller
@@ -40,7 +40,7 @@ class BlogController extends Controller
         $validated['foto'] = $request->file('foto')->store('fotos', 'public');
     }
 
-    Blog::create($validated);
+    Blogs::create($validated);
 
     return redirect()->back()->with('success', 'Blog baru berhasil ditambahkan.');
 }
@@ -50,13 +50,13 @@ class BlogController extends Controller
      * Display the specified resource.
      */
     public function show($id) {
-    $blog = Blog::findOrFail($id);
-    return view('blog.show', compact('blog'));
+    $blog = Blogs::findOrFail($id);
+    return view('blog.show', compact('blogs'));
     }
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Blog $blog)
+    public function edit(Blogs $blog)
     {
         //
     }
@@ -64,7 +64,7 @@ class BlogController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Blog $blog)
+    public function update(Request $request, Blogs $blog)
     {
         //
     }
@@ -72,7 +72,7 @@ class BlogController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Blog $blog)
+    public function destroy(Blogs $blog)
     {
         //
     }

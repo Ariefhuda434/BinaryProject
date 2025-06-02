@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\Blog;
+use App\Models\Blogs;
 use App\Models\User;
 use App\Models\Gerakan;
 use Illuminate\Support\Facades\Route;
@@ -17,7 +17,7 @@ use App\Http\Controllers\FeedbackController;
 Route::middleware(['auth'])->group(function () {
 
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
-    Route::post('/jadiMitra',[MitraController::class,'mitraGanteng'])->name('Mitra.kirim');
+    Route::post('/jadiMitra', [MitraController::class, 'mitraGanteng'])->name('Mitra.kirim');
 });
 
 // Route::get('/',[ReportController::class, 'jumlahlaporan'])->name('beranda');
@@ -26,16 +26,16 @@ Route::middleware(['auth'])->group(function () {
 // Route::get('/',[ReportController::class, 'jumlahuser'])->name('beranda');
 
 
-    Route::get('/',[CountController::class,'index'])->name('beranda');
+Route::get('/', [CountController::class, 'index'])->name('beranda');
 
-    Route::get('/report', [ReportController::class, 'create'])->name('report');
-    Route::post('/report', [ReportController::class, 'passingData'])->name('passing');
+Route::get('/report', [ReportController::class, 'create'])->name('report');
+Route::post('/report', [ReportController::class, 'passingData'])->name('passing');
 
-    Route::put('/report/{id}/edit',[ReportController::class, 'edit'])->name('edit');
+Route::put('/report/{id}/edit', [ReportController::class, 'edit'])->name('edit');
 
-    Route::post('report/feedback',[FeedbackController::class, 'create'])->name('feedback');
+Route::post('report/feedback', [FeedbackController::class, 'create'])->name('feedback');
 
-    Route::delete('/report/{id}/delete',[ReportController::class,'destroy'])->name('delete');
+Route::delete('/report/{id}/delete', [ReportController::class, 'destroy'])->name('delete');
 
 
 // Route::get('/',function(){
@@ -51,11 +51,11 @@ Route::get('/game', function () {
 
 Route::get('/blogs', function () {
     return view('blogs', [
-        'blogs' => Blog::all(),
+        'blogs' => Blogs::all(),
     ]);
 })->name('blogs');
 
-Route::get('/blogs/{blog:slug}', function (Blog $blog) {
+Route::get('/blogs/{blog:slug}', function (Blogs $blog) {
     if (!$blog) abort(404);
     return view('blog', ['blog' => $blog]);
 })->name('bloguk');
@@ -75,8 +75,8 @@ Route::get('/gerakans', function () {
 
 
 Route::get('gerakans/{gerakan:slug}', function (Gerakan $gerakan) {
-    if(!$gerakan) abort(404);
-    return view('gerakan',['gerakan' => $gerakan]);
+    if (!$gerakan) abort(404);
+    return view('gerakan', ['gerakan' => $gerakan]);
 });
 
 // Route::get('/reset/{token}', function ($token) {
@@ -94,7 +94,7 @@ Route::get('/verify/{token}', function ($token) {
     $user = User::where('verification_token', $token)->first();
 
     if (!$user) {
-    return view('auth.register');
+        return view('auth.register');
     }
 
     $user->email_verifikasi = now();
@@ -105,14 +105,13 @@ Route::get('/verify/{token}', function ($token) {
 
     session()->flash('verified_email', $user->email);
     return view('emails.emailverify-info');
-
 })->name('verifyPage');
 
-Route::get('/verify',function(){
+Route::get('/verify', function () {
     return view('emails.emailverify-info');
 })->name('verify.info');
 
-Route::post('/reset',function(){
+Route::post('/reset', function () {
     return view('emails.resetverify-info');
 })->name('reset.info');
 
@@ -131,6 +130,3 @@ Route::post('/register', [AuthController::class, 'register'])->name('register');
 
 
 Route::post('/blogs', [BlogController::class, 'store'])->name('blogs.store');
-
-
-

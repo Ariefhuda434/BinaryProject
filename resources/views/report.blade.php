@@ -44,12 +44,35 @@
             <div class="flex-1 bg-[#899d7b] rounded-lg p-4 lg:p-6 hover:scale-105 transition-transform duration-300 ease-in-out">
                 <h3 class="text-gray-800 text-lg lg:text-xl font-bold mb-2">Apa kamu merasa lebih sadar lingkungan hari ini?</h3>
                 <p class="text-gray-600 text-xs lg:text-sm mb-4">Geser untuk beri penilaian jujurmu ya 🌱</p>
-                <form method="POST" action="{{ route('feedback') }}">
+                <form id="aguslaparnich" method="POST" action="{{ route('feedback') }}">
                     @csrf
                     <input type="range" min="1" max="5" step="1" value="3"
-                        class="w-full accent-[#5e6f52] transition-all duration-300" name='feedback'
-                        onchange="this.form.submit()"  oninput="updateFeeling(this.value),maaci(  )">
-                    <p id="feelingLabel" class="mt-3 font-semibold text-[#5e6f52] text-sm lg:text-base">Cukup sadar ♻️</p>
+                        class="w-full accent-[#5e6f52] transform-all duration-300 ease-in-out" name='feedback'
+                        onchange="maaci()"  oninput="updateFeeling(this.value)">
+                        <p id="feelingLabel" class="mt-3 font-semibold text-[#5e6f52] text-sm lg:text-base">Cukup sadar ♻️</p>
+                        
+                <div id="makasiudhbaik" class="fixed inset-0  hidden opacity-0 flex items-center justify-center z-50 shadow-lg">
+                  <div class="bg-white text-center rounded-2xl shadow-2xl p-8 max-w-md w-full text-[#5e6f52] relative">
+                    
+                    <div class="w-16 h-16 rounded-full bg-[#5e6f52] text-white flex items-center justify-center mx-auto mb-6 shadow-md">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                      </svg>
+                    </div>
+                
+                    <h2 class="text-2xl font-extrabold mb-3">Terima Kasih!</h2>
+                
+                    <p class="text-gray-700 leading-relaxed mb-6">
+                      Feedback kamu sangat berarti bagi kami.<br>
+                      Dengan masukan dari kamu, kami bisa terus berkembang dan menjadi lebih baik. 🙌
+                    </p>
+                
+                    <button onclick="submit()" 
+                            class="bg-[#5e6f52] text-white px-6 py-2 rounded-md text-sm font-semibold shadow hover:bg-[#4b5b45] transition duration-300">
+                      Tutup
+                    </button>
+                  </div>
+                </div>
                 </form>
             </div>
         </div>
@@ -389,29 +412,6 @@
     </div>
 </div>
 
-<div id="makasiudhbaik" class="fixed inset-0 hidden opacity-0 flex items-center justify-center z-50 shadow-lg">
-  <div class="bg-white text-center rounded-2xl shadow-2xl p-8 max-w-md w-full text-[#5e6f52] relative">
-    
-    <div class="w-16 h-16 rounded-full bg-[#5e6f52] text-white flex items-center justify-center mx-auto mb-6 shadow-md">
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-      </svg>
-    </div>
-
-    <h2 class="text-2xl font-extrabold mb-3">Terima Kasih!</h2>
-
-    <p class="text-gray-700 leading-relaxed mb-6">
-      Feedback kamu sangat berarti bagi kami.<br>
-      Dengan masukan dari kamu, kami bisa terus berkembang dan menjadi lebih baik. 🙌
-    </p>
-
-    <button onclick="document.getElementById('popupThanks').classList.add('hidden')" 
-            class="bg-[#5e6f52] text-white px-6 py-2 rounded-md text-sm font-semibold shadow hover:bg-[#4b5b45] transition duration-300">
-      Tutup
-    </button>
-  </div>
-</div>
-
 
   
 <script>
@@ -424,6 +424,15 @@
         test.classList.add('opacity-100');
       }, 10);
     }
+    function maaci(){
+      const test = document.getElementById('makasiudhbaik');
+      test.classList.remove('hidden');
+      setTimeout(() =>{
+        test.classList.remove('opacity-0');
+        test.classList.add('opacity-100');
+      }, 10);
+    }
+
     function updateFeeling(value) {
         const label = document.getElementById('feelingLabel');
         const feedback = {
@@ -433,11 +442,15 @@
             4: "Mulai peduli 🌿",
             5: "Sangat peduli! 🌍"
         };
+        // label.addEventListener('click',(e) =>{
+        //   e.preventDefault();
+        // })
         label.textContent = feedback[value] || '';
     }
-    
-    document.getElementById('reportClick')?.addEventListener('click', (e) => {
+    document.getElementById('aguslaparnic')?.addEventListener('submit',(e)=>{
       e.preventDefault();
+    })
+    document.getElementById('reportClick')?.addEventListener('click', () => {
         const reportPopup = document.getElementById('reportbtn');
         reportPopup.classList.remove('hidden');
         setTimeout(() => {

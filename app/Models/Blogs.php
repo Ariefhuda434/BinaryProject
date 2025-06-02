@@ -6,8 +6,9 @@ use Illuminate\Support\Arr;
 use Illuminate\Database\Eloquent\Model;
 
 
-class Blog extends Model
+class Blogs extends Model
 {
+protected $table = 'blogs';
 protected $fillable = [
     'judul',
     'slug',
