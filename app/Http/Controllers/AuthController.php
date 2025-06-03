@@ -36,7 +36,7 @@ class AuthController extends Controller
             } elseif (Auth::user()->role == 'mitra') {
                 return redirect('/mitra');
             } else {
-                return redirect('login');  
+                return redirect('login');
             }
         }
 
@@ -61,37 +61,35 @@ class AuthController extends Controller
     }
 
     public function register(Request $request)
-{
-    $request->validate([
-        'name' => 'required|max:30',
-        'email' => 'required|email|unique:users',
-        'password' => 'required|min:6|confirmed',
-        'birth' => 'required',
-        'jenis_kel'=>'required',
-        'profesi' => 'required',
-        'phone' => 'required|unique:users',
-        'kota'=> 'required',
-        'kecamatan' => 'required',
-    ]);
+    {
+        $request->validate([
+            'name' => 'required|max:30',
+            'email' => 'required|email|unique:users',
+            'password' => 'required|min:6|confirmed',
+            'birth' => 'required',
+            'jenis_kel' => 'required',
+            'profesi' => 'required',
+            'phone' => 'required|unique:users',
+            'kota' => 'required',
+            'kecamatan' => 'required',
+        ]);
 
 
-    $user = User::create([
-        'name' => $request->name,
-        'email' => $request->email,
-        'password' => Hash::make($request->password),
-        'birth' => $request->birth,
-        'jenis_kel'=>$request->jenis_kel,
-        'profesi' => $request->profesi,
-        'phone' => $request->phone,
-        'kota'=> $request->kota,
-        'kecamatan' => $request->kecamatan,
-        'verification_token' => Str::random(60),
-    ]);
+        $user = User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+            'birth' => $request->birth,
+            'jenis_kel' => $request->jenis_kel,
+            'profesi' => $request->profesi,
+            'phone' => $request->phone,
+            'kota' => $request->kota,
+            'kecamatan' => $request->kecamatan,
+            'verification_token' => Str::random(60),
+        ]);
 
-    Mail::to($user->email)->send(new VerifyEmail($user));
+        Mail::to($user->email)->send(new VerifyEmail($user));
 
-    return redirect()->route('verify.info')->with('success', 'Registrasi berhasil! Link verifikasi telah dikirim ke email Anda.');
+        return redirect()->route('verify.info')->with('success', 'Registrasi berhasil! Link verifikasi telah dikirim ke email Anda.');
+    }
 }
-    
-}
- 

@@ -17,6 +17,15 @@ class Gerakan extends Model
     ];
     public function users()
 {
-    return $this->belongsToMany(User::class);
+    return $this->belongsToMany(User::class,'pivot_users', 'id_gerakan', 'id_user')
+         ->withTimestamps();    
 }
+
+
+public function mitras()
+{
+    return $this->belongsToMany(User::class, 'pivot_mitras', 'id_gerakan', 'id_mitra')
+         ->withTimestamps();
+}
+
 }

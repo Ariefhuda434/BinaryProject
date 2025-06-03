@@ -89,4 +89,32 @@ class GerakanController extends Controller
             'jumlahgerakan' => $jumlahgerakan
         ]);
     }
+
+
+
+
+public function pivotUser(Gerakan $gerakan, Request $request)
+{
+    $userId = Auth::id();
+
+    if (!$gerakan->users()->where('id_user', $userId)->exists()) {
+        $gerakan->users()->attach($userId);
+    }
+
+    return redirect()->route('gerakan.show', ['gerakan' => $gerakan->slug])
+        ->with('success', 'Berhasil bergabung sebagai Relawan!');
+}
+
+public function pivotMitra(Gerakan $gerakan, Request $request)
+{
+    $userId = Auth::id();
+
+    if (!$gerakan->mitras()->where('id_mitra', $userId)->exists()) {
+        $gerakan->mitras()->attach($userId);
+    }
+
+    return redirect()->route('gerakan.show', ['gerakan' => $gerakan->slug])
+        ->with('success', 'Berhasil bergabung sebagai Mitra!');
+}
+
 }

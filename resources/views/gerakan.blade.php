@@ -4,52 +4,80 @@
 
 @section('content')
     <div class="mt-5 max-w-full min-w-screen bg-black px-6 md:px-12 lg:px-20 min-h-screen bg-cover"
-        style="background-image: url('{{ asset('build/images/Wave (2).svg') }}')">
+        style="background-image: url('{{ asset('build/images/WaveLine.svg') }}')">
 
         <div class="grid grid-cols-1 md:grid-cols-2  min-h-screen items-center -ml-20 max-w-9xl mx-auto">
+            <form id="joinForm" action="{{ route('pivot.user', ['gerakan' => $gerakan->slug]) }}" method="POST"
+                class="bg-[#899d7b]  rounded-xl shadow-lg p-10 max-w-lg mx-auto space-y-8">
 
-            <form action="{{ route('pivot.user', ['gerakan' => $gerakan->slug]) }}" method="POST"
-                class="bg-white rounded-xl shadow-lg w-137 p-10 h-125 flex flex-col space-y-8 max-w-lg mx-auto">
                 @csrf
-                <h1 class="text-3xl font-extrabold text-gray-900">Pilih Peran Anda</h1>
-                <p class="text-gray-600 leading-relaxed">Silakan pilih bagaimana Anda ingin bergabung sebagai apa </p>
+                <div id="daftar" class="max-w-md mx-auto h-97 p-8 opacity-100">
+                    <h1 class="text-4xl font-extrabold text-gray-100 mb-3 text-center">Pilih Peran Anda</h1>
+                    <p class="text-gray-100 text-center mb-8">Bagaimana Anda ingin bergabung?</p>
 
-                <div class="grid grid-cols-1 gap-6">
-                    <div class="flex justify-center items-center gap-6">
-                        <input type="radio" name="role" id="role-relawan" value="{{ Auth::user()->id }}" class="hidden peer" required>
+                    <div class="flex justify-center gap-8 mb-8">
+                        <input type="radio" name="tipe" id="role-relawan" value="user" class="hidden peer/relawan"
+                            required>
+
                         <label for="role-relawan"
-                            class="block p-6 rounded-2xl border border-gray-200 bg-white 
-                peer-checked:border-green-600 peer-checked:shadow-xl 
-                transition transform peer-checked:-translate-y-1 
-                cursor-pointer flex flex-col justify-center items-center 
-                text-center h-40 w-50 mb-4">
-                            <h2 class="text-xl font-semibold mb-2 text-gray-900">Relawan</h2>
-                            <p class="text-gray-500 text-sm">Gunakan layanan platform sebagai pengguna umum.</p>
+                            class="peer-checked/relawan:border-[#ccc14e] peer-checked/relawan:shadow-xl 
+         cursor-pointer w-44 p-6 rounded-3xl border-10 border-transparent bg-white 
+         flex flex-col items-center text-center gap-2 
+         transition-all duration-500 ease-in-out 
+         hover:shadow-lg hover:-translate-y-1 active:scale-95 select-none">
+
+                            <div class="bg-[#ccc14e] p-4 rounded-full">
+                                <img src="{{ asset('build/images/hero.png') }}" alt="Relawan Icon"
+                                    class="w-10 h-10 transition-transform duration-300 ease-in-out hover:rotate-12">
+                            </div>
+
+                            <h2 class="text-2xl font-bold text-gray-900">Relawan</h2>
                         </label>
 
-                        <a href="#"
-                            class="role-card block p-6 rounded-2xl border border-gray-200 bg-white hover:shadow-xl hover:border-green-600 transition transform hover:-translate-y-1 cursor-pointer
-                              flex flex-col justify-center items-center text-center h-40 w-50">
-                            <h2 class="text-xl font-semibold mb-2 text-gray-900">Mitra</h2>
-                            <p class="text-gray-500 text-sm">Bergabung sebagai mitra.</p>
-                        </a>
+
+                        <input type="radio" name="tipe" id="role-mitra" value="mitra" class="hidden peer/mitra"
+                            required>
+
+                        <label for="role-mitra"
+                            class="peer-checked/mitra:border-[#ccc14e] peer-checked/mitra:shadow-xl 
+         cursor-pointer w-44 p-6 rounded-3xl border-10 border-transparent bg-white 
+         flex flex-col items-center text-center gap-2 
+         transition-all duration-500 ease-in-out 
+         hover:shadow-lg hover:-translate-y-1 active:scale-95 select-none">
+
+                            <div class="bg-[#ccc14e] p-4 rounded-full">
+                                <img src="{{ asset('build/images/hero.png') }}" alt="Mitra Icon"
+                                    class="w-10 h-10 transition-transform duration-300 ease-in-out hover:rotate-12">
+                            </div>
+
+                            <h2 class="text-2xl font-bold text-gray-900 mb-2">Mitra</h2>
+                        </label>
                     </div>
+
+                    <button type="submit" onclick="terdaftar()"
+                        class="w-full bg-[#5e6f52] hover:scale-99 text-white py-4 rounded-full font-semibold text-lg shadow-lg
+           transition-colors duration-300 ease-in-out flex justify-center items-center gap-3">
+                        Bergabung
+                    </button>
                 </div>
 
-                <button id="daftarBtn" onclick="submit()"
-                    class="mt-6 bg-green-600 hover:bg-green-700 text-white py-3 rounded-full font-semibold text-lg shadow-lg flex justify-center items-center gap-3 transition-transform active:scale-95">
-                    <svg id="loadingIcon" class="hidden w-5 h-5 animate-spin" fill="none" viewBox="0 0 24 24">
-                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="white" stroke-width="4">
-                        </circle>
-                        <path class="opacity-75" fill="white" d="M4 12a8 8 0 018-8v4l3-3-3-3v4a8 8 0 00-8 8z"></path>
-                    </svg>
-                    <span id="btnText">Bergabung</span>
-                </button>
+                <div class="max-w-md mx-auto h-97 p-8 hidden opacity-0 ">
+                       <h1 class="text-4xl font-extrabold text-gray-100 mb-3 text-center">Anda Sudha Terdaftar</h1>
+                        <p>di event : bbarjva</p>
+                        <p>tanggal : nvjanjna</p>
+                        <p>rules : gaboleh berantam</p>
+                       <button type="button" onclick="notif()"
+                        class="w-full bg-[#5e6f52] hover:scale-99 text-white py-4 rounded-full font-semibold text-lg shadow-lg
+                         transition-colors duration-300 ease-in-out flex justify-center items-center gap-3">
+                        cancel
+                    </button>
+                    </div>
             </form>
 
 
+
             <section
-                class="bg-white rounded-xl shadow-lg p-10 flex flex-col space-y-10 mx-auto
+                class="bg-[#899d7b] rounded-xl shadow-lg p-10 flex flex-col space-y-10 mx-auto
                    w-100 max-w-[700px] md:max-w-none md:w-auto"
                 style="min-height: 500px;">
                 <h2 class="text-3xl font-extrabold text-gray-900">Bersih-Bersih Sungai Bersama</h2>
@@ -88,6 +116,22 @@
     </div>
 
     <script>
+        const form = document.getElementById('joinForm');
+        const tipeRadios = document.querySelectorAll('input[name="tipe"]');
+
+        tipeRadios.forEach(radio => {
+            radio.addEventListener('change', () => {
+                const selected = document.querySelector('input[name="tipe"]:checked').value;
+                const slug = @json($gerakan->slug);
+
+                if (selected === 'mitra') {
+                    form.action = `/gerakans/${slug}/pivot/mitra`;
+                } else {
+                    form.action = `/gerakans/${slug}/pivot/user`;
+                }
+            });
+        });
+
         const daftarBtn = document.getElementById('daftarBtn');
         const loadingIcon = document.getElementById('loadingIcon');
         const btnText = document.getElementById('btnText');

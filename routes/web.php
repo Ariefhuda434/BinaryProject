@@ -77,9 +77,10 @@ Route::get('/gerakans', function () {
 Route::get('/gerakans/{gerakan:slug}', function (Gerakan $gerakan) {
     if (!$gerakan) abort(404);
     return view('gerakan', ['gerakan' => $gerakan]);
-});
+})->name('gerakan.show');
 
-Route::post('/gerakans/{gerakan:slug}', [PivotUserController::class,'pivotuser'])->name('pivot.user');
+Route::post('/gerakans/{gerakan:slug}/pivot/user', [GerakanController::class, 'pivotUser'])->name('pivot.user');
+Route::post('/gerakans/{gerakan:slug}/pivot/mitra', [GerakanController::class, 'pivotMitra'])->name('pivot.mitra');
 
 // ==========================
 // Verifikasi Email & Reset
