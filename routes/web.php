@@ -70,14 +70,11 @@ Route::post('/gerakans', [GerakanController::class, 'store'])->name('gerakans.st
 
 Route::get('/gerakans', function () {
     return view('gerakans', [
-        'gerakans' => Gerakan::all()
+            'gerakans' => Gerakan::all()
     ]);
 })->name('gerakans');
 
-Route::get('/gerakans/{gerakan:slug}', function (Gerakan $gerakan) {
-    if (!$gerakan) abort(404);
-    return view('gerakan', ['gerakan' => $gerakan]);
-})->name('gerakan.show');
+Route::get('/gerakans/{gerakan:slug}', [GerakanController::class, 'show'])->name('gerakan.show');
 
 Route::post('/gerakans/{gerakan:slug}/pivot/user', [GerakanController::class, 'pivotUser'])->name('pivot.user');
 Route::post('/gerakans/{gerakan:slug}/pivot/mitra', [GerakanController::class, 'pivotMitra'])->name('pivot.mitra');

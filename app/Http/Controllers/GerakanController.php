@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use id;
 use App\Models\Mitra;
 use App\Models\Gerakan;
-use App\Models\PivotUser;
-use App\Models\PivotMitra;
+
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 
 class GerakanController extends Controller
@@ -46,11 +47,24 @@ class GerakanController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function show($id)
+    public function show(Gerakan $gerakan)
     {
-        $gerakan = Gerakan::findOrFail($id);
-        return view('gerakan.show', compact('gerakan'));
+        $userId = Auth::id();
+
+        $terdaftaruser = DB::table('pivot_users')
+            ->where('id_user', $userId)
+            ->where('id_gerakan', $gerakan->id)
+            ->exists();
+
+        $terdaftarmitra = DB::table('pivot_mitras')
+            ->where('id_mitra', $userId)
+            ->where('id_gerakan', $gerakan->id)
+            ->exists();
+
+        return view('gerakan', compact('gerakan', 'terdaftaruser', 'terdaftarmitra'));
     }
+
+
 
 
     /**
@@ -93,28 +107,27 @@ class GerakanController extends Controller
 
 
 
-public function pivotUser(Gerakan $gerakan, Request $request)
-{
-    $userId = Auth::id();
+    public function pivotUser(Gerakan $gerakan, Request $request)
+    {
+        $userId = Auth::id();
 
-    if (!$gerakan->users()->where('id_user', $userId)->exists()) {
-        $gerakan->users()->attach($userId);
+        if (!$gerakan->users()->where('id_user', $userId)->exists()) {
+            $gerakan->users()->attach($userId);
+        }
+
+        return redirect()->route('gerakan.show', ['gerakan' => $gerakan->slug])
+            ->with('success', 'Berhasil bergabung sebagai Relawan!');
     }
 
-    return redirect()->route('gerakan.show', ['gerakan' => $gerakan->slug])
-        ->with('success', 'Berhasil bergabung sebagai Relawan!');
-}
+    public function pivotMitra(Gerakan $gerakan, Request $request)
+    {
+        $userId = Auth::id();
 
-public function pivotMitra(Gerakan $gerakan, Request $request)
-{
-    $userId = Auth::id();
+        if (!$gerakan->mitras()->where('id_mitra', $userId)->exists()) {
+            $gerakan->mitras()->attach($userId);
+        }
 
-    if (!$gerakan->mitras()->where('id_mitra', $userId)->exists()) {
-        $gerakan->mitras()->attach($userId);
+        return redirect()->route('gerakan.show', ['gerakan' => $gerakan->slug])
+            ->with('success', 'Berhasil bergabung sebagai Mitra!');
     }
-
-    return redirect()->route('gerakan.show', ['gerakan' => $gerakan->slug])
-        ->with('success', 'Berhasil bergabung sebagai Mitra!');
-}
-
 }

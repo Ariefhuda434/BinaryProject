@@ -7,7 +7,21 @@
         style="background-image: url('{{ asset('build/images/WaveLine.svg') }}')">
 
         <div class="grid grid-cols-1 md:grid-cols-2  min-h-screen items-center -ml-20 max-w-9xl mx-auto">
-            <form id="joinForm" action="{{ route('pivot.user', ['gerakan' => $gerakan->slug]) }}" method="POST"
+            @if ($terdaftaruser || $terdaftarmitra){
+                <div id="terdaftar" class="max-w-md mx-auto h-97 p-8">
+                    <h1 class="text-4xl font-extrabold text-gray-100 mb-3 text-center">Terima Kasih Telah Mendaftar</h1>
+                    <p>Anda terdaftar sebagai mitra</p>
+                    <p>tanggal : nvjanjna</p>
+                    <p>rules : gaboleh berantam</p>
+                    <button type="button" onclick="notif()"
+                        class="w-full bg-[#5e6f52] hover:scale-99 text-white py-4 rounded-full font-semibold text-lg shadow-lg
+                         transition-colors duration-300 ease-in-out flex justify-center items-center gap-3">
+                        cancel
+                    </button>
+                </div>
+                }
+            @else{
+     <form id="joinForm" action="{{ route('pivot.user', ['gerakan' => $gerakan->slug]) }}" method="POST"
                 class="bg-[#899d7b]  rounded-xl shadow-lg p-10 max-w-lg mx-auto space-y-8">
 
                 @csrf
@@ -24,7 +38,7 @@
          cursor-pointer w-44 p-6 rounded-3xl border-10 border-transparent bg-white 
          flex flex-col items-center text-center gap-2 
          transition-all duration-500 ease-in-out 
-         hover:shadow-lg hover:-translate-y-1 active:scale-95 select-none">
+         hover:shadow-lg hover: -translate-y-1 active:scale-95 select-none">
 
                             <div class="bg-[#ccc14e] p-4 rounded-full">
                                 <img src="{{ asset('build/images/hero.png') }}" alt="Relawan Icon"
@@ -54,26 +68,16 @@
                         </label>
                     </div>
 
-                    <button type="submit" onclick="terdaftar()"
+                    <button type="submit" onsubmit="terdaftar()";
                         class="w-full bg-[#5e6f52] hover:scale-99 text-white py-4 rounded-full font-semibold text-lg shadow-lg
            transition-colors duration-300 ease-in-out flex justify-center items-center gap-3">
                         Bergabung
                     </button>
                 </div>
-
-                <div class="max-w-md mx-auto h-97 p-8 hidden opacity-0 ">
-                       <h1 class="text-4xl font-extrabold text-gray-100 mb-3 text-center">Anda Sudha Terdaftar</h1>
-                        <p>di event : bbarjva</p>
-                        <p>tanggal : nvjanjna</p>
-                        <p>rules : gaboleh berantam</p>
-                       <button type="button" onclick="notif()"
-                        class="w-full bg-[#5e6f52] hover:scale-99 text-white py-4 rounded-full font-semibold text-lg shadow-lg
-                         transition-colors duration-300 ease-in-out flex justify-center items-center gap-3">
-                        cancel
-                    </button>
-                    </div>
             </form>
-
+                }
+            @endif
+       
 
 
             <section
@@ -125,13 +129,21 @@
                 const slug = @json($gerakan->slug);
 
                 if (selected === 'mitra') {
-                    form.action = `/gerakans/${slug}/pivot/mitra`;
+                    form.action = /gerakans/${slug}/pivot/mitra;
                 } else {
-                    form.action = `/gerakans/${slug}/pivot/user`;
+                    form.action = /gerakans/${slug}/pivot/user;
                 }
             });
         });
-
+        terdaftar() {
+            const daftar = document.getElementById('daftar');
+            const terdaftar = document.getElementById('terdaftar');
+            daftar.classList.add('hidden');
+            daftar.classList.add('opacity-0');
+            terdaftar.classList.remove('opacity-0');
+            terdaftar.classList.remove('hidden');
+            terdaftar.classList.add('opacity-100');
+        }
         const daftarBtn = document.getElementById('daftarBtn');
         const loadingIcon = document.getElementById('loadingIcon');
         const btnText = document.getElementById('btnText');
