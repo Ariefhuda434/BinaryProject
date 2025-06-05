@@ -34,10 +34,9 @@ class GerakanController extends Controller
             'periode' => 'required|string',
             'foto' => 'nullable|image|max:2048',
         ]);
-
-        if ($request->hasFile('foto')) {
-            $validated['foto'] = $request->file('foto')->store('fotos', 'public');
-        }
+        
+        $imagePath = $request->file('foto')->store('public/fotos');
+    
 
         Gerakan::create($validated);
 
