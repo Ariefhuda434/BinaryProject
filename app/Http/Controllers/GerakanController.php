@@ -49,14 +49,14 @@ class GerakanController extends Controller
     public function show(Gerakan $gerakan)
     {
         $userId = Auth::id();
-
+        $idmitra = Mitra::find($userId);
         $terdaftaruser = DB::table('pivot_users')
             ->where('id_user', $userId)
             ->where('id_gerakan', $gerakan->id)
             ->exists();
 
         $terdaftarmitra = DB::table('pivot_mitras')
-            ->where('id_mitra', $userId)
+            ->where('id_mitra', $idmitra)
             ->where('id_gerakan', $gerakan->id)
             ->exists();
 
@@ -91,7 +91,13 @@ class GerakanController extends Controller
      */
     public function destroy(Gerakan $gerakan)
     {
-        //
+        $userId = Auth::id();
+        $idmitra = Mitra::id();
+        Gerakan::where('id_mitra',$userId)->delete();
+        Gerakan::where('id_mitra',$idmitra)->delete();
+        return redirect()->back()->with('success', "berhasil membatalkan pendaftaran");
+
+
     }
 
     public function jumlahgerakan()

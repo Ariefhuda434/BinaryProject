@@ -229,9 +229,9 @@
 
                     <div class="rounded-2xl shadow-lg bg-white p-6 flex flex-col justify-center items-center md:w-1/2 text-center"
                         data-aos="fade-up" data-aos-delay="200">
-                        <p class="font-black text-5xl md:text-6xl text-green-700 animate-pulse">120</p>
+                        <p class="font-black text-5xl md:text-6xl text-green-700 animate-pulse">{{ $jumlahfeedback }}</p>
                         <p class="text-sm md:text-base mt-2 text-gray-700">Bersama Binary Waste, sudah ada <span
-                                class="font-semibold text-green-600">120 jiwa</span> yang tergerak untuk membuat lingkungan
+                                class="font-semibold text-green-600">{{ $jumlahfeedback }}</span> yang tergerak untuk membuat lingkungan
                             lebih bersih dan sehat</p>
                     </div>
 

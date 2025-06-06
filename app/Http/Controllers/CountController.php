@@ -17,6 +17,7 @@ class CountController extends Controller
             'jumlahuser' => User::count(),
             'jumlahlaporan' => Report::count(),
             'jumlahgerakan' => Gerakan::count(),
+            'jumlahfeedback' => Feedback::where('feedback', 5)->count()
         ]);
     }
 }
