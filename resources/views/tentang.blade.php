@@ -188,11 +188,9 @@
                             <p class="text-lg font-semibold text-gray-800">{{ $profile['name'] }}</p>
                             <p class="text-sm text-gray-600">{{ $profile['role'] }}</p>
                             <p class="mt-3 text-sm italic text-gray-500 max-w-xs mx-auto">{{ $profile['desc'] }}</p>
+              
                         </div>
                     @endforeach
-                    {{-- <svg viewBox="0 0 1440 320" class="absolute bottom-0 left-0 w-full h-10" preserveAspectRatio="none">
-       <path fill="#5e6f52" fill-opacity="0.2" d="M0,288L48,272C96,256,192,224,288,202.7C384,181,480,171,576,192C672,213,768,267,864,266.7C960,267,1056,213,1152,176C1248,139,1344,117,1392,106.7L1440,96V320H0Z"></path>
-     </svg> --}}
                 </div>
 
 

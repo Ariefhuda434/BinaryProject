@@ -27,18 +27,14 @@ class ReportController extends Controller
             'judul' => 'required|string',
             'deskripsi' => 'required|string',
             'location' => 'required|string|max:255',
-            'foto' => 'required|image|mimes:jpg,jpeg,png|max:2048',
+            'foto' => 'required|file|mimes:jpg,jpeg,png|max:2048',
         ]);
 
-        $imagePath = $request->file('foto')->store('public/reports');
-
-        Report::create([
-            'id_user' => Auth::id(),    
-            'judul' => $validatedData['judul'],
-            'deskripsi' => $validatedData['deskripsi'],
-            'location' => $validatedData['location'],
-            'foto' => str_replace('public/', '', $imagePath),
-        ]);
+           $file = $request->file('foto');
+    $path = $file->store('report', 'public'); 
+    $validated['foto'] = $path;
+       
+        Report::create($validatedData);
 
         return redirect()->route('report')
                ->with('successReport', 'Laporan berhasil dikirim!')->withFragment('formlapor');

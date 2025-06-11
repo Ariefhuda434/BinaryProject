@@ -63,6 +63,10 @@ Route::get('/blogs/{blog:slug}', function (Blogs $blog) {
 
 Route::post('/blogs', [BlogController::class, 'store'])->name('blogs.store');
 
+Route::delete('blogs/{id}/destroy',[BlogController::class,'destroy'])->name('blogs.destroy');
+
+Route::put('blogs/{id}/update',[BlogController::class,'update'])->name('blogs.update');
+
 // ==========================
 // Gerakan
 // ==========================
@@ -75,8 +79,12 @@ Route::get('/gerakans', function () {
 })->name('gerakans');
 
 Route::get('/gerakans/{gerakan:slug}', [GerakanController::class, 'show'])->name('gerakan.show');
+Route::delete('gerakans/{id}/destroy',[GerakanController::class,'destroy'])->name('gerakan.destroy');
+Route::put('gerakans/{id}/update',[GerakanController::class,'update'])->name('gerakan.update');
+
 
 Route::post('/gerakans/{gerakan:slug}/pivot/user', [GerakanController::class, 'pivotUser'])->name('pivot.user');
+
 Route::post('/gerakans/{gerakan:slug}/pivot/mitra', [GerakanController::class, 'pivotMitra'])->name('pivot.mitra');
 
 // ==========================
@@ -113,3 +121,4 @@ Route::post('/login', [AuthController::class, 'login'])->name('loginpage');
 
 Route::get('/register', [AuthController::class, 'showRegister'])->name('showregister');
 Route::post('/register', [AuthController::class, 'register'])->name('register');
+

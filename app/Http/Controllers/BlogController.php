@@ -2,78 +2,93 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Blogs;
 use Illuminate\Http\Request;
+use App\Models\Blog;
+use App\Models\Blogs;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
 
 class BlogController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+    // Tampilkan daftar blog ke halaman gerakan
     public function index()
     {
-        //
+        $blogs = Blogs::latest()->get();
+        return view('gerakan', compact('blogs'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
+    // Simpan artikel baru
     public function store(Request $request)
+    {
+        $request->validate([
+            'judul' => 'required|string|max:255',
+            'slug' => 'required|string|max:255|unique:blogs,slug',
+            'deskripsi' => 'required|string',
+            'isiBlog' => 'required|string',
+            'foto' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+        ]);
+
+        $imagePath = $request->file('foto')->store('blogs', 'public');
+
+        Blogs::create([
+            'judul' => $request->judul,
+            'slug' => Str::slug($request->slug),
+            'deskripsi' => $request->deskripsi,
+            'isiBlog' => $request->isiBlog  ,
+            'foto' => $imagePath,
+        ]);
+
+        return back()->with('success', 'Artikel berhasil ditambahkan.');
+    }
+
+    // Tampilkan satu artikel berdasarkan slug
+    public function show($slug)
+    {
+        $blog = Blogs::where('slug', $slug)->firstOrFail();
+        return view('blogdetail', compact('blog'));
+    }
+
+    // Update artikel
+  public function update(Request $request, $id)
 {
-    $validated = $request->validate([
-        'judul' => 'required|string|max:255',
-        'slug' => 'required|string|unique:blogs',
-        'deskripsi' => 'required|string',
-        'foto' => 'nullable|image|max:2048',
-        'isiBlog'=>'required|string' 
+    $blog = Blogs::findOrFail($id);
+
+    $request->validate([
+        'judul' => 'nullable|string|max:255',
+        'slug' => 'nullable|string|max:255|unique:blogs,slug,' . $id,
+        'deskripsi' => 'nullable|string',
+        'isiBlog' => 'nullable|string',
+        'foto' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
     ]);
 
+    $data = [
+        'judul' => $request->judul,
+        'slug' => Str::slug($request->slug),
+        'deskripsi' => $request->deskripsi,
+        'isiBlog' => $request->isiBlog,
+    ];
+
     if ($request->hasFile('foto')) {
-        $validated['foto'] = $request->file('foto')->store('fotos', 'public');
+        $imagePath = $request->file('foto')->store('blogs', 'public');
+        $data['foto'] = $imagePath;
     }
 
-    Blogs::create($validated);
+    $blog->update($data);
 
-    return redirect()->back()->with('success', 'Blog baru berhasil ditambahkan.');
+    return back()->with('success', 'Artikel berhasil diperbarui.');
 }
 
-
-    /**
-     * Display the specified resource.
-     */
-    public function show($id) {
-    $blog = Blogs::findOrFail($id);
-    return view('blog.show', compact('blogs'));
-    }
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Blogs $blog)
+    // Hapus artikel
+    public function destroy($id)
     {
-        //
-    }
+        $blog = Blogs::findOrFail($id);
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Blogs $blog)
-    {
-        //
-    }
+        if ($blog->foto && Storage::disk('public')->exists($blog->foto)) {
+            Storage::disk('public')->delete($blog->foto);
+        }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Blogs $blog)
-    {
-        //
+        $blog->delete();
+
+        return back()->with('success', 'Artikel berhasil dihapus.');
     }
 }

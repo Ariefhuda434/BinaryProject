@@ -16,7 +16,7 @@
         <div class="w-11/12 max-w-6xl mx-auto min-h-[440px] rounded-xl px-4 lg:px-0">
             <div class="flex flex-col lg:flex-row gap-6 h-full">
                 <div
-                    class="relative w-full lg:w-1/4 h-64 lg:h-auto rounded-lg overflow-hidden hover:scale-105 transition-transform duration-300 ease-in-out">
+                    class="relative w-full lg:w-1/4 h-64 lg:h-auto rounded-lg overflow-hidden  transition-transform duration-300 ease-in-out">
                     <img src="{{ asset('build/images/awn.jpg') }}" alt="Report Image"
                         class="w-full h-full object-cover rounded-lg" />
                     <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent rounded-lg pointer-events-none">
@@ -34,7 +34,7 @@
 
                 <div class="w-full lg:w-2/4 flex flex-col gap-4">
                     <div
-                        class="flex-1 bg-[#5e6f52] rounded-lg p-4 lg:p-6 relative flex items-center justify-center hover:scale-105 transition-transform duration-300 ease-in-out">
+                        class="flex-1 bg-[#5e6f52] rounded-lg p-4 lg:p-6 relative flex items-center justify-center transition-transform duration-300 ease-in-out">
                         <p
                             class="text-white text-base lg:text-2xl font-semibold font-sans leading-snug text-center lg:text-start">
                             Langkah kecilmu hari ini bisa jadi perubahan besar untuk lingkungan,<br>
@@ -131,7 +131,7 @@
 
 
                 <div
-                    class="relative w-full lg:w-1/4 h-64 lg:h-auto rounded-lg overflow-hidden hover:scale-105 transition-transform duration-300 ease-in-out">
+                    class="relative w-full lg:w-1/4 h-64 lg:h-auto rounded-lg overflow-hidden transition-transform duration-300 ease-in-out">
                     <img src="{{ asset('build/images/awn.jpg') }}" alt="Report Image"
                         class="w-full h-full object-cover rounded-lg" />
                     <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent rounded-lg pointer-events-none">
@@ -156,7 +156,7 @@
             <div class="marquee flex w-max space-x-5 animate-marquee">
 
                 <div
-                    class="h-40 w-80 p-4 bg-gray-100 rounded-xl shadow-md flex space-x-4 hover:scale-105 transition-transform duration-300 ease-in-out">
+                    class="h-40 w-80 p-4 bg-gray-100 rounded-xl shadow-md flex space-x-4 transition-transform duration-300 ease-in-out">
 
                     <div class="h-24 w-28 bg-white rounded-lg overflow-hidden">
                         <img src="{{ asset('build/images/awn.jpg') }}" alt="Kegiatan Daur Ulang"
@@ -345,11 +345,10 @@
                                         <td class="p-2 md:p-3 text-center">
                                             <div class="flex items-center justify-center space-x-2">
                                                 @if (auth()->check() && auth()->user()->role == 'admin')
-                                                    <form action="{{ route('delete', $lapor->id) }}" method="POST"
+                                                    <form action="{{ route('delete', $lapor->id) }}" method="DELETE"
                                                         class=""
                                                         onsubmit="return confirm('Are you sure you want to delete this product?')">
                                                         @csrf
-                                                        @method('DELETE')
                                                         <button type="submit" class="-ml-10">
                                                             <img src="{{ asset('build/images/iconrash.png') }}"
                                                                 alt="Delete"
