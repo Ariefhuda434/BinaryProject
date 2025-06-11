@@ -61,5 +61,9 @@ class User extends Authenticatable implements MustVerifyEmail
 {
     return $this->belongsToMany(Gerakan::class);
 }
+public function mitra()
+{
+    return $this->hasOne(Mitra::class, 'id_user');
+}
 
 }

@@ -78,7 +78,7 @@ class GerakanController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Gerakan $gerakan,Request $request,$id)
+    public function update(Gerakan $gerakan,Request $request,$id)
     {
     $gerakan = Gerakan::findOrFail($id);
 
@@ -89,6 +89,7 @@ class GerakanController extends Controller
         'lokasi' => 'nullable|string',
         'tanggal' => 'nullable|string',
         'periode' => 'nullable|string',
+        'foto' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
     ]);
 
     $data =[
@@ -107,10 +108,7 @@ class GerakanController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Gerakan $gerakan)
-    {
-    
-    }
+
 
     /**
      * Remove the specified resource from storage.
@@ -152,14 +150,25 @@ class GerakanController extends Controller
     }
 
     public function pivotMitra(Gerakan $gerakan, Request $request)
-    {
-        $userId = Auth::id();
+{
+    if (Auth::check()) {
+        $user = Auth::user();
 
-        if (!$gerakan->mitras()->where('id_mitra', $userId)->exists()) {
-            $gerakan->mitras()->attach($userId);
+        if ($user->mitra) {
+            $mitraId = $user->mitra->id;
+
+            if (!$gerakan->mitras()->where('id_mitra', $mitraId)->exists()) {
+                $gerakan->mitras()->attach($mitraId);
+            }
+
+            return redirect()->route('gerakan.show', ['gerakan' => $gerakan->slug])
+                ->with('success', 'Berhasil bergabung sebagai Mitra!');
+        } else {
+            return redirect()->back()->with('error', 'Anda belum memiliki akun Mitra. Silakan daftar sebagai Mitra terlebih dahulu.');
         }
-
-        return redirect()->route('gerakan.show', ['gerakan' => $gerakan->slug])
-            ->with('success', 'Berhasil bergabung sebagai Mitra!');
     }
+
+    return redirect()->route('login');
+}
+
 }

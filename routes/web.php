@@ -79,7 +79,9 @@ Route::get('/gerakans', function () {
 })->name('gerakans');
 
 Route::get('/gerakans/{gerakan:slug}', [GerakanController::class, 'show'])->name('gerakan.show');
+
 Route::delete('gerakans/{id}/destroy',[GerakanController::class,'destroy'])->name('gerakan.destroy');
+
 Route::put('gerakans/{id}/update',[GerakanController::class,'update'])->name('gerakan.update');
 
 

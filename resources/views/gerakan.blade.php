@@ -10,14 +10,12 @@
             <div class="max-w-lg w-full mx-auto">
                 @if ($terdaftaruser || $terdaftarmitra)
                     <div id="terdaftar"
-                        class="max-w-md mx-auto text-center text-white space-y-6 py-12
-         bg-[#899d7b] p-10 rounded-xl">
+                        class="max-w-md mx-auto text-center text-white space-y-6 py-12 bg-[#899d7b] p-10 rounded-xl">
                         <h1 class="text-4xl font-extrabold">Terima Kasih Telah Mendaftar</h1>
                         <p class="text-lg font-medium">Anda terdaftar sebagai mitra</p>
                         <p class="text-gray-200 leading-relaxed">
                             Sampai jumpa di hari kegiatan. Mari bersama menciptakan lingkungan yang lebih bersih dan sehat.
                         </p>
-
                         <form id="cancelForm" action="" method="POST" class="w-full">
                             @csrf
                             <button type="submit"
@@ -27,7 +25,13 @@
                         </form>
                     </div>
                 @else
-                    <form id="joinForm" action="{{ route('pivot.user', ['gerakan' => $gerakan->slug]) }}" method="POST"
+                    @if (session('error'))
+                        <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4 text-center">
+                            {{ session('error') }}
+                        </div>
+                    @endif
+
+                    <form id="joinForm" method="POST"
                         class="bg-[#899d7b] rounded-xl shadow-xl p-10 space-y-8">
                         @csrf
                         <div id="peran" class="space-y-6 opacity-100 text-white">
@@ -35,7 +39,6 @@
                             <p class="text-center">Bagaimana Anda ingin bergabung?</p>
 
                             <div class="flex justify-center gap-6">
-
                                 <input type="radio" name="tipe" id="role-relawan" value="user"
                                     class="hidden peer/relawan" required>
                                 <label for="role-relawan"
@@ -66,10 +69,8 @@
                         <div id="notif" class="max-w-lg w-full mx-auto hidden p-6 flex flex-col items-center justify-center space-y-4">
                             <div id="loading" class="opacity-100 flex flex-col items-center justify-center space-y-4">
                                 <img src="{{ asset('build/images/load.svg') }}" alt="" class="h-40 ">
-                                <h2
-                                    class="text-white text-2xl md:text-3xl font-semibold tracking-wide flex items-center gap-1">
-                                    Mendaftar<span id="dots"
-                                        class="text-white font-bold text-3xl animate-pulse">...</span>
+                                <h2 class="text-white text-2xl md:text-3xl font-semibold tracking-wide flex items-center gap-1">
+                                    Mendaftar<span id="dots" class="text-white font-bold text-3xl animate-pulse">...</span>
                                 </h2>
                                 <p class="text-gray-100 text-center text-lg font-medium">
                                     Sabar yah, sedang diproses untuk pendaftaranmu.
@@ -77,27 +78,21 @@
                             </div>
 
                             <div id="konfirmasi"
-                                class="max-w-md max-h-98 h-full w-full mx-auto p-6 flex flex-col items-center justify-center space-y-6">
-
+                                class="max-w-md max-h-98 h-full w-full mx-auto p-6 flex-col items-center justify-center space-y-6 hidden">
                                 <img src="{{ asset('build/images/succes.svg') }}" alt="Sukses"
                                     class="object-contain drop-shadow-lg">
-
                                 <h2 class="text-white text-3xl -mt-5 font-extrabold text-center leading-snug tracking-wide">
                                     Pendaftaran Berhasil!
                                 </h2>
-
                                 <p class="text-gray-200 text-lg text-center leading-relaxed">
                                     Kamu sudah terdaftar. Yuk, tekan tombol di bawah untuk lanjut ke langkah berikutnya!
                                 </p>
-
                                 <button type="submit" id="btnConfirm"
                                     class="bg-white text-[#5e6f52] font-semibold py-3 px-10 rounded-full shadow-md hover:bg-gray-100 hover:scale-95 transition-all duration-300 ease-in-out">
                                     Konfirmasi
                                 </button>
                             </div>
-
                         </div>
-
                     </form>
                 @endif
             </div>
@@ -139,11 +134,31 @@
     </div>
 
     <script>
+        const form = document.getElementById('joinForm');
+        const slug = @json($gerakan->slug);
+        const peran = document.getElementById('peran');
+        const notif = document.getElementById('notif');
+        const loading = document.getElementById('loading');
+        const konfirmasi = document.getElementById('konfirmasi');
+        const titik = document.getElementById('dots');
+        const tipeRadios = document.querySelectorAll('input[name="tipe"]');
+        const btnConfirm = document.getElementById('btnConfirm');
+
+        // Update action ketika radio dipilih
+        tipeRadios.forEach(radio => {
+            radio.addEventListener('change', () => {
+                const selectedValue = document.querySelector('input[name="tipe"]:checked').value;
+                const path = selectedValue === 'mitra' ? 'pivot/mitra' : 'pivot/user';
+                form.setAttribute('action', `/gerakans/${slug}/${path}`);
+            });
+        });
+
         function showNotif() {
-            const peran = document.getElementById('peran');
-            const notif = document.getElementById('notif');
-            const loading = document.getElementById('loading');
-            const konfirmasi = document.getElementById('konfirmasi');
+            const selected = document.querySelector('input[name="tipe"]:checked');
+            if (!selected) {
+                alert("Silakan pilih peran terlebih dahulu.");
+                return;
+            }
 
             peran.classList.add('hidden');
             notif.classList.remove('hidden');
@@ -156,29 +171,13 @@
             }, 5000);
         }
 
-        const titik = document.getElementById('dots');
         let dotcount = 0;
         setInterval(() => {
             dotcount = (dotcount + 1) % 4;
             titik.textContent = ".".repeat(dotcount);
         }, 500);
 
-        const form = document.getElementById('joinForm');
-        const tipeRadios = document.querySelectorAll('input[name="tipe"]');
-
-        tipeRadios.forEach(radio => {
-            radio.addEventListener('change', () => {
-                const selected = document.querySelector('input[name="tipe"]:checked').value;
-                const slug = @json($gerakan->slug);
-                if (selected === 'mitra') {
-                    form.action = `/gerakans/${slug}/pivot/mitra`;
-                } else {
-                    form.action = `/gerakans/${slug}/pivot/user`;
-                }
-            });
-        });
-
-        document.getElementById('btnConfirm').addEventListener('click', () => {
+        btnConfirm.addEventListener('click', () => {
             form.submit();
         });
     </script>
