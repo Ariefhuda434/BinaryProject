@@ -80,6 +80,11 @@ Route::get('/gerakans', function () {
 
 Route::get('/gerakans/{gerakan:slug}', [GerakanController::class, 'show'])->name('gerakan.show');
 
+Route::delete('/gerakans/{gerakan:slug}/user', [GerakanController::class, 'destroyuser'])->name('user.delete');
+
+Route::delete('/gerakans/{gerakan:slug}/mitra', [GerakanController::class, 'destroymitra'])->name('mitra.delete');
+
+
 Route::delete('gerakans/{id}/destroy',[GerakanController::class,'destroy'])->name('gerakan.destroy');
 
 Route::put('gerakans/{id}/update',[GerakanController::class,'update'])->name('gerakan.update');

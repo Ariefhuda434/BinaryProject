@@ -43,7 +43,8 @@
                     </div>
 
                     <div class="flex items-center justify-between pt-3">
-                        <a href="/gerakans/{{  $gerakan['slug']}}">
+                        <a href="{{ route('gerakan.show', $gerakan['slug']) }}">
+
                             <button class="bg-green-600 hover:bg-green-700 text-white text-sm font-semibold py-2 px-4 rounded-lg">
                                 Ikut
                             </button>
@@ -86,7 +87,7 @@
                                     </button>
                                 </td>
                                 <td class="p-2 md:p-3 text-center">
-                                    <form action="{{ route('gerakan.destroy', $gerakan['id'] ) }}" method="POST" onsubmit="return confirm('Yakin ingin menghapus artikel ini?')">
+                                    <form action="{{ route('user.delete', $gerakan['id'] ) }}" method="POST" onsubmit="return confirm('Yakin ingin menghapus artikel ini?')">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="bg-red-500 hover:bg-red-600 text-white font-semibold px-3 py-1 rounded-full transition">
@@ -155,7 +156,7 @@
             </div>
             <div>
                 <label for="tanggal" class="block text-gray-600 font-medium mb-1">Tanggal</label>
-                <input type="date" id="tanggal" name="tanggal" placeholder="Masukkan Tanggal"
+                <input type="datetime-local" id="tanggal" name="tanggal" placeholder="Masukkan Tanggal"
                 class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500" required />
             </div>
             <div>

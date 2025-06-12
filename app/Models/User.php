@@ -66,4 +66,10 @@ public function mitra()
     return $this->hasOne(Mitra::class, 'id_user');
 }
 
+public function users()
+{
+    return $this->belongsToMany(User::class, 'pivotusers', 'id_gerakan', 'id_user');
+}
+
+
 }

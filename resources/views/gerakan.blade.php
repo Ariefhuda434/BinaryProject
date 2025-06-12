@@ -16,8 +16,9 @@
                         <p class="text-gray-200 leading-relaxed">
                             Sampai jumpa di hari kegiatan. Mari bersama menciptakan lingkungan yang lebih bersih dan sehat.
                         </p>
-                        <form id="cancelForm" action="" method="POST" class="w-full">
+                        <form id="cancelForm" onsubmit="return confirm('yakin ingin batal mengikuti gerakan ini?')" action="{{ route('user.delete', $gerakan['slug']) }}" method="POST" class="w-full">
                             @csrf
+                            @method('DELETE')
                             <button type="submit"
                                 class="w-full bg-[#5e6f52] hover:bg-[#4e5e43] transition duration-300 py-3 rounded-full font-semibold">
                                 Cancel
@@ -39,7 +40,7 @@
                             <p class="text-center">Bagaimana Anda ingin bergabung?</p>
 
                             <div class="flex justify-center gap-6">
-                                <input type="radio" name="tipe" id="role-relawan" value="user"
+                                <input  type="radio" name="tipe" id="role-relawan" value="user"
                                     class="hidden peer/relawan" required>
                                 <label for="role-relawan"
                                     class="peer-checked/relawan:border-[#ccc14e] cursor-pointer w-40 p-5 rounded-2xl bg-white text-gray-800 border-4 border-transparent shadow hover:shadow-lg flex flex-col items-center text-center gap-2 transition-all">
@@ -51,7 +52,7 @@
 
                                 <input type="radio" name="tipe" id="role-mitra" value="mitra"
                                     class="hidden peer/mitra" required>
-                                <label for="role-mitra"
+                                <label id="btnmitra" for="role-mitra"
                                     class="peer-checked/mitra:border-[#ccc14e] cursor-pointer w-40 p-5 rounded-2xl bg-white text-gray-800 border-4 border-transparent shadow hover:shadow-lg flex flex-col items-center text-center gap-2 transition-all">
                                     <div class="bg-[#ccc14e] p-3 rounded-full">
                                         <img src="{{ asset('build/images/hero.png') }}" alt="Mitra" class="w-8 h-8">
@@ -96,19 +97,19 @@
                     </form>
                 @endif
             </div>
-
+                
             <section class="bg-white rounded-xl shadow-lg p-10 space-y-8 max-w-2xl mx-auto w-full">
-                <h2 class="text-3xl font-bold text-gray-900">Bersih-Bersih Sungai Bersama</h2>
+                <h2 class="text-3xl font-bold text-gray-900">{{ $gerakan['judul'] }}</h2>
                 <p class="text-gray-700">Sebuah gerakan kolaboratif untuk membersihkan sungai kota kita.</p>
 
                 <div class="grid grid-cols-2 gap-6 text-center">
                     <div>
                         <p class="text-sm text-gray-500">Jumlah Peserta</p>
-                        <p class="text-xl font-semibold text-gray-900">125 orang</p>
+                        <p class="text-xl font-semibold text-gray-900">{{ $jumlahTerdaftarUser}} orang</p>
                     </div>
                     <div>
-                        <p class="text-sm text-gray-500">Tanggal & Waktu</p>
-                        <p class="text-xl font-semibold text-gray-900">Sabtu, 15 Juni 2025 - 08:00 WIB</p>
+                        <p class="text-sm text-gray-500"></p>
+                        <p class="text-xl font-semibold text-gray-900">{{ $gerakan['tanggal'] }} <br> {{ $gerakan['periode'] }}</p>
                     </div>
                 </div>
 
@@ -124,12 +125,11 @@
                 <div>
                     <p class="text-sm text-gray-500 mb-1">Deskripsi Acara</p>
                     <p class="text-gray-700 leading-relaxed">
-                        Acara ini bertujuan untuk membersihkan aliran sungai di daerah RT 03 hingga RT 07. Semua peserta
-                        akan mendapatkan alat kebersihan dan konsumsi gratis. Ayo ikut berkontribusi untuk lingkungan yang
-                        lebih bersih!
+                        {{ $gerakan['deskripsi'] }} 
                     </p>
                 </div>
             </section>
+
         </div>
     </div>
 
@@ -143,6 +143,15 @@
         const titik = document.getElementById('dots');
         const tipeRadios = document.querySelectorAll('input[name="tipe"]');
         const btnConfirm = document.getElementById('btnConfirm');
+
+        const cancelForm = document.getElementById('cancelForm');
+        const btnMitra = document.getElementById('btnmitra');
+
+         btnMitra.addEventListener('click', () => {
+            const action = btnMitra.getAttribute('{{ route('mitra.delete',$gerakan['slug']) }}');
+            cancelForm.setAttribute('action', action);
+        });
+
 
         // Update action ketika radio dipilih
         tipeRadios.forEach(radio => {
