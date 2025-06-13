@@ -8,24 +8,36 @@
         <div class="grid grid-cols-1 md:grid-cols-2 items-center max-w-7xl mx-auto min-h-screen gap-10">
 
             <div class="max-w-lg w-full mx-auto">
-                @if ($terdaftaruser || $terdaftarmitra)
-                    <div id="terdaftar"
-                        class="max-w-md mx-auto text-center text-white space-y-6 py-12 bg-[#899d7b] p-10 rounded-xl">
-                        <h1 class="text-4xl font-extrabold">Terima Kasih Telah Mendaftar</h1>
-                        <p class="text-lg font-medium">Anda terdaftar sebagai mitra</p>
-                        <p class="text-gray-200 leading-relaxed">
-                            Sampai jumpa di hari kegiatan. Mari bersama menciptakan lingkungan yang lebih bersih dan sehat.
-                        </p>
-                        <form id="cancelForm" onsubmit="return confirm('yakin ingin batal mengikuti gerakan ini?')" action="{{ route('user.delete', $gerakan['slug']) }}" method="POST" class="w-full">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit"
-                                class="w-full bg-[#5e6f52] hover:bg-[#4e5e43] transition duration-300 py-3 rounded-full font-semibold">
-                                Cancel
-                            </button>
-                        </form>
-                    </div>
-                @else
+    @if ($terdaftaruser || $terdaftarmitra)
+    <div id="terdaftar"
+        class="max-w-md mx-auto text-center text-white space-y-6 py-12 bg-[#899d7b] p-10 rounded-xl">
+        <h1 class="text-4xl font-extrabold">Terima Kasih Telah Mendaftar</h1>
+        
+        @if ($terdaftaruser)
+            <p class="text-lg font-medium">Anda terdaftar sebagai <strong>Relawan</strong></p>
+        @else
+            <p class="text-lg font-medium">Anda terdaftar sebagai <strong>Mitra</strong></p>
+        @endif
+
+        <p class="text-gray-200 leading-relaxed">
+            Sampai jumpa di hari kegiatan. Mari bersama menciptakan lingkungan yang lebih bersih dan sehat.
+        </p>
+
+        <form id="cancelForm"
+              onsubmit="return confirm('Yakin ingin batal mengikuti gerakan ini?')"
+              action="{{ $terdaftaruser ? route('user.delete', $gerakan->slug) : route('mitra.delete', $gerakan->slug) }}"
+              method="POST"
+              class="w-full">
+            @csrf
+            @method('DELETE')
+            <button type="submit"
+                class="w-full bg-[#5e6f52] hover:bg-[#4e5e43] transition duration-300 py-3 rounded-full font-semibold">
+                Cancel
+            </button>
+        </form>
+    </div>
+@else
+
                     @if (session('error'))
                         <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4 text-center">
                             {{ session('error') }}
@@ -146,11 +158,6 @@
 
         const cancelForm = document.getElementById('cancelForm');
         const btnMitra = document.getElementById('btnmitra');
-
-         btnMitra.addEventListener('click', () => {
-            const action = btnMitra.getAttribute('{{ route('mitra.delete',$gerakan['slug']) }}');
-            cancelForm.setAttribute('action', action);
-        });
 
 
         // Update action ketika radio dipilih

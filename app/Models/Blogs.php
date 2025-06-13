@@ -10,11 +10,16 @@ class Blogs extends Model
 {
 protected $table = 'blogs';
 protected $fillable = [
-    'judul',
+    'id_user',  
     'slug',
+    'judul',
     'deskripsi',
     'foto',
-    'isiBlog'
+    'isi_Blog'
 ];
+public function users()
+{
+    return $this->belongsToMany(User::class, 'id_user');
+}
 
 };

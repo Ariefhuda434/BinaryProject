@@ -71,6 +71,7 @@
                         <tr>
                             <th class="p-2 md:p-3 text-center">ID Gerakan</th>
                             <th class="p-2 md:p-3 text-center">Judul Gerakan</th>
+                            <th class="p-2 md:p-3 text-center">Status</th>
                             <th class="p-2 md:p-3 text-center">Update</th>
                             <th class="p-2 md:p-3 text-center">Delete</th>
                         </tr>
@@ -78,16 +79,16 @@
                     <tbody>
                         @foreach ($gerakans as $gerakan )
                             <tr class="border-b border-gray-300">
-                                    
                                 <td class="p-2 md:p-3 text-center">{{ $gerakan['id'] }}</td>
                                 <td class="p-2 md:p-3 text-center truncate max-w-xs">{{ $gerakan['judul'] }}</td>
+                                <td class="p-2 md:p-3 text-center truncate max-w-xs">{{ $gerakan['status'] }}</td>
                                 <td class="p-2 md:p-3 text-center">
                                     <button data-gerakan='@json($gerakan)' class="update-btn bg-yellow-400 hover:bg-yellow-500 text-white font-semibold px-3 py-1 rounded-full transition">
                                         Update
                                     </button>
                                 </td>
                                 <td class="p-2 md:p-3 text-center">
-                                    <form action="{{ route('user.delete', $gerakan['id'] ) }}" method="POST" onsubmit="return confirm('Yakin ingin menghapus artikel ini?')">
+                                    <form action="{{ route('gerakan.destroy', $gerakan['id'] ) }}" method="POST" onsubmit="return confirm('Yakin ingin menghapus artikel ini?')">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="bg-red-500 hover:bg-red-600 text-white font-semibold px-3 py-1 rounded-full transition">
@@ -156,7 +157,7 @@
             </div>
             <div>
                 <label for="tanggal" class="block text-gray-600 font-medium mb-1">Tanggal</label>
-                <input type="datetime-local" id="tanggal" name="tanggal" placeholder="Masukkan Tanggal"
+                <input type="datetime" id="tanggal" name="tanggal" placeholder="Masukkan Tanggal"
                 class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500" required />
             </div>
             <div>

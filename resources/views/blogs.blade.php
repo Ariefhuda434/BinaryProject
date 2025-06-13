@@ -130,8 +130,8 @@
                     </div>
 
                     <div class="w-full lg:w-2/3">
-                        <label for="isiBlog" class="block text-gray-600 font-medium mb-1">Isi Artikel</label>
-                        <textarea name="isiBlog" id="isiBlog" rows="12" class="w-full px-3 py-2 border border-gray-300 rounded-md" required></textarea>
+                        <label for="isi_blog" class="block text-gray-600 font-medium mb-1">Isi Artikel</label>
+                        <textarea name="isi_blog" id="isi_blog" rows="12" class="w-full px-3 py-2 border border-gray-300 rounded-md" required></textarea>
                     </div>
                 </div>
 
@@ -149,7 +149,7 @@
         const judulInput = document.getElementById('judul');
         const slugInput = document.getElementById('slug');
         const deskripsiInput = document.getElementById('deskripsi');
-        const isiTextarea = document.getElementById('isiBlog');
+        const isiTextarea = document.getElementById('isi_blog');
         const submitBtn = document.getElementById('submitBtn');
         const artikelForm = document.getElementById('uwakuwakmakanbakwan');
         const artikelHeader = artikelForm.querySelector('h2');
@@ -179,7 +179,7 @@
                 judulInput.value = blog.judul;
                 slugInput.value = blog.slug;
                 deskripsiInput.value = blog.deskripsi;
-                isiTextarea.value = blog.isiBlog;
+                isiTextarea.value = blog.isi_blog;
 
 
                 submitBtn.textContent = "Update Artikel";

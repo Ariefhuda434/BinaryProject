@@ -11,8 +11,9 @@ class Report extends Model
         'id_user',
         'judul',
         'deskripsi',
-        'location',
-        'foto', // disamakan dengan yang di controller
+        'lokasi',
+        'foto', 
+        'status',
     ];
 
     public function user()

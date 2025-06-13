@@ -14,11 +14,11 @@ return new class extends Migration
     Schema::create('mitras', function (Blueprint $table) {
     $table->id();
     $table->unsignedBigInteger('id_user');
-    $table->string('namaMitra');
-    $table->string('emailMitra')->unique();
+    $table->string('nama_mitra');
+    $table->string('email_mitra')->unique();
     $table->string('kontak');
-    $table->string('kategoriMitra');
-    $table->string('alamatMitra');
+    $table->string('kategori_mitra');
+    $table->string('alamat_mitra');
     $table->string('medsos');
     $table->string('logo');
     $table->timestamps();

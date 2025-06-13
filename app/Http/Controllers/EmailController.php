@@ -15,7 +15,6 @@ class EmailController extends Controller
 
         if ($user) {
             Mail::to($user->email)->send(new VerifyEMail($user));
-
             return response()->json(['message' => 'Email telah dikirim ke ' . $user->email]);
         }
 

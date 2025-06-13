@@ -144,10 +144,8 @@
                         <p class="text-white  mt-3 text-justify px-5 leading-relaxed">
                             Jadikan kebersihan sebagai budaya dengan aktif melapor dan peduli terhadap lingkungan demi masa
                             depan bumi kita.
-
                         </p>
                     </div>
-
                 </div>
             </div>
         </div>
@@ -398,7 +396,7 @@
                                         </td>
 
                                         <td class="p-2 md:p-3 text-center truncate max-w-xs">
-                                            {{ $lapor->location }}
+                                            {{ $lapor->lokasi }}
                                         </td>
                                     </tr>
                                 @endforeach
@@ -450,8 +448,8 @@
                     </div>
 
                     <div class="w-full">
-                        <label for="location" class="block mb-1 font-medium text-gray-600">Lokasi</label>
-                        <input type="text" name="location" id="location"
+                        <label for="lokasi" class="block mb-1 font-medium text-gray-600">Lokasi</label>
+                        <input type="text" name="lokasi" id="lokasi"
                             class="w-full border border-gray-300 rounded-lg p-2 md:p-3">
                     </div>
 

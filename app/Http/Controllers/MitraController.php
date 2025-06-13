@@ -21,11 +21,11 @@ class MitraController extends Controller
         }
 
         $validatedData = $request->validate([
-            'namaMitra'     => 'required|max:30|unique:mitras,namaMitra',
-            'emailMitra'    => 'required|email|unique:mitras,emailMitra',
+            'nama_mitra'     => 'required|max:30|unique:mitras,namaMitra',
+            'email_mitra'    => 'required|email|unique:mitras,emailMitra',
             'kontak'        => 'required',
-            'kategoriMitra' => 'required',
-            'alamatMitra'   => 'required',
+            'kategori_mitra' => 'required',
+            'alamat_mitra'   => 'required',
             'medsos'        => 'required',
             'logo'          => 'nullable|image|max:2048',
         ]);
@@ -37,11 +37,11 @@ class MitraController extends Controller
 
         Mitra::create([
             'id_user'       => Auth::id(),
-            'namaMitra'     => $validatedData['namaMitra'],
+            'namaMitra'     => $validatedData['nama_mitra'],
             'kontak'        => $validatedData['kontak'],
-            'kategoriMitra' => $validatedData['kategoriMitra'],
-            'alamatMitra'   => $validatedData['alamatMitra'],
-            'emailMitra'    => $validatedData['emailMitra'],
+            'kategori_mitra' => $validatedData['kategori_mitra'],
+            'alamat_mitra'   => $validatedData['alamat_mitra'],
+            'email_mitra'    => $validatedData['email_mitra'],
             'medsos'        => $validatedData['medsos'],
             'logo'          => $imagePath ? str_replace('public/', '', $imagePath) : null,
         ]);

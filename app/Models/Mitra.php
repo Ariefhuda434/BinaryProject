@@ -10,11 +10,11 @@ class Mitra extends Model
     protected $table = 'mitras'; 
     protected $fillable = [
         'id_user',
-        'namaMitra',
-        'emailMitra',
+        'nama_mitra',
+        'email_mitra',
         'kontak',
-        'kategoriMitra',
-        'alamatMitra',
+        'kategori_mitra',
+        'alamat_mitra',
         'medsos',
         'logo',
     ];
@@ -22,5 +22,6 @@ class Mitra extends Model
     {
         return $this->belongsTo(User::class, 'id_user');
     }
+
 }
     

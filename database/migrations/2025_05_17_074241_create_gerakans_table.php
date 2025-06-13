@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('gerakans', function (Blueprint $table) {
             $table->id();
+            $table->enum('status', ['segera','selesai'])->default('segera');
             $table->string('slug')->unique();
             $table->string('judul');
             $table->string('deskripsi');

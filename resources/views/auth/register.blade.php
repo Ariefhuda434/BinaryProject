@@ -70,50 +70,20 @@
                 <div class="border-b"></div>
 
                 <div class="flex flex-col md:flex-row gap-6">
-                    <input type="date" name="birth" required class="w-full p-3 rounded text-sm bg-gray-100 focus:outline-none focus:border-l-10 border-[#5e6f52] transition-all duration-300 ease-in-out">
+                    <input type="date" name="tanggal_lahir" required class="w-full p-3 rounded text-sm bg-gray-100 focus:outline-none focus:border-l-10 border-[#5e6f52] transition-all duration-300 ease-in-out">
                     <select name="jenis_kel" required class="w-full p-3 rounded text-sm bg-gray-100 focus:outline-none focus:border-l-10 border-[#5e6f52] transition-all duration-300 ease-in-out">
                         <option value="">Jenis Kelamin</option>
                         <option value="pria">Pria</option>
                         <option value="perempuan">Perempuan</option>
-                        <option value="lainnya">Lainnya</option>
+                        <option value="lainnya">Bencong</option>
                     </select>
                 </div>
 
                 <div class="flex flex-col md:flex-row gap-6">
-                    <select name="profesi" required class="w-full p-3 rounded text-sm bg-gray-100  focus:outline-none focus:border-l-10 border-[#5e6f52] transition-all duration-300 ease-in-out">
-                        <option value="">Pilih Profesi</option>
-                        <option value="dokter">Dokter</option>
-                        <option value="guru">Guru</option>
-                        <option value="pengacara">Pengacara</option>
-                        <option value="petani">Petani</option>
-                        <option value="programmer">Programmer</option>
-                        <option value="desainer">Desainer</option>
-                        <option value="karyawan_swasta">Karyawan Swasta</option>
-                        <option value="wirausaha">Wirausaha</option>
-                        <option value="polisi">Polisi</option>
-                        <option value="tentara">Tentara</option>
-                        <option value="pelajar">Pelajar</option>
-                        <option value="mahasiswa">Mahasiswa</option>
-                    </select>
-
-                    <input type="tel" name="phone" placeholder="Nomor Telepon" required class="w-full p-3 rounded text-sm bg-gray-100 focus:outline-none focus:border-l-10 border-[#5e6f52] transition-all duration-300 ease-in-out">
+                    <input type="telepon" name="phone" placeholder="Nomor Telepon" required class="w-full p-3 rounded text-sm bg-gray-100 focus:outline-none focus:border-l-10 border-[#5e6f52] transition-all duration-300 ease-in-out">
+                    <input type="alamat" name="alamat" placeholder="Alamat" required class="w-full p-3 rounded text-sm bg-gray-100 focus:outline-none focus:border-l-10 border-[#5e6f52] transition-all duration-300 ease-in-out">
                 </div>
-
-                <div class="flex flex-col md:flex-row gap-6">
-                    <select name="kota" required class="w-full p-3 rounded text-sm bg-gray-100 focus:outline-none focus:border-l-10 border-[#5e6f52] transition-all duration-300 ease-in-out">
-                        <option value="">Pilih Kota</option>
-                        <option value="medan">Medan</option>
-                        <option value="bandung">Bandung</option>
-                        <option value="jakarta">Jakarta</option>
-                    </select>
-
-                    <select name="kecamatan" required class="w-full p-3 rounded text-sm bg-gray-100 focus:outline-none focus:border-l-10 border-[#5e6f52] transition-all duration-300 ease-in-out">
-                        <option value="">Pilih Kecamatan</option>
-                        <option value="medan_helvetia">Medan Helvetia</option>
-                        <option value="medan_sunggal">Medan Sunggal</option>
-                        <option value="medan_johor">Medan Johor</option>
-                    </select>
-                </div>
+                
 
                 <button type="submit" class="w-full bg-[#5e6f52] hover:bg-[#4c5942] text-white p-3 rounded transition">
                     Daftar

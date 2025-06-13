@@ -15,15 +15,12 @@ class CreateUsersTable extends Migration
         $table->string('avatar')->nullable();
         $table->string('email')->unique(); 
         $table->string('password');
-        $table->date('birth'); 
+        $table->date('tanggal_lahir'); 
         $table->string('jenis_kel');
-        $table->string('profesi');
         $table->string('phone');  
-        $table->string('kota');
-        $table->string('kecamatan');
+        $table->string('alamat');  
         $table->timestamp('email_verifikasi')->nullable();
         $table->string('verification_token')->nullable();
-        $table->string('reset_token')->nullable();
         $table->rememberToken()->nullable();  
         $table->timestamps(); 
     });

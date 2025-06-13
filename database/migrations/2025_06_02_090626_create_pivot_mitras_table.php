@@ -14,7 +14,6 @@ return new class extends Migration
         Schema::create('pivot_mitras', function (Blueprint $table) {
             $table->foreignId('id_gerakan')->nullable()->constrained('gerakans')->onDelete('cascade');
             $table->foreignId('id_mitra')->nullable()->constrained('mitras');
-            $table->timestamps();
         });
     }
 

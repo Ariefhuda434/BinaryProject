@@ -59,12 +59,10 @@ class AuthController extends Controller
             'name' => 'required|max:30',
             'email' => 'required|email|unique:users',
             'password' => 'required|min:6|confirmed',
-            'birth' => 'required',
+            'tanggal_lahir' => 'required',
             'jenis_kel' => 'required',
-            'profesi' => 'required',
             'phone' => 'required|unique:users',
-            'kota' => 'required',
-            'kecamatan' => 'required',
+            'alamat'=> 'required'
         ]);
 
 
@@ -72,12 +70,10 @@ class AuthController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
-            'birth' => $request->birth,
+            'tanggal_lahir' => $request->tanggal_lahir,
             'jenis_kel' => $request->jenis_kel,
-            'profesi' => $request->profesi,
             'phone' => $request->phone,
-            'kota' => $request->kota,
-            'kecamatan' => $request->kecamatan,
+            'alamat' => $request->alamat,
             'verification_token' => Str::random(60),
         ]);
 

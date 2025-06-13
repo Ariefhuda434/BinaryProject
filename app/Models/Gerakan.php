@@ -7,8 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 class Gerakan extends Model
 {
     protected $fillable = [
-        'judul',
+        'status',
         'slug',
+        'judul',
         'deskripsi',
         'lokasi',
         'tanggal',

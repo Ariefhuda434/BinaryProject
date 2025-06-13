@@ -24,7 +24,7 @@ class BlogController extends Controller
             'judul' => 'required|string|max:255',
             'slug' => 'required|string|max:255|unique:blogs,slug',
             'deskripsi' => 'required|string',
-            'isiBlog' => 'required|string',
+            'isi_blog' => 'required|string',
             'foto' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
@@ -34,14 +34,13 @@ class BlogController extends Controller
             'judul' => $request->judul,
             'slug' => Str::slug($request->slug),
             'deskripsi' => $request->deskripsi,
-            'isiBlog' => $request->isiBlog  ,
+            'isi_blog' => $request->isi_blog  ,
             'foto' => $imagePath,
         ]);
 
         return back()->with('success', 'Artikel berhasil ditambahkan.');
     }
 
-    // Tampilkan satu artikel berdasarkan slug
     public function show($slug)
     {
         $blog = Blogs::where('slug', $slug)->firstOrFail();
@@ -57,7 +56,7 @@ class BlogController extends Controller
         'judul' => 'nullable|string|max:255',
         'slug' => 'nullable|string|max:255|unique:blogs,slug,' . $id,
         'deskripsi' => 'nullable|string',
-        'isiBlog' => 'nullable|string',
+        'isi_blog' => 'nullable|string',
         'foto' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
     ]);
 
@@ -65,7 +64,7 @@ class BlogController extends Controller
         'judul' => $request->judul,
         'slug' => Str::slug($request->slug),
         'deskripsi' => $request->deskripsi,
-        'isiBlog' => $request->isiBlog,
+        'isi_blog' => $request->isi_blog,
     ];
 
     if ($request->hasFile('foto')) {
@@ -78,7 +77,6 @@ class BlogController extends Controller
     return back()->with('success', 'Artikel berhasil diperbarui.');
 }
 
-    // Hapus artikel
     public function destroy($id)
     {
         $blog = Blogs::findOrFail($id);

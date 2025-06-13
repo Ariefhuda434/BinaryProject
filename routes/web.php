@@ -84,7 +84,6 @@ Route::delete('/gerakans/{gerakan:slug}/user', [GerakanController::class, 'destr
 
 Route::delete('/gerakans/{gerakan:slug}/mitra', [GerakanController::class, 'destroymitra'])->name('mitra.delete');
 
-
 Route::delete('gerakans/{id}/destroy',[GerakanController::class,'destroy'])->name('gerakan.destroy');
 
 Route::put('gerakans/{id}/update',[GerakanController::class,'update'])->name('gerakan.update');

@@ -13,11 +13,12 @@ return new class extends Migration
     {
         Schema::create('blogs', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('id_user')->nullable()->constrained('users');
             $table->string('slug')->unique();
             $table->string  ('judul');
             $table->string ('deskripsi');
             $table->string ('foto')->nullable();
-            $table->longText ('isiBlog');
+            $table->longText ('isi_blog');
             $table->timestamps();
         });
     }

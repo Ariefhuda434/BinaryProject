@@ -35,6 +35,7 @@ class GerakanController extends Controller
             'tanggal' => 'required|string',
             'periode' => 'required|string',
             'foto' => 'required|file|max:2048',
+            'status' => 'string',
         ]);
 
         // Cuma satu kali akses file
@@ -49,23 +50,25 @@ class GerakanController extends Controller
 
 
     /**
-     * Store a newly created resource in storage.
+     * Store a newly created reso   urce in storage.
      */
     public function show(Gerakan $gerakan)
-    {
-        $userId = Auth::id();
-        $idmitra = Mitra::find($userId);
+{
+    $userId = Auth::id();
 
-        $terdaftaruser = $userId;
+    $mitra = Mitra::where('id_user', $userId)->first();
 
-        $terdaftarmitra = Mitra::where('id_user', $userId)->exists();
+    $terdaftaruser = $gerakan->users()->where('id_user', $userId)->exists();
 
-        $jumlahTerdaftarUser = $gerakan->users()->count();
-
-        return view('gerakan', compact('gerakan', 'terdaftaruser', 'terdaftarmitra', 'jumlahTerdaftarUser'));
+    $terdaftarmitra = false;
+    if ($mitra) {
+        $terdaftarmitra = $gerakan->mitras()->where('id_mitra', $mitra->id)->exists();
     }
 
+    $jumlahTerdaftarUser = $gerakan->users()->count();
 
+    return view('gerakan', compact('gerakan', 'terdaftaruser', 'terdaftarmitra', 'jumlahTerdaftarUser'));
+}
 
 
     /**
@@ -109,7 +112,7 @@ class GerakanController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Gerakan $gerakan, $id)
+    public function destroy($id)
     {
         $gerakan = Gerakan::findOrFail($id);
 
@@ -118,7 +121,8 @@ class GerakanController extends Controller
         }
         $gerakan->delete();
 
-        return back()->with('success', 'Blog berhasil dihapus.');
+        return back()->with('success', 'Gerakan berhasil dihapus.');
+        
     }
 
     public function jumlahgerakan()
@@ -129,20 +133,17 @@ class GerakanController extends Controller
             'jumlahgerakan' => $jumlahgerakan
         ]);
     }
-
     public function destroyuser(Gerakan $gerakan)
-    {
-        $userId = Auth::id();
+{
+    $userId = Auth::id();
 
-        if ($gerakan->users()->where('id_user', $userId)->exists()) {
-            $gerakan->users()->detach($userId);
-        }
-
-
-
-        return redirect()->route('gerakan.show', ['gerakan' => $gerakan->slug])
-            ->with('success', 'Berhasil batal bergabung sebagai Relawan!');
+    if ($gerakan->users()->where('id_user', $userId)->exists()) {
+        $gerakan->users()->detach($userId);
     }
+
+    return redirect()->route('gerakan.show', ['gerakan' => $gerakan->slug])
+                     ->with('success', 'Berhasil batal bergabung sebagai Relawan!');
+}
 
     public function destroymitra(Gerakan $gerakan)
     {
