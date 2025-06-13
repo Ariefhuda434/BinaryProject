@@ -88,6 +88,7 @@ Route::delete('gerakans/{id}/destroy',[GerakanController::class,'destroy'])->nam
 
 Route::put('gerakans/{id}/update',[GerakanController::class,'update'])->name('gerakan.update');
 
+Route::put('gerakans/{id}/updatestatus',[GerakanController::class,'updateStatus'])->name('edit_status_gerakan');
 
 Route::post('/gerakans/{gerakan:slug}/pivot/user', [GerakanController::class, 'pivotUser'])->name('pivot.user');
 

@@ -2,43 +2,36 @@
 
 namespace App\Http\Controllers;
 
-use id;
 use App\Models\Mitra;
 use App\Models\Gerakan;
-
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
 class GerakanController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+    // Tampilkan semua gerakan (opsional, tergantung kebutuhan)
     public function index()
     {
-        //
+        $gerakans = Gerakan::all();
+        return view('gerakan.index', compact('gerakans'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
+    // Menyimpan gerakan baru
     public function store(Request $request)
     {
         $validated = $request->validate([
             'judul' => 'required|string|max:255',
-            'slug' => 'required|string|unique:blogs',
+            'slug' => 'required|string|unique:gerakans',
             'deskripsi' => 'required|string',
             'lokasi' => 'required|string',
             'tanggal' => 'required|string',
             'periode' => 'required|string',
-            'foto' => 'required|file|max:2048',
+            'foto' => 'required|file|image|max:2048',
             'status' => 'string',
         ]);
 
-        // Cuma satu kali akses file
         $file = $request->file('foto');
         $path = $file->store('gerakan', 'public');
         $validated['foto'] = $path;
@@ -48,43 +41,44 @@ class GerakanController extends Controller
         return redirect()->back()->with('success', 'Event baru berhasil ditambahkan.');
     }
 
-
-    /**
-     * Store a newly created reso   urce in storage.
-     */
+    // Tampilkan detail gerakan + status keikutsertaan
     public function show(Gerakan $gerakan)
-{
-    $userId = Auth::id();
+    {
+        $userId = Auth::id();
+        $mitra = Mitra::where('id_user', $userId)->first();
 
-    $mitra = Mitra::where('id_user', $userId)->first();
+        $terdaftaruser = $gerakan->users()->where('id_user', $userId)->exists();
+        $terdaftarmitra = $mitra ? $gerakan->mitras()->where('id_mitra', $mitra->id)->exists() : false;
+        $jumlahTerdaftarUser = $gerakan->users()->count();
 
-    $terdaftaruser = $gerakan->users()->where('id_user', $userId)->exists();
-
-    $terdaftarmitra = false;
-    if ($mitra) {
-        $terdaftarmitra = $gerakan->mitras()->where('id_mitra', $mitra->id)->exists();
+        return view('gerakan', compact('gerakan', 'terdaftaruser', 'terdaftarmitra', 'jumlahTerdaftarUser'));
     }
 
-    $jumlahTerdaftarUser = $gerakan->users()->count();
+    // Update gerakan
+    public function updateStatus(Gerakan $gerakan, Request $request, $id)
+    {
+        $gerakan = Gerakan::findOrFail($id);
 
-    return view('gerakan', compact('gerakan', 'terdaftaruser', 'terdaftarmitra', 'jumlahTerdaftarUser'));
-}
+        $validated = $request->validate([
+           'status' => 'string',
+        ]);
 
+        $data = [
+            'status' => $request->status,
+        ];
 
-    /**
-     * Display the specified resource.
-     */
+        $gerakan->update($data);
 
-    /**
-     * Show the form for editing the specified resource.
-     */
+        return back()->with('success', 'status berhasil diperbarui.');
+    }
+
     public function update(Gerakan $gerakan, Request $request, $id)
     {
         $gerakan = Gerakan::findOrFail($id);
 
         $validated = $request->validate([
             'judul' => 'nullable|string|max:255',
-            'slug' => 'nullable|string|max:255|unique:blogs,slug,' . $id,
+            'slug' => 'nullable|string|max:255|unique:gerakans,slug,' . $id,
             'deskripsi' => 'nullable|string',
             'lokasi' => 'nullable|string',
             'tanggal' => 'nullable|string',
@@ -100,18 +94,13 @@ class GerakanController extends Controller
             'tanggal' => $request->tanggal,
             'periode' => $request->periode,
         ];
+
         $gerakan->update($data);
+
         return back()->with('success', 'Gerakan berhasil diperbarui.');
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-
-
-    /**
-     * Remove the specified resource from storage.
-     */
+    // Hapus gerakan dan file gambar
     public function destroy($id)
     {
         $gerakan = Gerakan::findOrFail($id);
@@ -119,12 +108,13 @@ class GerakanController extends Controller
         if ($gerakan->foto && Storage::disk('public')->exists($gerakan->foto)) {
             Storage::disk('public')->delete($gerakan->foto);
         }
+
         $gerakan->delete();
 
         return back()->with('success', 'Gerakan berhasil dihapus.');
-        
     }
 
+    // Hitung total gerakan
     public function jumlahgerakan()
     {
         $jumlahgerakan = Gerakan::count();
@@ -133,33 +123,35 @@ class GerakanController extends Controller
             'jumlahgerakan' => $jumlahgerakan
         ]);
     }
+
+    // Hapus relawan dari pivot_users
     public function destroyuser(Gerakan $gerakan)
-{
-    $userId = Auth::id();
-
-    if ($gerakan->users()->where('id_user', $userId)->exists()) {
-        $gerakan->users()->detach($userId);
-    }
-
-    return redirect()->route('gerakan.show', ['gerakan' => $gerakan->slug])
-                     ->with('success', 'Berhasil batal bergabung sebagai Relawan!');
-}
-
-    public function destroymitra(Gerakan $gerakan)
     {
         $userId = Auth::id();
 
-        $mitra = Mitra::where('id_user', $userId)->first();
-
-        if ($mitra) {
-            $gerakan->mitras()->detach($mitra->id);
-
+        if ($gerakan->users()->where('id_user', $userId)->exists()) {
+            $gerakan->users()->detach($userId);
         }
-        return redirect()->route('gerakan.show', ['gerakan' => $gerakan->slug])->with('success', 'Berhasil batal bergabung sebagai Mitra!');
+
+        return redirect()->route('gerakan.show', ['gerakan' => $gerakan->slug])
+                         ->with('success', 'Berhasil batal bergabung sebagai Relawan!');
     }
 
+    // Hapus mitra dari pivot_mitras
+    public function destroymitra(Gerakan $gerakan)
+    {
+        $userId = Auth::id();
+        $mitra = Mitra::where('id_user', $userId)->first();
 
+        if ($mitra && $gerakan->mitras()->where('id_mitra', $mitra->id)->exists()) {
+            $gerakan->mitras()->detach($mitra->id);
+        }
 
+        return redirect()->route('gerakan.show', ['gerakan' => $gerakan->slug])
+            ->with('success', 'Berhasil batal bergabung sebagai Mitra!');
+    }
+
+    // Tambah relawan ke pivot_users
     public function pivotUser(Gerakan $gerakan, Request $request)
     {
         $userId = Auth::id();
@@ -171,6 +163,8 @@ class GerakanController extends Controller
         return redirect()->route('gerakan.show', ['gerakan' => $gerakan->slug])
             ->with('success', 'Berhasil bergabung sebagai Relawan!');
     }
+
+    // Tambah mitra ke pivot_mitras
     public function pivotMitra(Gerakan $gerakan, Request $request)
     {
         if (!Auth::check()) {
@@ -184,7 +178,9 @@ class GerakanController extends Controller
             return redirect()->back()->with('error', 'Anda belum memiliki akun Mitra. Silakan daftar sebagai Mitra terlebih dahulu.');
         }
 
-        $gerakan->mitras()->attach($mitra->id);
+        if (!$gerakan->mitras()->where('id_mitra', $mitra->id)->exists()) {
+            $gerakan->mitras()->attach($mitra->id);
+        }
 
         return redirect()->route('gerakan.show', ['gerakan' => $gerakan->slug])
             ->with('success', 'Berhasil bergabung sebagai Mitra!');

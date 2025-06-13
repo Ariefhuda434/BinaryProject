@@ -15,7 +15,7 @@ protected $fillable = [
     'judul',
     'deskripsi',
     'foto',
-    'isi_Blog'
+    'isi_blog'
 ];
 public function users()
 {

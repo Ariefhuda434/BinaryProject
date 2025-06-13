@@ -20,7 +20,7 @@
     </div>
     <div class="max-w-5xl mx-auto px-4 py-8">
         <div class="prose prose-lg  prose-neutral text-justify text-l justify-center max-w-none">
-            {!! $blog['isiBlog'] !!}
+            {!! $blog['isi_blog'] !!}
         </div>
     </div>
 

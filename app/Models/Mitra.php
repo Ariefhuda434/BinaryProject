@@ -7,7 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Mitra extends Model
 {
+    use HasFactory;
+
     protected $table = 'mitras'; 
+
     protected $fillable = [
         'id_user',
         'nama_mitra',
@@ -18,10 +21,14 @@ class Mitra extends Model
         'medsos',
         'logo',
     ];
-        public function user()
+
+    public function user()
     {
         return $this->belongsTo(User::class, 'id_user');
     }
-
-}
     
+    public function gerakans()
+    {
+        return $this->belongsToMany(Gerakan::class, 'pivot_mitras', 'id_mitras', 'id_gerakan')->withoutTimestamps();
+    }
+}

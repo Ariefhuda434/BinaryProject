@@ -25,7 +25,21 @@
                     class="w-full h-48 object-cover rounded-t-2xl"
                 >
                 <div class="p-5 space-y-3">
-                    <h3 class="text-xl font-bold text-gray-800">{{ $gerakan['judul'] }}</h3>
+<h3 class="text-2xl font-extrabold text-gray-900 flex items-center gap-3">
+    {{ $gerakan['judul'] }}
+ <span
+    class="
+        text-sm font-semibold px-3 py-1 rounded-full
+        {{
+            $gerakan['status'] === 'segera' ? 'bg-green-100 text-green-800' :
+            ($gerakan['status'] === 'selesai' ? 'bg-gray-200 text-gray-700' :
+            'bg-yellow-100 text-yellow-800')
+        }}
+    ">
+    {{ ucfirst($gerakan['status']) }}
+</span>
+
+</h3>
 
                     <div class="flex items-center text-sm text-gray-600 gap-2">
                         <img src="{{ asset('build/images/icondate.png')}}" alt="Tanggal" class="h-4">
@@ -81,7 +95,22 @@
                             <tr class="border-b border-gray-300">
                                 <td class="p-2 md:p-3 text-center">{{ $gerakan['id'] }}</td>
                                 <td class="p-2 md:p-3 text-center truncate max-w-xs">{{ $gerakan['judul'] }}</td>
-                                <td class="p-2 md:p-3 text-center truncate max-w-xs">{{ $gerakan['status'] }}</td>
+                                <td class="p-2 md:p-3 text-center truncate max-w-xs">
+                                      <form action="{{ route('edit_status_gerakan', $gerakan->id) }}" method="POST">
+                                                    @csrf
+                                                    @method('PUT')
+                                                    <select name="status" onchange="this.form.submit()"
+                                                        class="text-xs md:text-sm  px-2 py-1">
+                                                        <option value="{{ $gerakan['status'] }}" disabled selected>
+                                                            {{ $gerakan['status'] }}
+                                                        </option>
+                                                        <option value="selesai"
+                                                            {{ $gerakan->status == 'diterima' ? 'selected' : '' }}>
+                                                            selesai
+                                                        </option>
+                                                    </select>
+                                                </form>
+                                </td>
                                 <td class="p-2 md:p-3 text-center">
                                     <button data-gerakan='@json($gerakan)' class="update-btn bg-yellow-400 hover:bg-yellow-500 text-white font-semibold px-3 py-1 rounded-full transition">
                                         Update

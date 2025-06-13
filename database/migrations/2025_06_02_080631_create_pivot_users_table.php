@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('pivot_users', function (Blueprint $table) {
-            $table->foreignId('id_gerakan')->nullable()->constrained('gerakans')->onDelete('cascade ');
+            $table->foreignId('id_gerakan')->nullable()->constrained('gerakans');
             $table->foreignId('id_user')->nullable()->constrained('users');
         });
     }
