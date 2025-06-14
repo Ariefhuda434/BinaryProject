@@ -21,6 +21,10 @@ class Gerakan extends Model
     return $this->belongsToMany(User::class,'pivot_users', 'id_gerakan', 'id_user');    
 }
 
+public function dokumentasi()
+{
+    return $this->hasMany(Dokumentasi::class, 'id_gerakan');
+}
 
 public function mitras()
 {

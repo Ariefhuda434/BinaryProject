@@ -6,10 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Dokumentasi extends Model
 {
-      protected $fillable = [
-        'foto',
-    ];
-    public function Dokumentasi(){
-        return $this->belongsToMany(Gerakan::class,'id_gerakan');
-    }
+    
+    protected $table = 'dokumentasi'; 
+    protected $fillable = ['id_gerakan', 'foto', 'deskripsi']; 
+    
+public function gerakan()
+{
+    return $this->belongsTo(Gerakan::class, 'id_gerakan');
+}
+
 }

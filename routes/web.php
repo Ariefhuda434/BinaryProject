@@ -1,10 +1,12 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-use App\Models\Blogs;
 use App\Models\User;
+use App\Models\Blogs;
 use App\Models\Gerakan;
+use App\Models\PivotUser;
 
+use App\Models\Dokumentasi;
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CountController;
@@ -13,7 +15,7 @@ use App\Http\Controllers\ReportController;
 use App\Http\Controllers\GerakanController;
 use App\Http\Controllers\FeedbackController;
 use App\Http\Controllers\PivotUserController;
-use App\Models\PivotUser;
+use App\Http\Controllers\DokumentasiController;
 
 // ==========================
 // Middleware: Autentikasi
@@ -21,6 +23,7 @@ use App\Models\PivotUser;
 Route::middleware(['auth'])->group(function () {
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
     Route::post('/jadiMitra', [MitraController::class, 'mitraGanteng'])->name('Mitra.kirim');
+    Route::put('/reset',[AuthController::class,'resetPw'])->name('reset.pw');
 });
 
 // ==========================
@@ -93,6 +96,9 @@ Route::put('gerakans/{id}/updatestatus',[GerakanController::class,'updateStatus'
 Route::post('/gerakans/{gerakan:slug}/pivot/user', [GerakanController::class, 'pivotUser'])->name('pivot.user');
 
 Route::post('/gerakans/{gerakan:slug}/pivot/mitra', [GerakanController::class, 'pivotMitra'])->name('pivot.mitra');
+
+Route::post('/gerakan/{gerakan:slug}/galeri', [DokumentasiController::class, 'uploadGaleri'])->name('upload.galeri');
+
 
 // ==========================
 // Verifikasi Email & Reset

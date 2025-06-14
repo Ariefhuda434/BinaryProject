@@ -273,37 +273,53 @@
                         </div>
                     @endif
 
-                    <form action="" method="POST">
+
+                    <form action="{{ route('reset.pw') }}" method="POST">
                         @csrf
-                        <input type="email" name="email" class="p-3 w-full rounded-lg bg-gray-100 mb-3" required
-                            placeholder="Masukan Email">
+                        @method('PUT')
 
-                        <input type="password" name="old_password" class="p-3 w-full rounded-lg bg-gray-100 mb-3"
-                            required placeholder="Masukan Password Lama">
+                        <div id="formreset">
+                            <input type="email" name="email" class="p-3 w-full rounded-lg bg-gray-100 mb-3" required
+                                placeholder="Masukan Email">
 
-                        <input type="password" name="new_password" class="p-3 w-full rounded-lg bg-gray-100 mb-3"
-                            required placeholder="Masukan Password Baru">
+                            <input type="password" name="password" class="p-3 w-full rounded-lg bg-gray-100 mb-3"
+                                required placeholder="Masukan Password Lama">
 
-                        <input type="new_password_confirmation" name="password_baru_confirmation"
-                            class="p-3 w-full rounded-lg bg-gray-100 mb-3" required
-                            placeholder="Konfirmasi Password Baru">
+                            <input type="password" name="new_password" class="p-3 w-full rounded-lg bg-gray-100 mb-3"
+                                required placeholder="Masukan Password Baru">
 
-                        <button type="submit"
-                            class="p-2 w-40 rounded-full bg-[#5e6f52] text-white hover:bg-[#a3b398] transition-colors duration-300">
-                            Konfirmasi
-                        </button>
+                       
+
+                            <button id="resetbtn"
+                                class="p-2 w-40 rounded-full bg-[#5e6f52] text-white hover:bg-[#a3b398] transition-colors duration-300">
+                                Konfirmasi
+                            </button>
+                            <p class="text-sm text-gray-500 mt-4">
+                                Butuh bantuan? <a href="/faq#password" class="text-blue-600 hover:underline">Lihat FAQ</a>
+                            </p>
+                        </div>
                     </form>
 
-                    <p class="text-sm text-gray-500 mt-4">
-                        Butuh bantuan? <a href="/faq#password" class="text-blue-600 hover:underline">Lihat FAQ</a>
-                    </p>
+
+
                 </div>
+
+
+
+            </div>
 
             </div>
         @endauth
     </section>
 
     <script>
+        document
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            form.classList.add('hidden');
+            konfirmasi.classList.remove('hidden');
+        });
+
         function navbarKore(namaId) {
             document.getElementById(namaId).addEventListener('click', () => {
                 const Profil = document.getElementById('profile');

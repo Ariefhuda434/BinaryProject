@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Mitra;
 use App\Models\Gerakan;
+use App\Models\Dokumentasi;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -15,9 +16,10 @@ class GerakanController extends Controller
     public function index()
     {
         $gerakans = Gerakan::all();
+        
         return view('gerakan.index', compact('gerakans'));
     }
-
+ 
     // Menyimpan gerakan baru
     public function store(Request $request)
     {
@@ -46,12 +48,15 @@ class GerakanController extends Controller
     {
         $userId = Auth::id();
         $mitra = Mitra::where('id_user', $userId)->first();
+        
+        $dokumentasi = Dokumentasi::where('id_gerakan', $gerakan->id)->get();
+
 
         $terdaftaruser = $gerakan->users()->where('id_user', $userId)->exists();
         $terdaftarmitra = $mitra ? $gerakan->mitras()->where('id_mitra', $mitra->id)->exists() : false;
         $jumlahTerdaftarUser = $gerakan->users()->count();
 
-        return view('gerakan', compact('gerakan', 'terdaftaruser', 'terdaftarmitra', 'jumlahTerdaftarUser'));
+        return view('gerakan', compact('gerakan', 'terdaftaruser', 'terdaftarmitra', 'jumlahTerdaftarUser','dokumentasi'));
     }
 
     // Update gerakan
