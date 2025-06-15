@@ -110,22 +110,22 @@
                     <div class="w-full lg:w-1/3 space-y-4">
                         <div>
                             <label for="judul" class="block text-gray-600 font-medium mb-1">Judul</label>
-                            <input type="text" id="judul" name="judul" class="w-full px-3 py-2 border border-gray-300 rounded-md" required />
+                            <input type="text" id="judul" name="judul" class="w-full px-3 py-2 rounded  bg-gray-100 focus:outline-none focus:border-l-10 border-[#5e6f52] transition-all duration-300 ease-in-out" required />
                         </div>
 
                         <div>
                             <label for="slug" class="block text-gray-600 font-medium mb-1">Slug</label>
-                            <input type="text" id="slug" name="slug" class="w-full px-3 py-2 border border-gray-300 rounded-md" required />
+                            <input type="text" id="slug" name="slug" class="w-full px-3 py-2 rounded bg-gray-100 focus:outline-none focus:border-l-10 border-[#5e6f52] transition-all duration-300 ease-in-out" required />
                         </div>
 
                         <div>
                             <label for="deskripsi" class="block text-gray-600 font-medium mb-1">Deskripsi</label>
-                            <input type="text" id="deskripsi" name="deskripsi" class="w-full px-3 py-2 border border-gray-300 rounded-md" required />
+                            <input type="text" id="deskripsi" name="deskripsi" class="w-full px-3 py-2 rounded bg-gray-100 focus:outline-none focus:border-l-10 border-[#5e6f52] transition-all duration-300 ease-in-out" required />
                         </div>
 
                         <div id="foto">
                             <label for="foto" class="block text-gray-600 font-medium mb-1">Foto</label>
-                            <input type="file" name="foto" accept="image/*" class="w-full text-gray-600" />
+                            <input type="file" name="foto" accept="image/*" class="w-full px-3 py-3 rounded text-sm bg-gray-100 focus:outline-none focus:border-l-10 border-[#5e6f52] transition-all duration-300 ease-in-out" />
                         </div>
                     </div>
 

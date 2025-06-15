@@ -135,3 +135,5 @@ Route::post('/login', [AuthController::class, 'login'])->name('loginpage');
 Route::get('/register', [AuthController::class, 'showRegister'])->name('showregister');
 Route::post('/register', [AuthController::class, 'register'])->name('register');
 
+
+Route::get('/history', [GerakanController::class, 'history'])->name('gerakan.history');

@@ -21,8 +21,6 @@ class MitraController extends Controller
             return redirect()->route('beranda')->with(['error' => 'Anda sudah terdaftar sebagai mitra.'])->withFragment('mitra');
         }   
 
-
-
         $validatedData = $request->validate([
             'nama_mitra'     => 'required|max:30|unique:mitras,nama_mitra',
             'email_mitra'    => 'required|email|unique:mitras,email_mitra',
@@ -50,16 +48,5 @@ class MitraController extends Controller
 
         return redirect()->route('beranda')->with(['success' => 'Pendaftaran mitra berhasil!'])->withFragment('mitra');
     }
-
-    public function jumlahmitra(){
-        $mitra = Mitra::get();
-        $jumlahmitra = Mitra::count();
-        
-        return view('beranda', [
-            'jumlahmitra' => $jumlahmitra
-        ]);
-        
-
-}
 
 }

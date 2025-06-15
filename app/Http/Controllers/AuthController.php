@@ -3,18 +3,21 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Gerakan;
 use App\Mail\ResetEmail;
 use App\Mail\VerifyEmail;
-use GuzzleHttp\Promise\Create;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
-use Illuminate\Support\Facades\Password;
 
 class AuthController extends Controller
 {
+    /*****************************************
+     *              LOGIN PAGE
+     *****************************************/
+
     public function showLogin()
     {
         return view('auth.login');
@@ -31,7 +34,7 @@ class AuthController extends Controller
 
         if (Auth::attempt($request->only('email', 'password'), $remember)) {
             $request->session()->regenerate();
-                return redirect('login');
+            return redirect('login'); 
         }
 
         return back()->withErrors([
@@ -48,6 +51,9 @@ class AuthController extends Controller
         return redirect()->route('loginpage');
     }
 
+    /*****************************************
+     *             REGISTER PAGE
+     *****************************************/
 
     public function showRegister()
     {
@@ -57,24 +63,23 @@ class AuthController extends Controller
     public function register(Request $request)
     {
         $request->validate([
-            'name' => 'required|max:30',
-            'email' => 'required|email|unique:users',
-            'password' => 'required|min:6|confirmed',
+            'name'          => 'required|max:30',
+            'email'         => 'required|email|unique:users',
+            'password'      => 'required|min:6|confirmed',
             'tanggal_lahir' => 'required',
-            'jenis_kel' => 'required',
-            'phone' => 'required|unique:users',
-            'alamat'=> 'required'
+            'jenis_kel'     => 'required',
+            'phone'         => 'required|unique:users',
+            'alamat'        => 'required'
         ]);
 
-
         $user = User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
-            'tanggal_lahir' => $request->tanggal_lahir,
-            'jenis_kel' => $request->jenis_kel,
-            'phone' => $request->phone,
-            'alamat' => $request->alamat,
+            'name'               => $request->name,
+            'email'              => $request->email,
+            'password'           => Hash::make($request->password),
+            'tanggal_lahir'      => $request->tanggal_lahir,
+            'jenis_kel'          => $request->jenis_kel,
+            'phone'              => $request->phone,
+            'alamat'             => $request->alamat,
             'verification_token' => Str::random(60),
         ]);
 
@@ -82,24 +87,30 @@ class AuthController extends Controller
 
         return redirect()->route('verify.info')->with('success', 'Registrasi berhasil! Link verifikasi telah dikirim ke email Anda.');
     }
-public function resetPw(Request $request)
-{
-    $validated = $request->validate([
-        'email' => 'required|email|exists:users,email',
-        'password' => 'required|min:6',
-        'new_password' => 'required|min:6',
-    ]);
 
-    $user = User::where('email', $request->email)->first();
+    /*****************************************
+     *            RESET PASSWORD
+     *****************************************/
 
-    if (!Hash::check($request->password, $user->password)) {
-        return back()->with('error', 'Password lama salah.');
+    public function resetPw(Request $request)
+    {
+        $validated = $request->validate([
+            'email'        => 'required|email|exists:users,email',
+            'password'     => 'required|min:6',       
+            'new_password' => 'required|min:6',       
+        ]);
+
+        $user = User::where('email', $request->email)->first();
+
+        if (!Hash::check($request->password, $user->password)) {
+            return back()->with('error', 'Password lama salah.');
+        }
+
+        $user->update([
+            'password' => Hash::make($request->new_password),
+        ]);
+
+        return redirect()->route('login')->with('success', 'Password berhasil diperbarui!');
     }
 
-    $user->update([
-        'password' => Hash::make($request->new_password),
-    ]);
-
-    return redirect()->route('login')->with('success', 'Password berhasil diperbarui!');
-}
 }

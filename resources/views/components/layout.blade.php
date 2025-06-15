@@ -9,6 +9,9 @@
     <main>
         @yield('content') 
     </main>
+
+    <x-profile></x-profile>
+   
     <x-footer></x-footer>
 </body>
 </html>

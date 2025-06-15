@@ -71,14 +71,4 @@ class ReportController extends Controller
         Report::find($id)->delete();
         return redirect()->back()->with('success', "Laporan berhasil dihapus");
     }
-
-    public function jumlahlaporan()
-    {
-        $report = Report::get();
-        $jumlahlaporan = Report::count();
-
-        return view('beranda', [
-            'jumlahlaporan' => $jumlahlaporan
-        ]);
-    }
 }

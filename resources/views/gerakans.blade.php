@@ -177,46 +177,46 @@
                 <div>
                     <label for="judul" class="block text-gray-600 font-medium mb-1">Judul</label>
                     <input type="text" id="judul" name="judul" placeholder="Masukkan judul event"
-                        class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+                        class="w-full px-3 py-3 rounded text-sm bg-gray-100 focus:outline-none focus:border-l-10 border-[#5e6f52] transition-all duration-300 ease-in-out"
                         required />
                 </div>
                 <div>
                     <label for="slug" class="block text-gray-600 font-medium mb-1">Slug</label>
                     <input type="text" id="slug" name="slug" placeholder="Masukkan slug(unik)"
-                        class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+                        class="w-full px-3 py-3 rounded text-sm bg-gray-100 focus:outline-none focus:border-l-10 border-[#5e6f52] transition-all duration-300 ease-in-out"
                         required />
                 </div>
                 <div>
                     <label for="deskripsi" class="block text-gray-600 font-medium mb-1">Deskripsi</label>
                     <input type="text" id="deskripsi" name="deskripsi" placeholder="Masukkan Deskripsi"
-                        class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+                        class="w-full px-3 py-3 rounded text-sm bg-gray-100 focus:outline-none focus:border-l-10 border-[#5e6f52] transition-all duration-300 ease-in-out"
                         required />
                 </div>
                 <div>
                     <label for="lokasi" class="block text-gray-600 font-medium mb-1">Lokasi</label>
                     <input type="text" id="lokasi" name="lokasi" placeholder="Masukkan lokasi"
-                        class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+                        class="w-full px-3 py-3 rounded text-sm bg-gray-100 focus:outline-none focus:border-l-10 border-[#5e6f52] transition-all duration-300 ease-in-out"
                         required />
                 </div>
                 <div>
                     <label for="tanggal" class="block text-gray-600 font-medium mb-1">Tanggal</label>
                     <input type="datetime" id="tanggal" name="tanggal" placeholder="Masukkan Tanggal"
-                        class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+                        class="w-full px-3 py-3 rounded text-sm bg-gray-100 focus:outline-none focus:border-l-10 border-[#5e6f52] transition-all duration-300 ease-in-out"
                         required />
                 </div>
                 <div>
                     <label for="periode" class="block text-gray-600 font-medium mb-1">Periode</label>
                     <input type="text" id="periode" name="periode" placeholder="Masukkan Periode (00.00 - 00.00)"
-                        class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+                        class="w-full px-3 py-3 rounded text-sm bg-gray-100 focus:outline-none focus:border-l-10 border-[#5e6f52] transition-all duration-300 ease-in-out"
                         required />
                 </div>
                 <div class="mt-3" id="foto">
                     <label for="foto"
-                        class="block text-gray-600  border border-gray-300 px-3 py-2  rounded-md font-medium mb-1">Foto</label>
-                    <input type="file" name="foto" accept="image/*" class="w-full text-gray-600" />
+                        class="block text-gray-600  px-3 py-2 font-medium mb-1">Foto</label>
+                    <input type="file" name="foto" accept="image/*" class="w-full px-3 py-3 rounded text-sm bg-gray-100 focus:outline-none focus:border-l-10 border-[#5e6f52] transition-all duration-300 ease-in-out" />
                 </div>
                 <button type="submit" id="submit"
-                    class="w-full mt-5 bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-md transition duration-200">
+                    class="w-full mt-5 bg-green-600 hover:bg-green-700 text-white px-4 py-2 ">
                     Submit
                 </button>
             </form>

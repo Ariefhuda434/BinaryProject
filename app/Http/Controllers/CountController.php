@@ -16,7 +16,7 @@ class CountController extends Controller
             'jumlahmitra' => Mitra::count(),
             'jumlahuser' => User::count(),
             'jumlahlaporan' => Report::count(),
-            'jumlahgerakan' => Gerakan::count(),
+            'jumlahgerakan' => Gerakan::where('status','selesai')->count(),
             'jumlahfeedback' => Feedback::where('feedback', 5)->count(),
         ]);
     }

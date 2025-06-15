@@ -318,27 +318,25 @@
                     <div>
                         <label for="judul" class="block mb-1 font-medium text-gray-600">Judul Laporan</label>
                         <input type="text" name="judul" id="judul"
-                            class="w-full border border-gray-300 rounded-lg p-2 md:p-3">
+                            class="w-full py-3 px-3 rounded text-sm bg-gray-100 focus:outline-none focus:border-l-10 border-[#5e6f52] transition-all duration-300 ease-in-out">
                     </div>
 
                     <div>
                         <label for="deskripsi" class="block mb-1 font-medium text-gray-600">Isi Laporan</label>
                         <textarea name="deskripsi" id="deskripsi" rows="3"
-                            class="w-full border border-gray-300 rounded-lg p-2 md:p-3 resize-y" placeholder="Isi laporan..."></textarea>
+                            class="w-full bg-gray-100 rounded focus:outline-none  focus:border-l-10 border-[#5e6f52] transition-all duration-300 ease-in-out p-2 md:p-3 resize-y" placeholder="Isi laporan..."></textarea>
                     </div>
 
                     <div class="w-full">
                         <label for="lokasi" class="block mb-1 font-medium text-gray-600">Lokasi</label>
-                        <input type="text" name="lokasi" id="lokasi"
-                            class="w-full border border-gray-300 rounded-lg p-2 md:p-3">
+                        <input type="text" name="lokasi" id="lokasi" placeholder="Masukan Lokasi"
+                            class="w-full px-3 py-3 rounded text-sm bg-gray-100 focus:outline-none focus:border-l-10 border-[#5e6f52] transition-all duration-300 ease-in-out">
                     </div>
 
                     <div>
                         <label for="images" class="block mb-1 font-medium text-gray-600">Upload Gambar</label>
-                        <input type="file" name="foto" id="foto" accept="image/*"
-                            class="w-full border border-gray-300 rounded-lg p-2 md:p-3">
-                        <img id="preview-image" src="#" alt="Preview"
-                            class="hidden mt-2 w-full max-h-64 object-cover">
+                        <input type="file" name="foto" id="foto" accept="image/*" placeholder="Upload Gambar"
+                            class="w-full py-3 px-3 rounded text-sm bg-gray-100 focus:outline-none focus:border-l-10 border-[#5e6f52] transition-all duration-300 ease-in-out">
                     </div>
 
                     @guest

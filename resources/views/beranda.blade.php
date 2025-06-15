@@ -5,7 +5,7 @@
         <div class="absolute inset-0 md:h-screen h-[50rem] bg-cover opacity-90"
             style="background-videos: url('{{ asset('build/images/trashBeranda.jpg') }}')">
             <video class="md:absolute inset-0 h-full w-full object-cover" autoplay muted loop playsinline>
-                <source src="{{ asset('build/videos/vidio kelompok terbaik.mp4') }}" type="video/mp4" />
+                <source src="{{ asset('build/videos/vidiosampah.mp4') }}" type="video/mp4" />
                 Browser Anda tidak mendukung video.
             </video>
             <div class="absolute pb-2 inset-0 bg-gradient-to-r  from-black/80 via-black/60 to-transparent"></div>
@@ -18,11 +18,11 @@
 
                 <div class="w-full lg:w-250 space-y-6">
                     <p
-                        class="text-4xl md:text-4xl lg:text-4xl mt-20 font-bold font-black font-sans md:mb-20 mb-15 text-white">
+                        class="text-4xl md:text-4xl lg:text-4xl  mt-20 font-bold font-black font-sans md:mb-20 mb-15 text-white">
                         Digital Solution for a Zero-Waste World!</p>
 
                     <h2 class="font-bold font-monospace text-2xl text-white">Hai, Binarians!</h2>
-                    <p class="text-xl text-center md:text-start tracking-wide text-white">
+                    <p class="text-xl text-center md:text-start font-marker tracking-wide text-white">
                         Saatnya ambil peran dan jadi bagian dari perubahan untuk lingkungan yang lebih bersih dan sehat
                         bersama Binary Waste.
                         Gabung sekarang, karena bumi kita butuh suara dan tindakanmu!
@@ -30,7 +30,7 @@
 
                     <div class="w-full sm:w-auto text-center sm:text-left mt-4">
                         <a href="{{ route('register') }}"
-                            class="bg-white text-[#5e6f52] font-semibold px-6 py-3 rounded-full shadow-md hover:bg-gray-200 transition">
+                            class="bg-[#57674c] text-white font-semibold px-6 py-3 rounded-full shadow-md hover:bg-[#4e5f42] transition">
                             Daftar Sekarang
                         </a>
                     </div>
@@ -152,7 +152,8 @@
                 </p>
 
                 <button id="btnMitra"
-                    class="block bg-[#57674c] text-white px-6 py-3 rounded-full mt-5 shadow-md hover:bg-[#ccc14e] transition mx-auto lg:mx-0">
+                    class="block bg-[#57674c] text-white px-6 py-3 rounded-full mt-5 shadow-md hover:bg-[
+                    #4e5f42] transition mx-auto lg:mx-0">
                     Gabung Sebagai Mitra
                 </button>
 
@@ -281,16 +282,16 @@
                         @csrf
 
                         <input type="text" name="nama_mitra" placeholder="Nama Mitra"
-                            class="w-full py-2.5 px-4 rounded text-sm bg-gray-100 focus:outline-none focus:border-l-4 focus:border-[#5e6f52] transition-all duration-300 ease-in-out">
+                            class="w-full py-2.5 px-4  text-sm rounded text-sm bg-gray-100 focus:outline-none focus:border-l-7 border-[#5e6f52] transition-all duration-300 ease-in-out">
 
                         <input type="text" name="email_mitra" placeholder="Email Mitra"
-                            class="w-full py-2.5 px-4 rounded text-sm bg-gray-100 focus:outline-none focus:border-l-4 focus:border-[#5e6f52] transition-all duration-300 ease-in-out">
+                            class="w-full py-2.5 px-4  text-sm rounded text-sm bg-gray-100 focus:outline-none focus:border-l-7 border-[#5e6f52] transition-all duration-300 ease-in-out  ">
 
                         <input type="text" name="kontak" placeholder="Kontak Mitra"
-                            class="w-full py-2.5 px-4 rounded text-sm bg-gray-100 focus:outline-none focus:border-l-4 focus:border-[#5e6f52] transition-all duration-300 ease-in-out">
+                            class="w-full py-2.5 px-4 text-sm rounded text-sm bg-gray-100 focus:outline-none focus:border-l-7 border-[#5e6f52] transition-all duration-300 ease-in-out ">
 
                         <select name="kategori_mitra" required
-                            class="w-full py-2.5 px-4 rounded text-sm bg-gray-100 focus:outline-none focus:border-l-4 focus:border-[#5e6f52] transition-all duration-300 ease-in-out">
+                            class="w-full py-2.5 px-4 text-sm rounded text-sm bg-gray-100 focus:outline-none focus:border-l-7 border-[#5e6f52] transition-all duration-300 ease-in-out">
                             <option disabled selected value="">Pilih Kategori Mitra</option>
                             <option value="Komunitas Lingkungan">Komunitas Lingkungan</option>
                             <option value="Lingkungan Hidup">Lingkungan Hidup</option>
@@ -301,17 +302,17 @@
                         </select>
 
                         <input type="text" name="alamat_mitra" placeholder="Alamat Mitra"
-                            class="w-full py-2.5 px-4 rounded text-sm bg-gray-100 focus:outline-none focus:border-l-4 focus:border-[#5e6f52] transition-all duration-300 ease-in-out">
+                            class="w-full py-2.5 px-4 rounded text-sm text-sm bg-gray-100 focus:outline-none focus:border-l-7 border-[#5e6f52] transition-all duration-300 ease-in-out">
 
                         <input type="text" name="medsos" placeholder="Instagram/Facebook/LinkedIn"
-                            class="w-full py-2.5 px-4 rounded text-sm bg-gray-100 focus:outline-none focus:border-l-4 focus:border-[#5e6f52] transition-all duration-300 ease-in-out">
+                            class="w-full py-2.5 px-4 text-sm rounded text-sm bg-gray-100 focus:outline-none focus:border-l-7 border-[#5e6f52] transition-all duration-300 ease-in-out">
 
                         <input type="file" name="logo"
-                            class="w-full py-2.5 px-4 rounded text-sm bg-gray-100 focus:outline-none focus:border-l-4 focus:border-[#5e6f52] transition-all duration-300 ease-in-out">
+                            class="w-full py-2.5 px-4 text-sm rounded text-sm bg-gray-100 focus:outline-none focus:border-l-7 border-[#5e6f52] transition-all duration-300 ease-in-out">
 
                         @guest
                             <button type="button" id="mitraClick"
-                                class="w-full p-2 md:p-3 bg-[#687161] text-white rounded-lg hover:bg-[#7b8374] transition">
+                                class="w-full p-2 md:p-3 bg-[#687161] text-white rounded-lg hover:bg-[#4e5f42] transition">
                                 Kirim (Login Diperlukan)
                             </button>
                         @else
