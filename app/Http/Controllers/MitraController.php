@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Mitra;
+use App\Models\Gerakan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -18,11 +19,13 @@ class MitraController extends Controller
         $udhJadiMitra = Mitra::where('id_user', Auth::id())->first();
         if ($udhJadiMitra) {
             return redirect()->route('beranda')->with(['error' => 'Anda sudah terdaftar sebagai mitra.'])->withFragment('mitra');
-        }
+        }   
+
+
 
         $validatedData = $request->validate([
-            'nama_mitra'     => 'required|max:30|unique:mitras,namaMitra',
-            'email_mitra'    => 'required|email|unique:mitras,emailMitra',
+            'nama_mitra'     => 'required|max:30|unique:mitras,nama_mitra',
+            'email_mitra'    => 'required|email|unique:mitras,email_mitra',
             'kontak'        => 'required',
             'kategori_mitra' => 'required',
             'alamat_mitra'   => 'required',
@@ -30,20 +33,19 @@ class MitraController extends Controller
             'logo'          => 'nullable|image|max:2048',
         ]);
 
-        $imagePath = null;
-        if ($request->hasFile('logo')) {
-            $imagePath = $request->file('logo')->store('public/mitra');
-        }
+        $file = $request->file('logo');
+        $path = $file->store('mitras', 'public');
+        $validated['logo'] = $path;
 
         Mitra::create([
             'id_user'       => Auth::id(),
-            'namaMitra'     => $validatedData['nama_mitra'],
+            'nama_mitra'     => $validatedData['nama_mitra'],
             'kontak'        => $validatedData['kontak'],
             'kategori_mitra' => $validatedData['kategori_mitra'],
             'alamat_mitra'   => $validatedData['alamat_mitra'],
             'email_mitra'    => $validatedData['email_mitra'],
             'medsos'        => $validatedData['medsos'],
-            'logo'          => $imagePath ? str_replace('public/', '', $imagePath) : null,
+            'logo'          => $path,
         ]);
 
         return redirect()->route('beranda')->with(['success' => 'Pendaftaran mitra berhasil!'])->withFragment('mitra');

@@ -99,13 +99,11 @@
             </div>
         </section>
 
-        {{-- Modal Preview --}}
         <div id="modal" class="fixed inset-0 bg-black/80 z-50 hidden items-center justify-center">
             <img id="modal-img" class="max-h-[90vh] max-w-[90vw] rounded-xl shadow-2xl">
             <button onclick="closeModal()" class="absolute top-4 right-4 text-white text-2xl font-bold">&times;</button>
         </div>
 
-        {{-- Form Upload Galeri Admin --}}
         @if (auth()->check() && auth()->user()->role == 'admin')
             <section class="py-20 px-6 bg-gray-50">
                 <div class="max-w-xl mx-auto bg-white p-10 rounded-2xl shadow-xl space-y-6">
@@ -284,10 +282,10 @@
                     <div>
                         <p class="text-sm text-gray-500 mb-2">Mitra yang Terlibat</p>
                         <div class="flex gap-4 flex-wrap justify-center md:justify-start">
-                            @for ($i = 0; $i < 4; $i++)
-                                <img src="{{ asset('build/images/usu.png') }}" alt="Logo Mitra"
-                                    class="h-10 object-contain">
-                            @endfor
+                            @foreach ($mitras as $mitra )
+                            <img src="{{ asset('storage/' . $mitra['logo']) }}" alt="Event Image"
+                            class="w-15 h-15 object-cover ">
+                            @endforeach
                         </div>
                     </div>
 

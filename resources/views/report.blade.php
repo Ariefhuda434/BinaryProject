@@ -4,7 +4,7 @@
 
 @section('content')
     <div class="">
-        <div class="relative max-w-4xl mx-auto mt-10 md:mt-20 pt-20 px-4 md:px-8">
+        <div class="relative max-w-4xl mx-auto mt-30 md:mt-40 lg:mt-30  px-4 md:px-8">
             <h1 class="text-4xl md:text-6xl font-extrabold font-sans text-gray-900 mb-4 md:mb-6 text-center">
                 Laporin, Biar Cepat Beres!
             </h1>
@@ -152,156 +152,36 @@
 
         <section class="relative max-w-6xl mx-auto w-full -mt-10 overflow-hidden  bg-white py-5">
             <div class="marquee flex w-max space-x-5 animate-marquee">
+                @foreach ($blogs as $blog)
 
-                <div
-                    class="h-40 w-80 p-4 bg-gray-100 rounded-xl shadow-md flex space-x-4 transition-transform duration-300 ease-in-out">
+                <a href="/blogs/{{ $blog['slug'] }}"
+                        class="h-40 w-80 p-4 bg-gray-100 rounded-xl shadow-md flex space-x-4 transition-transform duration-300 ease-in-out">
 
-                    <div class="h-24 w-28 bg-white rounded-lg overflow-hidden">
-                        <img src="{{ asset('build/images/awn.jpg') }}" alt="Kegiatan Daur Ulang"
-                            class="h-full w-full object-cover" />
-                    </div>
-
-                    <div class="flex flex-col justify-between py-1">
-                        <div>
-                            <p class="text-gray-800 font-semibold text-sm leading-tight">
-                                Kegiatan daur ulang di SD Barunawati IV, Jakarta Utara.
-                            </p>
-                            <p class="text-gray-500 text-xs mt-1">Medan, 18 Mei 2006</p>
+                        <div class="h-24 w-28 bg-white rounded-lg overflow-hidden">
+                            <img src="{{ asset('build/images/awn.jpg') }}" alt="Kegiatan Daur Ulang"
+                                class="h-full w-full object-cover" />
                         </div>
 
-                        <div class="mt-3">
-                            <span
-                                class="inline-block text-xs font-semibold text-green-700 bg-green-100 px-3 py-1 rounded-full shadow-sm">
-                                Edukasi Lingkungan
-                            </span>
+                        <div class="flex flex-col justify-between py-1">
+                            <div>
+                                <p class="text-gray-800 font-semibold text-sm leading-tight">
+                                    {{ $blog['judul'] }}
+                                </p>
+                                <p class="text-gray-500 text-xs mt-1">{{ $blog['deskripsi'] }}</p>
+                                <p class="text-gray-500 text-xs mt-1">{{ $blog->created_at->format('d M Y') }}
+                                </p>
+                            </div>
+
+                            <div class="mt-3">
+                                <span
+                                    class="inline-block text-xs font-semibold text-green-700 bg-green-100 px-3 py-1 rounded-full shadow-sm">
+                                    Edukasi Lingkungan
+                                </span>
+                            </div>
                         </div>
-                    </div>
-                </div>
+                    </a>
+                @endforeach
 
-                <div
-                    class="h-40 w-80 p-4 bg-gray-100 rounded-xl shadow-md flex space-x-4 hover:scale-105 transition-transform duration-300 ease-in-out">
-
-                    <div class="h-24 w-28 bg-white rounded-lg overflow-hidden">
-                        <img src="{{ asset('build/images/awn.jpg') }}" alt="Kegiatan Daur Ulang"
-                            class="h-full w-full object-cover" />
-                    </div>
-
-                    <div class="flex flex-col justify-between py-1">
-                        <div>
-                            <p class="text-gray-800 font-semibold text-sm leading-tight">
-                                Kegiatan daur ulang di SD Barunawati IV, Jakarta Utara.
-                            </p>
-                            <p class="text-gray-500 text-xs mt-1">Medan, 18 Mei 2006</p>
-                        </div>
-
-                        <div class="mt-3">
-                            <span
-                                class="inline-block text-xs font-semibold text-green-700 bg-green-100 px-3 py-1 rounded-full shadow-sm">
-                                Edukasi Lingkungan
-                            </span>
-                        </div>
-                    </div>
-                </div>
-
-                <div
-                    class="h-40 w-80 p-4 bg-gray-100 rounded-xl shadow-md flex space-x-4 hover:scale-105 transition-transform duration-300 ease-in-out">
-
-                    <div class="h-24 w-28 bg-white rounded-lg overflow-hidden">
-                        <img src="{{ asset('build/images/awn.jpg') }}" alt="Kegiatan Daur Ulang"
-                            class="h-full w-full object-cover" />
-                    </div>
-
-                    <div class="flex flex-col justify-between py-1">
-                        <div>
-                            <p class="text-gray-800 font-semibold text-sm leading-tight">
-                                Kegiatan daur ulang di SD Barunawati IV, Jakarta Utara.
-                            </p>
-                            <p class="text-gray-500 text-xs mt-1">Medan, 18 Mei 2006</p>
-                        </div>
-
-                        <div class="mt-3">
-                            <span
-                                class="inline-block text-xs font-semibold text-green-700 bg-green-100 px-3 py-1 rounded-full shadow-sm">
-                                Edukasi Lingkungan
-                            </span>
-                        </div>
-                    </div>
-                </div>
-
-                <div
-                    class="h-40 w-80 p-4 bg-gray-100 rounded-xl shadow-md flex space-x-4 hover:scale-105 transition-transform duration-300 ease-in-out">
-
-                    <div class="h-24 w-28 bg-white rounded-lg overflow-hidden">
-                        <img src="{{ asset('build/images/awn.jpg') }}" alt="Kegiatan Daur Ulang"
-                            class="h-full w-full object-cover" />
-                    </div>
-
-                    <div class="flex flex-col justify-between py-1">
-                        <div>
-                            <p class="text-gray-800 font-semibold text-sm leading-tight">
-                                Kegiatan daur ulang di SD Barunawati IV, Jakarta Utara.
-                            </p>
-                            <p class="text-gray-500 text-xs mt-1">Medan, 18 Mei 2006</p>
-                        </div>
-
-                        <div class="mt-3">
-                            <span
-                                class="inline-block text-xs font-semibold text-green-700 bg-green-100 px-3 py-1 rounded-full shadow-sm">
-                                Edukasi Lingkungan
-                            </span>
-                        </div>
-                    </div>
-                </div>
-
-                <div
-                    class="h-40 w-80 p-4 bg-gray-100 rounded-xl shadow-md flex space-x-4 hover:scale-105 transition-transform duration-300 ease-in-out">
-
-                    <div class="h-24 w-28 bg-white rounded-lg overflow-hidden">
-                        <img src="{{ asset('build/images/awn.jpg') }}" alt="Kegiatan Daur Ulang"
-                            class="h-full w-full object-cover" />
-                    </div>
-
-                    <div class="flex flex-col justify-between py-1">
-                        <div>
-                            <p class="text-gray-800 font-semibold text-sm leading-tight">
-                                Kegiatan daur ulang di SD Barunawati IV, Jakarta Utara.
-                            </p>
-                            <p class="text-gray-500 text-xs mt-1">Medan, 18 Mei 2006</p>
-                        </div>
-
-                        <div class="mt-3">
-                            <span
-                                class="inline-block text-xs font-semibold text-green-700 bg-green-100 px-3 py-1 rounded-full shadow-sm">
-                                Edukasi Lingkungan
-                            </span>
-                        </div>
-                    </div>
-                </div>
-
-                <div
-                    class="h-40 w-80 p-4 bg-gray-100 rounded-xl shadow-md flex space-x-4 hover:scale-105 transition-transform duration-300 ease-in-out">
-
-                    <div class="h-24 w-28 bg-white rounded-lg overflow-hidden">
-                        <img src="{{ asset('build/images/awn.jpg') }}" alt="Kegiatan Daur Ulang"
-                            class="h-full w-full object-cover" />
-                    </div>
-
-                    <div class="flex flex-col justify-between py-1">
-                        <div>
-                            <p class="text-gray-800 font-semibold text-sm leading-tight">
-                                Kegiatan daur ulang di SD Barunawati IV, Jakarta Utara.
-                            </p>
-                            <p class="text-gray-500 text-xs mt-1">Medan, 18 Mei 2006</p>
-                        </div>
-
-                        <div class="mt-3">
-                            <span
-                                class="inline-block text-xs font-semibold text-green-700 bg-green-100 px-3 py-1 rounded-full shadow-sm">
-                                Edukasi Lingkungan
-                            </span>
-                        </div>
-                    </div>
-                </div>
             </div>
         </section>
 

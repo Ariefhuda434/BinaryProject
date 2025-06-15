@@ -50,13 +50,14 @@ class GerakanController extends Controller
         $mitra = Mitra::where('id_user', $userId)->first();
         
         $dokumentasi = Dokumentasi::where('id_gerakan', $gerakan->id)->get();
-
+        
+        $mitras = Mitra::all(); 
 
         $terdaftaruser = $gerakan->users()->where('id_user', $userId)->exists();
         $terdaftarmitra = $mitra ? $gerakan->mitras()->where('id_mitra', $mitra->id)->exists() : false;
         $jumlahTerdaftarUser = $gerakan->users()->count();
 
-        return view('gerakan', compact('gerakan', 'terdaftaruser', 'terdaftarmitra', 'jumlahTerdaftarUser','dokumentasi'));
+        return view('gerakan', compact('gerakan', 'terdaftaruser', 'terdaftarmitra', 'jumlahTerdaftarUser','dokumentasi','mitras'));
     }
 
     // Update gerakan

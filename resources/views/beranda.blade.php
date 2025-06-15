@@ -158,11 +158,11 @@
 
                 <div class="mt-8 flex justify-center lg:justify-start gap-6 flex-wrap ">
                     <img src="{{ asset('build/images/usu.png') }}" alt="USU"
-                        class="w-12 h-12 md:w-15 md:h-15 lg:w-20 lg:h-20 object-contain">
+                        class="w-12 h-12 md:w-15 md:h-15 lg:w-15 lg:h-15 object-contain">
                     <img src="{{ asset('build/images/ui.png') }}" alt="UI"
-                        class="w-12 h-12 lg:w-20 lg:h-20 md:w-15 md:h-15 object-contain">
+                        class="w-12 h-12 lg:w-15 lg:h-15 md:w-15 md:h-15 object-contain">
                     <img src="{{ asset('build/images/unilever.png') }}" alt="Unilever"
-                        class="w-12 h-12 lg:w-20 lg:h-20 md:w-15 md:h-15 object-contain">
+                        class="w-12 h-12 lg:w-15 lg:h-15 md:w-15 md:h-15 object-contain">
                 </div>
             </div>
         </div>
@@ -280,16 +280,16 @@
                         class="space-y-4">
                         @csrf
 
-                        <input type="text" name="namaMitra" placeholder="Nama Mitra"
+                        <input type="text" name="nama_mitra" placeholder="Nama Mitra"
                             class="w-full py-2.5 px-4 rounded text-sm bg-gray-100 focus:outline-none focus:border-l-4 focus:border-[#5e6f52] transition-all duration-300 ease-in-out">
 
-                        <input type="text" name="emailMitra" placeholder="Email Mitra"
+                        <input type="text" name="email_mitra" placeholder="Email Mitra"
                             class="w-full py-2.5 px-4 rounded text-sm bg-gray-100 focus:outline-none focus:border-l-4 focus:border-[#5e6f52] transition-all duration-300 ease-in-out">
 
                         <input type="text" name="kontak" placeholder="Kontak Mitra"
                             class="w-full py-2.5 px-4 rounded text-sm bg-gray-100 focus:outline-none focus:border-l-4 focus:border-[#5e6f52] transition-all duration-300 ease-in-out">
 
-                        <select name="kategoriMitra" required
+                        <select name="kategori_mitra" required
                             class="w-full py-2.5 px-4 rounded text-sm bg-gray-100 focus:outline-none focus:border-l-4 focus:border-[#5e6f52] transition-all duration-300 ease-in-out">
                             <option disabled selected value="">Pilih Kategori Mitra</option>
                             <option value="Komunitas Lingkungan">Komunitas Lingkungan</option>
@@ -300,7 +300,7 @@
                             <option value="Lainya">Lainya</option>
                         </select>
 
-                        <input type="text" name="alamatMitra" placeholder="Alamat Mitra"
+                        <input type="text" name="alamat_mitra" placeholder="Alamat Mitra"
                             class="w-full py-2.5 px-4 rounded text-sm bg-gray-100 focus:outline-none focus:border-l-4 focus:border-[#5e6f52] transition-all duration-300 ease-in-out">
 
                         <input type="text" name="medsos" placeholder="Instagram/Facebook/LinkedIn"

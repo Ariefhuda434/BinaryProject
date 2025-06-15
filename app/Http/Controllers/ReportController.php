@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Blogs;
 use Illuminate\Http\Request;
 use App\Models\Report;
 use Illuminate\Support\Facades\Auth;
@@ -12,8 +13,11 @@ class ReportController extends Controller
     public function create()
     {
         $report = Report::get();
+        $blogs = Blogs::all();
+
         return view('report', [
-            'report' => $report
+            'report' => $report,
+            'blogs' => $blogs
         ]);
     }
 
@@ -44,7 +48,6 @@ class ReportController extends Controller
     public function show($id)
     {
         $data = Report::findOrFail($id);
-
         return view('report', [
             'report' => $data
         ]);
