@@ -29,39 +29,31 @@
 
             </section>
 
-            <section id="galeri-foto" class="w-full absolute top-60 bg-transparent   mt-10">
+            <section id="galeri-foto" class="w-full absolute top-70 bg-transparent   mt-10">
                 <div class="relative z-10 w-full overflow-x-auto px-6 py-12 overflow-hidden">
                     <div class="relative flex flex-wrap items-center justify-center ">
                         @foreach ($dokumentasi as $index => $foto)
                             @php
-                                $rotation = [-10, -5, 0, 5, 10][$index % 5];
-                                $scale =
-                                    $index % 5 === 2
-                                        ? 'scale-105 z-30'
-                                        : ($index % 5 === 1 || $index % 5 === 3
-                                            ? 'scale-95 z-20'
-                                            : 'scale-90 z-10');
-
                                 $customClass = '';
 
                                 if ($index === 0) {
-                                    $customClass = 'mr-[-3rem] mt-15 shadow-lg hover:mt-[-1rem]';
+                                    $customClass = 'mr-[-3rem] rotate-355 z-1 mt-25 shadow-lg hover:mt-[-1rem]';
                                 } elseif ($index === 1) {
-                                    $customClass = 'mr-[-3rem] shadow-lg hover:mt-[-3rem]';
+                                    $customClass = 'mr-[-3rem] rotate-355 z-2 shadow-lg mt-10 hover:mt-[-3rem]';
                                 } elseif ($index === 2) {
-                                    $customClass = 'shadow-lg hover:mt-[-4rem]';
+                                    $customClass = 'shadow-lg hover:mt-[-4rem] z-5' ;
                                 } elseif ($index === 3) {
-                                    $customClass = 'ml-[-3rem] shadow-lg hover:mt-[-3rem]';
+                                    $customClass = 'ml-[-3rem] rotate-5 mt-10 z-2 shadow-lg hover:mt-[-3rem]';
                                 } elseif ($index === 4) {
-                                    $customClass = 'ml-[-3rem] mt-15 shadow-lg hover:mt-[-1rem]';
+                                    $customClass = 'ml-[-3rem] mt-25 rotate-5 z-1 shadow-lg hover:mt-[-1rem]';
                                 }
 
                                 $responsiveClass = $index >= 2 ? 'hidden sm:block' : '';
                             @endphp
                             <div
                                 class="relative aspect-[2/3] w-[40vw] sm:w-[30vw] md:w-[20vw] lg:w-[19vw] max-w-[320px] min-w-[150px]
-           transform rotate-[{{ $rotation }}deg] {{ $scale }} {{ $customClass }} {{ $responsiveClass }}
-           transition-all duration-700 ease-in-out  cursor-pointer hover:scale-105 group">
+           transform {{ $customClass }} {{ $responsiveClass }}
+           transition-all duration-700 ease-in-out cursor-pointer">
 
                                 <img src="{{ asset('storage/' . $foto->foto) }}" alt="Galeri"
                                     class="w-full h-full object-cover rounded-2xl shadow-xl" />
@@ -71,7 +63,7 @@
                                 </div>
 
                                 <div
-                                    class="absolute -bottom-60 group-hover:bottom-20 p-4 h-full w-full transition-all duration-700 ease-in-out 
+                                    class="absolute -bottom-30 group-hover:bottom-20 p-4 h-full w-full transition-all duration-700 ease-in-out 
                flex flex-col justify-end text-white text-shadow-lg">
                                     <p class="text-sm font-semibold text-center leading-snug">{{ $foto->deskripsi }}</p>
                                 </div>
@@ -263,39 +255,44 @@
                     @endif
                 </div>
 
-                <section class="bg-white rounded-xl shadow-lg p-10 space-y-8 max-w-2xl mx-auto w-full">
-                    <h2 class="text-3xl font-bold text-gray-900">{{ $gerakan['judul'] }}</h2>
-                    <p class="text-gray-700">Sebuah gerakan kolaboratif untuk membersihkan sungai kota kita.</p>
+             <section class="bg-white rounded-2xl shadow-lg p-6 sm:p-10 space-y-8 max-w-3xl mx-auto w-full">
+    <h2 class="text-3xl sm:text-4xl font-bold text-center text-[#2f3e2f] leading-tight">
+        {{ \Illuminate\Support\Str::limit($gerakan['judul'], 80) }}
+    </h2>
 
-                    <div class="grid grid-cols-2 gap-6 text-center">
-                        <div>
-                            <p class="text-sm text-gray-500">Jumlah Peserta</p>
-                            <p class="text-xl font-semibold text-gray-900">{{ $jumlahTerdaftarUser }} orang</p>
-                        </div>
-                        <div>
-                            <p class="text-sm text-gray-500"></p>
-                            <p class="text-xl font-semibold text-gray-900">{{ $gerakan['tanggal'] }} <br>
-                                {{ $gerakan['periode'] }}</p>
-                        </div>
-                    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 text-center">
+        <div class=" py-4 ">
+            <p class="text-sm text-gray-500 mb-1">Jumlah Peserta</p>
+            <p class="text-2xl font-semibold text-gray-800">{{ $jumlahTerdaftarUser }} orang</p>
+        </div>
+        <div class=" rounded-xl">
+            <p class="text-sm text-gray-500 mb-1">Waktu Pelaksanaan</p>
+            <p class="text-lg font-semibold text-gray-800">
+                {{ $gerakan['tanggal'] }}<br>
+                <span class="text-sm font-normal text-gray-600">{{ $gerakan['periode'] }}</span>
+            </p>
+        </div>
+    </div>
 
-                    <div>
-                        <p class="text-sm text-gray-500 mb-2">Mitra yang Terlibat</p>
-                        <div class="flex gap-4 flex-wrap justify-center md:justify-start">
-                            @foreach ($mitras as $mitra )
-                            <img src="{{ asset('storage/' . $mitra['logo']) }}" alt="Event Image"
-                            class="w-15 h-15 object-cover ">
-                            @endforeach
-                        </div>
-                    </div>
+    <div>
+        <p class="text-sm text-gray-500 mb-2">Mitra yang Terlibat</p>
+        <div class="flex flex-wrap items-center justify-center gap-4">
+            @forelse ($mitras as $mitra)
+                <img src="{{ asset('storage/' . $mitra['logo']) }}" alt="{{ $mitra['nama'] ?? 'Logo Mitra' }}"
+                    class="w-14 h-14 object-contain rounded-md shadow-sm border border-gray-200 bg-white p-1" />
+            @empty
+                <p class="text-gray-500 text-sm italic">Belum ada mitra yang terlibat</p>
+            @endforelse
+        </div>
+    </div>
 
-                    <div>
-                        <p class="text-sm text-gray-500 mb-1">Deskripsi Acara</p>
-                        <p class="text-gray-700 leading-relaxed">
-                            {{ $gerakan['deskripsi'] }}
-                        </p>
-                    </div>
-                </section>
+    <div>
+        <p class="text-sm text-gray-500 mb-1">Deskripsi Acara</p>
+        <p class="text-gray-700 leading-relaxed text-justify indent-6">
+            {{ $gerakan['deskripsi'] }}
+        </p>
+    </div>
+</section>
 
             </div>
         </div>

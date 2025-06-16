@@ -13,71 +13,62 @@
         <p class="max-w-3xl text-center text-gray-600 text-lg md:text-xl mb-12 leading-relaxed">
             Ikuti berbagai aksi nyata demi lingkungan yang lebih baik.
         </p>
+<div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        @foreach ($gerakans as $gerakan)
+            <article
+                class="bg-white rounded-2xl shadow hover:shadow-lg transition duration-300 transform hover:scale-[1.02] overflow-hidden">
+                <img src="{{ asset('storage/' . $gerakan['foto']) }}" alt="Event Image"
+                    class="w-full h-48 object-cover rounded-t-2xl">
 
-        <div class="max-w-7xl w-full">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
-                @foreach ($gerakans as $gerakan)
-                    <article
-                        class="bg-white rounded-2xl shadow hover:shadow-lg transition duration-300 transform hover:scale-105">
-                        <img src="{{ asset('storage/' . $gerakan['foto']) }}" alt="Event Image"
-                            class="w-full h-48 object-cover rounded-t-2xl">
-                        <div class="p-5 space-y-3">
-                            <h3 class="text-2xl font-extrabold text-gray-900 flex items-center gap-3">
-                                {{ $gerakan['judul'] }}
-                                <span
-                                    class="
-        text-sm font-semibold px-3 py-1 rounded-full
-        {{ $gerakan['status'] === 'segera'
-            ? 'bg-green-100 text-green-800'
-            : ($gerakan['status'] === 'selesai'
-                ? 'bg-gray-200 text-gray-700'
-                : 'bg-yellow-100 text-yellow-800') }}
-    ">
-                                    {{ ucfirst($gerakan['status']) }}
-                                </span>
+                <div class="p-5 space-y-3">
+                   <h3 class="text-xl font-bold text-gray-900">
+    {{ \Illuminate\Support\Str::limit($gerakan['judul'], 40) }}
+                    </h3>
+                    <div class="flex items-center text-sm text-gray-600 gap-2">
+                        <img src="{{ asset('build/images/icondate.png') }}" alt="Tanggal" class="h-4 w-4">
+                        <span>{{ $gerakan['tanggal'] }}</span>
+                    </div>
 
-                            </h3>
+                    <div class="flex items-center text-sm text-gray-600 gap-2">
+                        <img src="{{ asset('build/images/icontime.png') }}" alt="Jam" class="h-4 w-4">
+                        <span>{{ $gerakan['periode'] }}</span>
+                    </div>
 
-                            <div class="flex items-center text-sm text-gray-600 gap-2">
-                                <img src="{{ asset('build/images/icondate.png') }}" alt="Tanggal" class="h-4">
-                                <span>{{ $gerakan['tanggal'] }}</span>
-                            </div>
+                    <div class="flex items-center text-sm text-gray-600 gap-2">
+                        <img src="{{ asset('build/images/iconlocation.png') }}" alt="Lokasi" class="h-4 w-4">
+                        <span class="line-clamp-2">{{ $gerakan['lokasi'] }}</span>
+                    </div>
 
-                            <div class="flex items-center text-sm text-gray-600 gap-2">
-                                <img src="{{ asset('build/images/icontime.png') }}" alt="Jam" class="h-4">
-                                <span>{{ $gerakan['periode'] }}</span>
-                            </div>
+                    <div class="flex items-center justify-between pt-3">
+                        <a href="{{ route('gerakan.show', $gerakan['slug']) }}">
+                            @if ($gerakan['status'] === 'selesai')
+                                <button
+                                    class="bg-[#57674c] hover:bg-[#4e5f42] text-white text-sm font-semibold py-2 px-4 rounded-lg">
+                                    Galeri
+                                </button>
+                            @else
+                                <button
+                                    class="bg-[#57674c] hover:bg-[#4e5f42] text-white text-sm font-semibold py-2 px-4 rounded-lg">
+                                    Ikut
+                                </button>
+                            @endif
+                        </a>
 
-                            <div class="flex items-center text-sm text-gray-600 gap-2">
-                                <img src="{{ asset('build/images/iconlocation.png') }}" alt="Lokasi" class="h-4">
-                                <span>{{ $gerakan['lokasi'] }}</span>
-                            </div>
+                        <p class="
+                            text-sm font-semibold px-3 py-1 rounded-full
+                            {{ $gerakan['status'] === 'segera' ? 'bg-green-100 text-green-800'
+                                : ($gerakan['status'] === 'selesai' ? 'bg-gray-200 text-gray-700'
+                                : 'bg-yellow-100 text-yellow-800') }}">
+                            {{ ucfirst($gerakan['status']) }}
+                        </p>
+                    </div>
+                </div>
+            </article>
+        @endforeach
+    </div>
+</div>
 
-                            <div class="flex items-center justify-between pt-3">
-                                <a href="{{ route('gerakan.show', $gerakan['slug']) }}">
-    @if ($gerakan['status'] == 'selesai')
-
-    <button
-        class="bg-green-600 hover:bg-green-700 text-white text-sm font-semibold py-2 px-4 rounded-lg">
-        Galeri
-    </button>
-                                    @else
-                                    <button
-                                        class="bg-green-600 hover:bg-green-700 text-white text-sm font-semibold py-2 px-4 rounded-lg">
-                                        Ikut
-                                    </button>
-                                    @endif
-                                </a>
-
-                                <a href="#" class="hover:opacity-80">
-                                    <img src="{{ asset('build/images/iconshare.png') }}" alt="Bagikan" class="h-5">
-                                </a>
-                            </div>
-                        </div>
-                    </article>
-                @endforeach
-            </div>
-        </div>
 
     </div>
     @if (auth()->check() && auth()->user()->role == 'admin')
@@ -148,14 +139,14 @@
                         <span
                             class="absolute top-1/2 left-0 w-6 h-1 bg-white rounded transform -translate-y-1/2 -rotate-90"></span>
                     </div>
-                    <p class="text-lg md:text-xl text-white font-bold">Tambah Artikel</p>
+                    <p class="text-lg md:text-xl text-white font-bold">Tambah Gerakan</p>
                 </div>
             </button>
         </div>
 
         <div id="form-section"
             class="bg-white mt-20 rounded-lg shadow-md hidden opacity-0 p-6 border-2 w-200 mx-auto border-dashed border-gray-300 h0fit lg:h-full">
-            <h2 id="header" class="text-2xl font-semibold mb-4 text-gray-700">Tambah Event Baru</h2>
+            <h2 id="header" class="text-2xl font-semibold mb-4 text-gray-700">Tambah Gerakan Baru</h2>
             @if (session('success'))
                 <div class="bg-green-100 text-green-700 p-2 rounded mb-3">
                     {{ session('success') }}

@@ -55,10 +55,11 @@
                     </a>
                 </li>
                 <li>
-                    <a href="/gerakans"
-                        class="relative pl-2 {{ Request::is('gerakans') ? 'text-[#ccc14e] border-[#ccc14e] border-l-4 font-black' : 'before:content-[""] before:absolute before:left-0 before:top-0 before:h-full before:w-[4px] before:bg-[#ccc14e] before:scale-y-0 before:origin-top hover:before:scale-y-100 before:transition before:duration-700' }}">
-                        Gerakan
-                    </a>
+                   <a href="{{ Request::is('gerakan') ? '/gerakan' : '/gerakans' }}"
+                 class="relative pl-2 {{ Request::is('gerakan') || Request::is('gerakans') ? 'text-[#ccc14e] border-[#ccc14e] border-l-4 font-black' : 'before:content-[\'\'] before:absolute before:left-0 before:top-0 before:h-full before:w-[4px] before:bg-[#ccc14e] before:scale-y-0 before:origin-top hover:before:scale-y-100 before:transition before:duration-700' }}">
+                 Gerakan
+                </a>
+
                 </li>
                 <li>
                     <a href="/report"
@@ -140,10 +141,22 @@
                         </a>
                     </li>
                     <li>
-                        <a href="/gerakans"
-                            class="{{ Request::is('gerakans') ? 'text-[#ccc14e] font-black pb-[1.05rem] text-xl border-b-4 border-[#ccc14e]' : 'relative text-xl text-white font-normal pb-[0.9rem]   after:absolute after:-bottom-1.5 after:left-1/2 after:-translate-x-1/2 after:w-full after:h-[4px] after:bg-[#ccc14e] after:origin-center after:scale-x-0 after:transition-transform after:duration-900 hover:after:scale-x-100' }}">
-                            Gerakan
-                        </a>
+                   @if (Request::is('gerakan'))
+    <a href="/gerakan"
+       class="{{ Request::is('gerakans') 
+           ? 'text-[#ccc14e] font-black pb-[1.05rem] text-xl border-b-4 border-[#ccc14e]' 
+           : 'relative text-xl text-white font-normal pb-[0.9rem] after:absolute after:-bottom-1.5 after:left-1/2 after:-translate-x-1/2 after:w-full after:h-[4px] after:bg-[#ccc14e] after:origin-center after:scale-x-0 after:transition-transform after:duration-900 hover:after:scale-x-100' }}">
+        Gerakan
+    </a>
+@else
+    <a href="/gerakans"
+       class="{{ Request::is('gerakans') 
+           ? 'text-[#ccc14e] font-black pb-[1.05rem] text-xl border-b-4 border-[#ccc14e]' 
+           : 'relative text-xl text-white font-normal pb-[0.9rem] after:absolute after:-bottom-1.5 after:left-1/2 after:-translate-x-1/2 after:w-full after:h-[4px] after:bg-[#ccc14e] after:origin-center after:scale-x-0 after:transition-transform after:duration-900 hover:after:scale-x-100' }}">
+        Gerakan
+    </a>
+@endif
+
                     </li>
                     <li>
                         <a href="/report"
@@ -182,8 +195,9 @@
                         x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-x-95"
                         class="absolute right-5 mt-2 w-33 text-center origin-top-right rounded-md bg-white py-1 shadow-lg z-50">
                         @auth
-                            <a onclick="navbarKore('btnProfil2')" id="btnProfil2"
+                                <a onclick="navbarKore('btnProfil2');" type="submit" id="btnProfil2"
                                 class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-200">Profile</a>
+                            
                             <form action="{{ route('logout') }}" method="POST"
                                 class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-200">
                                 @csrf

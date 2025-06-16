@@ -5,7 +5,7 @@
         <div class="absolute inset-0 md:h-screen h-[50rem] bg-cover opacity-90"
             style="background-videos: url('{{ asset('build/images/trashBeranda.jpg') }}')">
             <video class="md:absolute inset-0 h-full w-full object-cover" autoplay muted loop playsinline>
-                <source src="{{ asset('build/videos/vidiosampah.mp4') }}" type="video/mp4" />
+                <source src="{{ asset('build/videos/beranda.mp4') }}" type="video/mp4" />
                 Browser Anda tidak mendukung video.
             </video>
             <div class="absolute pb-2 inset-0 bg-gradient-to-r  from-black/80 via-black/60 to-transparent"></div>

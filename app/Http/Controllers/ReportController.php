@@ -32,14 +32,17 @@ class ReportController extends Controller
             'judul' => 'required|string',
             'deskripsi' => 'required|string',
             'lokasi' => 'required|string|max:255',
-            'foto' => 'required|file|mimes:jpg,jpeg,png|max:2048',
+            'foto' => 'required|file|image|max:2048',
         ]);
-
-        $file = $request->file('foto');
-        $path = $file->store('report', 'public');
+        $path = $request->file('foto')->store('report', 'public');
         $validated['foto'] = $path;
 
-        Report::create($validatedData);
+        Report::create([
+            'judul'=> $request->judul,
+            'deskripsi' => $request->deskripsi,
+            'lokasi' => $request->lokasi,
+            'foto' => $path
+        ]);
 
         return redirect()->route('report')
             ->with('successReport', 'Laporan berhasil dikirim!')->withFragment('formlapor');
@@ -67,8 +70,9 @@ class ReportController extends Controller
     }
 
     public function destroy(Request $request, $id)
-    {
-        Report::find($id)->delete();
+    {   
+        $report = Report::findOrFail($id);
+        $report->delete();
         return redirect()->back()->with('success', "Laporan berhasil dihapus");
     }
 }

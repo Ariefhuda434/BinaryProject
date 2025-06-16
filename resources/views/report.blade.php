@@ -153,8 +153,7 @@
         <section class="relative max-w-6xl mx-auto w-full -mt-10 overflow-hidden  bg-white py-5">
             <div class="marquee flex w-max space-x-5 animate-marquee">
                 @foreach ($blogs as $blog)
-
-                <a href="/blogs/{{ $blog['slug'] }}"
+                    <a href="/blogs/{{ $blog['slug'] }}"
                         class="h-40 w-80 p-4 bg-gray-100 rounded-xl shadow-md flex space-x-4 transition-transform duration-300 ease-in-out">
 
                         <div class="h-24 w-28 bg-white rounded-lg overflow-hidden">
@@ -215,6 +214,7 @@
                                     <th class="p-2 md:p-3 text-center">Tanggal</th>
                                     <th class="p-2 md:p-3 text-center">Status</th>
                                     <th class="p-2 md:p-3 text-center">Lokasi</th>
+                                    <th class="p-2 md:p-3 text-center">Foto</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -223,9 +223,10 @@
                                         <td class="p-2 md:p-3 text-center">
                                             <div class="flex items-center justify-center space-x-2">
                                                 @if (auth()->check() && auth()->user()->role == 'admin')
-                                                    <form action="{{ route('delete', $lapor->id) }}" method="DELETE"
+                                                    <form action="{{ route('delete', $lapor->id) }}" method="POST"
                                                         class=""
                                                         onsubmit="return confirm('Are you sure you want to delete this product?')">
+                                                        @method('DELETE')
                                                         @csrf
                                                         <button type="submit" class="-ml-10">
                                                             <img src="{{ asset('build/images/iconrash.png') }}"
@@ -273,16 +274,39 @@
                                             @else
                                                 <span class="capitalize">{{ $lapor->status }}</span>
                                             @endif
-                                        </td>
-
-                                        <td class="p-2 md:p-3 text-center truncate max-w-xs">
+                                        <td class="p-2 md:p-3 text-center">
                                             {{ $lapor->lokasi }}
+                                        </td>
+                                    </td>
+                                    
+                                    <td class="p-2 md:p-3 text-center truncate max-w-xs">
+                                            <button
+                                                onclick="document.getElementById('foto-{{ $lapor->id }}').classList.remove('hidden')"
+                                                class="underline text-blue-600 hover:text-blue-800">
+                                                Lihat Foto
+                                            </button>
                                         </td>
                                     </tr>
                                 @endforeach
 
                             </tbody>
                         </table>
+                        @foreach ($report as $lapor)
+                            <div id="foto-{{ $lapor->id }}"
+                                class="hidden fixed inset-0 z-50 flex items-center justify-center mt-20">
+                                <div class="bg-gray-100 shadow-lg    p-5 rounded-2xl w-[90vw] max-w-md max-h-[90vh] overflow-auto">
+                                    <img src="{{ asset('storage/' . $lapor->foto) }}" alt="Galeri"
+                                        class="rounded-lg max-h-[70vh] mx-auto" />
+
+                                    <button
+                                        onclick="document.getElementById('foto-{{ $lapor->id }}').classList.add('hidden')"
+                                        class="bg-[#ccc14e] w-full mt-4 h-10 rounded-lg text-gray-100 font-bold">
+                                        Tutup
+                                    </button>
+                                </div>
+                            </div>
+                        @endforeach
+
                     </div>
                 </div>
             </div>
@@ -296,7 +320,7 @@
                             <span
                                 class="absolute top-1/2 left-0 w-6 h-1 bg-white rounded transform -translate-y-1/2 -rotate-90"></span>
                         </div>
-                        <p class="text-lg md:text-xl text-white font-bold">Lapor pak</p>
+                        <p class="text-lg md:text-xl text-white font-bold">Buat Laporan</p>
                     </div>
                 </button>
             </div>
@@ -317,14 +341,15 @@
 
                     <div>
                         <label for="judul" class="block mb-1 font-medium text-gray-600">Judul Laporan</label>
-                        <input type="text" name="judul" id="judul"
+                        <input type="text" name="judul" id="judul" placeholder="Judul Laporan"
                             class="w-full py-3 px-3 rounded text-sm bg-gray-100 focus:outline-none focus:border-l-10 border-[#5e6f52] transition-all duration-300 ease-in-out">
                     </div>
 
                     <div>
                         <label for="deskripsi" class="block mb-1 font-medium text-gray-600">Isi Laporan</label>
                         <textarea name="deskripsi" id="deskripsi" rows="3"
-                            class="w-full bg-gray-100 rounded focus:outline-none  focus:border-l-10 border-[#5e6f52] transition-all duration-300 ease-in-out p-2 md:p-3 resize-y" placeholder="Isi laporan..."></textarea>
+                            class="w-full bg-gray-100 rounded focus:outline-none  focus:border-l-10 border-[#5e6f52] transition-all duration-300 ease-in-out p-2 md:p-3 resize-y"
+                            placeholder="Isi laporan..."></textarea>
                     </div>
 
                     <div class="w-full">
@@ -335,18 +360,19 @@
 
                     <div>
                         <label for="images" class="block mb-1 font-medium text-gray-600">Upload Gambar</label>
-                        <input type="file" name="foto" id="foto" accept="image/*" placeholder="Upload Gambar"
+                        <input type="file" name="foto" id="foto" accept="image/*"
+                            placeholder="Upload Gambar"
                             class="w-full py-3 px-3 rounded text-sm bg-gray-100 focus:outline-none focus:border-l-10 border-[#5e6f52] transition-all duration-300 ease-in-out">
                     </div>
 
                     @guest
                         <button type="button" id="reportClick"
-                            class="w-full p-2 md:p-3 bg-[#687161] text-white rounded-lg hover:bg-[#7b8374] transition">
+                            class="w-full p-2 md:p-3 bg-[#57674c] text-white rounded-lg hover:bg-[#4e5f42] transition">
                             Kirim (Login Diperlukan)
                         </button>
                     @else
                         <button type="submit"
-                            class="w-full p-2 md:p-3 bg-[#687161] text-white rounded-lg hover:bg-[#7b8374] transition">
+                            class="w-full p-2 md:p-3 bg-[#57674c] text-white rounded-lg hover:bg-[#4e5f42] transition">
                             Kirim Laporan
                         </button>
                     @endguest

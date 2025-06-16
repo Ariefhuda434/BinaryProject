@@ -34,7 +34,7 @@ class AuthController extends Controller
 
         if (Auth::attempt($request->only('email', 'password'), $remember)) {
             $request->session()->regenerate();
-            return redirect('login'); 
+            return redirect('login');
         }
 
         return back()->withErrors([
@@ -96,8 +96,8 @@ class AuthController extends Controller
     {
         $validated = $request->validate([
             'email'        => 'required|email|exists:users,email',
-            'password'     => 'required|min:6',       
-            'new_password' => 'required|min:6',       
+            'password'     => 'required|min:6',
+            'new_password' => 'required|min:6',
         ]);
 
         $user = User::where('email', $request->email)->first();
@@ -113,4 +113,21 @@ class AuthController extends Controller
         return redirect()->route('login')->with('success', 'Password berhasil diperbarui!');
     }
 
+    public function profile(Request $request)
+    {
+        $request->validate([
+            'avatar' => 'required|file|image|max:2048',
+        ]);
+
+        $path = $request->file('avatar')->store('profile', 'public');
+
+        $user = User::find(Auth::id());
+
+        $user->update([
+            'avatar' => $path,
+        ]);
+
+        
+    return back()->with('success', 'Foto profil berhasil diupdate.');
+    }
 }

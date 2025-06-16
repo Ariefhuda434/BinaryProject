@@ -58,8 +58,8 @@ class GerakanController extends Controller
         $terdaftaruser = $gerakan->users()->where('id_user', $userId)->exists();
         $terdaftarmitra = $mitra ? $gerakan->mitras()->where('id_mitra', $mitra->id)->exists() : false;
         $jumlahTerdaftarUser = $gerakan->users()->count();
+        
     
-
         return view('gerakan', compact(
             'gerakan',
             'terdaftaruser',
@@ -67,7 +67,6 @@ class GerakanController extends Controller
             'jumlahTerdaftarUser',
             'dokumentasi',
             'mitras',
-         
         ));
     }
     
@@ -76,10 +75,10 @@ class GerakanController extends Controller
     $userId = Auth::id();
 
     $historyGerakans = Gerakan::whereHas('users', function ($query) use ($userId) {
-        $query->where('id_user', $userId);
-    })->where('status', 'selesai')->get();
+    $query->where('id_user', $userId);
+    })->where('status', 'selesai')->get(); 
 
-    return view('beranda', compact('historyGerakans'));
+    return back()->with(compact('historyGerakans'));
 }
 
     /**************************************************

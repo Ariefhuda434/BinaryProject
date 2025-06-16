@@ -1,6 +1,5 @@
   <div class="flex text-center flex-col z-101">
-    <p class="lg:text-7xl md:text-6xl  text-5xl font-black text-[#ccc14e] -mb-[0.7rem]"> <span class="text-7xl lg:text-8xl md:text-7xl ">B</span>inary Waste</p>
-    <div class="bg-[#ccc14e] w-screen h-5">
+    <div class="bg-[#ccc14e] w-screen h-5 mt-10">
     </div>
   </div>
   <footer style="background-image: url('{{ asset('build/images/Line.svg') }}')" class=" text-white px-6 py-10 z-100 w-full bg-cover">

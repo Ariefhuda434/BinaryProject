@@ -16,11 +16,11 @@
 
         <section class="mt-5 px-6 md:px-20">
             <div class="flex flex-col md:flex-row items-center justify-center gap-10">
-                <div class="md:w-1/2 text-center -mb-10 ">
+                <div class="md:w-1/2 text-center mt-[-2rem] ">
                     <img src="{{ asset('build/images/Video.gif') }}" alt="Ilustrasi Binary Waste"
-                        class="md:w-full w-60 max-w-md mx-auto md:h-[300px] object-contain">
+                        class="md:w-full w-30 max-w-md mx-auto md:h-[300px] object-contain">
                 </div>
-                <div class="md:w-500">
+                <div class="md:w-500 ml-[-5rem]">
                     <p
                         class="md:text-xl indent-8 text-justify font-sans font-normal text-gray-700 leading-relaxed text-center ">
                         Binary Waste adalah sebuah platform digital berbasis web yang dikembangkan sebagai solusi inovatif
@@ -58,59 +58,58 @@
                 </div>
             </div>
 
-            <div id="visi-misi" class="mt-10 p-5  min-w-full transition-opacity duration-700">
-                <div class="relative w-full lg:w-[71rem] md:w-3/4 mx-auto pb-10 h-150 md:h-85 bg-center rounded-xl shadow-lg overflow-hidden"
-                    data-aos="fade-up" data-aos-duration="1000">
-                    <div class="absolute inset-0 bg-cover bg-top  bg-no-repeat lg:bg-right  md:flex md:justify-end"
-                        style="background-image: url('{{ asset('build/images/trashberanda.jpg') }}')">
-                        <div class="absolute bottom-2 right-2 md:bottom-4 md:right-4 flex items-center space-x-2 z-10">
-                            <img src="{{ asset('build/images/logoputih.png') }}" alt="Logo"
-                                class="h-8 md:h-10 bg-cover">
-                            <div class="text-white">
-                                <p class="font-bold text-xs md:text-sm">BINARY WASTE</p>
-                                <p class="text-[0.35rem] md:text-[0.42rem]">Digital Solution for a Zero-Waste World!</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div
-                        class="relative z-20 w-full md:w-3/4 h-auto lg:h-85 bg-[#5e6f52] md:rounded-l-lg md:rounded-br-[7rem] shadow-xl overflow-hidden">
-                        <div class="flex h-full">
-                            <div class="lg:w-15 md:w-15 bg-[#ccc14e]"></div>
+    <div id="visi-misi" class="mt-10 p-5  min-w-full transition-opacity duration-700">
+    <div class="relative lg:w-3/4 md:w-full w-full max-w-7xl  mx-auto pb-10 h-auto md:h-[28rem] bg-center rounded-xl  overflow-hidden"
+     data-aos="fade-up" data-aos-duration="1000">
+    
+    <div class="absolute inset-0 h-[25.5rem]   bg-cover bg-top md:bg-right bg-no-repeat rounded-2xl"
+         style="background-image: url('{{ asset('build/images/trashberanda.jpg') }}')">
+        
+        <div class="absolute bottom-14 right-2 md:bottom-4 md:right-4 flex items-center space-x-2 z-10">
+            <img src="{{ asset('build/images/logoputih.png') }}" alt="Logo" class="h-8 md:h-10">
+            <div class="text-white">
+                <p class="font-bold text-xs md:text-sm">BINARY WASTE</p>
+                <p class="text-[0.35rem] md:text-[0.42rem]">Digital Solution for a Zero-Waste World!</p>
+            </div>
+        </div>
+    </div>
 
-                            <div class="flex-1 p-6 md:p-10">
-                                <p
-                                    class="text-black font-sans leading-tight text-3xl md:text-5xl text-white font-extrabold text-center relative z-10 tracking-tight">
-                                    Visi & Misi
-                                </p>
+    <div class="relative z-20 w-full md:w-3/4 h-full bg-[#5e6f52] md:rounded-l-lg md:rounded-br-[7rem] shadow-xl overflow-hidden">
+        <div class="flex flex-col md:flex-row h-full">
+            
+            <div class="hidden md:block w-[50px] bg-[#ccc14e]"></div>
 
-                                <p
-                                    class="px-4 md:px-10 mt-6 md:mt-5 lg:mt-0 text-justify text-sm md:text-lg text-gray-100 font-sans font-light relative z-10 indent-8 leading-relaxed">
-                                    <span class="block mb-4">
-                                        Binary Waste hadir sebagai jembatan antara masyarakat dan lingkungan yang lebih baik
-                                        sebuah platform digital yang menjadi solusi dalam pengelolaan dan pemantauan sampah
-                                        ilegal berbasis kolaborasi masyarakat.
-                                        Dengan mengintegrasikan <span class="font-medium text-green-600">teknologi, edukasi,
-                                            dan aksi nyata</span>, kami menciptakan lingkungan yang bersih, sehat, dan
-                                        mendukung tercapainya <span class="italic text-green-500">kota berkelanjutan</span>,
-                                        serta kehidupan masyarakat yang lebih peduli terhadap lingkungan menuju <span
-                                            class="font-semibold text-white">Indonesia Emas 2045</span>.
-                                    </span>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
+            <div class="flex-1 p-6 md:p-10">
+                <p class="text-2xl md:text-5xl font-extrabold text-white text-center tracking-tight">
+                    Visi & Misi
+                </p>
 
-
-                </div>
-
-                <div class="lg:w-[71rem] md:w-full w-full max-w-6xl mx-auto mt-5 bg-white shadow-xl rounded-xl p-6 lg:p-5 md:p-8 flex flex-col md:flex-row items-center gap-6 md:gap-8"
+                <p class="mt-4 md:mt-6 px-2 md:px-8 text-sm md:text-lg text-justify text-gray-100 leading-relaxed indent-8">
+                    <span class="block mb-4">
+                        Binary Waste hadir sebagai jembatan antara masyarakat dan lingkungan yang lebih baik —
+                        sebuah platform digital yang menjadi solusi dalam pengelolaan dan pemantauan sampah
+                        ilegal berbasis kolaborasi masyarakat.
+                    </span>
+                    <span class="block">
+                        Dengan mengintegrasikan <span class="font-medium text-green-600">teknologi, edukasi, dan aksi nyata</span>,
+                        kami menciptakan lingkungan yang bersih, sehat, dan mendukung tercapainya
+                        <span class="italic text-green-500">kota berkelanjutan</span>, serta kehidupan masyarakat
+                        yang lebih peduli terhadap lingkungan menuju
+                        <span class="font-semibold text-white">Indonesia Emas 2045</span>.
+                    </span>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+                <div class="lg:w-3/4 md:w-full w-full max-w-6xl mx-auto mt-2 bg-white shadow-xl rounded-xl p-6 lg:p-5 md:p-8 flex flex-col md:flex-row items-center gap-6 md:gap-8"
                     data-aos="fade-up" data-aos-duration="1000">
 
                     <div class="flex-1 text-center md:text-left">
                         <p class="text-2xl md:text-3xl font-extrabold text-[#5e6f52] font-sans leading-snug">
                             Dukungan Kami terhadap SDGs
                         </p>
-                        <p class="mt-3 text-gray-700 text-sm md:text-base leading-relaxed font-sans">
+                        <p class=" text-gray-700 text-sm md:text-base leading-relaxed font-sans">
                             Kami percaya bahwa masa depan yang bersih dan berkelanjutan<br class="hidden md:block">
                             dimulai dari <span class="font-semibold text-[#5e6f52]">aksi nyata</span> dan
                             <span class="font-semibold text-[#5e6f52]">teknologi yang tepat</span>.
@@ -131,7 +130,8 @@
                 </div>
 
             </div>
-            <div class="mt-6 flex rounded-xl h-100 md:w-full w-[24.5rem]   lg:w-3/4 mx-auto bg-white  overflow-visible"
+            
+            <div class="mt-6 flex rounded-t-xl lg:rounded-xl md:rounded-xl h-100 md:w-full w-[24.5rem] lg:w-[60rem] mx-auto bg-white overflow-visible"
                 data-aos="fade-up" data-aos-duration="1000">
                 @php
                     $profiles = [
@@ -158,150 +158,171 @@
                         ],
                         [
                             'target' => '4',
-                            'name' => 'Syarifah Khadijah',
+                            'name' => '',
                             'role' => 'Full Stack Developer',
                             'desc' => 'Kembaran Arief dari Multiverse',
                             'img' => asset('build/images/ariefganteng.png'),
                         ],
                         [
                             'target' => '5',
-                            'name' => 'King Arief',
-                            'role' => 'Full Stack Developer',
-                            'desc' => 'Kembaran Arief dari Multiverse',
+                            'name' => 'Syarifah KhadijahKing',
+                            'role' => 'Front End Developer',
+                            'desc' => 'Jagonya keren',
                             'img' => asset('build/images/ariefganteng.png'),
                         ],
                     ];
                 @endphp
-
-                <div class="relative w-full  mx-auto mt-6 overflow-hidden  bg-white rounded-lg flex flex-nowrap overflow-x-auto snap-x snap-mandatory"
+                <div class="relative w-full block md:flex mx-auto mt-6 overflow-hidden  bg-white  rounded-lg flex-nowrap overflow-x-auto snap-x snap-mandatory"
                     id="slider" style="scroll-behavior: smooth;  scrollbar-width: none;  ">
                     @foreach ($profiles as $index => $profile)
-                        <div id="target{{ $profile['target'] }}"
+                        <div  id="target{{ $profile['target'] }}"
                          class="inline-block flex-shrink-0 w-full snap-center text-center px-4">
                             <div class="text-center mb-6">
                                 <h2 class="text-2xl md:text-3xl font-extrabold text-[#5e6f52]">Binary Buddies</h2>
                                 <p class="text-sm text-gray-500">Temui mereka yang berdedikasi untuk perubahan</p>
                             </div>
                             <img src="{{ $profile['img'] }}" alt="Foto {{ $profile['name'] }}"
-                                class="h-100 ml-18 drop-shadow-lg -mt-16 -mb-25"
+                                class="h-100 ml-10 drop-shadow-lg lg:-mt-30 -mt-25 -mb-30 md:-mt-30 md:-mt-30 lg:-mb-30"
                                 style="filter: drop-shadow(0 4px 6px rgba(204,193,78,1));">
                             <p class="text-lg font-semibold text-gray-800">{{ $profile['name'] }}</p>
                             <p class="text-sm text-gray-600">{{ $profile['role'] }}</p>
-                            <p class="mt-3 text-sm italic text-gray-500 max-w-xs mx-auto">{{ $profile['desc'] }}</p>
-              
+                            <p class="mt-3 text-sm italic text-gray-500 max-w-xs mx-auto mb-9 lg:mb-0 md:mb-0">{{ $profile['desc'] }}</p>
                         </div>
                     @endforeach
                 </div>
+            <div class="h-full hidden md:block w-2/3 bg-[#5e6f52] relative rounded-r-lg ml-auto">
+    <div class="flex">
+        <div class="flex">
+            <div class="flex mt-5 flex-col">
+                <div id="babangwinson" onclick="aguslaparbuk('babangwinson','target1')"
+                    class="relative ml-9 lg:w-80 md:w-60 h-45">
+                    <article class="bg-[#fefae0] overflow-hidden w-full h-full"
+                        style="clip-path: polygon(0% 0, 50% 0, 80% 100%, 0% 100%)">
+                    </article>
+                    <img src="{{ asset('build/images/winson.png') }}" alt=""
+                        class="h-90 absolute top-[-180px] left-[-50px] z-10 hover:scale-105 transform-all duration-700 ease-in-out">
+                </div>
 
-
-
-
-                <div class="h-full hidden md:block w-2/3 bg-[#5e6f52] relative rounded-r-lg ml-auto ">
-                    <div class="flex ">
-                        <div class="flex">
-                            <div class="flex mt-5 flex-col">
-                                <div id="babangwinson" onclick="aguslaparbuk('babangwinson','target1')" class="relative ml-9 lg:w-80 md:w-60 h-45 hover:scale-105 transform-all duration-700 ease-in-out">
-                                    <article
-                                        class="bg-[#fefae0] overflow-hidden w-full h-full"
-                                        style="clip-path: polygon(0% 0, 50% 0, 80% 100%, 0% 100%)">
-                                    </article>
-                                    <img src="{{ asset('build/images/winson.png') }}" alt=""
-                                        class="h-80 absolute top-[-140px] left-[-30px] z-10">
-                                </div>
-
-                                <div class="relative ml-9 w-166 mt-5 h-40 overflow-visible"
-                                id="kakaknahya" onclick="aguslaparbuk('kakaknahya','target2')"
-                                >
-                                    <article
-                                        class="bg-[#fefae0] transition-transform duration-300 ease-in-out hover:scale-105  drop-shadow-lg drop-shadow-cyan-500/50  w-full h-full"
-                                        style="clip-path: polygon(0% 0, 40% 0, 53% 100%, 0% 100%)">
-                                    </article>
-                                    <img src="{{ asset('build/images/nahya.png') }}" alt=""
-                                        class="h-60 absolute  top-[-80px] left-[70px] z-21">
-                                </div>
-                            </div>
-                            <div class="flex flex-col">
-                                <div class="flex">
-                                    <div class="mt-5 -ml-120 w-80 h-45"
-                                       id="babangbill" onclick="aguslaparbuk('babangbill','target3')"
-                                    >
-                                        <article
-                                            class="bg-[#fefae0] bg-cover transition-transform duration-300 ease-in-out w-full h-full"
-                                            style="clip-path: polygon(0% 0, 60% 0, 30% 100%, 30% 100%)">
-                                        </article>
-                                        <img src="{{ asset('build/images/bill.png') }}" alt="" srcset=""
-                                            class="h-80 absolute top-[-120px] left-[190px] z-10">
-                                    </div>
-                                    <div class="relative -ml-50 mt-5 w-81 h-45"
-                                       id="kakros" onclick="aguslaparbuk('kakros','target4')"
-                                    >
-                                        <article
-                                            class="bg-[#fefae0] transition-transform duration-300 ease-in-out hover:scale-105 hover:drop-shadow-lg hover:drop-shadow-cyan-500/50 h w-full h-full"
-                                            style="clip-path: polygon(30% 0, 100% 0, 100% 100%, 0% 100%)">
-                                        </article>
-                                        <img src="{{ asset('build/images/ipeh.png') }}" alt=""
-                                            class="h-90 absolute  top-[-180px] left-[30px] z-10">
-                                    </div>
-                                </div>
-                                <div class="relative -ml-[23.5rem] mt-5 mb-5 w-[21.25rem] h-40"
-                                id="maharajakingariefhudadragonball" onclick="aguslaparbuk('maharajakingariefhudadragonball','target5')"
-                                >
-                                    <article
-                                        class="bg-[#fefae0] from-white to-green-900 transition-transform duration-300 ease-in-out hover:scale-105 hover:drop-shadow-lg hover:drop-shadow-cyan-500/50 hover:z-10 w-full h-full"
-                                        style="clip-path: polygon(0% 0, 100% 0, 100% 100%, 26% 100%)">
-                                        <img src="{{ asset('build/images/Rect.svg') }}" alt="" class=" h-60">
-                                      </article>
-                                    <img src="{{ asset('build/images/ariefhuda.png') }}" alt=""
-                                        class="h-[21rem] absolute top-[-176px] left-[40px] z-21">
-                                    <div class="absolute -bottom-5 left-0 w-full h-[20px] bg-[#5e6f52] z-20"></div>
-                                </div>
-                            </div>
-                            <img src="{{ asset('build/images/NEW PRODUCT.png') }}" alt="" srcset=""
-                                class="absolute h-80 left-25 top-10 z-20">
-                            <img src="{{ asset('build/images/binarytext2.png') }}" alt="" srcset=""
-                                class="absolute h-70 left-35 top-40 z-22">
-                        </div>
-                        <div
-                            class="h-100 w-30 bg-[#ccc14e] rounded-r-lg ml-auto text-white flex items-center justify-center">
-                        </div>
+                <div class="relative ml-9 w-166 mt-5 h-40 overflow-visible" id="kakaknahya"
+                    onclick="aguslaparbuk('kakaknahya','target2')">
+                    <article class="bg-[#fefae0]  drop-shadow-lg drop-shadow-cyan-500/50 w-full h-full"
+                        style="clip-path: polygon(0% 0, 40% 0, 53% 100%, 0% 100%)">
+                    </article>
+                    <img src="{{ asset('build/images/nahya.png') }}" alt=""
+                        class="h-60 absolute top-[-80px] left-[30px] z-101 hover:scale-105 transform-all duration-700 ease-in-out">
+                    <div></div>
                     </div>
+            </div>
+
+            <div class="flex flex-col">
+                <div class="flex">
+                    <div class="mt-5 -ml-120 w-80 h-45" id="babangbill"
+                        onclick="aguslaparbuk('babangbill','target3')">
+                        <article class="bg-[#fefae0] bg-cover w-full h-full"
+                            style="clip-path: polygon(0% 0, 60% 0, 30% 100%, 30% 100%)">
+                        </article>
+                        <img src="{{ asset('build/images/bill.png') }}" alt="" class="h-90 absolute top-[-160px] left-[180px] z-10 hover:scale-105 transform-all duration-700 ease-in-out">
+                    </div>
+
+                    <div class="relative -ml-50 mt-5 w-81 h-45" id="kakros"
+                        onclick="aguslaparbuk('kakros','target4')">
+                        <article class="bg-[#fefae0] transition-transform duration-300 ease-in-out hover:scale-105 hover:drop-shadow-lg hover:drop-shadow-cyan-500/50 h w-[16.5rem] h-full"
+                            style="clip-path: polygon(37% 0, 100% 0, 100% 100%, 0% 100%)">
+                        </article>
+                        <img src="{{ asset('build/images/ariefhuda.png') }}" alt=""
+                            class="h-65 absolute top-[-80px] left-[30px] z-10 hover:scale-105 transform-all duration-700 ease-in-out">
+                    </div>
+                    <div class="absolute top-50 left-0 w-150 h-[20px] bg-[#5e6f52] z-60 "></div>
+
+                </div>
+
+                <div class="relative -ml-[23.5rem] mt-5 mb-5 w-[21.25rem] h-40" id="maharajakingariefhudadragonball"
+                    onclick="aguslaparbuk('maharajakingariefhudadragonball','target5')">
+                    <article class="bg-[#fefae0] from-white to-green-900 transition-transform duration-300 ease-in-out hover:scale-105 hover:drop-shadow-lg hover:drop-shadow-cyan-500/50 hover:z-10 w-[17.5rem] h-full"
+                        style="clip-path: polygon(0% 0, 100% 0, 100% 100%, 31% 100%)">
+                        <img src="{{ asset('build/images/Rect.svg') }}" alt="" class=" h-60">
+                    </article>
+                    <img src="{{ asset('build/images/ipeh.png') }}" alt=""
+                        class="h-[14.5rem] absolute top-[-70px] left-[70px] z-101 hover:scale-105 transform-all duration-700 ease-in-out">
+                    <div class="absolute -bottom-5 -left-70 w-140 h-[20px] bg-[#5e6f52] z-105 "></div>
                 </div>
             </div>
-            <div class=" lg:hidden h-120 md:h-120  rounded-b-xl space-y-2 w-[24.5rem] bg-[#5e6f52] mx-auto p-5 ">
-                <article
-                    class="w-88 h-40 bg-white flex items-end overflow-hidden 
-  transition-transform duration-300 ease-in-out hover:scale-105 hover:drop-shadow-lg hover:drop-shadow-cyan-500/50 hover:z-10"
-                    style="clip-path: polygon(0% 0, 100% 0, 0% 100%, 0% 100%)">
-                    <img src="{{ asset('build/images/ariefhuda.png') }}" alt="Arief Huda"
-                        class="h-60 object-left -mb-5" />
-                </article>
-                <article
-                    class="w-88 h-40 bg-white flex items-start overflow-hidden -mt-40  
-  transition-transform duration-300 ease-in-out relative hover:scale-105 hover:drop-shadow-lg hover:drop-shadow-cyan-500/50 hover:z-10"
-                    style="clip-path: polygon(100% 0, 100% 0, 100% 100%, 0% 100%)">
-                    <img src="{{ asset('build/images/ariefhuda.png') }}" alt="Arief Huda"
-                        class="h-60 object-left absolute right-40 -top-18" />
-                </article>
-                <article
-                    class="w-88 h-20 bg-white transition-transform duration-300 ease-in-out hover:scale-105 hover:drop-shadow-lg hover:drop-white  hover:z-10">
-                </article>
-                <article
-                    class="w-88 h-40 bg-white flex items-end overflow-hidden 
-  transition-transform duration-300 ease-in-out hover:scale-105 hover:drop-shadow-lg hover:drop-shadow-black hover:z-10"
-                    style="clip-path: polygon(0% 0, 100% 0, 0% 100%, 0% 100%)">
-                    <img src="{{ asset('build/images/ariefhuda.png') }}" alt="Arief Huda"
-                        class="h-60 object-left -mb-5" />
-                </article>
-                <article
-                    class="w-88 h-40 bg-white flex items-start overflow-hidden -mt-40  
-  transition-transform duration-300 ease-in-out relative hover:scale-105 hover:drop-shadow-lg hover:drop-black-500/50 hover:z-10"
-                    style="clip-path: polygon(100% 0, 100% 0, 100% 100%, 0% 100%)">
-                    <img src="{{ asset('build/images/ariefhuda.png') }}" alt="Arief Huda"
-                        class="h-60 object-left absolute right-40 -top-18" />
-                </article>
+
+            <img src="{{ asset('build/images/NEW PRODUCT.png') }}" alt=""
+                class="absolute h-60 left-25 top-20 z-100">
+            <img src="{{ asset('build/images/binarytext2.png') }}" alt=""
+                class="absolute h-20 left-44 top-70 z-102">
+        </div>
+    </div>
+</div>
+</div>
+<div class="flex justify-center md:hidden lg:hidden">
+    <div class="relative scale-75 origin-center w-[33rem] bg-[#5e6f52] rounded-b-lg mt-[-3.1rem] mb-10 overflow-visible">
+        <div class="flex">
+            <div class="flex mt-5 flex-col">
+                <div id="babangwinson" onclick="aguslaparbuk('babangwinson','target1')"
+                    class="relative ml-5 w-72 h-45 hover:scale-105 transition duration-700 ease-in-out">
+                    <article class="bg-[#fefae0] w-full h-full"
+                        style="clip-path: polygon(0% 0, 50% 0, 80% 100%, 0% 100%)"></article>
+                    <img src="{{ asset('build/images/winson.png') }}" alt=""
+                        class="h-90 absolute top-[-180px] left-[-50px] z-10">
+                </div>
+
+                <div class="relative ml-5 w-[35rem] mt-5 h-40 overflow-visible" id="kakaknahya"
+                    onclick="aguslaparbuk('kakaknahya','target2')">
+                    <article class="bg-[#fefae0] hover:scale-105 drop-shadow-lg  h-full transition duration-300"
+                        style="clip-path: polygon(0% 0, 40% 0, 53% 100%, 0% 100%)"></article>
+                    <img src="{{ asset('build/images/nahya.png') }}" alt=""
+                        class="h-60 absolute top-[-80px] left-[30px] z-21">
+                </div>
             </div>
 
+            <div class="flex flex-col">
+                <div class="flex">
+                    <div class="mt-5 -ml-97 w-72 h-45" id="babangbill"
+                        onclick="aguslaparbuk('babangbill','target3')">
+                        <article class="bg-[#fefae0] bg-cover w-full h-full"
+                            style="clip-path: polygon(0% 0, 60% 0, 30% 100%, 30% 100%)"></article>
+                        <img src="{{ asset('build/images/bill.png') }}" alt=""
+                            class="h-90 absolute top-[-160px] left-[140px] z-10">
+                    </div>
+
+                    <div class="relative -ml-44 mt-5 w-[16.5rem] h-45" id="kakros"
+                        onclick="aguslaparbuk('kakros','target4')">
+                        <article class="bg-[#fefae0] hover:scale-105 hover:drop-shadow-lg w-[12.8rem] h-full transition duration-300"
+                            style="clip-path: polygon(43% 0, 100% 0, 100% 100%, 0% 100%)"></article>
+                        <img src="{{ asset('build/images/ariefhuda.png') }}" alt=""
+                            class="h-65 absolute top-[-80px] left-[-9px] z-10">
+                    </div>
+                </div>
+
+                <div class="relative -ml-[19.4rem] mt-5 mb-5 w-[20.25rem] h-40" id="maharajakingariefhudadragonball"
+                    onclick="aguslaparbuk('maharajakingariefhudadragonball','target5')">
+                    <article
+                        class="bg-[#fefae0] hover:scale-105 hover:drop-shadow-lg transition duration-300 w-[14.8rem] h-full"
+                        style="clip-path: polygon(0% 0, 100% 0, 100% 100%, 30% 100%)">
+                        <img src="{{ asset('build/images/Rect.svg') }}" alt="" class="h-60">
+                    </article>
+                    <img src="{{ asset('build/images/ipeh.png') }}" alt=""
+                        class="h-[14.5rem] absolute top-[-70px] left-[70px] z-21">
+                </div>
+            </div>
+
+            <!-- Hiasan -->
+            <img src="{{ asset('build/images/NEW PRODUCT.png') }}" alt=""
+                class="absolute h-60 left-15 top-20 z-20">
+            <img src="{{ asset('build/images/binarytext2.png') }}" alt=""
+                class="absolute h-20 left-35 top-70 z-22">
         </div>
+    </div>
+</div>
+            </div>
+
+            
+            
+        </div>
+        
+
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
             <path fill="#a8b387" fill-opacity="1"
                 d="M0,192L8,165.3C16,139,32,85,48,90.7C64,96,80,160,96,202.7C112,245,128,267,144,250.7C160,235,176,181,192,165.3C208,149,224,171,240,170.7C256,171,272,149,288,154.7C304,160,320,192,336,197.3C352,203,368,181,384,192C400,203,416,245,432,229.3C448,213,464,139,480,101.3C496,64,512,64,528,58.7C544,53,560,43,576,64C592,85,608,139,624,170.7C640,203,656,213,672,229.3C688,245,704,267,720,266.7C736,267,752,245,768,213.3C784,181,800,139,816,117.3C832,96,848,96,864,128C880,160,896,224,912,213.3C928,203,944,117,960,106.7C976,96,992,160,1008,176C1024,192,1040,160,1056,170.7C1072,181,1088,235,1104,256C1120,277,1136,267,1152,224C1168,181,1184,107,1200,80C1216,53,1232,75,1248,101.3C1264,128,1280,160,1296,181.3C1312,203,1328,213,1344,202.7C1360,192,1376,160,1392,160C1408,160,1424,192,1432,208L1440,224L1440,0L1432,0C1424,0,1408,0,1392,0C1376,0,1360,0,1344,0C1328,0,1312,0,1296,0C1280,0,1264,0,1248,0C1232,0,1216,0,1200,0C1184,0,1168,0,1152,0C1136,0,1120,0,1104,0C1088,0,1072,0,1056,0C1040,0,1024,0,1008,0C992,0,976,0,960,0C944,0,928,0,912,0C896,0,880,0,864,0C848,0,832,0,816,0C800,0,784,0,768,0C752,0,736,0,720,0C704,0,688,0,672,0C656,0,640,0,624,0C608,0,592,0,576,0C560,0,544,0,528,0C512,0,496,0,480,0C464,0,448,0,432,0C416,0,400,0,384,0C368,0,352,0,336,0C320,0,304,0,288,0C272,0,256,0,240,0C224,0,208,0,192,0C176,0,160,0,144,0C128,0,112,0,96,0C80,0,64,0,48,0C32,0,16,0,8,0L0,0Z">

@@ -97,7 +97,7 @@ Route::post('/gerakans/{gerakan:slug}/pivot/user', [GerakanController::class, 'p
 
 Route::post('/gerakans/{gerakan:slug}/pivot/mitra', [GerakanController::class, 'pivotMitra'])->name('pivot.mitra');
 
-Route::post('/gerakan/{gerakan:slug}/galeri', [DokumentasiController::class, 'uploadGaleri'])->name('upload.galeri');
+Route::post('/gerakans/{gerakan:slug}/galeri', [DokumentasiController::class, 'uploadGaleri'])->name('upload.galeri');
 
 
 // ==========================
@@ -136,4 +136,8 @@ Route::get('/register', [AuthController::class, 'showRegister'])->name('showregi
 Route::post('/register', [AuthController::class, 'register'])->name('register');
 
 
-Route::get('/history', [GerakanController::class, 'history'])->name('gerakan.history');
+// ==========================
+// profil
+// ==========================
+
+Route::put('/profile', [AuthController::class, 'profile'])->name('profile');
