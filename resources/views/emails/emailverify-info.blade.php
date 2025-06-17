@@ -59,7 +59,7 @@
         @endif
 
         @if(session('verified_email'))
-        <p>Email<strong>{{ session('verified_email') }}</strong> sudah Terverifikasi </p>
+        <p>Email <strong>{{ session('verified_email') }}</strong> sudah Terverifikasi </p>
            <br>
            <p class="mb-5">
                Silakan Login dengan email Anda.

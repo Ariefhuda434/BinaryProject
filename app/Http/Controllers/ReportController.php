@@ -6,7 +6,7 @@ use App\Models\Blogs;
 use Illuminate\Http\Request;
 use App\Models\Report;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Storage;
+use Illuminate\Routing\Controller;
 
 class ReportController extends Controller
 {

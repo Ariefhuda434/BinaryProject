@@ -144,74 +144,85 @@
             </button>
         </div>
 
-        <div id="form-section"
-            class="bg-white mt-20 rounded-lg shadow-md hidden opacity-0 p-6 border-2 w-200 mx-auto border-dashed border-gray-300 h0fit lg:h-full">
-            <h2 id="header" class="text-2xl font-semibold mb-4 text-gray-700">Tambah Gerakan Baru</h2>
-            @if (session('success'))
-                <div class="bg-green-100 text-green-700 p-2 rounded mb-3">
-                    {{ session('success') }}
-                </div>
-            @endif
+      <div id="form-section"
+    class="bg-white mt-20 rounded-lg shadow-md hidden opacity-0 p-6 border-2 border-dashed border-gray-300 w-full max-w-3xl mx-auto transition-all duration-300 ease-in-out">
+    
+    <h2 id="header" class="text-2xl font-semibold mb-4 text-gray-700">Tambah Gerakan Baru</h2>
 
-            @if ($errors->any())
-                <div class="bg-red-100 text-red-700 p-2 rounded mb-3">
-                    @foreach ($errors->all() as $error)
-                        <p>{{ $error }}</p>
-                    @endforeach
-                </div>
-            @endif
-            <form id="form-gerakan" action="{{ route('gerakans.store') }}" method="POST" enctype="multipart/form-data"
-                class="space-y-4">
-                @csrf
-                <input type="hidden" name="_method" id="methodField" value="POST">
-
-                <div>
-                    <label for="judul" class="block text-gray-600 font-medium mb-1">Judul</label>
-                    <input type="text" id="judul" name="judul" placeholder="Masukkan judul event"
-                        class="w-full px-3 py-3 rounded text-sm bg-gray-100 focus:outline-none focus:border-l-10 border-[#5e6f52] transition-all duration-300 ease-in-out"
-                        required />
-                </div>
-                <div>
-                    <label for="slug" class="block text-gray-600 font-medium mb-1">Slug</label>
-                    <input type="text" id="slug" name="slug" placeholder="Masukkan slug(unik)"
-                        class="w-full px-3 py-3 rounded text-sm bg-gray-100 focus:outline-none focus:border-l-10 border-[#5e6f52] transition-all duration-300 ease-in-out"
-                        required />
-                </div>
-                <div>
-                    <label for="deskripsi" class="block text-gray-600 font-medium mb-1">Deskripsi</label>
-                    <input type="text" id="deskripsi" name="deskripsi" placeholder="Masukkan Deskripsi"
-                        class="w-full px-3 py-3 rounded text-sm bg-gray-100 focus:outline-none focus:border-l-10 border-[#5e6f52] transition-all duration-300 ease-in-out"
-                        required />
-                </div>
-                <div>
-                    <label for="lokasi" class="block text-gray-600 font-medium mb-1">Lokasi</label>
-                    <input type="text" id="lokasi" name="lokasi" placeholder="Masukkan lokasi"
-                        class="w-full px-3 py-3 rounded text-sm bg-gray-100 focus:outline-none focus:border-l-10 border-[#5e6f52] transition-all duration-300 ease-in-out"
-                        required />
-                </div>
-                <div>
-                    <label for="tanggal" class="block text-gray-600 font-medium mb-1">Tanggal</label>
-                    <input type="datetime" id="tanggal" name="tanggal" placeholder="Masukkan Tanggal"
-                        class="w-full px-3 py-3 rounded text-sm bg-gray-100 focus:outline-none focus:border-l-10 border-[#5e6f52] transition-all duration-300 ease-in-out"
-                        required />
-                </div>
-                <div>
-                    <label for="periode" class="block text-gray-600 font-medium mb-1">Periode</label>
-                    <input type="text" id="periode" name="periode" placeholder="Masukkan Periode (00.00 - 00.00)"
-                        class="w-full px-3 py-3 rounded text-sm bg-gray-100 focus:outline-none focus:border-l-10 border-[#5e6f52] transition-all duration-300 ease-in-out"
-                        required />
-                </div>
-                <div class="mt-3" id="foto">
-                    <label for="foto"
-                        class="block text-gray-600  px-3 py-2 font-medium mb-1">Foto</label>
-                    <input type="file" name="foto" accept="image/*" class="w-full px-3 py-3 rounded text-sm bg-gray-100 focus:outline-none focus:border-l-10 border-[#5e6f52] transition-all duration-300 ease-in-out" />
-                </div>
-                <button type="submit" id="submit"
-                    class="w-full mt-5 bg-green-600 hover:bg-green-700 text-white px-4 py-2 ">
-                    Submit
-                </button>
-            </form>
+    @if (session('success'))
+        <div class="bg-green-100 text-green-700 p-2 rounded mb-3">
+            {{ session('success') }}
         </div>
+    @endif
+
+    @if ($errors->any())
+        <div class="bg-red-100 text-red-700 p-2 rounded mb-3">
+            @foreach ($errors->all() as $error)
+                <p>{{ $error }}</p>
+            @endforeach
+        </div>
+    @endif
+
+    <form id="form-gerakan" action="{{ route('gerakans.store') }}" method="POST" enctype="multipart/form-data"
+        class="space-y-4">
+        @csrf
+        <input type="hidden" name="_method" id="methodField" value="POST">
+
+        <div>
+            <label for="judul" class="block text-gray-600 font-medium mb-1">Judul</label>
+            <input type="text" id="judul" name="judul" placeholder="Masukkan judul event"
+                class="w-full px-3 py-3 rounded text-sm bg-gray-100 focus:outline-none focus:border-l-10 border-[#5e6f52] transition-all duration-300 ease-in-out"
+                required />
+        </div>
+
+        <div>
+            <label for="slug" class="block text-gray-600 font-medium mb-1">Slug</label>
+            <input type="text" id="slug" name="slug" placeholder="Masukkan slug (unik)"
+                class="w-full px-3 py-3 rounded text-sm bg-gray-100 focus:outline-none focus:border-l-10 border-[#5e6f52] transition-all duration-300 ease-in-out"
+                required />
+        </div>
+
+        <div>
+            <label for="deskripsi" class="block text-gray-600 font-medium mb-1">Deskripsi</label>
+            <input type="text" id="deskripsi" name="deskripsi" placeholder="Masukkan Deskripsi"
+                class="w-full px-3 py-3 rounded text-sm bg-gray-100 focus:outline-none focus:border-l-10 border-[#5e6f52] transition-all duration-300 ease-in-out"
+                required />
+        </div>
+
+        <div>
+            <label for="lokasi" class="block text-gray-600 font-medium mb-1">Lokasi</label>
+            <input type="text" id="lokasi" name="lokasi" placeholder="Masukkan lokasi"
+                class="w-full px-3 py-3 rounded text-sm bg-gray-100 focus:outline-none focus:border-l-10 border-[#5e6f52] transition-all duration-300 ease-in-out"
+                required />
+        </div>
+
+        <div>
+            <label for="tanggal" class="block text-gray-600 font-medium mb-1">Tanggal</label>
+            <input type="date" id="tanggal" name="tanggal"
+                class="w-full px-3 py-3 rounded text-sm bg-gray-100 focus:outline-none focus:border-l-10 border-[#5e6f52] transition-all duration-300 ease-in-out"
+                required />
+        </div>
+
+        <div>
+            <label for="periode" class="block text-gray-600 font-medium mb-1">Periode</label>
+            <input type="text" id="periode" name="periode" placeholder="Contoh: 09.00 - 13.00"
+                class="w-full px-3 py-3 rounded text-sm bg-gray-100 focus:outline-none focus:border-l-10 border-[#5e6f52] transition-all duration-300 ease-in-out"
+                required />
+        </div>
+
+        <div class="mt-3" id="foto">
+            <label for="foto" class="block text-gray-600 font-medium mb-1">Foto</label>
+            <input type="file" name="foto" accept="image/*"
+                class="w-full px-3 py-3 rounded text-sm bg-gray-100 focus:outline-none focus:border-l-10 border-[#5e6f52] transition-all duration-300 ease-in-out" />
+        </div>
+
+        <button type="submit" id="submit"
+            class="w-full mt-5 bg-[#5e6f52] hover:bg-green-700 text-white font-semibold px-4 py-3 rounded transition duration-300">
+            Submit
+        </button>
+    </form>
+</div>
+
     @endif
     <script>
         const form = document.getElementById('form-gerakan');

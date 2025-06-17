@@ -22,9 +22,8 @@
             ?
             'fixed top-0 left-0 w-screen z-50 transition-all duration-500 ease-in-out transform translate-y-0 opacity-100' :
             'fixed top-0 left-0 w-screen z-50 transition-all duration-500 ease-in-out transform -translate-y-full opacity-0'">
-
         <div
-            class="{{ Request::is('beranda') ? 'md:hidden flex w-screen pl-10  justify-between items-center p-4 backdrop-blur' : 'md:hidden flex w-full pl-10  justify-between items-center p-4 bg-[#57674c]' }}">
+            class="{{ Request::is('/') ? 'md:hidden flex w-screen pl-10  justify-between items-center p-4 backdrop-blur' : 'md:hidden flex w-full pl-10  justify-between items-center p-4 bg-[#57674c]' }}">
             <div class="flex items-center">
                 @if (Request::is('/'))
                     <img class="h-10 mr-2" src="{{ asset('build/images/logo.png') }}" alt="Logo">
@@ -55,11 +54,10 @@
                     </a>
                 </li>
                 <li>
-                   <a href="{{ Request::is('gerakan') ? '/gerakan' : '/gerakans' }}"
-                 class="relative pl-2 {{ Request::is('gerakan') || Request::is('gerakans') ? 'text-[#ccc14e] border-[#ccc14e] border-l-4 font-black' : 'before:content-[\'\'] before:absolute before:left-0 before:top-0 before:h-full before:w-[4px] before:bg-[#ccc14e] before:scale-y-0 before:origin-top hover:before:scale-y-100 before:transition before:duration-700' }}">
-                 Gerakan
-                </a>
-
+                     <a href="/gerakans"
+                        class="relative pl-2 {{ Request::is('gerakans') ? 'text-[#ccc14e] border-[#ccc14e] border-l-4 font-black' : 'before:content-[""] before:absolute before:left-0 before:top-0 before:h-full before:w-[4px] before:bg-[#ccc14e] before:scale-y-0 before:origin-top hover:before:scale-y-100 before:transition before:duration-700' }}">
+                        Gerakan
+                    </a>
                 </li>
                 <li>
                     <a href="/report"
@@ -70,7 +68,7 @@
                 <li>
                     <a href="/faq"
                         class="relative pl-2 {{ Request::is('faq') ? 'text-[#ccc14e] border-[#ccc14e] border-l-4 font-black' : 'before:content-[""] before:absolute before:left-0 before:top-0 before:h-full before:w-[4px] before:bg-[#ccc14e] before:scale-y-0 before:origin-top hover:before:scale-y-100 before:transition before:duration-700' }}">
-                        Faq
+                        FAQ
                     </a>
                 </li>
             </ul>
@@ -214,3 +212,20 @@
             </div>
         </div>
     </nav>
+<script>
+    function navbarKore(namaId) {
+        document.getElementById(namaId).addEventListener('click', () => {
+            const Profil = document.getElementById('profile');
+            Profil.classList.remove('hidden');
+            setTimeout(() => {
+                Profil.classList.add('opacity-100');
+                Profil.classList.remove('opacity-0');
+            }, 10);
+        });
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+        navbarKore('btnProfil');
+        navbarKore('btnProfil2'); 
+    });
+</script>

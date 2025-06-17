@@ -56,8 +56,7 @@
         </div>
     @endforeach
 
-    {{-- SECTION 3: Laporan & Dokumentasi --}}
-    <h2 class="text-2xl font-semibold text-gray-700 mb-4 mt-12">📸 Laporan & Dokumentasi</h2>
+    <h2 id="report" class="text-2xl font-semibold text-gray-700 mb-4 mt-12">📸 Laporan & Dokumentasi</h2>
     @foreach([
         ['q' => 'Bagaimana cara mengirim laporan kegiatan?', 'a' => 'Masuk ke “Gerakan” > “Lapor”, isi deskripsi kegiatan, unggah foto, lalu klik “Kirim”. Anda akan mendapat pesan terima kasih.'],
         ['q' => 'Berapa kali bisa mengirim laporan?', 'a' => 'Hanya 1 kali per hari untuk menjaga kualitas dan mencegah spam.'],

@@ -7,10 +7,10 @@ use App\Models\Blog;
 use App\Models\Blogs;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Routing\Controller;
 
 class BlogController extends Controller
 {
-    // Tampilkan daftar blog ke halaman gerakan
     public function index()
     {
         $blogs = Blogs::latest()->get();

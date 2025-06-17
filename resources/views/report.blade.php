@@ -17,15 +17,15 @@
             <div class="flex flex-col lg:flex-row gap-6 h-full">
                 <div
                     class="relative w-full lg:w-1/4 h-64 lg:h-auto rounded-lg overflow-hidden  transition-transform duration-300 ease-in-out">
-                    <img src="{{ asset('build/images/awn.jpg') }}" alt="Report Image"
+                    <img src="{{ asset('build/images/laporkanwinson.jpg') }}" alt="Report Image"
                         class="w-full h-full object-cover rounded-lg" />
                     <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent rounded-lg pointer-events-none">
                     </div>
-                    <div class="absolute -bottom-68 hover:-bottom-40 h-full w-full transform-all duration-500 ease-in-out">
+                    <div class="absolute -bottom-68 hover:-bottom-40  h-full w-full transform-all duration-500 ease-in-out">
                         <p class="text-white text-lg lg:text-xl font-semibold leading-snug text-center">
                             Laporkan sampah, buat perubahan nyata
                         </p>
-                        <p class="text-white  mt-3 text-justify px-5 leading-relaxed">
+                        <p class="text-white  mt-10 text-justify px-5 leading-relaxed">
                             Bersama kita ciptakan lingkungan bersih dan sehat lewat aksi kecil: laporkan sampah di sekitarmu
                         </p>
                     </div>
@@ -132,7 +132,7 @@
 
                 <div
                     class="relative w-full lg:w-1/4 h-64 lg:h-auto rounded-lg overflow-hidden transition-transform duration-300 ease-in-out">
-                    <img src="{{ asset('build/images/awn.jpg') }}" alt="Report Image"
+                    <img src="{{ asset('build/images/buangsampah.jpg') }}" alt="Report Image"
                         class="w-full h-full object-cover rounded-lg" />
                     <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent rounded-lg pointer-events-none">
                     </div>
@@ -141,7 +141,7 @@
                             Kerja bersama, bersihkan bumi tercinta
 
                         </p>
-                        <p class="text-white  mt-3 text-justify px-5 leading-relaxed">
+                        <p class="text-white  mt-10 text-justify px-5 leading-relaxed">
                             Jadikan kebersihan sebagai budaya dengan aktif melapor dan peduli terhadap lingkungan demi masa
                             depan bumi kita.
                         </p>
@@ -156,7 +156,7 @@
                     <a href="/blogs/{{ $blog['slug'] }}"
                         class="h-40 w-80 p-4 bg-gray-100 rounded-xl shadow-md flex space-x-4 transition-transform duration-300 ease-in-out">
 
-                        <div class="h-24 w-28 bg-white rounded-lg overflow-hidden">
+                        <div class="h-24 w-28 bg-white min-w-20  rounded-lg overflow-hidden">
                             <img src="{{ asset('build/images/awn.jpg') }}" alt="Kegiatan Daur Ulang"
                                 class="h-full w-full object-cover" />
                         </div>
@@ -171,12 +171,7 @@
                                 </p>
                             </div>
 
-                            <div class="mt-3">
-                                <span
-                                    class="inline-block text-xs font-semibold text-green-700 bg-green-100 px-3 py-1 rounded-full shadow-sm">
-                                    Edukasi Lingkungan
-                                </span>
-                            </div>
+                          
                         </div>
                     </a>
                 @endforeach
@@ -377,7 +372,7 @@
                         </button>
                     @endguest
                     <p class="text-center text-xs md:text-base">Perhatikan Cara Menyampaikan Laporan Yang Baik dan Benar <a
-                            href="" class="text-blue-900">lihat Panduan</a></p>
+                            href="/faq#report" class="text-blue-900">lihat Panduan</a></p>
                 </form>
             </div>
 

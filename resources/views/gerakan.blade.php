@@ -18,7 +18,7 @@
 
                     <h1
                         class="text-4xl md:text-6xl font-bold leading-tight drop-shadow-md [text-shadow:_0_2px_8px_rgba(255,255,255,0.25)]">
-                        Galeri Kenangan Kegiatan Binary Waste
+                        Galeri Kegiatan Binary Waste
                     </h1>
 
                     <p
@@ -37,7 +37,7 @@
                                 $customClass = '';
 
                                 if ($index === 0) {
-                                    $customClass = 'mr-[-3rem] rotate-355 z-1 mt-25 shadow-lg hover:mt-[-1rem]';
+                                    $customClass = 'mr-[-3rem] rotate-355 z-1 mt-25 shadow-lg hover:mt-[-1rem] ';
                                 } elseif ($index === 1) {
                                     $customClass = 'mr-[-3rem] rotate-355 z-2 shadow-lg mt-10 hover:mt-[-3rem]';
                                 } elseif ($index === 2) {
@@ -63,7 +63,7 @@
                                 </div>
 
                                 <div
-                                    class="absolute -bottom-30 group-hover:bottom-20 p-4 h-full w-full transition-all duration-700 ease-in-out 
+                                    class="absolute -bottom-30 hover:bottom-30 p-4 h-full w-full transition-all duration-700 ease-in-out 
                flex flex-col justify-end text-white text-shadow-lg">
                                     <p class="text-sm font-semibold text-center leading-snug">{{ $foto->deskripsi }}</p>
                                 </div>
@@ -257,7 +257,7 @@
 
              <section class="bg-white rounded-2xl shadow-lg p-6 sm:p-10 space-y-8 max-w-3xl mx-auto w-full">
     <h2 class="text-3xl sm:text-4xl font-bold text-center text-[#2f3e2f] leading-tight">
-        {{ \Illuminate\Support\Str::limit($gerakan['judul'], 80) }}
+        {{ $gerakan['judul'] }}
     </h2>
 
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 text-center">
@@ -277,9 +277,8 @@
     <div>
         <p class="text-sm text-gray-500 mb-2">Mitra yang Terlibat</p>
         <div class="flex flex-wrap items-center justify-center gap-4">
-            @forelse ($mitras as $mitra)
-                <img src="{{ asset('storage/' . $mitra['logo']) }}" alt="{{ $mitra['nama'] ?? 'Logo Mitra' }}"
-                    class="w-14 h-14 object-contain rounded-md shadow-sm border border-gray-200 bg-white p-1" />
+            @forelse ($gerakan->mitras as $mitra)
+            <img src="{{ asset('storage/' . $mitra['logo']) }}" alt="{{ $mitra['nama'] ?? 'Logo Mitra' }} " class="w-14 h-14 object-contain rounded-md shadow-sm border border-gray-200 bg-white p-1">
             @empty
                 <p class="text-gray-500 text-sm italic">Belum ada mitra yang terlibat</p>
             @endforelse

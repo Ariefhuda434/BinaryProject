@@ -9,8 +9,8 @@
     <div class="mx-auto mt-20 px-6 md:px-20">
 
         <div class="text-center mb-12">
-            <h1 class="text-3xl md:text-5xl font-bold text-[#5e6f52]">Gerakan Peduli Sampah</h1>
-            <p class="text-gray-600 mt-4">Ikuti berbagai aksi nyata demi lingkungan yang lebih baik.</p>
+                <h1 class="text-3xl md:text-5xl font-bold text-[#5e6f52]">Edukasi Lingkungan</h1>
+                <p class="text-gray-600 mt-4">Ikuti berbagai aksi nyata demi lingkungan yang lebih baik.</p>
         </div>
 
         <div class="gap-6">

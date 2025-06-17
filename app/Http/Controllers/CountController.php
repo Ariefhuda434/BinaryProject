@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Routing\Controller;  
 use App\Models\Feedback;
 use App\Models\User;
 use App\Models\Mitra;

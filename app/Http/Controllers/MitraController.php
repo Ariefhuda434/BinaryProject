@@ -6,6 +6,7 @@ use App\Models\Mitra;
 use App\Models\Gerakan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Routing\Controller;
 
 class MitraController extends Controller
 {

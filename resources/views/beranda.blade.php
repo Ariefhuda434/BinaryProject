@@ -42,7 +42,7 @@
             <div class="flex justify-center mt-8 px-4">
                 <div class="grid gap-6 grid-cols-1 sm:grid-cols-1 lg:grid-cols-3">
 
-                    <a href="/blogs" class="flex justify-center">
+                    <a href="/report" class="flex justify-center">
                         <article
                             class="flex flex-col items-center justify-center w-full max-w-xs text-center bg-white text-black rounded-xl shadow-lg p-6 transition-transform duration-300 hover:scale-105 hover:shadow-xl hover:bg-gray-100">
                             <div class="bg-[#ccc14e] p-4 rounded-full mb-4">
@@ -72,7 +72,7 @@
 
                     </a>
 
-                    <a href="report" class="flex justify-center">
+                    <a href="/blogs" class="flex justify-center">
                         <button id="tombolDitekan" class="w-full max-w-xs">
                             <article
                                 class="flex flex-col items-center justify-center text-center bg-white text-black rounded-xl shadow-lg p-6 transition-transform duration-300 hover:scale-105 hover:shadow-xl hover:bg-gray-100">
@@ -80,10 +80,9 @@
                                     <img src="{{ asset('build/images/hero.png') }}" alt="hero"
                                         class="hover:rotate-20 transform-all duration-300 hover:h-11 hover:w-11 ease-in-out w-10 h-10">
                                 </div>
-                                <h2 class="text-xl font-bold text-gray-800 mb-2">Sahabat Bumi</h2>
+                                <h2 class="text-xl font-bold text-gray-800 mb-2">Cerita Bumi</h2>
                                 <p class="text-sm text-gray-600 leading-snug">
-                                    Sahabat setia bumi yang selalu hadir menjaga kebersihan dan kelestarian lingkungan
-                                    bersama Binary Waste.
+                                Kumpulan artikel, informasi, dan cerita inspiratif tentang upaya menjaga kebersihan serta kelestarian lingkungan bersama Binary Waste.
                                 </p>
                             </article>
                         </button>
@@ -142,13 +141,13 @@
                     Bersama Kita Bisa<br><span class="text-green-500">Mengubah Lingkungan</span>
                 </h2>
                 <p class="text-gray-700 text-lg mb-6">
-                    "Kami percaya bahwa perubahan besar dimulai dari langkah kecil.
+                    Kami percaya bahwa perubahan besar dimulai dari langkah kecil.
                     <br class="hidden md:block">
                     <span class="text-green-600 font-semibold">Binary Waste</span> hadir untuk menghubungkan
                     <span class="text-green-600 font-semibold">teknologi</span>, <span
                         class="text-green-600 font-semibold">komunitas</span>, dan
                     <span class="text-green-600 font-semibold">kesadaran lingkungan</span> demi masa depan Indonesia yang
-                    lebih baik."
+                    lebih baik.
                 </p>
 
                 <button id="btnMitra"
@@ -187,10 +186,10 @@
                         <p class="text-2xl font-black font-sans ml-2">Tips Penggunaan</p>
                     </div>
                     <ul class="list-disc pl-5 space-y-2 text-gray-700 text-sm md:text-base">
-                        <li>Buat akun dulu supaya semua fitur bisa kamu akses</li>
-                        <li>Laporkan sampah lengkap dengan lokasi dan foto agar cepat diterima</li>
-                        <li>Rajin cek dashboard untuk pantau status laporanmu</li>
-                        <li>Ikut serta dalam event dan gerakan untuk dampak yang lebih besar</li>
+                        <li>Daftar akun terlebih dahulu agar semua fitur bisa kamu akses dengan mudah.</li>
+                        <li>Laporkan sampah lengkap dengan lokasi dan foto agar cepat diterima.</li>
+                        <li>Rajin cek dashboard untuk pantau status laporanmu.</li>
+                        <li>Ikut serta dalam event dan gerakan untuk dampak yang lebih besar.</li>
                     </ul>
                 </div>
             </div>
@@ -330,7 +329,7 @@
                     <div class="text-center">
                         <p class="text-xl md:text-2xl font-semibold text-gray-800">Let's go, <span
                                 class="text-green-600">Mitra!</span></p>
-                        <p class="text-sm text-gray-500 mt-1">Satu klik lagi untuk mulai beraksi 🚀</p>
+                        <p class="text-sm text-gray-500 mt-1">Satu klik lagi untuk mulai beraksi</p>
                     </div>
                 </div>
 

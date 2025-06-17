@@ -9,7 +9,7 @@ use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
-
+use Illuminate\Routing\Controller;
 class GerakanController extends Controller
 {
     /**************************************************
@@ -51,36 +51,22 @@ class GerakanController extends Controller
     {
         $userId = Auth::id();
         $mitra = Mitra::where('id_user', $userId)->first();
+        $gerakan = Gerakan::with('mitras')->findOrFail($gerakan->id);
 
         $dokumentasi = Dokumentasi::where('id_gerakan', $gerakan->id)->get();
-        $mitras = Mitra::all();
-
         $terdaftaruser = $gerakan->users()->where('id_user', $userId)->exists();
         $terdaftarmitra = $mitra ? $gerakan->mitras()->where('id_mitra', $mitra->id)->exists() : false;
         $jumlahTerdaftarUser = $gerakan->users()->count();
-        
-    
+
         return view('gerakan', compact(
             'gerakan',
             'terdaftaruser',
             'terdaftarmitra',
             'jumlahTerdaftarUser',
             'dokumentasi',
-            'mitras',
+            
         ));
     }
-    
-    public function history()
-{
-    $userId = Auth::id();
-
-    $historyGerakans = Gerakan::whereHas('users', function ($query) use ($userId) {
-    $query->where('id_user', $userId);
-    })->where('status', 'selesai')->get(); 
-
-    return back()->with(compact('historyGerakans'));
-}
-
     /**************************************************
      *               UPDATE STATUS & DATA
      **************************************************/

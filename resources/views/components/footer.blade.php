@@ -7,10 +7,6 @@
 
       <div class="space-y-4">
         <div class="flex items-center space-x-3">
-          <img src="{{ asset('build/images/usu.png') }}" alt="USU Logo" class="h-10">
-          <p class="font-bold text-xl">USU</p>
-        </div>
-        <div class="flex items-center space-x-3">
           <img src="{{ asset('build/images/logo.png') }}" alt="Binary Waste Logo" class="h-10 object-contain">
           <p class="font-bold text-xl  ">BINARY WASTE</p>
         </div>

@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Routing\Controller;
 use App\Models\Dokumentasi;
 use App\Models\Gerakan;
 use Illuminate\Http\Request;
@@ -30,7 +30,7 @@ public function uploadGaleri(Request $request, $slug)
         'foto' => $path
     ]);
 
-    return redirect()->route('gerakan', $gerakan->slug)->with('success', 'Foto berhasil diunggah');
+    return back()->with('success', 'Foto berhasil diunggah');
 }
 
 }

@@ -11,12 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('dokumentasi', function (Blueprint $table) {
-            $table->foreignId('id_gerakan')->nullable()->constrained('gerakans')->onDelete('cascade');
-            $table->string('foto');
-            $table->text('deskripsi');
-            $table->timestamps();
-        });
+        Schema::table('pivot_users', function (Blueprint $table) {
+    $table->dropForeign(['id_gerakan']);
+    $table->foreign('id_gerakan')
+          ->references('id')->on('gerakans')
+          ->onDelete('cascade'); // atau 'set null'
+});
+
     }
 
     /**
@@ -24,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('dokumentasi');
+        //
     }
 };

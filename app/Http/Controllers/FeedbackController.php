@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Routing\Controller;
 
 use App\Models\Feedback;
 use Illuminate\Http\Request;
