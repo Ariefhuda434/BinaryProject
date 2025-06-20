@@ -75,7 +75,6 @@
                         <option value="">Jenis Kelamin</option>
                         <option value="pria">Pria</option>
                         <option value="perempuan">Perempuan</option>
-                        <option value="lainnya">Bencong</option>
                     </select>
                 </div>
 
